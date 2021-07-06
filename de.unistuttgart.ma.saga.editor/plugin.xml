@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.unistuttgart.ma.saga.presentation.SagaModelWizardID"
+            name="%_UI_SagaModelWizard_label"
+            class="de.unistuttgart.ma.saga.presentation.SagaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SagaModelFile.gif">
+         <description>%_UI_SagaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="de.unistuttgart.ma.saga.presentation.SagaEditorID"
+            name="%_UI_SagaEditor_label"
+            icon="icons/full/obj16/SagaModelFile.gif"
+            extensions="saga"
+            class="de.unistuttgart.ma.saga.presentation.SagaEditor"
+            contributorClass="de.unistuttgart.ma.saga.presentation.SagaActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
