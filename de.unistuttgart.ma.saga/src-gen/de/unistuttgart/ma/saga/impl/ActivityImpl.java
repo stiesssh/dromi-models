@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class ActivityImpl extends NamedElementImpl implements Activity {
+public class ActivityImpl extends ElementWithSLOImpl implements Activity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

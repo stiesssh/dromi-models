@@ -2,6 +2,8 @@ package saga.design;
 
 import org.eclipse.emf.ecore.EObject;
 
+import de.unistuttgart.ma.saga.Component;
+
 /**
  * The services class used by VSM.
  */
@@ -14,4 +16,9 @@ public class Services {
        // TODO Auto-generated code
       return self;
     }
+    
+    public Boolean foo(Component self) {
+        // TODO Auto-generated code
+       return self.getSlos().isEmpty();
+     }
 }

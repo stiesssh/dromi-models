@@ -85,6 +85,42 @@ public interface SagaFactory extends EFactory {
 	Activity createActivity();
 
 	/**
+	 * Returns a new object of class '<em>Slo</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Slo</em>'.
+	 * @generated
+	 */
+	Slo createSlo();
+
+	/**
+	 * Returns a new object of class '<em>Violation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Violation</em>'.
+	 * @generated
+	 */
+	Violation createViolation();
+
+	/**
+	 * Returns a new object of class '<em>Impact</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Impact</em>'.
+	 * @generated
+	 */
+	Impact createImpact();
+
+	/**
+	 * Returns a new object of class '<em>Chain Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Chain Start</em>'.
+	 * @generated
+	 */
+	ChainStart createChainStart();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

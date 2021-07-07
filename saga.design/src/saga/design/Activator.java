@@ -4,9 +4,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
+import org.eclipse.sirius.tools.api.command.EditingDomainUndoContext;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.Workbench;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
+import org.eclipse.emf.edit.domain.EditingDomain;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -24,6 +33,19 @@ public class Activator extends AbstractUIPlugin {
      * The constructor
      */
     public Activator() {
+        plugin = this;
+        
+        // you come yb here, once you open some editor, it seems...???
+    }
+    
+    public static void doSomething() {
+
+        IWorkbench wb = PlatformUI.getWorkbench();//plugin.getWorkbench();
+        IWorkbenchPage wbPage = wb.getActiveWorkbenchWindow().getActivePage();
+        IEditorPart editorPart = wbPage.getActiveEditor();
+        IEditorInput editorInput = editorPart.getEditorInput();
+       
+        System.out.println("foo");
     }
 
     /*

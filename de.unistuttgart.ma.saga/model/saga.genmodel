@@ -14,6 +14,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/sagas"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/processes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/chains"/>
     </genClasses>
     <genClasses ecoreClass="saga.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Component/interfaces"/>
@@ -34,5 +35,21 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Process/activities"/>
     </genClasses>
     <genClasses ecoreClass="saga.ecore#//Activity"/>
+    <genClasses ecoreClass="saga.ecore#//Slo"/>
+    <genClasses image="false" ecoreClass="saga.ecore#//ElementWithSLO">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//ElementWithSLO/slos"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//Violation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//Violation/slo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//Violation/passingImpacts"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//Impact"/>
+    <genClasses image="false" ecoreClass="saga.ecore#//ChainLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//ChainLink/causedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//ChainLink/location"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//ChainStart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//ChainStart/chainlink"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

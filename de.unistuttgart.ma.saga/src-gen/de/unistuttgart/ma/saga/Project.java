@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.unistuttgart.ma.saga.Project#getComponents <em>Components</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.Project#getSagas <em>Sagas</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.Project#getProcesses <em>Processes</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.Project#getChains <em>Chains</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.SagaPackage#getProject()
@@ -58,5 +59,17 @@ public interface Project extends NamedElement {
 	 * @generated
 	 */
 	EList<de.unistuttgart.ma.saga.Process> getProcesses();
+
+	/**
+	 * Returns the value of the '<em><b>Chains</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.ma.saga.ChainLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Chains</em>' containment reference list.
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getProject_Chains()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ChainLink> getChains();
 
 } // Project

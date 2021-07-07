@@ -64,6 +64,7 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__COMPONENTS);
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__SAGAS);
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__PROCESSES);
+			childrenFeatures.add(SagaPackage.Literals.PROJECT__CHAINS);
 		}
 		return childrenFeatures;
 	}
@@ -130,6 +131,7 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 		case SagaPackage.PROJECT__COMPONENTS:
 		case SagaPackage.PROJECT__SAGAS:
 		case SagaPackage.PROJECT__PROCESSES:
+		case SagaPackage.PROJECT__CHAINS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -155,6 +157,12 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(
 				createChildParameter(SagaPackage.Literals.PROJECT__PROCESSES, SagaFactory.eINSTANCE.createProcess()));
+
+		newChildDescriptors.add(
+				createChildParameter(SagaPackage.Literals.PROJECT__CHAINS, SagaFactory.eINSTANCE.createViolation()));
+
+		newChildDescriptors
+				.add(createChildParameter(SagaPackage.Literals.PROJECT__CHAINS, SagaFactory.eINSTANCE.createImpact()));
 	}
 
 }

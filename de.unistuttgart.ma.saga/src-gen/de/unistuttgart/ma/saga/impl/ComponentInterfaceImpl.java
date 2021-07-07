@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ComponentInterfaceImpl extends NamedElementImpl implements ComponentInterface {
+public class ComponentInterfaceImpl extends ElementWithSLOImpl implements ComponentInterface {
 	/**
 	 * The cached value of the '{@link #getNextLevelElements() <em>Next Level Elements</em>}' reference.
 	 * <!-- begin-user-doc -->

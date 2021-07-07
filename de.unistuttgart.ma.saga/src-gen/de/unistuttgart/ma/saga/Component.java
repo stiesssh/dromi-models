@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Component extends NamedElement {
+public interface Component extends ElementWithSLO {
 	/**
 	 * Returns the value of the '<em><b>Interfaces</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.ma.saga.ComponentInterface}.

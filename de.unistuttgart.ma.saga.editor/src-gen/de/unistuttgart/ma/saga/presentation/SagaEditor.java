@@ -119,7 +119,7 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
@@ -153,6 +153,10 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
+import de.unistuttgart.ma.saga.Project;
+import de.unistuttgart.ma.saga.Saga;
+import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.impl.SagaFactoryImpl;
 import de.unistuttgart.ma.saga.provider.SagaItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -343,6 +347,27 @@ public class SagaEditor extends MultiPageEditorPart
 
 		public void partClosed(IWorkbenchPart p) {
 			// Ignore.
+			System.out.println("partClosed");
+			
+//			URI resourceURI = EditUIUtil.getURI(getEditorInput(), editingDomain.getResourceSet().getURIConverter());
+//			Resource resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+//
+//			Saga s = SagaPackage.eINSTANCE.getSagaFactory().createSaga();
+//			s.setName("ma new saga!!");
+//			
+//			for (EObject re : resource.getContents()) {
+//				System.out.println(re.getClass());
+//				if (re instanceof Project) {
+//					((Project) re).getSagas().add(s);
+//				}
+//			}
+//			try {
+//				resource.save(null);
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			
 		}
 
 		public void partDeactivated(IWorkbenchPart p) {

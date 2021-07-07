@@ -3,13 +3,17 @@
 package de.unistuttgart.ma.saga.impl;
 
 import de.unistuttgart.ma.saga.Activity;
+import de.unistuttgart.ma.saga.ChainStart;
 import de.unistuttgart.ma.saga.Component;
 import de.unistuttgart.ma.saga.ComponentInterface;
+import de.unistuttgart.ma.saga.Impact;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
+import de.unistuttgart.ma.saga.Slo;
+import de.unistuttgart.ma.saga.Violation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -75,6 +79,14 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 			return createProcess();
 		case SagaPackage.ACTIVITY:
 			return createActivity();
+		case SagaPackage.SLO:
+			return createSlo();
+		case SagaPackage.VIOLATION:
+			return createViolation();
+		case SagaPackage.IMPACT:
+			return createImpact();
+		case SagaPackage.CHAIN_START:
+			return createChainStart();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -148,6 +160,46 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	public Activity createActivity() {
 		ActivityImpl activity = new ActivityImpl();
 		return activity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Slo createSlo() {
+		SloImpl slo = new SloImpl();
+		return slo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Violation createViolation() {
+		ViolationImpl violation = new ViolationImpl();
+		return violation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Impact createImpact() {
+		ImpactImpl impact = new ImpactImpl();
+		return impact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ChainStart createChainStart() {
+		ChainStartImpl chainStart = new ChainStartImpl();
+		return chainStart;
 	}
 
 	/**

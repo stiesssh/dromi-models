@@ -3,13 +3,19 @@
 package de.unistuttgart.ma.saga.util;
 
 import de.unistuttgart.ma.saga.Activity;
+import de.unistuttgart.ma.saga.ChainLink;
+import de.unistuttgart.ma.saga.ChainStart;
 import de.unistuttgart.ma.saga.Component;
 import de.unistuttgart.ma.saga.ComponentInterface;
+import de.unistuttgart.ma.saga.ElementWithSLO;
+import de.unistuttgart.ma.saga.Impact;
 import de.unistuttgart.ma.saga.NamedElement;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
+import de.unistuttgart.ma.saga.Slo;
+import de.unistuttgart.ma.saga.Violation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -85,6 +91,8 @@ public class SagaSwitch<T> extends Switch<T> {
 			Component component = (Component) theEObject;
 			T result = caseComponent(component);
 			if (result == null)
+				result = caseElementWithSLO(component);
+			if (result == null)
 				result = caseNamedElement(component);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -93,6 +101,8 @@ public class SagaSwitch<T> extends Switch<T> {
 		case SagaPackage.COMPONENT_INTERFACE: {
 			ComponentInterface componentInterface = (ComponentInterface) theEObject;
 			T result = caseComponentInterface(componentInterface);
+			if (result == null)
+				result = caseElementWithSLO(componentInterface);
 			if (result == null)
 				result = caseNamedElement(componentInterface);
 			if (result == null)
@@ -110,6 +120,8 @@ public class SagaSwitch<T> extends Switch<T> {
 			Saga saga = (Saga) theEObject;
 			T result = caseSaga(saga);
 			if (result == null)
+				result = caseElementWithSLO(saga);
+			if (result == null)
 				result = caseNamedElement(saga);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -118,6 +130,8 @@ public class SagaSwitch<T> extends Switch<T> {
 		case SagaPackage.SAGA_STEP: {
 			SagaStep sagaStep = (SagaStep) theEObject;
 			T result = caseSagaStep(sagaStep);
+			if (result == null)
+				result = caseElementWithSLO(sagaStep);
 			if (result == null)
 				result = caseNamedElement(sagaStep);
 			if (result == null)
@@ -128,6 +142,8 @@ public class SagaSwitch<T> extends Switch<T> {
 			de.unistuttgart.ma.saga.Process process = (de.unistuttgart.ma.saga.Process) theEObject;
 			T result = caseProcess(process);
 			if (result == null)
+				result = caseElementWithSLO(process);
+			if (result == null)
 				result = caseNamedElement(process);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -137,7 +153,57 @@ public class SagaSwitch<T> extends Switch<T> {
 			Activity activity = (Activity) theEObject;
 			T result = caseActivity(activity);
 			if (result == null)
+				result = caseElementWithSLO(activity);
+			if (result == null)
 				result = caseNamedElement(activity);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SagaPackage.SLO: {
+			Slo slo = (Slo) theEObject;
+			T result = caseSlo(slo);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SagaPackage.ELEMENT_WITH_SLO: {
+			ElementWithSLO elementWithSLO = (ElementWithSLO) theEObject;
+			T result = caseElementWithSLO(elementWithSLO);
+			if (result == null)
+				result = caseNamedElement(elementWithSLO);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SagaPackage.VIOLATION: {
+			Violation violation = (Violation) theEObject;
+			T result = caseViolation(violation);
+			if (result == null)
+				result = caseChainLink(violation);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SagaPackage.IMPACT: {
+			Impact impact = (Impact) theEObject;
+			T result = caseImpact(impact);
+			if (result == null)
+				result = caseChainLink(impact);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SagaPackage.CHAIN_LINK: {
+			ChainLink chainLink = (ChainLink) theEObject;
+			T result = caseChainLink(chainLink);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SagaPackage.CHAIN_START: {
+			ChainStart chainStart = (ChainStart) theEObject;
+			T result = caseChainStart(chainStart);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -264,6 +330,96 @@ public class SagaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseActivity(Activity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Slo</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Slo</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSlo(Slo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element With SLO</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element With SLO</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseElementWithSLO(ElementWithSLO object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Violation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Violation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViolation(Violation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Impact</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Impact</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImpact(Impact object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chain Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chain Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChainLink(ChainLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Chain Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Chain Start</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseChainStart(ChainStart object) {
 		return null;
 	}
 

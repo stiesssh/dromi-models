@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ProcessImpl extends NamedElementImpl implements de.unistuttgart.ma.saga.Process {
+public class ProcessImpl extends ElementWithSLOImpl implements de.unistuttgart.ma.saga.Process {
 	/**
 	 * The cached value of the '{@link #getActivities() <em>Activities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

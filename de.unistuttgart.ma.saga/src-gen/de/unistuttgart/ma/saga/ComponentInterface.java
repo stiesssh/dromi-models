@@ -18,7 +18,7 @@ package de.unistuttgart.ma.saga;
  * @model
  * @generated
  */
-public interface ComponentInterface extends NamedElement {
+public interface ComponentInterface extends ElementWithSLO {
 
 	/**
 	 * Returns the value of the '<em><b>Next Level Elements</b></em>' reference.

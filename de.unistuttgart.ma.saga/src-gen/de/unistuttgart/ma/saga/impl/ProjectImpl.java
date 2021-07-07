@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
+import de.unistuttgart.ma.saga.ChainLink;
 import de.unistuttgart.ma.saga.Component;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getSagas <em>Sagas</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getProcesses <em>Processes</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getChains <em>Chains</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +65,16 @@ public class ProjectImpl extends NamedElementImpl implements Project {
 	 * @ordered
 	 */
 	protected EList<de.unistuttgart.ma.saga.Process> processes;
+
+	/**
+	 * The cached value of the '{@link #getChains() <em>Chains</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChains()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ChainLink> chains;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,6 +137,18 @@ public class ProjectImpl extends NamedElementImpl implements Project {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ChainLink> getChains() {
+		if (chains == null) {
+			chains = new EObjectContainmentEList<ChainLink>(ChainLink.class, this, SagaPackage.PROJECT__CHAINS);
+		}
+		return chains;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -134,6 +158,8 @@ public class ProjectImpl extends NamedElementImpl implements Project {
 			return ((InternalEList<?>) getSagas()).basicRemove(otherEnd, msgs);
 		case SagaPackage.PROJECT__PROCESSES:
 			return ((InternalEList<?>) getProcesses()).basicRemove(otherEnd, msgs);
+		case SagaPackage.PROJECT__CHAINS:
+			return ((InternalEList<?>) getChains()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -152,6 +178,8 @@ public class ProjectImpl extends NamedElementImpl implements Project {
 			return getSagas();
 		case SagaPackage.PROJECT__PROCESSES:
 			return getProcesses();
+		case SagaPackage.PROJECT__CHAINS:
+			return getChains();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,6 +205,10 @@ public class ProjectImpl extends NamedElementImpl implements Project {
 			getProcesses().clear();
 			getProcesses().addAll((Collection<? extends de.unistuttgart.ma.saga.Process>) newValue);
 			return;
+		case SagaPackage.PROJECT__CHAINS:
+			getChains().clear();
+			getChains().addAll((Collection<? extends ChainLink>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -198,6 +230,9 @@ public class ProjectImpl extends NamedElementImpl implements Project {
 		case SagaPackage.PROJECT__PROCESSES:
 			getProcesses().clear();
 			return;
+		case SagaPackage.PROJECT__CHAINS:
+			getChains().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -216,6 +251,8 @@ public class ProjectImpl extends NamedElementImpl implements Project {
 			return sagas != null && !sagas.isEmpty();
 		case SagaPackage.PROJECT__PROCESSES:
 			return processes != null && !processes.isEmpty();
+		case SagaPackage.PROJECT__CHAINS:
+			return chains != null && !chains.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

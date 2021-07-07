@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ComponentImpl extends NamedElementImpl implements Component {
+public class ComponentImpl extends ElementWithSLOImpl implements Component {
 	/**
 	 * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

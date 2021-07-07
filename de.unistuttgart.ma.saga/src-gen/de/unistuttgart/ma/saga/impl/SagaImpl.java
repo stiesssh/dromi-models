@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SagaImpl extends NamedElementImpl implements Saga {
+public class SagaImpl extends ElementWithSLOImpl implements Saga {
 	/**
 	 * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

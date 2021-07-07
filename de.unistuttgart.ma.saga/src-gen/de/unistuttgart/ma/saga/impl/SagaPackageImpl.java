@@ -3,8 +3,12 @@
 package de.unistuttgart.ma.saga.impl;
 
 import de.unistuttgart.ma.saga.Activity;
+import de.unistuttgart.ma.saga.ChainLink;
+import de.unistuttgart.ma.saga.ChainStart;
 import de.unistuttgart.ma.saga.Component;
 import de.unistuttgart.ma.saga.ComponentInterface;
+import de.unistuttgart.ma.saga.ElementWithSLO;
+import de.unistuttgart.ma.saga.Impact;
 import de.unistuttgart.ma.saga.NamedElement;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
@@ -12,6 +16,8 @@ import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 
 import de.unistuttgart.ma.saga.SagaStep;
+import de.unistuttgart.ma.saga.Slo;
+import de.unistuttgart.ma.saga.Violation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -82,6 +88,48 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	private EClass activityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sloEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass elementWithSLOEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass violationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass impactEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chainLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass chainStartEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -184,6 +232,15 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 */
 	public EReference getProject_Processes() {
 		return (EReference) projectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProject_Chains() {
+		return (EReference) projectEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -308,6 +365,114 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSlo() {
+		return sloEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getElementWithSLO() {
+		return elementWithSLOEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElementWithSLO_Slos() {
+		return (EReference) elementWithSLOEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getViolation() {
+		return violationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getViolation_Slo() {
+		return (EReference) violationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getViolation_PassingImpacts() {
+		return (EReference) violationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getImpact() {
+		return impactEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChainLink() {
+		return chainLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChainLink_CausedBy() {
+		return (EReference) chainLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChainLink_Location() {
+		return (EReference) chainLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getChainStart() {
+		return chainStartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getChainStart_Chainlink() {
+		return (EReference) chainStartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SagaFactory getSagaFactory() {
 		return (SagaFactory) getEFactoryInstance();
 	}
@@ -336,6 +501,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		createEReference(projectEClass, PROJECT__COMPONENTS);
 		createEReference(projectEClass, PROJECT__SAGAS);
 		createEReference(projectEClass, PROJECT__PROCESSES);
+		createEReference(projectEClass, PROJECT__CHAINS);
 
 		componentEClass = createEClass(COMPONENT);
 		createEReference(componentEClass, COMPONENT__INTERFACES);
@@ -356,6 +522,24 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		createEReference(processEClass, PROCESS__ACTIVITIES);
 
 		activityEClass = createEClass(ACTIVITY);
+
+		sloEClass = createEClass(SLO);
+
+		elementWithSLOEClass = createEClass(ELEMENT_WITH_SLO);
+		createEReference(elementWithSLOEClass, ELEMENT_WITH_SLO__SLOS);
+
+		violationEClass = createEClass(VIOLATION);
+		createEReference(violationEClass, VIOLATION__SLO);
+		createEReference(violationEClass, VIOLATION__PASSING_IMPACTS);
+
+		impactEClass = createEClass(IMPACT);
+
+		chainLinkEClass = createEClass(CHAIN_LINK);
+		createEReference(chainLinkEClass, CHAIN_LINK__CAUSED_BY);
+		createEReference(chainLinkEClass, CHAIN_LINK__LOCATION);
+
+		chainStartEClass = createEClass(CHAIN_START);
+		createEReference(chainStartEClass, CHAIN_START__CHAINLINK);
 	}
 
 	/**
@@ -392,12 +576,15 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 
 		// Add supertypes to classes
 		projectEClass.getESuperTypes().add(this.getNamedElement());
-		componentEClass.getESuperTypes().add(this.getNamedElement());
-		componentInterfaceEClass.getESuperTypes().add(this.getNamedElement());
-		sagaEClass.getESuperTypes().add(this.getNamedElement());
-		sagaStepEClass.getESuperTypes().add(this.getNamedElement());
-		processEClass.getESuperTypes().add(this.getNamedElement());
-		activityEClass.getESuperTypes().add(this.getNamedElement());
+		componentEClass.getESuperTypes().add(this.getElementWithSLO());
+		componentInterfaceEClass.getESuperTypes().add(this.getElementWithSLO());
+		sagaEClass.getESuperTypes().add(this.getElementWithSLO());
+		sagaStepEClass.getESuperTypes().add(this.getElementWithSLO());
+		processEClass.getESuperTypes().add(this.getElementWithSLO());
+		activityEClass.getESuperTypes().add(this.getElementWithSLO());
+		elementWithSLOEClass.getESuperTypes().add(this.getNamedElement());
+		violationEClass.getESuperTypes().add(this.getChainLink());
+		impactEClass.getESuperTypes().add(this.getChainLink());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -408,6 +595,9 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEReference(getProject_Processes(), this.getProcess(), null, "processes", null, 0, -1, Project.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Chains(), this.getChainLink(), null, "chains", null, 0, -1, Project.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -447,6 +637,40 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 
 		initEClass(activityEClass, Activity.class, "Activity", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sloEClass, Slo.class, "Slo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(elementWithSLOEClass, ElementWithSLO.class, "ElementWithSLO", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementWithSLO_Slos(), this.getSlo(), null, "slos", null, 0, -1, ElementWithSLO.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(violationEClass, Violation.class, "Violation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getViolation_Slo(), this.getSlo(), null, "slo", null, 1, -1, Violation.class, !IS_TRANSIENT,
+				!IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getViolation_PassingImpacts(), this.getChainLink(), null, "passingImpacts", null, 0, -1,
+				Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(impactEClass, Impact.class, "Impact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(chainLinkEClass, ChainLink.class, "ChainLink", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChainLink_CausedBy(), this.getChainLink(), null, "causedBy", null, 1, 1, ChainLink.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChainLink_Location(), this.getElementWithSLO(), null, "location", null, 0, 1, ChainLink.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(chainStartEClass, ChainStart.class, "ChainStart", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getChainStart_Chainlink(), this.getChainLink(), null, "chainlink", null, 0, -1, ChainStart.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

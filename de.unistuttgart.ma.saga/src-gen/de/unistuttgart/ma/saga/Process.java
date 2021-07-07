@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Process extends NamedElement {
+public interface Process extends ElementWithSLO {
 	/**
 	 * Returns the value of the '<em><b>Activities</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.ma.saga.Activity}.

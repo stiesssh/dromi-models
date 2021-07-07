@@ -140,13 +140,22 @@ public interface SagaPackage extends EPackage {
 	int PROJECT__PROCESSES = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Chains</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__CHAINS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PROJECT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Project</em>' class.
@@ -156,6 +165,52 @@ public interface SagaPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROJECT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ElementWithSLOImpl <em>Element With SLO</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.ma.saga.impl.ElementWithSLOImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getElementWithSLO()
+	 * @generated
+	 */
+	int ELEMENT_WITH_SLO = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_WITH_SLO__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Slos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_WITH_SLO__SLOS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Element With SLO</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_WITH_SLO_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Element With SLO</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_WITH_SLO_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ComponentImpl <em>Component</em>}' class.
@@ -174,7 +229,16 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__NAME = NAMED_ELEMENT__NAME;
+	int COMPONENT__NAME = ELEMENT_WITH_SLO__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Slos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__SLOS = ELEMENT_WITH_SLO__SLOS;
 
 	/**
 	 * The feature id for the '<em><b>Interfaces</b></em>' containment reference list.
@@ -183,7 +247,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__INTERFACES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int COMPONENT__INTERFACES = ELEMENT_WITH_SLO_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Component</em>' class.
@@ -192,7 +256,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT_FEATURE_COUNT = ELEMENT_WITH_SLO_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -201,7 +265,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int COMPONENT_OPERATION_COUNT = ELEMENT_WITH_SLO_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ComponentInterfaceImpl <em>Component Interface</em>}' class.
@@ -220,7 +284,16 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INTERFACE__NAME = NAMED_ELEMENT__NAME;
+	int COMPONENT_INTERFACE__NAME = ELEMENT_WITH_SLO__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Slos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_INTERFACE__SLOS = ELEMENT_WITH_SLO__SLOS;
 
 	/**
 	 * The feature id for the '<em><b>Next Level Elements</b></em>' reference.
@@ -229,7 +302,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INTERFACE__NEXT_LEVEL_ELEMENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int COMPONENT_INTERFACE__NEXT_LEVEL_ELEMENTS = ELEMENT_WITH_SLO_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Component Interface</em>' class.
@@ -238,7 +311,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INTERFACE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT_INTERFACE_FEATURE_COUNT = ELEMENT_WITH_SLO_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Component Interface</em>' class.
@@ -247,7 +320,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INTERFACE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int COMPONENT_INTERFACE_OPERATION_COUNT = ELEMENT_WITH_SLO_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.SagaImpl <em>Saga</em>}' class.
@@ -266,7 +339,16 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA__NAME = NAMED_ELEMENT__NAME;
+	int SAGA__NAME = ELEMENT_WITH_SLO__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Slos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGA__SLOS = ELEMENT_WITH_SLO__SLOS;
 
 	/**
 	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -275,7 +357,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA__STEPS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SAGA__STEPS = ELEMENT_WITH_SLO_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Saga</em>' class.
@@ -284,7 +366,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SAGA_FEATURE_COUNT = ELEMENT_WITH_SLO_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Saga</em>' class.
@@ -293,7 +375,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int SAGA_OPERATION_COUNT = ELEMENT_WITH_SLO_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.SagaStepImpl <em>Step</em>}' class.
@@ -312,7 +394,16 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA_STEP__NAME = NAMED_ELEMENT__NAME;
+	int SAGA_STEP__NAME = ELEMENT_WITH_SLO__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Slos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGA_STEP__SLOS = ELEMENT_WITH_SLO__SLOS;
 
 	/**
 	 * The feature id for the '<em><b>Next Level Elements</b></em>' reference.
@@ -321,7 +412,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA_STEP__NEXT_LEVEL_ELEMENTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int SAGA_STEP__NEXT_LEVEL_ELEMENTS = ELEMENT_WITH_SLO_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Step</em>' class.
@@ -330,7 +421,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA_STEP_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int SAGA_STEP_FEATURE_COUNT = ELEMENT_WITH_SLO_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Step</em>' class.
@@ -339,7 +430,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SAGA_STEP_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int SAGA_STEP_OPERATION_COUNT = ELEMENT_WITH_SLO_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ProcessImpl <em>Process</em>}' class.
@@ -358,7 +449,16 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__NAME = NAMED_ELEMENT__NAME;
+	int PROCESS__NAME = ELEMENT_WITH_SLO__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Slos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__SLOS = ELEMENT_WITH_SLO__SLOS;
 
 	/**
 	 * The feature id for the '<em><b>Activities</b></em>' containment reference list.
@@ -367,7 +467,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS__ACTIVITIES = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PROCESS__ACTIVITIES = ELEMENT_WITH_SLO_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Process</em>' class.
@@ -376,7 +476,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PROCESS_FEATURE_COUNT = ELEMENT_WITH_SLO_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Process</em>' class.
@@ -385,7 +485,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int PROCESS_OPERATION_COUNT = ELEMENT_WITH_SLO_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ActivityImpl <em>Activity</em>}' class.
@@ -404,7 +504,16 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY__NAME = NAMED_ELEMENT__NAME;
+	int ACTIVITY__NAME = ELEMENT_WITH_SLO__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Slos</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY__SLOS = ELEMENT_WITH_SLO__SLOS;
 
 	/**
 	 * The number of structural features of the '<em>Activity</em>' class.
@@ -413,7 +522,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int ACTIVITY_FEATURE_COUNT = ELEMENT_WITH_SLO_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Activity</em>' class.
@@ -422,7 +531,228 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ACTIVITY_OPERATION_COUNT = ELEMENT_WITH_SLO_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.SloImpl <em>Slo</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.ma.saga.impl.SloImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getSlo()
+	 * @generated
+	 */
+	int SLO = 8;
+
+	/**
+	 * The number of structural features of the '<em>Slo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLO_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Slo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLO_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ChainLinkImpl <em>Chain Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.ma.saga.impl.ChainLinkImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getChainLink()
+	 * @generated
+	 */
+	int CHAIN_LINK = 12;
+
+	/**
+	 * The feature id for the '<em><b>Caused By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_LINK__CAUSED_BY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_LINK__LOCATION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Chain Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_LINK_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Chain Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_LINK_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ViolationImpl <em>Violation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.ma.saga.impl.ViolationImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getViolation()
+	 * @generated
+	 */
+	int VIOLATION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Caused By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__CAUSED_BY = CHAIN_LINK__CAUSED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__LOCATION = CHAIN_LINK__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Slo</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__SLO = CHAIN_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Passing Impacts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__PASSING_IMPACTS = CHAIN_LINK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Violation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION_FEATURE_COUNT = CHAIN_LINK_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Violation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION_OPERATION_COUNT = CHAIN_LINK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ImpactImpl <em>Impact</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.ma.saga.impl.ImpactImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getImpact()
+	 * @generated
+	 */
+	int IMPACT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Caused By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT__CAUSED_BY = CHAIN_LINK__CAUSED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT__LOCATION = CHAIN_LINK__LOCATION;
+
+	/**
+	 * The number of structural features of the '<em>Impact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT_FEATURE_COUNT = CHAIN_LINK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Impact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT_OPERATION_COUNT = CHAIN_LINK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ChainStartImpl <em>Chain Start</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.ma.saga.impl.ChainStartImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getChainStart()
+	 * @generated
+	 */
+	int CHAIN_START = 13;
+
+	/**
+	 * The feature id for the '<em><b>Chainlink</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_START__CHAINLINK = 0;
+
+	/**
+	 * The number of structural features of the '<em>Chain Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_START_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Chain Start</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_START_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Project <em>Project</em>}'.
@@ -466,6 +796,17 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProject_Processes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Project#getChains <em>Chains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Chains</em>'.
+	 * @see de.unistuttgart.ma.saga.Project#getChains()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_Chains();
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Component <em>Component</em>}'.
@@ -604,6 +945,132 @@ public interface SagaPackage extends EPackage {
 	EClass getActivity();
 
 	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Slo <em>Slo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Slo</em>'.
+	 * @see de.unistuttgart.ma.saga.Slo
+	 * @generated
+	 */
+	EClass getSlo();
+
+	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.ElementWithSLO <em>Element With SLO</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Element With SLO</em>'.
+	 * @see de.unistuttgart.ma.saga.ElementWithSLO
+	 * @generated
+	 */
+	EClass getElementWithSLO();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.ElementWithSLO#getSlos <em>Slos</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Slos</em>'.
+	 * @see de.unistuttgart.ma.saga.ElementWithSLO#getSlos()
+	 * @see #getElementWithSLO()
+	 * @generated
+	 */
+	EReference getElementWithSLO_Slos();
+
+	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Violation <em>Violation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Violation</em>'.
+	 * @see de.unistuttgart.ma.saga.Violation
+	 * @generated
+	 */
+	EClass getViolation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.ma.saga.Violation#getSlo <em>Slo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Slo</em>'.
+	 * @see de.unistuttgart.ma.saga.Violation#getSlo()
+	 * @see #getViolation()
+	 * @generated
+	 */
+	EReference getViolation_Slo();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.ma.saga.Violation#getPassingImpacts <em>Passing Impacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Passing Impacts</em>'.
+	 * @see de.unistuttgart.ma.saga.Violation#getPassingImpacts()
+	 * @see #getViolation()
+	 * @generated
+	 */
+	EReference getViolation_PassingImpacts();
+
+	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Impact <em>Impact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Impact</em>'.
+	 * @see de.unistuttgart.ma.saga.Impact
+	 * @generated
+	 */
+	EClass getImpact();
+
+	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.ChainLink <em>Chain Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chain Link</em>'.
+	 * @see de.unistuttgart.ma.saga.ChainLink
+	 * @generated
+	 */
+	EClass getChainLink();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.ChainLink#getCausedBy <em>Caused By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Caused By</em>'.
+	 * @see de.unistuttgart.ma.saga.ChainLink#getCausedBy()
+	 * @see #getChainLink()
+	 * @generated
+	 */
+	EReference getChainLink_CausedBy();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.ChainLink#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Location</em>'.
+	 * @see de.unistuttgart.ma.saga.ChainLink#getLocation()
+	 * @see #getChainLink()
+	 * @generated
+	 */
+	EReference getChainLink_Location();
+
+	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.ChainStart <em>Chain Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Chain Start</em>'.
+	 * @see de.unistuttgart.ma.saga.ChainStart
+	 * @generated
+	 */
+	EClass getChainStart();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.ChainStart#getChainlink <em>Chainlink</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Chainlink</em>'.
+	 * @see de.unistuttgart.ma.saga.ChainStart#getChainlink()
+	 * @see #getChainStart()
+	 * @generated
+	 */
+	EReference getChainStart_Chainlink();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,6 +1126,14 @@ public interface SagaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROJECT__PROCESSES = eINSTANCE.getProject_Processes();
+
+		/**
+		 * The meta object literal for the '<em><b>Chains</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__CHAINS = eINSTANCE.getProject_Chains();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ComponentImpl <em>Component</em>}' class.
@@ -777,6 +1252,114 @@ public interface SagaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ACTIVITY = eINSTANCE.getActivity();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.SloImpl <em>Slo</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.ma.saga.impl.SloImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getSlo()
+		 * @generated
+		 */
+		EClass SLO = eINSTANCE.getSlo();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ElementWithSLOImpl <em>Element With SLO</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.ma.saga.impl.ElementWithSLOImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getElementWithSLO()
+		 * @generated
+		 */
+		EClass ELEMENT_WITH_SLO = eINSTANCE.getElementWithSLO();
+
+		/**
+		 * The meta object literal for the '<em><b>Slos</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_WITH_SLO__SLOS = eINSTANCE.getElementWithSLO_Slos();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ViolationImpl <em>Violation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.ma.saga.impl.ViolationImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getViolation()
+		 * @generated
+		 */
+		EClass VIOLATION = eINSTANCE.getViolation();
+
+		/**
+		 * The meta object literal for the '<em><b>Slo</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIOLATION__SLO = eINSTANCE.getViolation_Slo();
+
+		/**
+		 * The meta object literal for the '<em><b>Passing Impacts</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIOLATION__PASSING_IMPACTS = eINSTANCE.getViolation_PassingImpacts();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ImpactImpl <em>Impact</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.ma.saga.impl.ImpactImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getImpact()
+		 * @generated
+		 */
+		EClass IMPACT = eINSTANCE.getImpact();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ChainLinkImpl <em>Chain Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.ma.saga.impl.ChainLinkImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getChainLink()
+		 * @generated
+		 */
+		EClass CHAIN_LINK = eINSTANCE.getChainLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Caused By</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHAIN_LINK__CAUSED_BY = eINSTANCE.getChainLink_CausedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHAIN_LINK__LOCATION = eINSTANCE.getChainLink_Location();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ChainStartImpl <em>Chain Start</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.ma.saga.impl.ChainStartImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getChainStart()
+		 * @generated
+		 */
+		EClass CHAIN_START = eINSTANCE.getChainStart();
+
+		/**
+		 * The meta object literal for the '<em><b>Chainlink</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHAIN_START__CHAINLINK = eINSTANCE.getChainStart_Chainlink();
 
 	}
 

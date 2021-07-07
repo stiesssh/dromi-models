@@ -12,5 +12,5 @@ package de.unistuttgart.ma.saga;
  * @model
  * @generated
  */
-public interface Activity extends NamedElement {
+public interface Activity extends ElementWithSLO {
 } // Activity

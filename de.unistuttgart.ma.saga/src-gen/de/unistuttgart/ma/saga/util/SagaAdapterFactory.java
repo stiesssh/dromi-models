@@ -3,13 +3,19 @@
 package de.unistuttgart.ma.saga.util;
 
 import de.unistuttgart.ma.saga.Activity;
+import de.unistuttgart.ma.saga.ChainLink;
+import de.unistuttgart.ma.saga.ChainStart;
 import de.unistuttgart.ma.saga.Component;
 import de.unistuttgart.ma.saga.ComponentInterface;
+import de.unistuttgart.ma.saga.ElementWithSLO;
+import de.unistuttgart.ma.saga.Impact;
 import de.unistuttgart.ma.saga.NamedElement;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
+import de.unistuttgart.ma.saga.Slo;
+import de.unistuttgart.ma.saga.Violation;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -110,6 +116,36 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseActivity(Activity object) {
 			return createActivityAdapter();
+		}
+
+		@Override
+		public Adapter caseSlo(Slo object) {
+			return createSloAdapter();
+		}
+
+		@Override
+		public Adapter caseElementWithSLO(ElementWithSLO object) {
+			return createElementWithSLOAdapter();
+		}
+
+		@Override
+		public Adapter caseViolation(Violation object) {
+			return createViolationAdapter();
+		}
+
+		@Override
+		public Adapter caseImpact(Impact object) {
+			return createImpactAdapter();
+		}
+
+		@Override
+		public Adapter caseChainLink(ChainLink object) {
+			return createChainLinkAdapter();
+		}
+
+		@Override
+		public Adapter caseChainStart(ChainStart object) {
+			return createChainStartAdapter();
 		}
 
 		@Override
@@ -240,6 +276,90 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActivityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Slo <em>Slo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.Slo
+	 * @generated
+	 */
+	public Adapter createSloAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.ElementWithSLO <em>Element With SLO</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.ElementWithSLO
+	 * @generated
+	 */
+	public Adapter createElementWithSLOAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Violation <em>Violation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.Violation
+	 * @generated
+	 */
+	public Adapter createViolationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Impact <em>Impact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.Impact
+	 * @generated
+	 */
+	public Adapter createImpactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.ChainLink <em>Chain Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.ChainLink
+	 * @generated
+	 */
+	public Adapter createChainLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.ChainStart <em>Chain Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.ChainStart
+	 * @generated
+	 */
+	public Adapter createChainStartAdapter() {
 		return null;
 	}
 

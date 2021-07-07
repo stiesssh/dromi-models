@@ -57,7 +57,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
@@ -215,8 +214,13 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 */
 	protected EObject createInitialModel() {
+		
+		if (gropiusImportPage.getGropiusUrlField().isEmpty()) {
+			return sagaFactory.createChainStart();
+		}
 
-		GropiusImporter importer = new GropiusImporter(gropiusImportPage.getGropiusUrlField(),gropiusImportPage.getGropiusProjectIdField(), sagaFactory);
+		GropiusImporter importer = new GropiusImporter(gropiusImportPage.getGropiusUrlField(),
+				gropiusImportPage.getGropiusProjectIdField(), sagaFactory);
 		EObject root = importer.parse();
 
 		return root;
@@ -563,8 +567,6 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		}
 	}
 
-	
-
 	/**
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
@@ -620,11 +622,10 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage
 				.setDescription(SagaEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
-		
+
 		gropiusImportPage = new SagaModelWizardGropiusImportPage("Whatever3");
 		gropiusImportPage.setTitle("Gropius Import");
-		gropiusImportPage
-				.setDescription("Import from gropius");
+		gropiusImportPage.setDescription("Import from gropius");
 		addPage(gropiusImportPage);
 	}
 

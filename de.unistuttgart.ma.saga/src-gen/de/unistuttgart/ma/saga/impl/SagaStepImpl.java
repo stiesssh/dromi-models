@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SagaStepImpl extends NamedElementImpl implements SagaStep {
+public class SagaStepImpl extends ElementWithSLOImpl implements SagaStep {
 	/**
 	 * The cached value of the '{@link #getNextLevelElements() <em>Next Level Elements</em>}' reference.
 	 * <!-- begin-user-doc -->

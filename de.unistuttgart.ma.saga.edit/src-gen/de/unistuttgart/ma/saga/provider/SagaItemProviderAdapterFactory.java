@@ -234,6 +234,98 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Slo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SloItemProvider sloItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Slo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSloAdapter() {
+		if (sloItemProvider == null) {
+			sloItemProvider = new SloItemProvider(this);
+		}
+
+		return sloItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Violation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViolationItemProvider violationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Violation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViolationAdapter() {
+		if (violationItemProvider == null) {
+			violationItemProvider = new ViolationItemProvider(this);
+		}
+
+		return violationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Impact} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImpactItemProvider impactItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Impact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImpactAdapter() {
+		if (impactItemProvider == null) {
+			impactItemProvider = new ImpactItemProvider(this);
+		}
+
+		return impactItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.ChainStart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChainStartItemProvider chainStartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.ChainStart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createChainStartAdapter() {
+		if (chainStartItemProvider == null) {
+			chainStartItemProvider = new ChainStartItemProvider(this);
+		}
+
+		return chainStartItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,6 +438,14 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
 			processItemProvider.dispose();
 		if (activityItemProvider != null)
 			activityItemProvider.dispose();
+		if (sloItemProvider != null)
+			sloItemProvider.dispose();
+		if (violationItemProvider != null)
+			violationItemProvider.dispose();
+		if (impactItemProvider != null)
+			impactItemProvider.dispose();
+		if (chainStartItemProvider != null)
+			chainStartItemProvider.dispose();
 	}
 
 }
