@@ -36,7 +36,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/ims"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/issues"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/projects"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/interfaces"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/interfaces"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/consumedInterfaces"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/labels"/>
     </genClasses>
@@ -93,11 +93,11 @@
     <genClasses ecoreClass="gropius.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Project/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Project/description"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/components"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/components"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/users"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/owner"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/issues"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/labels"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/issues"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/labels"/>
     </genClasses>
     <genClasses ecoreClass="gropius.ecore#//User">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//User/username"/>

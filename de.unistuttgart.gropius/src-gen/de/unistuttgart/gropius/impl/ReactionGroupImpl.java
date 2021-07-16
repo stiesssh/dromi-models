@@ -6,13 +6,14 @@ import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.ReactionGroup;
 import de.unistuttgart.gropius.User;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.unistuttgart.gropius.impl.ReactionGroupImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.impl.ReactionGroupImpl#getReaction <em>Reaction</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.impl.ReactionGroupImpl#getUsers <em>Users</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.impl.ReactionGroupImpl#getTotalUserCount <em>Total User Count</em>}</li>
  * </ul>
@@ -41,14 +43,34 @@ public class ReactionGroupImpl extends MinimalEObjectImpl.Container implements R
 	protected Object id;
 
 	/**
-	 * The cached value of the '{@link #getUsers() <em>Users</em>}' reference.
+	 * The default value of the '{@link #getReaction() <em>Reaction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReaction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REACTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReaction() <em>Reaction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReaction()
+	 * @generated
+	 * @ordered
+	 */
+	protected String reaction = REACTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getUsers() <em>Users</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUsers()
 	 * @generated
 	 * @ordered
 	 */
-	protected User users;
+	protected EList<User> users;
 
 	/**
 	 * The default value of the '{@link #getTotalUserCount() <em>Total User Count</em>}' attribute.
@@ -115,39 +137,33 @@ public class ReactionGroupImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public User getUsers() {
-		if (users != null && users.eIsProxy()) {
-			InternalEObject oldUsers = (InternalEObject) users;
-			users = (User) eResolveProxy(oldUsers);
-			if (users != oldUsers) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.REACTION_GROUP__USERS,
-							oldUsers, users));
-			}
+	public String getReaction() {
+		return reaction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReaction(String newReaction) {
+		String oldReaction = reaction;
+		reaction = newReaction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.REACTION_GROUP__REACTION, oldReaction,
+					reaction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<User> getUsers() {
+		if (users == null) {
+			users = new EObjectResolvingEList<User>(User.class, this, GropiusPackage.REACTION_GROUP__USERS);
 		}
 		return users;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public User basicGetUsers() {
-		return users;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUsers(User newUsers) {
-		User oldUsers = users;
-		users = newUsers;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.REACTION_GROUP__USERS, oldUsers,
-					users));
 	}
 
 	/**
@@ -182,10 +198,10 @@ public class ReactionGroupImpl extends MinimalEObjectImpl.Container implements R
 		switch (featureID) {
 		case GropiusPackage.REACTION_GROUP__ID:
 			return getId();
+		case GropiusPackage.REACTION_GROUP__REACTION:
+			return getReaction();
 		case GropiusPackage.REACTION_GROUP__USERS:
-			if (resolve)
-				return getUsers();
-			return basicGetUsers();
+			return getUsers();
 		case GropiusPackage.REACTION_GROUP__TOTAL_USER_COUNT:
 			return getTotalUserCount();
 		}
@@ -197,14 +213,19 @@ public class ReactionGroupImpl extends MinimalEObjectImpl.Container implements R
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.REACTION_GROUP__ID:
 			setId(newValue);
 			return;
+		case GropiusPackage.REACTION_GROUP__REACTION:
+			setReaction((String) newValue);
+			return;
 		case GropiusPackage.REACTION_GROUP__USERS:
-			setUsers((User) newValue);
+			getUsers().clear();
+			getUsers().addAll((Collection<? extends User>) newValue);
 			return;
 		case GropiusPackage.REACTION_GROUP__TOTAL_USER_COUNT:
 			setTotalUserCount((Integer) newValue);
@@ -224,8 +245,11 @@ public class ReactionGroupImpl extends MinimalEObjectImpl.Container implements R
 		case GropiusPackage.REACTION_GROUP__ID:
 			setId((Object) null);
 			return;
+		case GropiusPackage.REACTION_GROUP__REACTION:
+			setReaction(REACTION_EDEFAULT);
+			return;
 		case GropiusPackage.REACTION_GROUP__USERS:
-			setUsers((User) null);
+			getUsers().clear();
 			return;
 		case GropiusPackage.REACTION_GROUP__TOTAL_USER_COUNT:
 			setTotalUserCount(TOTAL_USER_COUNT_EDEFAULT);
@@ -244,8 +268,10 @@ public class ReactionGroupImpl extends MinimalEObjectImpl.Container implements R
 		switch (featureID) {
 		case GropiusPackage.REACTION_GROUP__ID:
 			return id != null;
+		case GropiusPackage.REACTION_GROUP__REACTION:
+			return REACTION_EDEFAULT == null ? reaction != null : !REACTION_EDEFAULT.equals(reaction);
 		case GropiusPackage.REACTION_GROUP__USERS:
-			return users != null;
+			return users != null && !users.isEmpty();
 		case GropiusPackage.REACTION_GROUP__TOTAL_USER_COUNT:
 			return totalUserCount != TOTAL_USER_COUNT_EDEFAULT;
 		}
@@ -265,6 +291,8 @@ public class ReactionGroupImpl extends MinimalEObjectImpl.Container implements R
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", reaction: ");
+		result.append(reaction);
 		result.append(", totalUserCount: ");
 		result.append(totalUserCount);
 		result.append(')');

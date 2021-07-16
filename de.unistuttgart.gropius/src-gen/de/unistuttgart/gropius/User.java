@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.gropius;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>User</b></em>'.
@@ -92,99 +94,57 @@ public interface User extends Node {
 	void setEmail(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Projects</b></em>' reference.
+	 * Returns the value of the '<em><b>Projects</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Project}.
 	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.Project#getUsers <em>Users</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Projects</em>' reference.
-	 * @see #setProjects(Project)
+	 * @return the value of the '<em>Projects</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getUser_Projects()
 	 * @see de.unistuttgart.gropius.Project#getUsers
 	 * @model opposite="users"
 	 * @generated
 	 */
-	Project getProjects();
+	EList<Project> getProjects();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.User#getProjects <em>Projects</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Projects</em>' reference.
-	 * @see #getProjects()
-	 * @generated
-	 */
-	void setProjects(Project value);
-
-	/**
-	 * Returns the value of the '<em><b>Assigned To Issues</b></em>' reference.
+	 * Returns the value of the '<em><b>Assigned To Issues</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.Issue#getAssignees <em>Assignees</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assigned To Issues</em>' reference.
-	 * @see #setAssignedToIssues(Issue)
+	 * @return the value of the '<em>Assigned To Issues</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getUser_AssignedToIssues()
 	 * @see de.unistuttgart.gropius.Issue#getAssignees
 	 * @model opposite="assignees"
 	 * @generated
 	 */
-	Issue getAssignedToIssues();
+	EList<Issue> getAssignedToIssues();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.User#getAssignedToIssues <em>Assigned To Issues</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assigned To Issues</em>' reference.
-	 * @see #getAssignedToIssues()
-	 * @generated
-	 */
-	void setAssignedToIssues(Issue value);
-
-	/**
-	 * Returns the value of the '<em><b>Participant Of Issue</b></em>' reference.
+	 * Returns the value of the '<em><b>Participant Of Issue</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.Issue#getParticipants <em>Participants</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Participant Of Issue</em>' reference.
-	 * @see #setParticipantOfIssue(Issue)
+	 * @return the value of the '<em>Participant Of Issue</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getUser_ParticipantOfIssue()
 	 * @see de.unistuttgart.gropius.Issue#getParticipants
 	 * @model opposite="participants"
 	 * @generated
 	 */
-	Issue getParticipantOfIssue();
+	EList<Issue> getParticipantOfIssue();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.User#getParticipantOfIssue <em>Participant Of Issue</em>}' reference.
+	 * Returns the value of the '<em><b>Issue Comments</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.IssueComment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Participant Of Issue</em>' reference.
-	 * @see #getParticipantOfIssue()
-	 * @generated
-	 */
-	void setParticipantOfIssue(Issue value);
-
-	/**
-	 * Returns the value of the '<em><b>Issue Comments</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.Comment#getCreatedBy <em>Created By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issue Comments</em>' reference.
-	 * @see #setIssueComments(Comment)
+	 * @return the value of the '<em>Issue Comments</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getUser_IssueComments()
-	 * @see de.unistuttgart.gropius.Comment#getCreatedBy
-	 * @model opposite="createdBy"
+	 * @model
 	 * @generated
 	 */
-	Comment getIssueComments();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.User#getIssueComments <em>Issue Comments</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Issue Comments</em>' reference.
-	 * @see #getIssueComments()
-	 * @generated
-	 */
-	void setIssueComments(Comment value);
+	EList<IssueComment> getIssueComments();
 
 } // User

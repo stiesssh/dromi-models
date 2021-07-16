@@ -94,6 +94,15 @@ public interface GropiusFactory extends EFactory {
 	User createUser();
 
 	/**
+	 * Returns a new object of class '<em>Issue Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Issue Comment</em>'.
+	 * @generated
+	 */
+	IssueComment createIssueComment();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

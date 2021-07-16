@@ -10,6 +10,7 @@ import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.IMSType;
 import de.unistuttgart.gropius.Issue;
 import de.unistuttgart.gropius.IssueCategory;
+import de.unistuttgart.gropius.IssueComment;
 import de.unistuttgart.gropius.IssueLocation;
 import de.unistuttgart.gropius.IssueTimelineItem;
 import de.unistuttgart.gropius.IssueTimelineItemType;
@@ -119,6 +120,13 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 	 * @generated
 	 */
 	private EClass userEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass issueCommentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -290,7 +298,7 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComment_CreatedBy() {
+	public EReference getComment_CommentCreatedBy() {
 		return (EReference) commentEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -308,7 +316,7 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComment_CreatedAt() {
+	public EAttribute getComment_CommentCreatedAt() {
 		return (EAttribute) commentEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -767,15 +775,6 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLabel_Reaction() {
-		return (EAttribute) labelEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getReactionGroup() {
 		return reactionGroupEClass;
 	}
@@ -785,8 +784,17 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getReactionGroup_Reaction() {
+		return (EAttribute) reactionGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getReactionGroup_Users() {
-		return (EReference) reactionGroupEClass.getEStructuralFeatures().get(0);
+		return (EReference) reactionGroupEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -795,7 +803,7 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 	 * @generated
 	 */
 	public EAttribute getReactionGroup_TotalUserCount() {
-		return (EAttribute) reactionGroupEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) reactionGroupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -947,6 +955,15 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIssueComment() {
+		return issueCommentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getIMSType() {
 		return imsTypeEEnum;
 	}
@@ -1049,9 +1066,9 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		commentEClass = createEClass(COMMENT);
 		createEAttribute(commentEClass, COMMENT__BODY);
 		createEAttribute(commentEClass, COMMENT__BODY_RENDERED);
-		createEReference(commentEClass, COMMENT__CREATED_BY);
+		createEReference(commentEClass, COMMENT__COMMENT_CREATED_BY);
 		createEReference(commentEClass, COMMENT__EDITED_BY);
-		createEAttribute(commentEClass, COMMENT__CREATED_AT);
+		createEAttribute(commentEClass, COMMENT__COMMENT_CREATED_AT);
 		createEAttribute(commentEClass, COMMENT__LAST_EDITED_AT);
 		createEAttribute(commentEClass, COMMENT__CURRENT_USER_CAN_EDIT);
 		createEReference(commentEClass, COMMENT__REACTIONS);
@@ -1109,9 +1126,9 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		createEAttribute(labelEClass, LABEL__COLOR);
 		createEReference(labelEClass, LABEL__COMPONENTS);
 		createEReference(labelEClass, LABEL__PROJECTS);
-		createEAttribute(labelEClass, LABEL__REACTION);
 
 		reactionGroupEClass = createEClass(REACTION_GROUP);
+		createEAttribute(reactionGroupEClass, REACTION_GROUP__REACTION);
 		createEReference(reactionGroupEClass, REACTION_GROUP__USERS);
 		createEAttribute(reactionGroupEClass, REACTION_GROUP__TOTAL_USER_COUNT);
 
@@ -1132,6 +1149,8 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		createEReference(userEClass, USER__ASSIGNED_TO_ISSUES);
 		createEReference(userEClass, USER__PARTICIPANT_OF_ISSUE);
 		createEReference(userEClass, USER__ISSUE_COMMENTS);
+
+		issueCommentEClass = createEClass(ISSUE_COMMENT);
 
 		// Create enums
 		imsTypeEEnum = createEEnum(IMS_TYPE);
@@ -1175,6 +1194,7 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		commentEClass.getESuperTypes().add(this.getNode());
 		componentEClass.getESuperTypes().add(this.getIssueLocation());
 		componentEClass.getESuperTypes().add(this.getNode());
 		imsEClass.getESuperTypes().add(this.getNode());
@@ -1188,6 +1208,9 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		reactionGroupEClass.getESuperTypes().add(this.getNode());
 		projectEClass.getESuperTypes().add(this.getNode());
 		userEClass.getESuperTypes().add(this.getNode());
+		issueCommentEClass.getESuperTypes().add(this.getComment());
+		issueCommentEClass.getESuperTypes().add(this.getIssueTimelineItem());
+		issueCommentEClass.getESuperTypes().add(this.getNode());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1199,20 +1222,20 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComment_BodyRendered(), ecorePackage.getEString(), "bodyRendered", null, 0, 1, Comment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComment_CreatedBy(), this.getUser(), this.getUser_IssueComments(), "createdBy", null, 0, 1,
+		initEReference(getComment_CommentCreatedBy(), this.getUser(), null, "commentCreatedBy", null, 0, 1,
 				Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComment_EditedBy(), this.getUser(), null, "editedBy", null, 0, 1, Comment.class,
+		initEReference(getComment_EditedBy(), this.getUser(), null, "editedBy", null, 0, -1, Comment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComment_CreatedAt(), this.getDate(), "createdAt", null, 0, 1, Comment.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComment_CommentCreatedAt(), this.getDate(), "commentCreatedAt", null, 0, 1, Comment.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComment_LastEditedAt(), this.getDate(), "lastEditedAt", null, 0, 1, Comment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComment_CurrentUserCanEdit(), ecorePackage.getEBoolean(), "currentUserCanEdit", null, 0, 1,
 				Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getComment_Reactions(), this.getReactionGroup(), null, "reactions", null, 0, 1, Comment.class,
+		initEReference(getComment_Reactions(), this.getReactionGroup(), null, "reactions", null, 0, -1, Comment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1224,19 +1247,19 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		initEReference(getComponent_Ims(), this.getIMS(), null, "ims", null, 0, 1, Component.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getComponent_Issues(), this.getIssue(), null, "issues", null, 0, 1, Component.class,
+		initEReference(getComponent_Issues(), this.getIssue(), null, "issues", null, 0, -1, Component.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Projects(), this.getProject(), null, "projects", null, 0, 1, Component.class,
+		initEReference(getComponent_Projects(), this.getProject(), null, "projects", null, 0, -1, Component.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Interfaces(), this.getComponentInterface(), null, "interfaces", null, 0, 1,
-				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getComponent_Interfaces(), this.getComponentInterface(), null, "interfaces", null, 0, -1,
+				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent_ConsumedInterfaces(), this.getComponentInterface(), null, "consumedInterfaces",
-				null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent_Labels(), this.getLabel(), this.getLabel_Components(), "labels", null, 0, 1,
+		initEReference(getComponent_Labels(), this.getLabel(), this.getLabel_Components(), "labels", null, 0, -1,
 				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1253,7 +1276,7 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		initEReference(getComponentInterface_Component(), this.getComponent(), null, "component", null, 0, 1,
 				ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponentInterface_ConsumedBy(), this.getComponent(), null, "consumedBy", null, 0, 1,
+		initEReference(getComponentInterface_ConsumedBy(), this.getComponent(), null, "consumedBy", null, 0, -1,
 				ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1277,31 +1300,31 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIssue_SpentTime(), this.getTimeSpan(), "spentTime", null, 0, 1, Issue.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_IssueComments(), this.getComment(), null, "issueComments", null, 0, 1, Issue.class,
+		initEReference(getIssue_IssueComments(), this.getComment(), null, "issueComments", null, 0, -1, Issue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_LinksToIssues(), this.getIssue(), null, "linksToIssues", null, 0, 1, Issue.class,
+		initEReference(getIssue_LinksToIssues(), this.getIssue(), null, "linksToIssues", null, 0, -1, Issue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_LinkedByIssues(), this.getIssue(), null, "linkedByIssues", null, 0, 1, Issue.class,
+		initEReference(getIssue_LinkedByIssues(), this.getIssue(), null, "linkedByIssues", null, 0, -1, Issue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_Assignees(), this.getUser(), this.getUser_AssignedToIssues(), "assignees", null, 0, 1,
+		initEReference(getIssue_Assignees(), this.getUser(), this.getUser_AssignedToIssues(), "assignees", null, 0, -1,
 				Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_Labels(), this.getLabel(), null, "labels", null, 0, 1, Issue.class, !IS_TRANSIENT,
+		initEReference(getIssue_Labels(), this.getLabel(), null, "labels", null, 0, -1, Issue.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEReference(getIssue_Participants(), this.getUser(), this.getUser_ParticipantOfIssue(), "participants", null,
-				0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_PinnedOn(), this.getComponent(), null, "pinnedOn", null, 0, 1, Issue.class,
+		initEReference(getIssue_PinnedOn(), this.getComponent(), null, "pinnedOn", null, 0, -1, Issue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_Timeline(), this.getIssueTimelineItem(), null, "timeline", null, 0, 1, Issue.class,
+		initEReference(getIssue_Timeline(), this.getIssueTimelineItem(), null, "timeline", null, 0, -1, Issue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_Location(), this.getIssueLocation(), null, "location", null, 0, 1, Issue.class,
+		initEReference(getIssue_Location(), this.getIssueLocation(), null, "location", null, 0, -1, Issue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1324,7 +1347,7 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		initEAttribute(getIssueLocation_Description(), ecorePackage.getEString(), "description", null, 0, 1,
 				IssueLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
-		initEReference(getIssueLocation_IssueOnLocation(), this.getIssue(), null, "issueOnLocation", null, 0, 1,
+		initEReference(getIssueLocation_IssueOnLocation(), this.getIssue(), null, "issueOnLocation", null, 0, -1,
 				IssueLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1335,18 +1358,19 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLabel_Color(), this.getColor(), "color", null, 0, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE,
 				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLabel_Components(), this.getComponent(), this.getComponent_Labels(), "components", null, 0, 1,
-				Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getLabel_Components(), this.getComponent(), this.getComponent_Labels(), "components", null, 0,
+				-1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLabel_Projects(), this.getProject(), null, "projects", null, 0, 1, Label.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getLabel_Reaction(), ecorePackage.getEString(), "reaction", null, 0, 1, Label.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLabel_Projects(), this.getProject(), null, "projects", null, 0, -1, Label.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(reactionGroupEClass, ReactionGroup.class, "ReactionGroup", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReactionGroup_Users(), this.getUser(), null, "users", null, 0, 1, ReactionGroup.class,
+		initEAttribute(getReactionGroup_Reaction(), ecorePackage.getEString(), "reaction", null, 0, 1,
+				ReactionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getReactionGroup_Users(), this.getUser(), null, "users", null, 0, -1, ReactionGroup.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReactionGroup_TotalUserCount(), ecorePackage.getEInt(), "totalUserCount", null, 0, 1,
@@ -1358,20 +1382,20 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_Description(), ecorePackage.getEString(), "description", null, 0, 1, Project.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProject_Components(), this.getComponent(), null, "components", null, 0, 1, Project.class,
+		initEReference(getProject_Components(), this.getComponent(), null, "components", null, 0, -1, Project.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Users(), this.getUser(), this.getUser_Projects(), "users", null, 0, -1, Project.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProject_Users(), this.getUser(), this.getUser_Projects(), "users", null, 0, 1, Project.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProject_Owner(), this.getUser(), null, "owner", null, 0, 1, Project.class, !IS_TRANSIENT,
+		initEReference(getProject_Owner(), this.getUser(), null, "owner", null, 0, -1, Project.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getProject_Issues(), this.getIssue(), null, "issues", null, 0, 1, Project.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		initEReference(getProject_Issues(), this.getIssue(), null, "issues", null, 0, -1, Project.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getProject_Labels(), this.getLabel(), null, "labels", null, 0, 1, Project.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		initEReference(getProject_Labels(), this.getLabel(), null, "labels", null, 0, -1, Project.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1381,18 +1405,21 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_Email(), ecorePackage.getEString(), "email", null, 0, 1, User.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUser_Projects(), this.getProject(), this.getProject_Users(), "projects", null, 0, 1,
+		initEReference(getUser_Projects(), this.getProject(), this.getProject_Users(), "projects", null, 0, -1,
 				User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUser_AssignedToIssues(), this.getIssue(), this.getIssue_Assignees(), "assignedToIssues", null,
-				0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUser_ParticipantOfIssue(), this.getIssue(), this.getIssue_Participants(),
-				"participantOfIssue", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUser_IssueComments(), this.getComment(), this.getComment_CreatedBy(), "issueComments", null,
-				0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				"participantOfIssue", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUser_IssueComments(), this.getIssueComment(), null, "issueComments", null, 0, -1, User.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(issueCommentEClass, IssueComment.class, "IssueComment", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(imsTypeEEnum, IMSType.class, "IMSType");

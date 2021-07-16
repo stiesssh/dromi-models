@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.gropius;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Issue</b></em>'.
@@ -238,205 +240,115 @@ public interface Issue extends Comment, Node {
 	void setSpentTime(Object value);
 
 	/**
-	 * Returns the value of the '<em><b>Issue Comments</b></em>' reference.
+	 * Returns the value of the '<em><b>Issue Comments</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Comment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issue Comments</em>' reference.
-	 * @see #setIssueComments(Comment)
+	 * @return the value of the '<em>Issue Comments</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_IssueComments()
 	 * @model
 	 * @generated
 	 */
-	Comment getIssueComments();
+	EList<Comment> getIssueComments();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getIssueComments <em>Issue Comments</em>}' reference.
+	 * Returns the value of the '<em><b>Links To Issues</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Issue Comments</em>' reference.
-	 * @see #getIssueComments()
-	 * @generated
-	 */
-	void setIssueComments(Comment value);
-
-	/**
-	 * Returns the value of the '<em><b>Links To Issues</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Links To Issues</em>' reference.
-	 * @see #setLinksToIssues(Issue)
+	 * @return the value of the '<em>Links To Issues</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_LinksToIssues()
 	 * @model
 	 * @generated
 	 */
-	Issue getLinksToIssues();
+	EList<Issue> getLinksToIssues();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLinksToIssues <em>Links To Issues</em>}' reference.
+	 * Returns the value of the '<em><b>Linked By Issues</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Links To Issues</em>' reference.
-	 * @see #getLinksToIssues()
-	 * @generated
-	 */
-	void setLinksToIssues(Issue value);
-
-	/**
-	 * Returns the value of the '<em><b>Linked By Issues</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Linked By Issues</em>' reference.
-	 * @see #setLinkedByIssues(Issue)
+	 * @return the value of the '<em>Linked By Issues</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_LinkedByIssues()
 	 * @model
 	 * @generated
 	 */
-	Issue getLinkedByIssues();
+	EList<Issue> getLinkedByIssues();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLinkedByIssues <em>Linked By Issues</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Linked By Issues</em>' reference.
-	 * @see #getLinkedByIssues()
-	 * @generated
-	 */
-	void setLinkedByIssues(Issue value);
-
-	/**
-	 * Returns the value of the '<em><b>Assignees</b></em>' reference.
+	 * Returns the value of the '<em><b>Assignees</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.User}.
 	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.User#getAssignedToIssues <em>Assigned To Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assignees</em>' reference.
-	 * @see #setAssignees(User)
+	 * @return the value of the '<em>Assignees</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Assignees()
 	 * @see de.unistuttgart.gropius.User#getAssignedToIssues
 	 * @model opposite="assignedToIssues"
 	 * @generated
 	 */
-	User getAssignees();
+	EList<User> getAssignees();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getAssignees <em>Assignees</em>}' reference.
+	 * Returns the value of the '<em><b>Labels</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Label}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assignees</em>' reference.
-	 * @see #getAssignees()
-	 * @generated
-	 */
-	void setAssignees(User value);
-
-	/**
-	 * Returns the value of the '<em><b>Labels</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Labels</em>' reference.
-	 * @see #setLabels(Label)
+	 * @return the value of the '<em>Labels</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Labels()
 	 * @model
 	 * @generated
 	 */
-	Label getLabels();
+	EList<Label> getLabels();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLabels <em>Labels</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Labels</em>' reference.
-	 * @see #getLabels()
-	 * @generated
-	 */
-	void setLabels(Label value);
-
-	/**
-	 * Returns the value of the '<em><b>Participants</b></em>' reference.
+	 * Returns the value of the '<em><b>Participants</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.User}.
 	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.User#getParticipantOfIssue <em>Participant Of Issue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Participants</em>' reference.
-	 * @see #setParticipants(User)
+	 * @return the value of the '<em>Participants</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Participants()
 	 * @see de.unistuttgart.gropius.User#getParticipantOfIssue
 	 * @model opposite="participantOfIssue"
 	 * @generated
 	 */
-	User getParticipants();
+	EList<User> getParticipants();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getParticipants <em>Participants</em>}' reference.
+	 * Returns the value of the '<em><b>Pinned On</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Participants</em>' reference.
-	 * @see #getParticipants()
-	 * @generated
-	 */
-	void setParticipants(User value);
-
-	/**
-	 * Returns the value of the '<em><b>Pinned On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pinned On</em>' reference.
-	 * @see #setPinnedOn(Component)
+	 * @return the value of the '<em>Pinned On</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_PinnedOn()
 	 * @model
 	 * @generated
 	 */
-	Component getPinnedOn();
+	EList<Component> getPinnedOn();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getPinnedOn <em>Pinned On</em>}' reference.
+	 * Returns the value of the '<em><b>Timeline</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.IssueTimelineItem}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pinned On</em>' reference.
-	 * @see #getPinnedOn()
-	 * @generated
-	 */
-	void setPinnedOn(Component value);
-
-	/**
-	 * Returns the value of the '<em><b>Timeline</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Timeline</em>' reference.
-	 * @see #setTimeline(IssueTimelineItem)
+	 * @return the value of the '<em>Timeline</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Timeline()
 	 * @model
 	 * @generated
 	 */
-	IssueTimelineItem getTimeline();
+	EList<IssueTimelineItem> getTimeline();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getTimeline <em>Timeline</em>}' reference.
+	 * Returns the value of the '<em><b>Location</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.IssueLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Timeline</em>' reference.
-	 * @see #getTimeline()
-	 * @generated
-	 */
-	void setTimeline(IssueTimelineItem value);
-
-	/**
-	 * Returns the value of the '<em><b>Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Location</em>' reference.
-	 * @see #setLocation(IssueLocation)
+	 * @return the value of the '<em>Location</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Location()
 	 * @model
 	 * @generated
 	 */
-	IssueLocation getLocation();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLocation <em>Location</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' reference.
-	 * @see #getLocation()
-	 * @generated
-	 */
-	void setLocation(IssueLocation value);
+	EList<IssueLocation> getLocation();
 
 } // Issue

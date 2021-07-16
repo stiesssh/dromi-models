@@ -127,14 +127,14 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		SagaPackageImpl theSagaPackage = (SagaPackageImpl)(registeredPackage instanceof SagaPackageImpl ? registeredPackage : SagaPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
 		Bpmn2PackageImpl theBpmn2Package = (Bpmn2PackageImpl)(registeredPackage instanceof Bpmn2PackageImpl ? registeredPackage : Bpmn2Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GropiusPackage.eNS_URI);
+		GropiusPackageImpl theGropiusPackage = (GropiusPackageImpl)(registeredPackage instanceof GropiusPackageImpl ? registeredPackage : GropiusPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DiPackage.eNS_URI);
 		DiPackageImpl theDiPackage = (DiPackageImpl)(registeredPackage instanceof DiPackageImpl ? registeredPackage : DiPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(BpmnDiPackage.eNS_URI);
-		BpmnDiPackageImpl theDiPackage_1 = (BpmnDiPackageImpl)(registeredPackage instanceof BpmnDiPackageImpl ? registeredPackage : BpmnDiPackage.eINSTANCE);
+		BpmnDiPackageImpl theBpmnDiPackage = (BpmnDiPackageImpl)(registeredPackage instanceof BpmnDiPackageImpl ? registeredPackage : BpmnDiPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DcPackage.eNS_URI);
 		DcPackageImpl theDcPackage = (DcPackageImpl)(registeredPackage instanceof DcPackageImpl ? registeredPackage : DcPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GropiusPackage.eNS_URI);
-		GropiusPackageImpl theGropiusPackage = (GropiusPackageImpl)(registeredPackage instanceof GropiusPackageImpl ? registeredPackage : GropiusPackage.eINSTANCE);
 
 		// Load packages
 		theBpmn2Package.loadPackage();
@@ -142,18 +142,18 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		// Create package meta-data objects
 		theSloPackage.createPackageContents();
 		theSagaPackage.createPackageContents();
-		theDiPackage.createPackageContents();
-		theDiPackage_1.createPackageContents();
-		theDcPackage.createPackageContents();
 		theGropiusPackage.createPackageContents();
+		theDiPackage.createPackageContents();
+		theBpmnDiPackage.createPackageContents();
+		theDcPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSloPackage.initializePackageContents();
 		theSagaPackage.initializePackageContents();
-		theDiPackage.initializePackageContents();
-		theDiPackage_1.initializePackageContents();
-		theDcPackage.initializePackageContents();
 		theGropiusPackage.initializePackageContents();
+		theDiPackage.initializePackageContents();
+		theBpmnDiPackage.initializePackageContents();
+		theDcPackage.initializePackageContents();
 
 		// Fix loaded packages
 		theBpmn2Package.fixPackageContents();

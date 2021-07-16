@@ -351,7 +351,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT__PROJECTS = ISSUE_LOCATION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Interfaces</b></em>' reference list.
+	 * The feature id for the '<em><b>Interfaces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1051,7 +1051,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__DESCRIPTION = NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' reference.
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1078,7 +1078,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__OWNER = NODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Issues</b></em>' reference list.
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1087,7 +1087,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__ISSUES = NODE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Labels</b></em>' reference list.
+	 * The feature id for the '<em><b>Labels</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1604,10 +1604,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getComponent_Projects();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Component#getInterfaces <em>Interfaces</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Component#getInterfaces <em>Interfaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Interfaces</em>'.
+	 * @return the meta object for the containment reference list '<em>Interfaces</em>'.
 	 * @see de.unistuttgart.gropius.Component#getInterfaces()
 	 * @see #getComponent()
 	 * @generated
@@ -2135,10 +2135,10 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getProject_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Project#getComponents <em>Components</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Project#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Components</em>'.
+	 * @return the meta object for the containment reference list '<em>Components</em>'.
 	 * @see de.unistuttgart.gropius.Project#getComponents()
 	 * @see #getProject()
 	 * @generated
@@ -2168,10 +2168,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getProject_Owner();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Project#getIssues <em>Issues</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Project#getIssues <em>Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Issues</em>'.
+	 * @return the meta object for the containment reference list '<em>Issues</em>'.
 	 * @see de.unistuttgart.gropius.Project#getIssues()
 	 * @see #getProject()
 	 * @generated
@@ -2179,10 +2179,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getProject_Issues();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Project#getLabels <em>Labels</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Project#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Labels</em>'.
+	 * @return the meta object for the containment reference list '<em>Labels</em>'.
 	 * @see de.unistuttgart.gropius.Project#getLabels()
 	 * @see #getProject()
 	 * @generated
@@ -2528,7 +2528,7 @@ public interface GropiusPackage extends EPackage {
 		EReference COMPONENT__PROJECTS = eINSTANCE.getComponent_Projects();
 
 		/**
-		 * The meta object literal for the '<em><b>Interfaces</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Interfaces</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2936,7 +2936,7 @@ public interface GropiusPackage extends EPackage {
 		EAttribute PROJECT__DESCRIPTION = eINSTANCE.getProject_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2960,7 +2960,7 @@ public interface GropiusPackage extends EPackage {
 		EReference PROJECT__OWNER = eINSTANCE.getProject_Owner();
 
 		/**
-		 * The meta object literal for the '<em><b>Issues</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Issues</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2968,7 +2968,7 @@ public interface GropiusPackage extends EPackage {
 		EReference PROJECT__ISSUES = eINSTANCE.getProject_Issues();
 
 		/**
-		 * The meta object literal for the '<em><b>Labels</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Labels</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

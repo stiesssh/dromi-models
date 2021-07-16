@@ -23,9 +23,9 @@ public class JavaActions1 implements IExternalJavaAction {
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 		// TODO Auto-generated method stub
-		Project p = (Project) selections.stream().filter(o -> o instanceof Project).findFirst().get();
-		
-		p.getComponents().add(SagaFactory.eINSTANCE.createComponentAdapter());
+//		Project p = (Project) selections.stream().filter(o -> o instanceof Project).findFirst().get();
+//		
+//		p.getComponents().add(SagaFactory.eINSTANCE.createComponentAdapter());
 		
 		System.out.println("hello world");
 		

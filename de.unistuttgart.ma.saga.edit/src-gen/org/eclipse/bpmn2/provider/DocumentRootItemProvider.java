@@ -3655,6 +3655,66 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createIMS()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createComponentInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createIssue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createReactionGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createProject()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createUser()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 GropiusFactory.eINSTANCE.createIssueComment()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 SloFactory.eINSTANCE.createSloRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 SloFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 SloFactory.eINSTANCE.createModel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
 				 DiFactory.eINSTANCE.createBPMNDiagram()));
 
 		newChildDescriptors.add
@@ -3701,66 +3761,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
 				 DcFactory.eINSTANCE.createPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SloFactory.eINSTANCE.createSloRule()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SloFactory.eINSTANCE.createAlert()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SloFactory.eINSTANCE.createModel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createIMS()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createComponentInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createIssue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createReactionGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createProject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createUser()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 GropiusFactory.eINSTANCE.createIssueComment()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -4560,6 +4560,66 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createIMS()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createComponentInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createIssue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createReactionGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createProject()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createUser()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 GropiusFactory.eINSTANCE.createIssueComment()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 SloFactory.eINSTANCE.createSloRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 SloFactory.eINSTANCE.createAlert()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 SloFactory.eINSTANCE.createModel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
 				 DiFactory.eINSTANCE.createBPMNDiagram()));
 
 		newChildDescriptors.add
@@ -4606,66 +4666,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
 				 DcFactory.eINSTANCE.createPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SloFactory.eINSTANCE.createSloRule()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SloFactory.eINSTANCE.createAlert()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SloFactory.eINSTANCE.createModel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createIMS()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createComponentInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createIssue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createReactionGroup()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createProject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createUser()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 GropiusFactory.eINSTANCE.createIssueComment()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -7,14 +7,19 @@ import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.Label;
 import de.unistuttgart.gropius.Project;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +35,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.unistuttgart.gropius.impl.LabelImpl#getColor <em>Color</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.impl.LabelImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.impl.LabelImpl#getProjects <em>Projects</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.impl.LabelImpl#getReaction <em>Reaction</em>}</li>
  * </ul>
  *
  * @generated
@@ -97,44 +101,24 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	protected Object color;
 
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference.
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponents()
 	 * @generated
 	 * @ordered
 	 */
-	protected Component components;
+	protected EList<Component> components;
 
 	/**
-	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' reference.
+	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProjects()
 	 * @generated
 	 * @ordered
 	 */
-	protected Project projects;
-
-	/**
-	 * The default value of the '{@link #getReaction() <em>Reaction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReaction()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REACTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getReaction() <em>Reaction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReaction()
-	 * @generated
-	 * @ordered
-	 */
-	protected String reaction = REACTION_EDEFAULT;
+	protected EList<Project> projects;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -245,15 +229,10 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component getComponents() {
-		if (components != null && components.eIsProxy()) {
-			InternalEObject oldComponents = (InternalEObject) components;
-			components = (Component) eResolveProxy(oldComponents);
-			if (components != oldComponents) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.LABEL__COMPONENTS,
-							oldComponents, components));
-			}
+	public EList<Component> getComponents() {
+		if (components == null) {
+			components = new EObjectWithInverseResolvingEList.ManyInverse<Component>(Component.class, this,
+					GropiusPackage.LABEL__COMPONENTS, GropiusPackage.COMPONENT__LABELS);
 		}
 		return components;
 	}
@@ -263,65 +242,9 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component basicGetComponents() {
-		return components;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComponents(Component newComponents, NotificationChain msgs) {
-		Component oldComponents = components;
-		components = newComponents;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GropiusPackage.LABEL__COMPONENTS, oldComponents, newComponents);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComponents(Component newComponents) {
-		if (newComponents != components) {
-			NotificationChain msgs = null;
-			if (components != null)
-				msgs = ((InternalEObject) components).eInverseRemove(this, GropiusPackage.COMPONENT__LABELS,
-						Component.class, msgs);
-			if (newComponents != null)
-				msgs = ((InternalEObject) newComponents).eInverseAdd(this, GropiusPackage.COMPONENT__LABELS,
-						Component.class, msgs);
-			msgs = basicSetComponents(newComponents, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.LABEL__COMPONENTS, newComponents,
-					newComponents));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Project getProjects() {
-		if (projects != null && projects.eIsProxy()) {
-			InternalEObject oldProjects = (InternalEObject) projects;
-			projects = (Project) eResolveProxy(oldProjects);
-			if (projects != oldProjects) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.LABEL__PROJECTS,
-							oldProjects, projects));
-			}
+	public EList<Project> getProjects() {
+		if (projects == null) {
+			projects = new EObjectResolvingEList<Project>(Project.class, this, GropiusPackage.LABEL__PROJECTS);
 		}
 		return projects;
 	}
@@ -331,58 +254,12 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Project basicGetProjects() {
-		return projects;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProjects(Project newProjects) {
-		Project oldProjects = projects;
-		projects = newProjects;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.LABEL__PROJECTS, oldProjects,
-					projects));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getReaction() {
-		return reaction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReaction(String newReaction) {
-		String oldReaction = reaction;
-		reaction = newReaction;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.LABEL__REACTION, oldReaction,
-					reaction));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case GropiusPackage.LABEL__COMPONENTS:
-			if (components != null)
-				msgs = ((InternalEObject) components).eInverseRemove(this, GropiusPackage.COMPONENT__LABELS,
-						Component.class, msgs);
-			return basicSetComponents((Component) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getComponents()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -396,7 +273,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case GropiusPackage.LABEL__COMPONENTS:
-			return basicSetComponents(null, msgs);
+			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -418,15 +295,9 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 		case GropiusPackage.LABEL__COLOR:
 			return getColor();
 		case GropiusPackage.LABEL__COMPONENTS:
-			if (resolve)
-				return getComponents();
-			return basicGetComponents();
+			return getComponents();
 		case GropiusPackage.LABEL__PROJECTS:
-			if (resolve)
-				return getProjects();
-			return basicGetProjects();
-		case GropiusPackage.LABEL__REACTION:
-			return getReaction();
+			return getProjects();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -436,6 +307,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -452,13 +324,12 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 			setColor(newValue);
 			return;
 		case GropiusPackage.LABEL__COMPONENTS:
-			setComponents((Component) newValue);
+			getComponents().clear();
+			getComponents().addAll((Collection<? extends Component>) newValue);
 			return;
 		case GropiusPackage.LABEL__PROJECTS:
-			setProjects((Project) newValue);
-			return;
-		case GropiusPackage.LABEL__REACTION:
-			setReaction((String) newValue);
+			getProjects().clear();
+			getProjects().addAll((Collection<? extends Project>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -485,13 +356,10 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 			setColor((Object) null);
 			return;
 		case GropiusPackage.LABEL__COMPONENTS:
-			setComponents((Component) null);
+			getComponents().clear();
 			return;
 		case GropiusPackage.LABEL__PROJECTS:
-			setProjects((Project) null);
-			return;
-		case GropiusPackage.LABEL__REACTION:
-			setReaction(REACTION_EDEFAULT);
+			getProjects().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -514,11 +382,9 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 		case GropiusPackage.LABEL__COLOR:
 			return color != null;
 		case GropiusPackage.LABEL__COMPONENTS:
-			return components != null;
+			return components != null && !components.isEmpty();
 		case GropiusPackage.LABEL__PROJECTS:
-			return projects != null;
-		case GropiusPackage.LABEL__REACTION:
-			return REACTION_EDEFAULT == null ? reaction != null : !REACTION_EDEFAULT.equals(reaction);
+			return projects != null && !projects.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -542,8 +408,6 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 		result.append(description);
 		result.append(", color: ");
 		result.append(color);
-		result.append(", reaction: ");
-		result.append(reaction);
 		result.append(')');
 		return result.toString();
 	}

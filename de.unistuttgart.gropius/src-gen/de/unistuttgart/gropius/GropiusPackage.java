@@ -106,13 +106,22 @@ public interface GropiusPackage extends EPackage {
 	int COMMENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__ID = NODE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__BODY = 0;
+	int COMMENT__BODY = NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Body Rendered</b></em>' attribute.
@@ -121,34 +130,34 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__BODY_RENDERED = 1;
+	int COMMENT__BODY_RENDERED = NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Created By</b></em>' reference.
+	 * The feature id for the '<em><b>Comment Created By</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__CREATED_BY = 2;
+	int COMMENT__COMMENT_CREATED_BY = NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Edited By</b></em>' reference.
+	 * The feature id for the '<em><b>Edited By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__EDITED_BY = 3;
+	int COMMENT__EDITED_BY = NODE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * The feature id for the '<em><b>Comment Created At</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__CREATED_AT = 4;
+	int COMMENT__COMMENT_CREATED_AT = NODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Last Edited At</b></em>' attribute.
@@ -157,7 +166,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__LAST_EDITED_AT = 5;
+	int COMMENT__LAST_EDITED_AT = NODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Current User Can Edit</b></em>' attribute.
@@ -166,16 +175,16 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__CURRENT_USER_CAN_EDIT = 6;
+	int COMMENT__CURRENT_USER_CAN_EDIT = NODE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Reactions</b></em>' reference.
+	 * The feature id for the '<em><b>Reactions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT__REACTIONS = 7;
+	int COMMENT__REACTIONS = NODE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Comment</em>' class.
@@ -184,7 +193,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT_FEATURE_COUNT = 8;
+	int COMMENT_FEATURE_COUNT = NODE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Comment</em>' class.
@@ -193,7 +202,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMENT_OPERATION_COUNT = 0;
+	int COMMENT_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.IssueLocation <em>Issue Location</em>}' class.
@@ -233,7 +242,7 @@ public interface GropiusPackage extends EPackage {
 	int ISSUE_LOCATION__DESCRIPTION = NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Issue On Location</b></em>' reference.
+	 * The feature id for the '<em><b>Issue On Location</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -297,7 +306,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT__DESCRIPTION = ISSUE_LOCATION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Issue On Location</b></em>' reference.
+	 * The feature id for the '<em><b>Issue On Location</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -324,7 +333,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT__IMS = ISSUE_LOCATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Issues</b></em>' reference.
+	 * The feature id for the '<em><b>Issues</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -333,7 +342,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT__ISSUES = ISSUE_LOCATION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Projects</b></em>' reference.
+	 * The feature id for the '<em><b>Projects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -342,7 +351,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT__PROJECTS = ISSUE_LOCATION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Interfaces</b></em>' reference.
+	 * The feature id for the '<em><b>Interfaces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -351,7 +360,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT__INTERFACES = ISSUE_LOCATION_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Consumed Interfaces</b></em>' reference.
+	 * The feature id for the '<em><b>Consumed Interfaces</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -360,7 +369,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT__CONSUMED_INTERFACES = ISSUE_LOCATION_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Labels</b></em>' reference.
+	 * The feature id for the '<em><b>Labels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -479,7 +488,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT_INTERFACE__DESCRIPTION = ISSUE_LOCATION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Issue On Location</b></em>' reference.
+	 * The feature id for the '<em><b>Issue On Location</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -497,7 +506,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT_INTERFACE__COMPONENT = ISSUE_LOCATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Consumed By</b></em>' reference.
+	 * The feature id for the '<em><b>Consumed By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -534,6 +543,15 @@ public interface GropiusPackage extends EPackage {
 	int ISSUE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__ID = COMMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Body</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -552,16 +570,16 @@ public interface GropiusPackage extends EPackage {
 	int ISSUE__BODY_RENDERED = COMMENT__BODY_RENDERED;
 
 	/**
-	 * The feature id for the '<em><b>Created By</b></em>' reference.
+	 * The feature id for the '<em><b>Comment Created By</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__CREATED_BY = COMMENT__CREATED_BY;
+	int ISSUE__COMMENT_CREATED_BY = COMMENT__COMMENT_CREATED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Edited By</b></em>' reference.
+	 * The feature id for the '<em><b>Edited By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -570,13 +588,13 @@ public interface GropiusPackage extends EPackage {
 	int ISSUE__EDITED_BY = COMMENT__EDITED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * The feature id for the '<em><b>Comment Created At</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__CREATED_AT = COMMENT__CREATED_AT;
+	int ISSUE__COMMENT_CREATED_AT = COMMENT__COMMENT_CREATED_AT;
 
 	/**
 	 * The feature id for the '<em><b>Last Edited At</b></em>' attribute.
@@ -597,7 +615,7 @@ public interface GropiusPackage extends EPackage {
 	int ISSUE__CURRENT_USER_CAN_EDIT = COMMENT__CURRENT_USER_CAN_EDIT;
 
 	/**
-	 * The feature id for the '<em><b>Reactions</b></em>' reference.
+	 * The feature id for the '<em><b>Reactions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -606,22 +624,13 @@ public interface GropiusPackage extends EPackage {
 	int ISSUE__REACTIONS = COMMENT__REACTIONS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__ID = COMMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Updated At</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__UPDATED_AT = COMMENT_FEATURE_COUNT + 1;
+	int ISSUE__UPDATED_AT = COMMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Open</b></em>' attribute.
@@ -630,7 +639,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__IS_OPEN = COMMENT_FEATURE_COUNT + 2;
+	int ISSUE__IS_OPEN = COMMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Is Duplicate</b></em>' attribute.
@@ -639,7 +648,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__IS_DUPLICATE = COMMENT_FEATURE_COUNT + 3;
+	int ISSUE__IS_DUPLICATE = COMMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' attribute.
@@ -648,7 +657,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__CATEGORY = COMMENT_FEATURE_COUNT + 4;
+	int ISSUE__CATEGORY = COMMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Current User Can Comment</b></em>' attribute.
@@ -657,7 +666,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__CURRENT_USER_CAN_COMMENT = COMMENT_FEATURE_COUNT + 5;
+	int ISSUE__CURRENT_USER_CAN_COMMENT = COMMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
@@ -666,7 +675,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__START_DATE = COMMENT_FEATURE_COUNT + 6;
+	int ISSUE__START_DATE = COMMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Due Date</b></em>' attribute.
@@ -675,7 +684,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__DUE_DATE = COMMENT_FEATURE_COUNT + 7;
+	int ISSUE__DUE_DATE = COMMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Estimated Time</b></em>' attribute.
@@ -684,7 +693,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__ESTIMATED_TIME = COMMENT_FEATURE_COUNT + 8;
+	int ISSUE__ESTIMATED_TIME = COMMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Spent Time</b></em>' attribute.
@@ -693,88 +702,88 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__SPENT_TIME = COMMENT_FEATURE_COUNT + 9;
+	int ISSUE__SPENT_TIME = COMMENT_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Issue Comments</b></em>' reference.
+	 * The feature id for the '<em><b>Issue Comments</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__ISSUE_COMMENTS = COMMENT_FEATURE_COUNT + 10;
+	int ISSUE__ISSUE_COMMENTS = COMMENT_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Links To Issues</b></em>' reference.
+	 * The feature id for the '<em><b>Links To Issues</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__LINKS_TO_ISSUES = COMMENT_FEATURE_COUNT + 11;
+	int ISSUE__LINKS_TO_ISSUES = COMMENT_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Linked By Issues</b></em>' reference.
+	 * The feature id for the '<em><b>Linked By Issues</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__LINKED_BY_ISSUES = COMMENT_FEATURE_COUNT + 12;
+	int ISSUE__LINKED_BY_ISSUES = COMMENT_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Assignees</b></em>' reference.
+	 * The feature id for the '<em><b>Assignees</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__ASSIGNEES = COMMENT_FEATURE_COUNT + 13;
+	int ISSUE__ASSIGNEES = COMMENT_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Labels</b></em>' reference.
+	 * The feature id for the '<em><b>Labels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__LABELS = COMMENT_FEATURE_COUNT + 14;
+	int ISSUE__LABELS = COMMENT_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Participants</b></em>' reference.
+	 * The feature id for the '<em><b>Participants</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__PARTICIPANTS = COMMENT_FEATURE_COUNT + 15;
+	int ISSUE__PARTICIPANTS = COMMENT_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Pinned On</b></em>' reference.
+	 * The feature id for the '<em><b>Pinned On</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__PINNED_ON = COMMENT_FEATURE_COUNT + 16;
+	int ISSUE__PINNED_ON = COMMENT_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Timeline</b></em>' reference.
+	 * The feature id for the '<em><b>Timeline</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__TIMELINE = COMMENT_FEATURE_COUNT + 17;
+	int ISSUE__TIMELINE = COMMENT_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Location</b></em>' reference.
+	 * The feature id for the '<em><b>Location</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__LOCATION = COMMENT_FEATURE_COUNT + 18;
+	int ISSUE__LOCATION = COMMENT_FEATURE_COUNT + 17;
 
 	/**
 	 * The number of structural features of the '<em>Issue</em>' class.
@@ -783,7 +792,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE_FEATURE_COUNT = COMMENT_FEATURE_COUNT + 19;
+	int ISSUE_FEATURE_COUNT = COMMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The number of operations of the '<em>Issue</em>' class.
@@ -905,7 +914,7 @@ public interface GropiusPackage extends EPackage {
 	int LABEL__COLOR = NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' reference.
+	 * The feature id for the '<em><b>Components</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -914,7 +923,7 @@ public interface GropiusPackage extends EPackage {
 	int LABEL__COMPONENTS = NODE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Projects</b></em>' reference.
+	 * The feature id for the '<em><b>Projects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -923,22 +932,13 @@ public interface GropiusPackage extends EPackage {
 	int LABEL__PROJECTS = NODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Reaction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LABEL__REACTION = NODE_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Label</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LABEL_FEATURE_COUNT = NODE_FEATURE_COUNT + 6;
+	int LABEL_FEATURE_COUNT = NODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Label</em>' class.
@@ -969,13 +969,22 @@ public interface GropiusPackage extends EPackage {
 	int REACTION_GROUP__ID = NODE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Users</b></em>' reference.
+	 * The feature id for the '<em><b>Reaction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REACTION_GROUP__USERS = NODE_FEATURE_COUNT + 0;
+	int REACTION_GROUP__REACTION = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Users</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REACTION_GROUP__USERS = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Total User Count</b></em>' attribute.
@@ -984,7 +993,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REACTION_GROUP__TOTAL_USER_COUNT = NODE_FEATURE_COUNT + 1;
+	int REACTION_GROUP__TOTAL_USER_COUNT = NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Reaction Group</em>' class.
@@ -993,7 +1002,7 @@ public interface GropiusPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REACTION_GROUP_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
+	int REACTION_GROUP_FEATURE_COUNT = NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Reaction Group</em>' class.
@@ -1042,7 +1051,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__DESCRIPTION = NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' reference.
+	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1051,7 +1060,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__COMPONENTS = NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Users</b></em>' reference.
+	 * The feature id for the '<em><b>Users</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1060,7 +1069,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__USERS = NODE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * The feature id for the '<em><b>Owner</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1069,7 +1078,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__OWNER = NODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Issues</b></em>' reference.
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1078,7 +1087,7 @@ public interface GropiusPackage extends EPackage {
 	int PROJECT__ISSUES = NODE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Labels</b></em>' reference.
+	 * The feature id for the '<em><b>Labels</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1151,7 +1160,7 @@ public interface GropiusPackage extends EPackage {
 	int USER__EMAIL = NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Projects</b></em>' reference.
+	 * The feature id for the '<em><b>Projects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1160,7 +1169,7 @@ public interface GropiusPackage extends EPackage {
 	int USER__PROJECTS = NODE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Assigned To Issues</b></em>' reference.
+	 * The feature id for the '<em><b>Assigned To Issues</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1169,7 +1178,7 @@ public interface GropiusPackage extends EPackage {
 	int USER__ASSIGNED_TO_ISSUES = NODE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Participant Of Issue</b></em>' reference.
+	 * The feature id for the '<em><b>Participant Of Issue</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1178,7 +1187,7 @@ public interface GropiusPackage extends EPackage {
 	int USER__PARTICIPANT_OF_ISSUE = NODE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Issue Comments</b></em>' reference.
+	 * The feature id for the '<em><b>Issue Comments</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1205,6 +1214,142 @@ public interface GropiusPackage extends EPackage {
 	int USER_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link de.unistuttgart.gropius.impl.IssueCommentImpl <em>Issue Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.gropius.impl.IssueCommentImpl
+	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getIssueComment()
+	 * @generated
+	 */
+	int ISSUE_COMMENT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__ID = COMMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__BODY = COMMENT__BODY;
+
+	/**
+	 * The feature id for the '<em><b>Body Rendered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__BODY_RENDERED = COMMENT__BODY_RENDERED;
+
+	/**
+	 * The feature id for the '<em><b>Comment Created By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__COMMENT_CREATED_BY = COMMENT__COMMENT_CREATED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Edited By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__EDITED_BY = COMMENT__EDITED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Comment Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__COMMENT_CREATED_AT = COMMENT__COMMENT_CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Last Edited At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__LAST_EDITED_AT = COMMENT__LAST_EDITED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Current User Can Edit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__CURRENT_USER_CAN_EDIT = COMMENT__CURRENT_USER_CAN_EDIT;
+
+	/**
+	 * The feature id for the '<em><b>Reactions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__REACTIONS = COMMENT__REACTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Issue</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__ISSUE = COMMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Created By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__CREATED_BY = COMMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT__CREATED_AT = COMMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Issue Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT_FEATURE_COUNT = COMMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Issue Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_COMMENT_OPERATION_COUNT = COMMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.IMSType <em>IMS Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1212,7 +1357,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getIMSType()
 	 * @generated
 	 */
-	int IMS_TYPE = 12;
+	int IMS_TYPE = 13;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.IssueCategory <em>Issue Category</em>}' enum.
@@ -1222,7 +1367,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getIssueCategory()
 	 * @generated
 	 */
-	int ISSUE_CATEGORY = 13;
+	int ISSUE_CATEGORY = 14;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.IssueTimelineItemType <em>Issue Timeline Item Type</em>}' enum.
@@ -1232,7 +1377,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getIssueTimelineItemType()
 	 * @generated
 	 */
-	int ISSUE_TIMELINE_ITEM_TYPE = 14;
+	int ISSUE_TIMELINE_ITEM_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.Priority <em>Priority</em>}' enum.
@@ -1242,7 +1387,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getPriority()
 	 * @generated
 	 */
-	int PRIORITY = 15;
+	int PRIORITY = 16;
 
 	/**
 	 * The meta object id for the '<em>Color</em>' data type.
@@ -1252,7 +1397,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getColor()
 	 * @generated
 	 */
-	int COLOR = 16;
+	int COLOR = 17;
 
 	/**
 	 * The meta object id for the '<em>ID</em>' data type.
@@ -1262,7 +1407,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getID()
 	 * @generated
 	 */
-	int ID = 17;
+	int ID = 18;
 
 	/**
 	 * The meta object id for the '<em>Date</em>' data type.
@@ -1272,7 +1417,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getDate()
 	 * @generated
 	 */
-	int DATE = 18;
+	int DATE = 19;
 
 	/**
 	 * The meta object id for the '<em>Time Span</em>' data type.
@@ -1282,7 +1427,7 @@ public interface GropiusPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getTimeSpan()
 	 * @generated
 	 */
-	int TIME_SPAN = 19;
+	int TIME_SPAN = 20;
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.Node <em>Node</em>}'.
@@ -1338,21 +1483,21 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getComment_BodyRendered();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Comment#getCreatedBy <em>Created By</em>}'.
+	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Comment#getCommentCreatedBy <em>Comment Created By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Created By</em>'.
-	 * @see de.unistuttgart.gropius.Comment#getCreatedBy()
+	 * @return the meta object for the reference '<em>Comment Created By</em>'.
+	 * @see de.unistuttgart.gropius.Comment#getCommentCreatedBy()
 	 * @see #getComment()
 	 * @generated
 	 */
-	EReference getComment_CreatedBy();
+	EReference getComment_CommentCreatedBy();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Comment#getEditedBy <em>Edited By</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Comment#getEditedBy <em>Edited By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Edited By</em>'.
+	 * @return the meta object for the reference list '<em>Edited By</em>'.
 	 * @see de.unistuttgart.gropius.Comment#getEditedBy()
 	 * @see #getComment()
 	 * @generated
@@ -1360,15 +1505,15 @@ public interface GropiusPackage extends EPackage {
 	EReference getComment_EditedBy();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.Comment#getCreatedAt <em>Created At</em>}'.
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.Comment#getCommentCreatedAt <em>Comment Created At</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Created At</em>'.
-	 * @see de.unistuttgart.gropius.Comment#getCreatedAt()
+	 * @return the meta object for the attribute '<em>Comment Created At</em>'.
+	 * @see de.unistuttgart.gropius.Comment#getCommentCreatedAt()
 	 * @see #getComment()
 	 * @generated
 	 */
-	EAttribute getComment_CreatedAt();
+	EAttribute getComment_CommentCreatedAt();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.Comment#getLastEditedAt <em>Last Edited At</em>}'.
@@ -1393,10 +1538,10 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getComment_CurrentUserCanEdit();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Comment#getReactions <em>Reactions</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Comment#getReactions <em>Reactions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reactions</em>'.
+	 * @return the meta object for the reference list '<em>Reactions</em>'.
 	 * @see de.unistuttgart.gropius.Comment#getReactions()
 	 * @see #getComment()
 	 * @generated
@@ -1436,10 +1581,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getComponent_Ims();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Component#getIssues <em>Issues</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Component#getIssues <em>Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Issues</em>'.
+	 * @return the meta object for the reference list '<em>Issues</em>'.
 	 * @see de.unistuttgart.gropius.Component#getIssues()
 	 * @see #getComponent()
 	 * @generated
@@ -1447,10 +1592,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getComponent_Issues();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Component#getProjects <em>Projects</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Component#getProjects <em>Projects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Projects</em>'.
+	 * @return the meta object for the reference list '<em>Projects</em>'.
 	 * @see de.unistuttgart.gropius.Component#getProjects()
 	 * @see #getComponent()
 	 * @generated
@@ -1458,10 +1603,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getComponent_Projects();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Component#getInterfaces <em>Interfaces</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Component#getInterfaces <em>Interfaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Interfaces</em>'.
+	 * @return the meta object for the containment reference list '<em>Interfaces</em>'.
 	 * @see de.unistuttgart.gropius.Component#getInterfaces()
 	 * @see #getComponent()
 	 * @generated
@@ -1469,10 +1614,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getComponent_Interfaces();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Component#getConsumedInterfaces <em>Consumed Interfaces</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Component#getConsumedInterfaces <em>Consumed Interfaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Consumed Interfaces</em>'.
+	 * @return the meta object for the reference list '<em>Consumed Interfaces</em>'.
 	 * @see de.unistuttgart.gropius.Component#getConsumedInterfaces()
 	 * @see #getComponent()
 	 * @generated
@@ -1480,10 +1625,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getComponent_ConsumedInterfaces();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Component#getLabels <em>Labels</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Component#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Labels</em>'.
+	 * @return the meta object for the reference list '<em>Labels</em>'.
 	 * @see de.unistuttgart.gropius.Component#getLabels()
 	 * @see #getComponent()
 	 * @generated
@@ -1544,10 +1689,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getComponentInterface_Component();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.ComponentInterface#getConsumedBy <em>Consumed By</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.ComponentInterface#getConsumedBy <em>Consumed By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Consumed By</em>'.
+	 * @return the meta object for the reference list '<em>Consumed By</em>'.
 	 * @see de.unistuttgart.gropius.ComponentInterface#getConsumedBy()
 	 * @see #getComponentInterface()
 	 * @generated
@@ -1664,10 +1809,10 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getIssue_SpentTime();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getIssueComments <em>Issue Comments</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getIssueComments <em>Issue Comments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Issue Comments</em>'.
+	 * @return the meta object for the reference list '<em>Issue Comments</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getIssueComments()
 	 * @see #getIssue()
 	 * @generated
@@ -1675,10 +1820,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_IssueComments();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getLinksToIssues <em>Links To Issues</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getLinksToIssues <em>Links To Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Links To Issues</em>'.
+	 * @return the meta object for the reference list '<em>Links To Issues</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getLinksToIssues()
 	 * @see #getIssue()
 	 * @generated
@@ -1686,10 +1831,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_LinksToIssues();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getLinkedByIssues <em>Linked By Issues</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getLinkedByIssues <em>Linked By Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Linked By Issues</em>'.
+	 * @return the meta object for the reference list '<em>Linked By Issues</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getLinkedByIssues()
 	 * @see #getIssue()
 	 * @generated
@@ -1697,10 +1842,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_LinkedByIssues();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getAssignees <em>Assignees</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getAssignees <em>Assignees</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assignees</em>'.
+	 * @return the meta object for the reference list '<em>Assignees</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getAssignees()
 	 * @see #getIssue()
 	 * @generated
@@ -1708,10 +1853,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_Assignees();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getLabels <em>Labels</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Labels</em>'.
+	 * @return the meta object for the reference list '<em>Labels</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getLabels()
 	 * @see #getIssue()
 	 * @generated
@@ -1719,10 +1864,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_Labels();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getParticipants <em>Participants</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getParticipants <em>Participants</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Participants</em>'.
+	 * @return the meta object for the reference list '<em>Participants</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getParticipants()
 	 * @see #getIssue()
 	 * @generated
@@ -1730,10 +1875,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_Participants();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getPinnedOn <em>Pinned On</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getPinnedOn <em>Pinned On</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pinned On</em>'.
+	 * @return the meta object for the reference list '<em>Pinned On</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getPinnedOn()
 	 * @see #getIssue()
 	 * @generated
@@ -1741,10 +1886,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_PinnedOn();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getTimeline <em>Timeline</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getTimeline <em>Timeline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Timeline</em>'.
+	 * @return the meta object for the reference list '<em>Timeline</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getTimeline()
 	 * @see #getIssue()
 	 * @generated
@@ -1752,10 +1897,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getIssue_Timeline();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Issue#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Issue#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Location</em>'.
+	 * @return the meta object for the reference list '<em>Location</em>'.
 	 * @see de.unistuttgart.gropius.Issue#getLocation()
 	 * @see #getIssue()
 	 * @generated
@@ -1838,10 +1983,10 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getIssueLocation_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.IssueLocation#getIssueOnLocation <em>Issue On Location</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.IssueLocation#getIssueOnLocation <em>Issue On Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Issue On Location</em>'.
+	 * @return the meta object for the reference list '<em>Issue On Location</em>'.
 	 * @see de.unistuttgart.gropius.IssueLocation#getIssueOnLocation()
 	 * @see #getIssueLocation()
 	 * @generated
@@ -1892,10 +2037,10 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getLabel_Color();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Label#getComponents <em>Components</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Label#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Components</em>'.
+	 * @return the meta object for the reference list '<em>Components</em>'.
 	 * @see de.unistuttgart.gropius.Label#getComponents()
 	 * @see #getLabel()
 	 * @generated
@@ -1903,26 +2048,15 @@ public interface GropiusPackage extends EPackage {
 	EReference getLabel_Components();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Label#getProjects <em>Projects</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Label#getProjects <em>Projects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Projects</em>'.
+	 * @return the meta object for the reference list '<em>Projects</em>'.
 	 * @see de.unistuttgart.gropius.Label#getProjects()
 	 * @see #getLabel()
 	 * @generated
 	 */
 	EReference getLabel_Projects();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.Label#getReaction <em>Reaction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reaction</em>'.
-	 * @see de.unistuttgart.gropius.Label#getReaction()
-	 * @see #getLabel()
-	 * @generated
-	 */
-	EAttribute getLabel_Reaction();
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.ReactionGroup <em>Reaction Group</em>}'.
@@ -1935,10 +2069,21 @@ public interface GropiusPackage extends EPackage {
 	EClass getReactionGroup();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.ReactionGroup#getUsers <em>Users</em>}'.
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.ReactionGroup#getReaction <em>Reaction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Users</em>'.
+	 * @return the meta object for the attribute '<em>Reaction</em>'.
+	 * @see de.unistuttgart.gropius.ReactionGroup#getReaction()
+	 * @see #getReactionGroup()
+	 * @generated
+	 */
+	EAttribute getReactionGroup_Reaction();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.ReactionGroup#getUsers <em>Users</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Users</em>'.
 	 * @see de.unistuttgart.gropius.ReactionGroup#getUsers()
 	 * @see #getReactionGroup()
 	 * @generated
@@ -1989,10 +2134,10 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getProject_Description();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Project#getComponents <em>Components</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Project#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Components</em>'.
+	 * @return the meta object for the containment reference list '<em>Components</em>'.
 	 * @see de.unistuttgart.gropius.Project#getComponents()
 	 * @see #getProject()
 	 * @generated
@@ -2000,10 +2145,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getProject_Components();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Project#getUsers <em>Users</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Project#getUsers <em>Users</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Users</em>'.
+	 * @return the meta object for the reference list '<em>Users</em>'.
 	 * @see de.unistuttgart.gropius.Project#getUsers()
 	 * @see #getProject()
 	 * @generated
@@ -2011,10 +2156,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getProject_Users();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Project#getOwner <em>Owner</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.Project#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner</em>'.
+	 * @return the meta object for the reference list '<em>Owner</em>'.
 	 * @see de.unistuttgart.gropius.Project#getOwner()
 	 * @see #getProject()
 	 * @generated
@@ -2022,10 +2167,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getProject_Owner();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Project#getIssues <em>Issues</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Project#getIssues <em>Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Issues</em>'.
+	 * @return the meta object for the containment reference list '<em>Issues</em>'.
 	 * @see de.unistuttgart.gropius.Project#getIssues()
 	 * @see #getProject()
 	 * @generated
@@ -2033,10 +2178,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getProject_Issues();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.Project#getLabels <em>Labels</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.Project#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Labels</em>'.
+	 * @return the meta object for the containment reference list '<em>Labels</em>'.
 	 * @see de.unistuttgart.gropius.Project#getLabels()
 	 * @see #getProject()
 	 * @generated
@@ -2087,10 +2232,10 @@ public interface GropiusPackage extends EPackage {
 	EAttribute getUser_Email();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.User#getProjects <em>Projects</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.User#getProjects <em>Projects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Projects</em>'.
+	 * @return the meta object for the reference list '<em>Projects</em>'.
 	 * @see de.unistuttgart.gropius.User#getProjects()
 	 * @see #getUser()
 	 * @generated
@@ -2098,10 +2243,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getUser_Projects();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.User#getAssignedToIssues <em>Assigned To Issues</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.User#getAssignedToIssues <em>Assigned To Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assigned To Issues</em>'.
+	 * @return the meta object for the reference list '<em>Assigned To Issues</em>'.
 	 * @see de.unistuttgart.gropius.User#getAssignedToIssues()
 	 * @see #getUser()
 	 * @generated
@@ -2109,10 +2254,10 @@ public interface GropiusPackage extends EPackage {
 	EReference getUser_AssignedToIssues();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.User#getParticipantOfIssue <em>Participant Of Issue</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.User#getParticipantOfIssue <em>Participant Of Issue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Participant Of Issue</em>'.
+	 * @return the meta object for the reference list '<em>Participant Of Issue</em>'.
 	 * @see de.unistuttgart.gropius.User#getParticipantOfIssue()
 	 * @see #getUser()
 	 * @generated
@@ -2120,15 +2265,25 @@ public interface GropiusPackage extends EPackage {
 	EReference getUser_ParticipantOfIssue();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.User#getIssueComments <em>Issue Comments</em>}'.
+	 * Returns the meta object for the reference list '{@link de.unistuttgart.gropius.User#getIssueComments <em>Issue Comments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Issue Comments</em>'.
+	 * @return the meta object for the reference list '<em>Issue Comments</em>'.
 	 * @see de.unistuttgart.gropius.User#getIssueComments()
 	 * @see #getUser()
 	 * @generated
 	 */
 	EReference getUser_IssueComments();
+
+	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.gropius.IssueComment <em>Issue Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Issue Comment</em>'.
+	 * @see de.unistuttgart.gropius.IssueComment
+	 * @generated
+	 */
+	EClass getIssueComment();
 
 	/**
 	 * Returns the meta object for enum '{@link de.unistuttgart.gropius.IMSType <em>IMS Type</em>}'.
@@ -2282,15 +2437,15 @@ public interface GropiusPackage extends EPackage {
 		EAttribute COMMENT__BODY_RENDERED = eINSTANCE.getComment_BodyRendered();
 
 		/**
-		 * The meta object literal for the '<em><b>Created By</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Comment Created By</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMMENT__CREATED_BY = eINSTANCE.getComment_CreatedBy();
+		EReference COMMENT__COMMENT_CREATED_BY = eINSTANCE.getComment_CommentCreatedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Edited By</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Edited By</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2298,12 +2453,12 @@ public interface GropiusPackage extends EPackage {
 		EReference COMMENT__EDITED_BY = eINSTANCE.getComment_EditedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Comment Created At</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMMENT__CREATED_AT = eINSTANCE.getComment_CreatedAt();
+		EAttribute COMMENT__COMMENT_CREATED_AT = eINSTANCE.getComment_CommentCreatedAt();
 
 		/**
 		 * The meta object literal for the '<em><b>Last Edited At</b></em>' attribute feature.
@@ -2322,7 +2477,7 @@ public interface GropiusPackage extends EPackage {
 		EAttribute COMMENT__CURRENT_USER_CAN_EDIT = eINSTANCE.getComment_CurrentUserCanEdit();
 
 		/**
-		 * The meta object literal for the '<em><b>Reactions</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Reactions</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2356,7 +2511,7 @@ public interface GropiusPackage extends EPackage {
 		EReference COMPONENT__IMS = eINSTANCE.getComponent_Ims();
 
 		/**
-		 * The meta object literal for the '<em><b>Issues</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Issues</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2364,7 +2519,7 @@ public interface GropiusPackage extends EPackage {
 		EReference COMPONENT__ISSUES = eINSTANCE.getComponent_Issues();
 
 		/**
-		 * The meta object literal for the '<em><b>Projects</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Projects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2372,7 +2527,7 @@ public interface GropiusPackage extends EPackage {
 		EReference COMPONENT__PROJECTS = eINSTANCE.getComponent_Projects();
 
 		/**
-		 * The meta object literal for the '<em><b>Interfaces</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Interfaces</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2380,7 +2535,7 @@ public interface GropiusPackage extends EPackage {
 		EReference COMPONENT__INTERFACES = eINSTANCE.getComponent_Interfaces();
 
 		/**
-		 * The meta object literal for the '<em><b>Consumed Interfaces</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Consumed Interfaces</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2388,7 +2543,7 @@ public interface GropiusPackage extends EPackage {
 		EReference COMPONENT__CONSUMED_INTERFACES = eINSTANCE.getComponent_ConsumedInterfaces();
 
 		/**
-		 * The meta object literal for the '<em><b>Labels</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Labels</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2440,7 +2595,7 @@ public interface GropiusPackage extends EPackage {
 		EReference COMPONENT_INTERFACE__COMPONENT = eINSTANCE.getComponentInterface_Component();
 
 		/**
-		 * The meta object literal for the '<em><b>Consumed By</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Consumed By</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2530,7 +2685,7 @@ public interface GropiusPackage extends EPackage {
 		EAttribute ISSUE__SPENT_TIME = eINSTANCE.getIssue_SpentTime();
 
 		/**
-		 * The meta object literal for the '<em><b>Issue Comments</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Issue Comments</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2538,7 +2693,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__ISSUE_COMMENTS = eINSTANCE.getIssue_IssueComments();
 
 		/**
-		 * The meta object literal for the '<em><b>Links To Issues</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Links To Issues</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2546,7 +2701,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__LINKS_TO_ISSUES = eINSTANCE.getIssue_LinksToIssues();
 
 		/**
-		 * The meta object literal for the '<em><b>Linked By Issues</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Linked By Issues</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2554,7 +2709,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__LINKED_BY_ISSUES = eINSTANCE.getIssue_LinkedByIssues();
 
 		/**
-		 * The meta object literal for the '<em><b>Assignees</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Assignees</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2562,7 +2717,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__ASSIGNEES = eINSTANCE.getIssue_Assignees();
 
 		/**
-		 * The meta object literal for the '<em><b>Labels</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Labels</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2570,7 +2725,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__LABELS = eINSTANCE.getIssue_Labels();
 
 		/**
-		 * The meta object literal for the '<em><b>Participants</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Participants</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2578,7 +2733,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__PARTICIPANTS = eINSTANCE.getIssue_Participants();
 
 		/**
-		 * The meta object literal for the '<em><b>Pinned On</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Pinned On</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2586,7 +2741,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__PINNED_ON = eINSTANCE.getIssue_PinnedOn();
 
 		/**
-		 * The meta object literal for the '<em><b>Timeline</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Timeline</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2594,7 +2749,7 @@ public interface GropiusPackage extends EPackage {
 		EReference ISSUE__TIMELINE = eINSTANCE.getIssue_Timeline();
 
 		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Location</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2662,7 +2817,7 @@ public interface GropiusPackage extends EPackage {
 		EAttribute ISSUE_LOCATION__DESCRIPTION = eINSTANCE.getIssueLocation_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Issue On Location</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Issue On Location</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2704,7 +2859,7 @@ public interface GropiusPackage extends EPackage {
 		EAttribute LABEL__COLOR = eINSTANCE.getLabel_Color();
 
 		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Components</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2712,20 +2867,12 @@ public interface GropiusPackage extends EPackage {
 		EReference LABEL__COMPONENTS = eINSTANCE.getLabel_Components();
 
 		/**
-		 * The meta object literal for the '<em><b>Projects</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Projects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference LABEL__PROJECTS = eINSTANCE.getLabel_Projects();
-
-		/**
-		 * The meta object literal for the '<em><b>Reaction</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LABEL__REACTION = eINSTANCE.getLabel_Reaction();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.gropius.impl.ReactionGroupImpl <em>Reaction Group</em>}' class.
@@ -2738,7 +2885,15 @@ public interface GropiusPackage extends EPackage {
 		EClass REACTION_GROUP = eINSTANCE.getReactionGroup();
 
 		/**
-		 * The meta object literal for the '<em><b>Users</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Reaction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REACTION_GROUP__REACTION = eINSTANCE.getReactionGroup_Reaction();
+
+		/**
+		 * The meta object literal for the '<em><b>Users</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2780,7 +2935,7 @@ public interface GropiusPackage extends EPackage {
 		EAttribute PROJECT__DESCRIPTION = eINSTANCE.getProject_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2788,7 +2943,7 @@ public interface GropiusPackage extends EPackage {
 		EReference PROJECT__COMPONENTS = eINSTANCE.getProject_Components();
 
 		/**
-		 * The meta object literal for the '<em><b>Users</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Users</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2796,7 +2951,7 @@ public interface GropiusPackage extends EPackage {
 		EReference PROJECT__USERS = eINSTANCE.getProject_Users();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Owner</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2804,7 +2959,7 @@ public interface GropiusPackage extends EPackage {
 		EReference PROJECT__OWNER = eINSTANCE.getProject_Owner();
 
 		/**
-		 * The meta object literal for the '<em><b>Issues</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Issues</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2812,7 +2967,7 @@ public interface GropiusPackage extends EPackage {
 		EReference PROJECT__ISSUES = eINSTANCE.getProject_Issues();
 
 		/**
-		 * The meta object literal for the '<em><b>Labels</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Labels</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2854,7 +3009,7 @@ public interface GropiusPackage extends EPackage {
 		EAttribute USER__EMAIL = eINSTANCE.getUser_Email();
 
 		/**
-		 * The meta object literal for the '<em><b>Projects</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Projects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2862,7 +3017,7 @@ public interface GropiusPackage extends EPackage {
 		EReference USER__PROJECTS = eINSTANCE.getUser_Projects();
 
 		/**
-		 * The meta object literal for the '<em><b>Assigned To Issues</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Assigned To Issues</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2870,7 +3025,7 @@ public interface GropiusPackage extends EPackage {
 		EReference USER__ASSIGNED_TO_ISSUES = eINSTANCE.getUser_AssignedToIssues();
 
 		/**
-		 * The meta object literal for the '<em><b>Participant Of Issue</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Participant Of Issue</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2878,12 +3033,22 @@ public interface GropiusPackage extends EPackage {
 		EReference USER__PARTICIPANT_OF_ISSUE = eINSTANCE.getUser_ParticipantOfIssue();
 
 		/**
-		 * The meta object literal for the '<em><b>Issue Comments</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Issue Comments</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference USER__ISSUE_COMMENTS = eINSTANCE.getUser_IssueComments();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.gropius.impl.IssueCommentImpl <em>Issue Comment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.gropius.impl.IssueCommentImpl
+		 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getIssueComment()
+		 * @generated
+		 */
+		EClass ISSUE_COMMENT = eINSTANCE.getIssueComment();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.gropius.IMSType <em>IMS Type</em>}' enum.

@@ -66,11 +66,11 @@ public class TaskImpl extends ActivityImpl implements Task {
      * @generated NOT
      */
     public EList<ConversationLink> getIncomingConversationLinks() {
-//        if (eResource() instanceof Bpmn2Resource) {
-//            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
-//                    ConversationLink.class, this,
-//                    Bpmn2Package.eINSTANCE.getConversationLink_TargetRef());
-//        }
+        if (eResource() instanceof Bpmn2Resource) {
+            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
+                    ConversationLink.class, this,
+                    Bpmn2Package.eINSTANCE.getConversationLink_TargetRef());
+        }
         throw new UnsupportedOperationException();
     }
 
@@ -82,11 +82,11 @@ public class TaskImpl extends ActivityImpl implements Task {
      * @generated NOT
      */
     public EList<ConversationLink> getOutgoingConversationLinks() {
-//        if (eResource() instanceof Bpmn2Resource) {
-//            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
-//                    ConversationLink.class, this,
-//                    Bpmn2Package.Literals.CONVERSATION_LINK__SOURCE_REF);
-//        }
+        if (eResource() instanceof Bpmn2Resource) {
+            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
+                    ConversationLink.class, this,
+                    Bpmn2Package.eINSTANCE.getConversationLink_SourceRef());
+        }
         throw new UnsupportedOperationException();
     }
 

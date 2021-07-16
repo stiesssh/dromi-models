@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -98,14 +99,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference.
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponents()
 	 * @generated
 	 * @ordered
 	 */
-	protected Component components;
+	protected EList<Component> components;
 
 	/**
 	 * The cached value of the '{@link #getUsers() <em>Users</em>}' reference list.
@@ -128,7 +129,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	protected EList<User> owner;
 
 	/**
-	 * The cached value of the '{@link #getIssues() <em>Issues</em>}' reference list.
+	 * The cached value of the '{@link #getIssues() <em>Issues</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIssues()
@@ -138,7 +139,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	protected EList<Issue> issues;
 
 	/**
-	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' reference list.
+	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLabels()
@@ -234,37 +235,11 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component getComponents() {
-		if (components != null && components.eIsProxy()) {
-			InternalEObject oldComponents = (InternalEObject)components;
-			components = (Component)eResolveProxy(oldComponents);
-			if (components != oldComponents) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.PROJECT__COMPONENTS, oldComponents, components));
-			}
+	public EList<Component> getComponents() {
+		if (components == null) {
+			components = new EObjectContainmentEList<Component>(Component.class, this, GropiusPackage.PROJECT__COMPONENTS);
 		}
 		return components;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Component basicGetComponents() {
-		return components;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComponents(Component newComponents) {
-		Component oldComponents = components;
-		components = newComponents;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.PROJECT__COMPONENTS, oldComponents, components));
 	}
 
 	/**
@@ -298,7 +273,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 */
 	public EList<Issue> getIssues() {
 		if (issues == null) {
-			issues = new EObjectResolvingEList<Issue>(Issue.class, this, GropiusPackage.PROJECT__ISSUES);
+			issues = new EObjectContainmentEList<Issue>(Issue.class, this, GropiusPackage.PROJECT__ISSUES);
 		}
 		return issues;
 	}
@@ -310,7 +285,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 */
 	public EList<Label> getLabels() {
 		if (labels == null) {
-			labels = new EObjectResolvingEList<Label>(Label.class, this, GropiusPackage.PROJECT__LABELS);
+			labels = new EObjectContainmentEList<Label>(Label.class, this, GropiusPackage.PROJECT__LABELS);
 		}
 		return labels;
 	}
@@ -338,8 +313,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GropiusPackage.PROJECT__COMPONENTS:
+				return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
 			case GropiusPackage.PROJECT__USERS:
 				return ((InternalEList<?>)getUsers()).basicRemove(otherEnd, msgs);
+			case GropiusPackage.PROJECT__ISSUES:
+				return ((InternalEList<?>)getIssues()).basicRemove(otherEnd, msgs);
+			case GropiusPackage.PROJECT__LABELS:
+				return ((InternalEList<?>)getLabels()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -359,8 +340,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GropiusPackage.PROJECT__DESCRIPTION:
 				return getDescription();
 			case GropiusPackage.PROJECT__COMPONENTS:
-				if (resolve) return getComponents();
-				return basicGetComponents();
+				return getComponents();
 			case GropiusPackage.PROJECT__USERS:
 				return getUsers();
 			case GropiusPackage.PROJECT__OWNER:
@@ -392,7 +372,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				setDescription((String)newValue);
 				return;
 			case GropiusPackage.PROJECT__COMPONENTS:
-				setComponents((Component)newValue);
+				getComponents().clear();
+				getComponents().addAll((Collection<? extends Component>)newValue);
 				return;
 			case GropiusPackage.PROJECT__USERS:
 				getUsers().clear();
@@ -432,7 +413,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case GropiusPackage.PROJECT__COMPONENTS:
-				setComponents((Component)null);
+				getComponents().clear();
 				return;
 			case GropiusPackage.PROJECT__USERS:
 				getUsers().clear();
@@ -465,7 +446,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GropiusPackage.PROJECT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case GropiusPackage.PROJECT__COMPONENTS:
-				return components != null;
+				return components != null && !components.isEmpty();
 			case GropiusPackage.PROJECT__USERS:
 				return users != null && !users.isEmpty();
 			case GropiusPackage.PROJECT__OWNER:

@@ -112,7 +112,7 @@ public class ViolationItemProvider extends ChainLinkItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Violation)object).getLocationId();
+		String label = ((Violation)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Violation_type") :
 			getString("_UI_Violation_type") + " " + label;

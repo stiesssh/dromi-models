@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-import org.eclipse.bpmn2.Process;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -69,6 +68,7 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
+import de.unistuttgart.ma.importer.architecture.GropiusImporter;
 import de.unistuttgart.ma.importer.process.BPMNImporter;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.SagaFactory;
@@ -213,10 +213,14 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		EClass eClass = (EClass)sagaPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = sagaFactory.create(eClass);
 		
-		BPMNImporter importer = new BPMNImporter("/home/maumau/uni/14_21SS/project/repos/ma-sirius/de.unistuttgart.ma.saga.editor/t2Process.bpmn2");
-		Process p = importer.parse();
-				
-		((Project) rootObject).getProcesses().add(p);
+		BPMNImporter bpmnImporter = new BPMNImporter("/home/maumau/uni/14_21SS/project/repos/ma-sirius/de.unistuttgart.ma.saga.editor/t2Process.bpmn2");
+		((Project) rootObject).getProcesses().add(bpmnImporter.parse());
+		
+		GropiusImporter gropiusImporter = new GropiusImporter("http://localhost:8080/api", "t2-extended", sagaFactory);
+		((Project) rootObject).getComponents().addAll(gropiusImporter.parse());
+		
+		((Project) rootObject).setId("testProject");
+		((Project) rootObject).setName("testPproject");
 		
 		return rootObject;
 	}

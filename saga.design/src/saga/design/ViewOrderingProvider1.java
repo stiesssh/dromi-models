@@ -18,9 +18,9 @@ public class ViewOrderingProvider1 implements ViewOrderingProvider {
 
 	@Override
 	public ViewOrdering getViewOrdering(DiagramElementMapping mapping) {
-		if (mapping instanceof AbstractNodeMapping) {
-			System.out.println("provider : " + ((AbstractNodeMapping) mapping).getDomainClass());
-		}
+//		if (mapping instanceof AbstractNodeMapping) {
+//			System.out.println("provider : " + ((AbstractNodeMapping) mapping).getDomainClass());
+//		}
 			
 		return new ViewOrdering1();
 	}

@@ -3,9 +3,11 @@
 package de.unistuttgart.ma.saga.provider;
 
 
+import de.unistuttgart.gropius.GropiusFactory;
 import de.unistuttgart.gropius.GropiusPackage;
 
 import de.unistuttgart.ma.saga.ComponentAdapter;
+import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 
 import gropius.slo.SloFactory;
@@ -273,7 +275,7 @@ public class ComponentAdapterItemProvider
 				 GropiusPackage.Literals.COMPONENT__INTERFACES,
 				 true,
 				 false,
-				 true,
+				 false,
 				 null,
 				 null,
 				 null));
@@ -336,6 +338,7 @@ public class ComponentAdapterItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SagaPackage.Literals.ELEMENT_WITH_SLO__SLO_RULES);
+			childrenFeatures.add(GropiusPackage.Literals.COMPONENT__INTERFACES);
 		}
 		return childrenFeatures;
 	}
@@ -397,6 +400,7 @@ public class ComponentAdapterItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
+			case SagaPackage.COMPONENT_ADAPTER__INTERFACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -418,6 +422,16 @@ public class ComponentAdapterItemProvider
 			(createChildParameter
 				(SagaPackage.Literals.ELEMENT_WITH_SLO__SLO_RULES,
 				 SloFactory.eINSTANCE.createSloRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GropiusPackage.Literals.COMPONENT__INTERFACES,
+				 SagaFactory.eINSTANCE.createComponentInterfaceAdapter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GropiusPackage.Literals.COMPONENT__INTERFACES,
+				 GropiusFactory.eINSTANCE.createComponentInterface()));
 	}
 
 	/**

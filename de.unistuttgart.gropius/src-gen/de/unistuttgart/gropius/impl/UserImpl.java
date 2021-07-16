@@ -2,20 +2,25 @@
  */
 package de.unistuttgart.gropius.impl;
 
-import de.unistuttgart.gropius.Comment;
 import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.Issue;
+import de.unistuttgart.gropius.IssueComment;
 import de.unistuttgart.gropius.Project;
 import de.unistuttgart.gropius.User;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,44 +114,44 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	protected String email = EMAIL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' reference.
+	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProjects()
 	 * @generated
 	 * @ordered
 	 */
-	protected Project projects;
+	protected EList<Project> projects;
 
 	/**
-	 * The cached value of the '{@link #getAssignedToIssues() <em>Assigned To Issues</em>}' reference.
+	 * The cached value of the '{@link #getAssignedToIssues() <em>Assigned To Issues</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAssignedToIssues()
 	 * @generated
 	 * @ordered
 	 */
-	protected Issue assignedToIssues;
+	protected EList<Issue> assignedToIssues;
 
 	/**
-	 * The cached value of the '{@link #getParticipantOfIssue() <em>Participant Of Issue</em>}' reference.
+	 * The cached value of the '{@link #getParticipantOfIssue() <em>Participant Of Issue</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParticipantOfIssue()
 	 * @generated
 	 * @ordered
 	 */
-	protected Issue participantOfIssue;
+	protected EList<Issue> participantOfIssue;
 
 	/**
-	 * The cached value of the '{@link #getIssueComments() <em>Issue Comments</em>}' reference.
+	 * The cached value of the '{@link #getIssueComments() <em>Issue Comments</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIssueComments()
 	 * @generated
 	 * @ordered
 	 */
-	protected Comment issueComments;
+	protected EList<IssueComment> issueComments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,15 +263,10 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Project getProjects() {
-		if (projects != null && projects.eIsProxy()) {
-			InternalEObject oldProjects = (InternalEObject) projects;
-			projects = (Project) eResolveProxy(oldProjects);
-			if (projects != oldProjects) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.USER__PROJECTS,
-							oldProjects, projects));
-			}
+	public EList<Project> getProjects() {
+		if (projects == null) {
+			projects = new EObjectWithInverseResolvingEList.ManyInverse<Project>(Project.class, this,
+					GropiusPackage.USER__PROJECTS, GropiusPackage.PROJECT__USERS);
 		}
 		return projects;
 	}
@@ -276,65 +276,10 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Project basicGetProjects() {
-		return projects;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProjects(Project newProjects, NotificationChain msgs) {
-		Project oldProjects = projects;
-		projects = newProjects;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GropiusPackage.USER__PROJECTS, oldProjects, newProjects);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProjects(Project newProjects) {
-		if (newProjects != projects) {
-			NotificationChain msgs = null;
-			if (projects != null)
-				msgs = ((InternalEObject) projects).eInverseRemove(this, GropiusPackage.PROJECT__USERS, Project.class,
-						msgs);
-			if (newProjects != null)
-				msgs = ((InternalEObject) newProjects).eInverseAdd(this, GropiusPackage.PROJECT__USERS, Project.class,
-						msgs);
-			msgs = basicSetProjects(newProjects, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.USER__PROJECTS, newProjects,
-					newProjects));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Issue getAssignedToIssues() {
-		if (assignedToIssues != null && assignedToIssues.eIsProxy()) {
-			InternalEObject oldAssignedToIssues = (InternalEObject) assignedToIssues;
-			assignedToIssues = (Issue) eResolveProxy(oldAssignedToIssues);
-			if (assignedToIssues != oldAssignedToIssues) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.USER__ASSIGNED_TO_ISSUES,
-							oldAssignedToIssues, assignedToIssues));
-			}
+	public EList<Issue> getAssignedToIssues() {
+		if (assignedToIssues == null) {
+			assignedToIssues = new EObjectWithInverseResolvingEList.ManyInverse<Issue>(Issue.class, this,
+					GropiusPackage.USER__ASSIGNED_TO_ISSUES, GropiusPackage.ISSUE__ASSIGNEES);
 		}
 		return assignedToIssues;
 	}
@@ -344,65 +289,10 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Issue basicGetAssignedToIssues() {
-		return assignedToIssues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAssignedToIssues(Issue newAssignedToIssues, NotificationChain msgs) {
-		Issue oldAssignedToIssues = assignedToIssues;
-		assignedToIssues = newAssignedToIssues;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GropiusPackage.USER__ASSIGNED_TO_ISSUES, oldAssignedToIssues, newAssignedToIssues);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAssignedToIssues(Issue newAssignedToIssues) {
-		if (newAssignedToIssues != assignedToIssues) {
-			NotificationChain msgs = null;
-			if (assignedToIssues != null)
-				msgs = ((InternalEObject) assignedToIssues).eInverseRemove(this, GropiusPackage.ISSUE__ASSIGNEES,
-						Issue.class, msgs);
-			if (newAssignedToIssues != null)
-				msgs = ((InternalEObject) newAssignedToIssues).eInverseAdd(this, GropiusPackage.ISSUE__ASSIGNEES,
-						Issue.class, msgs);
-			msgs = basicSetAssignedToIssues(newAssignedToIssues, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.USER__ASSIGNED_TO_ISSUES,
-					newAssignedToIssues, newAssignedToIssues));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Issue getParticipantOfIssue() {
-		if (participantOfIssue != null && participantOfIssue.eIsProxy()) {
-			InternalEObject oldParticipantOfIssue = (InternalEObject) participantOfIssue;
-			participantOfIssue = (Issue) eResolveProxy(oldParticipantOfIssue);
-			if (participantOfIssue != oldParticipantOfIssue) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.USER__PARTICIPANT_OF_ISSUE,
-							oldParticipantOfIssue, participantOfIssue));
-			}
+	public EList<Issue> getParticipantOfIssue() {
+		if (participantOfIssue == null) {
+			participantOfIssue = new EObjectWithInverseResolvingEList.ManyInverse<Issue>(Issue.class, this,
+					GropiusPackage.USER__PARTICIPANT_OF_ISSUE, GropiusPackage.ISSUE__PARTICIPANTS);
 		}
 		return participantOfIssue;
 	}
@@ -412,65 +302,10 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Issue basicGetParticipantOfIssue() {
-		return participantOfIssue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParticipantOfIssue(Issue newParticipantOfIssue, NotificationChain msgs) {
-		Issue oldParticipantOfIssue = participantOfIssue;
-		participantOfIssue = newParticipantOfIssue;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GropiusPackage.USER__PARTICIPANT_OF_ISSUE, oldParticipantOfIssue, newParticipantOfIssue);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParticipantOfIssue(Issue newParticipantOfIssue) {
-		if (newParticipantOfIssue != participantOfIssue) {
-			NotificationChain msgs = null;
-			if (participantOfIssue != null)
-				msgs = ((InternalEObject) participantOfIssue).eInverseRemove(this, GropiusPackage.ISSUE__PARTICIPANTS,
-						Issue.class, msgs);
-			if (newParticipantOfIssue != null)
-				msgs = ((InternalEObject) newParticipantOfIssue).eInverseAdd(this, GropiusPackage.ISSUE__PARTICIPANTS,
-						Issue.class, msgs);
-			msgs = basicSetParticipantOfIssue(newParticipantOfIssue, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.USER__PARTICIPANT_OF_ISSUE,
-					newParticipantOfIssue, newParticipantOfIssue));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Comment getIssueComments() {
-		if (issueComments != null && issueComments.eIsProxy()) {
-			InternalEObject oldIssueComments = (InternalEObject) issueComments;
-			issueComments = (Comment) eResolveProxy(oldIssueComments);
-			if (issueComments != oldIssueComments) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.USER__ISSUE_COMMENTS,
-							oldIssueComments, issueComments));
-			}
+	public EList<IssueComment> getIssueComments() {
+		if (issueComments == null) {
+			issueComments = new EObjectResolvingEList<IssueComment>(IssueComment.class, this,
+					GropiusPackage.USER__ISSUE_COMMENTS);
 		}
 		return issueComments;
 	}
@@ -480,79 +315,17 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Comment basicGetIssueComments() {
-		return issueComments;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIssueComments(Comment newIssueComments, NotificationChain msgs) {
-		Comment oldIssueComments = issueComments;
-		issueComments = newIssueComments;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GropiusPackage.USER__ISSUE_COMMENTS, oldIssueComments, newIssueComments);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIssueComments(Comment newIssueComments) {
-		if (newIssueComments != issueComments) {
-			NotificationChain msgs = null;
-			if (issueComments != null)
-				msgs = ((InternalEObject) issueComments).eInverseRemove(this, GropiusPackage.COMMENT__CREATED_BY,
-						Comment.class, msgs);
-			if (newIssueComments != null)
-				msgs = ((InternalEObject) newIssueComments).eInverseAdd(this, GropiusPackage.COMMENT__CREATED_BY,
-						Comment.class, msgs);
-			msgs = basicSetIssueComments(newIssueComments, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.USER__ISSUE_COMMENTS, newIssueComments,
-					newIssueComments));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case GropiusPackage.USER__PROJECTS:
-			if (projects != null)
-				msgs = ((InternalEObject) projects).eInverseRemove(this, GropiusPackage.PROJECT__USERS, Project.class,
-						msgs);
-			return basicSetProjects((Project) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getProjects()).basicAdd(otherEnd, msgs);
 		case GropiusPackage.USER__ASSIGNED_TO_ISSUES:
-			if (assignedToIssues != null)
-				msgs = ((InternalEObject) assignedToIssues).eInverseRemove(this, GropiusPackage.ISSUE__ASSIGNEES,
-						Issue.class, msgs);
-			return basicSetAssignedToIssues((Issue) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getAssignedToIssues()).basicAdd(otherEnd, msgs);
 		case GropiusPackage.USER__PARTICIPANT_OF_ISSUE:
-			if (participantOfIssue != null)
-				msgs = ((InternalEObject) participantOfIssue).eInverseRemove(this, GropiusPackage.ISSUE__PARTICIPANTS,
-						Issue.class, msgs);
-			return basicSetParticipantOfIssue((Issue) otherEnd, msgs);
-		case GropiusPackage.USER__ISSUE_COMMENTS:
-			if (issueComments != null)
-				msgs = ((InternalEObject) issueComments).eInverseRemove(this, GropiusPackage.COMMENT__CREATED_BY,
-						Comment.class, msgs);
-			return basicSetIssueComments((Comment) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getParticipantOfIssue()).basicAdd(otherEnd,
+					msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -566,13 +339,11 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case GropiusPackage.USER__PROJECTS:
-			return basicSetProjects(null, msgs);
+			return ((InternalEList<?>) getProjects()).basicRemove(otherEnd, msgs);
 		case GropiusPackage.USER__ASSIGNED_TO_ISSUES:
-			return basicSetAssignedToIssues(null, msgs);
+			return ((InternalEList<?>) getAssignedToIssues()).basicRemove(otherEnd, msgs);
 		case GropiusPackage.USER__PARTICIPANT_OF_ISSUE:
-			return basicSetParticipantOfIssue(null, msgs);
-		case GropiusPackage.USER__ISSUE_COMMENTS:
-			return basicSetIssueComments(null, msgs);
+			return ((InternalEList<?>) getParticipantOfIssue()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -594,21 +365,13 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		case GropiusPackage.USER__EMAIL:
 			return getEmail();
 		case GropiusPackage.USER__PROJECTS:
-			if (resolve)
-				return getProjects();
-			return basicGetProjects();
+			return getProjects();
 		case GropiusPackage.USER__ASSIGNED_TO_ISSUES:
-			if (resolve)
-				return getAssignedToIssues();
-			return basicGetAssignedToIssues();
+			return getAssignedToIssues();
 		case GropiusPackage.USER__PARTICIPANT_OF_ISSUE:
-			if (resolve)
-				return getParticipantOfIssue();
-			return basicGetParticipantOfIssue();
+			return getParticipantOfIssue();
 		case GropiusPackage.USER__ISSUE_COMMENTS:
-			if (resolve)
-				return getIssueComments();
-			return basicGetIssueComments();
+			return getIssueComments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -618,6 +381,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -634,16 +398,20 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			setEmail((String) newValue);
 			return;
 		case GropiusPackage.USER__PROJECTS:
-			setProjects((Project) newValue);
+			getProjects().clear();
+			getProjects().addAll((Collection<? extends Project>) newValue);
 			return;
 		case GropiusPackage.USER__ASSIGNED_TO_ISSUES:
-			setAssignedToIssues((Issue) newValue);
+			getAssignedToIssues().clear();
+			getAssignedToIssues().addAll((Collection<? extends Issue>) newValue);
 			return;
 		case GropiusPackage.USER__PARTICIPANT_OF_ISSUE:
-			setParticipantOfIssue((Issue) newValue);
+			getParticipantOfIssue().clear();
+			getParticipantOfIssue().addAll((Collection<? extends Issue>) newValue);
 			return;
 		case GropiusPackage.USER__ISSUE_COMMENTS:
-			setIssueComments((Comment) newValue);
+			getIssueComments().clear();
+			getIssueComments().addAll((Collection<? extends IssueComment>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -670,16 +438,16 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			setEmail(EMAIL_EDEFAULT);
 			return;
 		case GropiusPackage.USER__PROJECTS:
-			setProjects((Project) null);
+			getProjects().clear();
 			return;
 		case GropiusPackage.USER__ASSIGNED_TO_ISSUES:
-			setAssignedToIssues((Issue) null);
+			getAssignedToIssues().clear();
 			return;
 		case GropiusPackage.USER__PARTICIPANT_OF_ISSUE:
-			setParticipantOfIssue((Issue) null);
+			getParticipantOfIssue().clear();
 			return;
 		case GropiusPackage.USER__ISSUE_COMMENTS:
-			setIssueComments((Comment) null);
+			getIssueComments().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -702,13 +470,13 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 		case GropiusPackage.USER__EMAIL:
 			return EMAIL_EDEFAULT == null ? email != null : !EMAIL_EDEFAULT.equals(email);
 		case GropiusPackage.USER__PROJECTS:
-			return projects != null;
+			return projects != null && !projects.isEmpty();
 		case GropiusPackage.USER__ASSIGNED_TO_ISSUES:
-			return assignedToIssues != null;
+			return assignedToIssues != null && !assignedToIssues.isEmpty();
 		case GropiusPackage.USER__PARTICIPANT_OF_ISSUE:
-			return participantOfIssue != null;
+			return participantOfIssue != null && !participantOfIssue.isEmpty();
 		case GropiusPackage.USER__ISSUE_COMMENTS:
-			return issueComments != null;
+			return issueComments != null && !issueComments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

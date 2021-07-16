@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.gropius;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Component Interface</b></em>'.
@@ -43,25 +45,15 @@ public interface ComponentInterface extends IssueLocation, Node {
 	void setComponent(Component value);
 
 	/**
-	 * Returns the value of the '<em><b>Consumed By</b></em>' reference.
+	 * Returns the value of the '<em><b>Consumed By</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Consumed By</em>' reference.
-	 * @see #setConsumedBy(Component)
+	 * @return the value of the '<em>Consumed By</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponentInterface_ConsumedBy()
 	 * @model
 	 * @generated
 	 */
-	Component getConsumedBy();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.ComponentInterface#getConsumedBy <em>Consumed By</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Consumed By</em>' reference.
-	 * @see #getConsumedBy()
-	 * @generated
-	 */
-	void setConsumedBy(Component value);
+	EList<Component> getConsumedBy();
 
 } // ComponentInterface

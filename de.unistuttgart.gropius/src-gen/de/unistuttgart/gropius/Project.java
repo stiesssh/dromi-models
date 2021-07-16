@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.gropius;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Project</b></em>'.
@@ -70,115 +72,65 @@ public interface Project extends Node {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Components</b></em>' reference.
+	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Components</em>' reference.
-	 * @see #setComponents(Component)
+	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Components()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Component getComponents();
+	EList<Component> getComponents();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Project#getComponents <em>Components</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Components</em>' reference.
-	 * @see #getComponents()
-	 * @generated
-	 */
-	void setComponents(Component value);
-
-	/**
-	 * Returns the value of the '<em><b>Users</b></em>' reference.
+	 * Returns the value of the '<em><b>Users</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.User}.
 	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.User#getProjects <em>Projects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Users</em>' reference.
-	 * @see #setUsers(User)
+	 * @return the value of the '<em>Users</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Users()
 	 * @see de.unistuttgart.gropius.User#getProjects
 	 * @model opposite="projects"
 	 * @generated
 	 */
-	User getUsers();
+	EList<User> getUsers();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Project#getUsers <em>Users</em>}' reference.
+	 * Returns the value of the '<em><b>Owner</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.User}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Users</em>' reference.
-	 * @see #getUsers()
-	 * @generated
-	 */
-	void setUsers(User value);
-
-	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
-	 * @see #setOwner(User)
+	 * @return the value of the '<em>Owner</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Owner()
 	 * @model
 	 * @generated
 	 */
-	User getOwner();
+	EList<User> getOwner();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Project#getOwner <em>Owner</em>}' reference.
+	 * Returns the value of the '<em><b>Issues</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
-	 * @see #getOwner()
-	 * @generated
-	 */
-	void setOwner(User value);
-
-	/**
-	 * Returns the value of the '<em><b>Issues</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issues</em>' reference.
-	 * @see #setIssues(Issue)
+	 * @return the value of the '<em>Issues</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Issues()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Issue getIssues();
+	EList<Issue> getIssues();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Project#getIssues <em>Issues</em>}' reference.
+	 * Returns the value of the '<em><b>Labels</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Label}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Issues</em>' reference.
-	 * @see #getIssues()
-	 * @generated
-	 */
-	void setIssues(Issue value);
-
-	/**
-	 * Returns the value of the '<em><b>Labels</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Labels</em>' reference.
-	 * @see #setLabels(Label)
+	 * @return the value of the '<em>Labels</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Labels()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Label getLabels();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Project#getLabels <em>Labels</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Labels</em>' reference.
-	 * @see #getLabels()
-	 * @generated
-	 */
-	void setLabels(Label value);
+	EList<Label> getLabels();
 
 } // Project

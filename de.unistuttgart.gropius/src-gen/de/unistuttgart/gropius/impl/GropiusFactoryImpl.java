@@ -73,6 +73,8 @@ public class GropiusFactoryImpl extends EFactoryImpl implements GropiusFactory {
 			return createProject();
 		case GropiusPackage.USER:
 			return createUser();
+		case GropiusPackage.ISSUE_COMMENT:
+			return createIssueComment();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -214,6 +216,16 @@ public class GropiusFactoryImpl extends EFactoryImpl implements GropiusFactory {
 	public User createUser() {
 		UserImpl user = new UserImpl();
 		return user;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IssueComment createIssueComment() {
+		IssueCommentImpl issueComment = new IssueCommentImpl();
+		return issueComment;
 	}
 
 	/**

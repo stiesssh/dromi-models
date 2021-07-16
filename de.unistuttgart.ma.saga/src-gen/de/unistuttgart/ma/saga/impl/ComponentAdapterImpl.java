@@ -172,7 +172,7 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 	protected EList<Project> projects;
 
 	/**
-	 * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' reference list.
+	 * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInterfaces()
@@ -414,7 +414,7 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 	 */
 	public EList<ComponentInterface> getInterfaces() {
 		if (interfaces == null) {
-			interfaces = new EObjectResolvingEList<ComponentInterface>(ComponentInterface.class, this, SagaPackage.COMPONENT_ADAPTER__INTERFACES);
+			interfaces = new EObjectContainmentEList<ComponentInterface>(ComponentInterface.class, this, SagaPackage.COMPONENT_ADAPTER__INTERFACES);
 		}
 		return interfaces;
 	}
@@ -468,6 +468,8 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
 				return ((InternalEList<?>)getSloRules()).basicRemove(otherEnd, msgs);
+			case SagaPackage.COMPONENT_ADAPTER__INTERFACES:
+				return ((InternalEList<?>)getInterfaces()).basicRemove(otherEnd, msgs);
 			case SagaPackage.COMPONENT_ADAPTER__LABELS:
 				return ((InternalEList<?>)getLabels()).basicRemove(otherEnd, msgs);
 		}

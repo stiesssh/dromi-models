@@ -7,13 +7,16 @@ import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.Issue;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,14 +88,14 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIssueOnLocation() <em>Issue On Location</em>}' reference.
+	 * The cached value of the '{@link #getIssueOnLocation() <em>Issue On Location</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIssueOnLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Issue issueOnLocation;
+	protected EList<Issue> issueOnLocation;
 
 	/**
 	 * The cached value of the '{@link #getComponent() <em>Component</em>}' reference.
@@ -105,14 +108,14 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	protected Component component;
 
 	/**
-	 * The cached value of the '{@link #getConsumedBy() <em>Consumed By</em>}' reference.
+	 * The cached value of the '{@link #getConsumedBy() <em>Consumed By</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConsumedBy()
 	 * @generated
 	 * @ordered
 	 */
-	protected Component consumedBy;
+	protected EList<Component> consumedBy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,40 +206,12 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Issue getIssueOnLocation() {
-		if (issueOnLocation != null && issueOnLocation.eIsProxy()) {
-			InternalEObject oldIssueOnLocation = (InternalEObject) issueOnLocation;
-			issueOnLocation = (Issue) eResolveProxy(oldIssueOnLocation);
-			if (issueOnLocation != oldIssueOnLocation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							GropiusPackage.COMPONENT_INTERFACE__ISSUE_ON_LOCATION, oldIssueOnLocation,
-							issueOnLocation));
-			}
+	public EList<Issue> getIssueOnLocation() {
+		if (issueOnLocation == null) {
+			issueOnLocation = new EObjectResolvingEList<Issue>(Issue.class, this,
+					GropiusPackage.COMPONENT_INTERFACE__ISSUE_ON_LOCATION);
 		}
 		return issueOnLocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Issue basicGetIssueOnLocation() {
-		return issueOnLocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIssueOnLocation(Issue newIssueOnLocation) {
-		Issue oldIssueOnLocation = issueOnLocation;
-		issueOnLocation = newIssueOnLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT_INTERFACE__ISSUE_ON_LOCATION,
-					oldIssueOnLocation, issueOnLocation));
 	}
 
 	/**
@@ -284,39 +259,12 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component getConsumedBy() {
-		if (consumedBy != null && consumedBy.eIsProxy()) {
-			InternalEObject oldConsumedBy = (InternalEObject) consumedBy;
-			consumedBy = (Component) eResolveProxy(oldConsumedBy);
-			if (consumedBy != oldConsumedBy) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY, oldConsumedBy, consumedBy));
-			}
+	public EList<Component> getConsumedBy() {
+		if (consumedBy == null) {
+			consumedBy = new EObjectResolvingEList<Component>(Component.class, this,
+					GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY);
 		}
 		return consumedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Component basicGetConsumedBy() {
-		return consumedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConsumedBy(Component newConsumedBy) {
-		Component oldConsumedBy = consumedBy;
-		consumedBy = newConsumedBy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY,
-					oldConsumedBy, consumedBy));
 	}
 
 	/**
@@ -334,17 +282,13 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 		case GropiusPackage.COMPONENT_INTERFACE__DESCRIPTION:
 			return getDescription();
 		case GropiusPackage.COMPONENT_INTERFACE__ISSUE_ON_LOCATION:
-			if (resolve)
-				return getIssueOnLocation();
-			return basicGetIssueOnLocation();
+			return getIssueOnLocation();
 		case GropiusPackage.COMPONENT_INTERFACE__COMPONENT:
 			if (resolve)
 				return getComponent();
 			return basicGetComponent();
 		case GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY:
-			if (resolve)
-				return getConsumedBy();
-			return basicGetConsumedBy();
+			return getConsumedBy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -354,6 +298,7 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -367,13 +312,15 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 			setDescription((String) newValue);
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__ISSUE_ON_LOCATION:
-			setIssueOnLocation((Issue) newValue);
+			getIssueOnLocation().clear();
+			getIssueOnLocation().addAll((Collection<? extends Issue>) newValue);
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__COMPONENT:
 			setComponent((Component) newValue);
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY:
-			setConsumedBy((Component) newValue);
+			getConsumedBy().clear();
+			getConsumedBy().addAll((Collection<? extends Component>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -397,13 +344,13 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__ISSUE_ON_LOCATION:
-			setIssueOnLocation((Issue) null);
+			getIssueOnLocation().clear();
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__COMPONENT:
 			setComponent((Component) null);
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY:
-			setConsumedBy((Component) null);
+			getConsumedBy().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -424,11 +371,11 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 		case GropiusPackage.COMPONENT_INTERFACE__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		case GropiusPackage.COMPONENT_INTERFACE__ISSUE_ON_LOCATION:
-			return issueOnLocation != null;
+			return issueOnLocation != null && !issueOnLocation.isEmpty();
 		case GropiusPackage.COMPONENT_INTERFACE__COMPONENT:
 			return component != null;
 		case GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY:
-			return consumedBy != null;
+			return consumedBy != null && !consumedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.gropius;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Issue Location</b></em>'.
@@ -66,25 +68,15 @@ public interface IssueLocation extends Node {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Issue On Location</b></em>' reference.
+	 * Returns the value of the '<em><b>Issue On Location</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issue On Location</em>' reference.
-	 * @see #setIssueOnLocation(Issue)
+	 * @return the value of the '<em>Issue On Location</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssueLocation_IssueOnLocation()
 	 * @model
 	 * @generated
 	 */
-	Issue getIssueOnLocation();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.IssueLocation#getIssueOnLocation <em>Issue On Location</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Issue On Location</em>' reference.
-	 * @see #getIssueOnLocation()
-	 * @generated
-	 */
-	void setIssueOnLocation(Issue value);
+	EList<Issue> getIssueOnLocation();
 
 } // IssueLocation

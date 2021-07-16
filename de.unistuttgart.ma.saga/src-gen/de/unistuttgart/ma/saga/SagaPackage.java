@@ -313,7 +313,7 @@ public interface SagaPackage extends EPackage {
 	int COMPONENT_ADAPTER__PROJECTS = ELEMENT_WITH_SLO_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Interfaces</b></em>' reference list.
+	 * The feature id for the '<em><b>Interfaces</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -587,13 +587,31 @@ public interface SagaPackage extends EPackage {
 	int CHAIN_LINK = 8;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_LINK__ID = IDENTIFIABLE_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHAIN_LINK__NAME = IDENTIFIABLE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Location Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHAIN_LINK__LOCATION_ID = 0;
+	int CHAIN_LINK__LOCATION_ID = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Chain Link</em>' class.
@@ -602,7 +620,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHAIN_LINK_FEATURE_COUNT = 1;
+	int CHAIN_LINK_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Chain Link</em>' class.
@@ -611,7 +629,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHAIN_LINK_OPERATION_COUNT = 0;
+	int CHAIN_LINK_OPERATION_COUNT = IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ViolationImpl <em>Violation</em>}' class.
@@ -622,6 +640,24 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 */
 	int VIOLATION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__ID = CHAIN_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__NAME = CHAIN_LINK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Location Id</b></em>' attribute.
@@ -677,6 +713,24 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 */
 	int IMPACT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT__ID = CHAIN_LINK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT__NAME = CHAIN_LINK__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Location Id</b></em>' attribute.

@@ -11,14 +11,20 @@ import de.unistuttgart.gropius.Label;
 import de.unistuttgart.gropius.Project;
 import de.unistuttgart.gropius.User;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,14 +101,14 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIssueOnLocation() <em>Issue On Location</em>}' reference.
+	 * The cached value of the '{@link #getIssueOnLocation() <em>Issue On Location</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIssueOnLocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Issue issueOnLocation;
+	protected EList<Issue> issueOnLocation;
 
 	/**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
@@ -125,54 +131,54 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	protected IMS ims;
 
 	/**
-	 * The cached value of the '{@link #getIssues() <em>Issues</em>}' reference.
+	 * The cached value of the '{@link #getIssues() <em>Issues</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIssues()
 	 * @generated
 	 * @ordered
 	 */
-	protected Issue issues;
+	protected EList<Issue> issues;
 
 	/**
-	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' reference.
+	 * The cached value of the '{@link #getProjects() <em>Projects</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProjects()
 	 * @generated
 	 * @ordered
 	 */
-	protected Project projects;
+	protected EList<Project> projects;
 
 	/**
-	 * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' reference.
+	 * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInterfaces()
 	 * @generated
 	 * @ordered
 	 */
-	protected ComponentInterface interfaces;
+	protected EList<ComponentInterface> interfaces;
 
 	/**
-	 * The cached value of the '{@link #getConsumedInterfaces() <em>Consumed Interfaces</em>}' reference.
+	 * The cached value of the '{@link #getConsumedInterfaces() <em>Consumed Interfaces</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConsumedInterfaces()
 	 * @generated
 	 * @ordered
 	 */
-	protected ComponentInterface consumedInterfaces;
+	protected EList<ComponentInterface> consumedInterfaces;
 
 	/**
-	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' reference.
+	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLabels()
 	 * @generated
 	 * @ordered
 	 */
-	protected Label labels;
+	protected EList<Label> labels;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -262,39 +268,12 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Issue getIssueOnLocation() {
-		if (issueOnLocation != null && issueOnLocation.eIsProxy()) {
-			InternalEObject oldIssueOnLocation = (InternalEObject) issueOnLocation;
-			issueOnLocation = (Issue) eResolveProxy(oldIssueOnLocation);
-			if (issueOnLocation != oldIssueOnLocation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							GropiusPackage.COMPONENT__ISSUE_ON_LOCATION, oldIssueOnLocation, issueOnLocation));
-			}
+	public EList<Issue> getIssueOnLocation() {
+		if (issueOnLocation == null) {
+			issueOnLocation = new EObjectResolvingEList<Issue>(Issue.class, this,
+					GropiusPackage.COMPONENT__ISSUE_ON_LOCATION);
 		}
 		return issueOnLocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Issue basicGetIssueOnLocation() {
-		return issueOnLocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIssueOnLocation(Issue newIssueOnLocation) {
-		Issue oldIssueOnLocation = issueOnLocation;
-		issueOnLocation = newIssueOnLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT__ISSUE_ON_LOCATION,
-					oldIssueOnLocation, issueOnLocation));
 	}
 
 	/**
@@ -380,15 +359,9 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Issue getIssues() {
-		if (issues != null && issues.eIsProxy()) {
-			InternalEObject oldIssues = (InternalEObject) issues;
-			issues = (Issue) eResolveProxy(oldIssues);
-			if (issues != oldIssues) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.COMPONENT__ISSUES,
-							oldIssues, issues));
-			}
+	public EList<Issue> getIssues() {
+		if (issues == null) {
+			issues = new EObjectResolvingEList<Issue>(Issue.class, this, GropiusPackage.COMPONENT__ISSUES);
 		}
 		return issues;
 	}
@@ -398,36 +371,9 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Issue basicGetIssues() {
-		return issues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIssues(Issue newIssues) {
-		Issue oldIssues = issues;
-		issues = newIssues;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT__ISSUES, oldIssues, issues));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Project getProjects() {
-		if (projects != null && projects.eIsProxy()) {
-			InternalEObject oldProjects = (InternalEObject) projects;
-			projects = (Project) eResolveProxy(oldProjects);
-			if (projects != oldProjects) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.COMPONENT__PROJECTS,
-							oldProjects, projects));
-			}
+	public EList<Project> getProjects() {
+		if (projects == null) {
+			projects = new EObjectResolvingEList<Project>(Project.class, this, GropiusPackage.COMPONENT__PROJECTS);
 		}
 		return projects;
 	}
@@ -437,37 +383,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Project basicGetProjects() {
-		return projects;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProjects(Project newProjects) {
-		Project oldProjects = projects;
-		projects = newProjects;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT__PROJECTS, oldProjects,
-					projects));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComponentInterface getInterfaces() {
-		if (interfaces != null && interfaces.eIsProxy()) {
-			InternalEObject oldInterfaces = (InternalEObject) interfaces;
-			interfaces = (ComponentInterface) eResolveProxy(oldInterfaces);
-			if (interfaces != oldInterfaces) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.COMPONENT__INTERFACES,
-							oldInterfaces, interfaces));
-			}
+	public EList<ComponentInterface> getInterfaces() {
+		if (interfaces == null) {
+			interfaces = new EObjectContainmentEList<ComponentInterface>(ComponentInterface.class, this,
+					GropiusPackage.COMPONENT__INTERFACES);
 		}
 		return interfaces;
 	}
@@ -477,37 +396,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComponentInterface basicGetInterfaces() {
-		return interfaces;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInterfaces(ComponentInterface newInterfaces) {
-		ComponentInterface oldInterfaces = interfaces;
-		interfaces = newInterfaces;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT__INTERFACES, oldInterfaces,
-					interfaces));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComponentInterface getConsumedInterfaces() {
-		if (consumedInterfaces != null && consumedInterfaces.eIsProxy()) {
-			InternalEObject oldConsumedInterfaces = (InternalEObject) consumedInterfaces;
-			consumedInterfaces = (ComponentInterface) eResolveProxy(oldConsumedInterfaces);
-			if (consumedInterfaces != oldConsumedInterfaces) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							GropiusPackage.COMPONENT__CONSUMED_INTERFACES, oldConsumedInterfaces, consumedInterfaces));
-			}
+	public EList<ComponentInterface> getConsumedInterfaces() {
+		if (consumedInterfaces == null) {
+			consumedInterfaces = new EObjectResolvingEList<ComponentInterface>(ComponentInterface.class, this,
+					GropiusPackage.COMPONENT__CONSUMED_INTERFACES);
 		}
 		return consumedInterfaces;
 	}
@@ -517,37 +409,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComponentInterface basicGetConsumedInterfaces() {
-		return consumedInterfaces;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConsumedInterfaces(ComponentInterface newConsumedInterfaces) {
-		ComponentInterface oldConsumedInterfaces = consumedInterfaces;
-		consumedInterfaces = newConsumedInterfaces;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT__CONSUMED_INTERFACES,
-					oldConsumedInterfaces, consumedInterfaces));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Label getLabels() {
-		if (labels != null && labels.eIsProxy()) {
-			InternalEObject oldLabels = (InternalEObject) labels;
-			labels = (Label) eResolveProxy(oldLabels);
-			if (labels != oldLabels) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.COMPONENT__LABELS,
-							oldLabels, labels));
-			}
+	public EList<Label> getLabels() {
+		if (labels == null) {
+			labels = new EObjectWithInverseResolvingEList.ManyInverse<Label>(Label.class, this,
+					GropiusPackage.COMPONENT__LABELS, GropiusPackage.LABEL__COMPONENTS);
 		}
 		return labels;
 	}
@@ -557,64 +422,12 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Label basicGetLabels() {
-		return labels;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLabels(Label newLabels, NotificationChain msgs) {
-		Label oldLabels = labels;
-		labels = newLabels;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GropiusPackage.COMPONENT__LABELS, oldLabels, newLabels);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabels(Label newLabels) {
-		if (newLabels != labels) {
-			NotificationChain msgs = null;
-			if (labels != null)
-				msgs = ((InternalEObject) labels).eInverseRemove(this, GropiusPackage.LABEL__COMPONENTS, Label.class,
-						msgs);
-			if (newLabels != null)
-				msgs = ((InternalEObject) newLabels).eInverseAdd(this, GropiusPackage.LABEL__COMPONENTS, Label.class,
-						msgs);
-			msgs = basicSetLabels(newLabels, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT__LABELS, newLabels,
-					newLabels));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case GropiusPackage.COMPONENT__LABELS:
-			if (labels != null)
-				msgs = ((InternalEObject) labels).eInverseRemove(this, GropiusPackage.LABEL__COMPONENTS, Label.class,
-						msgs);
-			return basicSetLabels((Label) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getLabels()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -627,8 +440,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case GropiusPackage.COMPONENT__INTERFACES:
+			return ((InternalEList<?>) getInterfaces()).basicRemove(otherEnd, msgs);
 		case GropiusPackage.COMPONENT__LABELS:
-			return basicSetLabels(null, msgs);
+			return ((InternalEList<?>) getLabels()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -648,9 +463,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 		case GropiusPackage.COMPONENT__DESCRIPTION:
 			return getDescription();
 		case GropiusPackage.COMPONENT__ISSUE_ON_LOCATION:
-			if (resolve)
-				return getIssueOnLocation();
-			return basicGetIssueOnLocation();
+			return getIssueOnLocation();
 		case GropiusPackage.COMPONENT__OWNER:
 			if (resolve)
 				return getOwner();
@@ -660,25 +473,15 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 				return getIms();
 			return basicGetIms();
 		case GropiusPackage.COMPONENT__ISSUES:
-			if (resolve)
-				return getIssues();
-			return basicGetIssues();
+			return getIssues();
 		case GropiusPackage.COMPONENT__PROJECTS:
-			if (resolve)
-				return getProjects();
-			return basicGetProjects();
+			return getProjects();
 		case GropiusPackage.COMPONENT__INTERFACES:
-			if (resolve)
-				return getInterfaces();
-			return basicGetInterfaces();
+			return getInterfaces();
 		case GropiusPackage.COMPONENT__CONSUMED_INTERFACES:
-			if (resolve)
-				return getConsumedInterfaces();
-			return basicGetConsumedInterfaces();
+			return getConsumedInterfaces();
 		case GropiusPackage.COMPONENT__LABELS:
-			if (resolve)
-				return getLabels();
-			return basicGetLabels();
+			return getLabels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -688,6 +491,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -701,7 +505,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 			setDescription((String) newValue);
 			return;
 		case GropiusPackage.COMPONENT__ISSUE_ON_LOCATION:
-			setIssueOnLocation((Issue) newValue);
+			getIssueOnLocation().clear();
+			getIssueOnLocation().addAll((Collection<? extends Issue>) newValue);
 			return;
 		case GropiusPackage.COMPONENT__OWNER:
 			setOwner((User) newValue);
@@ -710,19 +515,24 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 			setIms((IMS) newValue);
 			return;
 		case GropiusPackage.COMPONENT__ISSUES:
-			setIssues((Issue) newValue);
+			getIssues().clear();
+			getIssues().addAll((Collection<? extends Issue>) newValue);
 			return;
 		case GropiusPackage.COMPONENT__PROJECTS:
-			setProjects((Project) newValue);
+			getProjects().clear();
+			getProjects().addAll((Collection<? extends Project>) newValue);
 			return;
 		case GropiusPackage.COMPONENT__INTERFACES:
-			setInterfaces((ComponentInterface) newValue);
+			getInterfaces().clear();
+			getInterfaces().addAll((Collection<? extends ComponentInterface>) newValue);
 			return;
 		case GropiusPackage.COMPONENT__CONSUMED_INTERFACES:
-			setConsumedInterfaces((ComponentInterface) newValue);
+			getConsumedInterfaces().clear();
+			getConsumedInterfaces().addAll((Collection<? extends ComponentInterface>) newValue);
 			return;
 		case GropiusPackage.COMPONENT__LABELS:
-			setLabels((Label) newValue);
+			getLabels().clear();
+			getLabels().addAll((Collection<? extends Label>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -746,7 +556,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
 		case GropiusPackage.COMPONENT__ISSUE_ON_LOCATION:
-			setIssueOnLocation((Issue) null);
+			getIssueOnLocation().clear();
 			return;
 		case GropiusPackage.COMPONENT__OWNER:
 			setOwner((User) null);
@@ -755,19 +565,19 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 			setIms((IMS) null);
 			return;
 		case GropiusPackage.COMPONENT__ISSUES:
-			setIssues((Issue) null);
+			getIssues().clear();
 			return;
 		case GropiusPackage.COMPONENT__PROJECTS:
-			setProjects((Project) null);
+			getProjects().clear();
 			return;
 		case GropiusPackage.COMPONENT__INTERFACES:
-			setInterfaces((ComponentInterface) null);
+			getInterfaces().clear();
 			return;
 		case GropiusPackage.COMPONENT__CONSUMED_INTERFACES:
-			setConsumedInterfaces((ComponentInterface) null);
+			getConsumedInterfaces().clear();
 			return;
 		case GropiusPackage.COMPONENT__LABELS:
-			setLabels((Label) null);
+			getLabels().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -788,21 +598,21 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 		case GropiusPackage.COMPONENT__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		case GropiusPackage.COMPONENT__ISSUE_ON_LOCATION:
-			return issueOnLocation != null;
+			return issueOnLocation != null && !issueOnLocation.isEmpty();
 		case GropiusPackage.COMPONENT__OWNER:
 			return owner != null;
 		case GropiusPackage.COMPONENT__IMS:
 			return ims != null;
 		case GropiusPackage.COMPONENT__ISSUES:
-			return issues != null;
+			return issues != null && !issues.isEmpty();
 		case GropiusPackage.COMPONENT__PROJECTS:
-			return projects != null;
+			return projects != null && !projects.isEmpty();
 		case GropiusPackage.COMPONENT__INTERFACES:
-			return interfaces != null;
+			return interfaces != null && !interfaces.isEmpty();
 		case GropiusPackage.COMPONENT__CONSUMED_INTERFACES:
-			return consumedInterfaces != null;
+			return consumedInterfaces != null && !consumedInterfaces.isEmpty();
 		case GropiusPackage.COMPONENT__LABELS:
-			return labels != null;
+			return labels != null && !labels.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

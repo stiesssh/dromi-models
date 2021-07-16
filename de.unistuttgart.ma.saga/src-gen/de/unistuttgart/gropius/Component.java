@@ -96,13 +96,13 @@ public interface Component extends IssueLocation, Node {
 	EList<Project> getProjects();
 
 	/**
-	 * Returns the value of the '<em><b>Interfaces</b></em>' reference list.
+	 * Returns the value of the '<em><b>Interfaces</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.gropius.ComponentInterface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Interfaces</em>' reference list.
+	 * @return the value of the '<em>Interfaces</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_Interfaces()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ComponentInterface> getInterfaces();

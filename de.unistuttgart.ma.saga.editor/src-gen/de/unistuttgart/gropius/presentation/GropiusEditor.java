@@ -716,11 +716,11 @@ public class GropiusEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SagaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Bpmn2ItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new GropiusItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SloItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DiItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new BpmnDiItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DcItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SloItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new GropiusItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

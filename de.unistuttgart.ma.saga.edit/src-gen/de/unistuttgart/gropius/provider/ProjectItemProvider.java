@@ -3,8 +3,11 @@
 package de.unistuttgart.gropius.provider;
 
 
+import de.unistuttgart.gropius.GropiusFactory;
 import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.Project;
+
+import de.unistuttgart.ma.saga.SagaFactory;
 
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
 
@@ -15,6 +18,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -65,11 +70,8 @@ public class ProjectItemProvider
 			addIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addComponentsPropertyDescriptor(object);
 			addUsersPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
-			addIssuesPropertyDescriptor(object);
-			addLabelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -141,28 +143,6 @@ public class ProjectItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Components feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addComponentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Project_components_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Project_components_feature", "_UI_Project_type"),
-				 GropiusPackage.Literals.PROJECT__COMPONENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Users feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,47 +187,35 @@ public class ProjectItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Issues feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIssuesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Project_issues_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Project_issues_feature", "_UI_Project_type"),
-				 GropiusPackage.Literals.PROJECT__ISSUES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(GropiusPackage.Literals.PROJECT__COMPONENTS);
+			childrenFeatures.add(GropiusPackage.Literals.PROJECT__ISSUES);
+			childrenFeatures.add(GropiusPackage.Literals.PROJECT__LABELS);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Labels feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLabelsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Project_labels_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Project_labels_feature", "_UI_Project_type"),
-				 GropiusPackage.Literals.PROJECT__LABELS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -293,6 +261,11 @@ public class ProjectItemProvider
 			case GropiusPackage.PROJECT__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case GropiusPackage.PROJECT__COMPONENTS:
+			case GropiusPackage.PROJECT__ISSUES:
+			case GropiusPackage.PROJECT__LABELS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -307,6 +280,26 @@ public class ProjectItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GropiusPackage.Literals.PROJECT__COMPONENTS,
+				 GropiusFactory.eINSTANCE.createComponent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GropiusPackage.Literals.PROJECT__COMPONENTS,
+				 SagaFactory.eINSTANCE.createComponentAdapter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GropiusPackage.Literals.PROJECT__ISSUES,
+				 GropiusFactory.eINSTANCE.createIssue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GropiusPackage.Literals.PROJECT__LABELS,
+				 GropiusFactory.eINSTANCE.createLabel()));
 	}
 
 	/**

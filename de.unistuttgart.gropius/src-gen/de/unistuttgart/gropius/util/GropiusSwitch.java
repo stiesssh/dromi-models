@@ -77,6 +77,8 @@ public class GropiusSwitch<T> extends Switch<T> {
 			Comment comment = (Comment) theEObject;
 			T result = caseComment(comment);
 			if (result == null)
+				result = caseNode(comment);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -172,6 +174,19 @@ public class GropiusSwitch<T> extends Switch<T> {
 			T result = caseUser(user);
 			if (result == null)
 				result = caseNode(user);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case GropiusPackage.ISSUE_COMMENT: {
+			IssueComment issueComment = (IssueComment) theEObject;
+			T result = caseIssueComment(issueComment);
+			if (result == null)
+				result = caseComment(issueComment);
+			if (result == null)
+				result = caseIssueTimelineItem(issueComment);
+			if (result == null)
+				result = caseNode(issueComment);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -358,6 +373,21 @@ public class GropiusSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUser(User object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Issue Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Issue Comment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIssueComment(IssueComment object) {
 		return null;
 	}
 

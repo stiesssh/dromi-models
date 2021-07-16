@@ -2,8 +2,6 @@
  */
 package de.unistuttgart.ma.saga;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Chain Link</b></em>'.
@@ -20,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface ChainLink extends EObject {
+public interface ChainLink extends IdentifiableElement {
 	/**
 	 * Returns the value of the '<em><b>Location Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->

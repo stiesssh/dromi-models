@@ -72,26 +72,16 @@ public interface Project extends Node {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Components</b></em>' reference.
+	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Components</em>' reference.
-	 * @see #setComponents(Component)
+	 * @return the value of the '<em>Components</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Components()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Component getComponents();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Project#getComponents <em>Components</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Components</em>' reference.
-	 * @see #getComponents()
-	 * @generated
-	 */
-	void setComponents(Component value);
+	EList<Component> getComponents();
 
 	/**
 	 * Returns the value of the '<em><b>Users</b></em>' reference list.
@@ -120,25 +110,25 @@ public interface Project extends Node {
 	EList<User> getOwner();
 
 	/**
-	 * Returns the value of the '<em><b>Issues</b></em>' reference list.
+	 * Returns the value of the '<em><b>Issues</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issues</em>' reference list.
+	 * @return the value of the '<em>Issues</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Issues()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Issue> getIssues();
 
 	/**
-	 * Returns the value of the '<em><b>Labels</b></em>' reference list.
+	 * Returns the value of the '<em><b>Labels</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.gropius.Label}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Labels</em>' reference list.
+	 * @return the value of the '<em>Labels</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getProject_Labels()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Label> getLabels();

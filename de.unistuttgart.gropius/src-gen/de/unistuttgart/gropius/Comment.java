@@ -2,7 +2,7 @@
  */
 package de.unistuttgart.gropius;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.unistuttgart.gropius.Comment#getBody <em>Body</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.Comment#getBodyRendered <em>Body Rendered</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.Comment#getCreatedBy <em>Created By</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Comment#getCommentCreatedBy <em>Comment Created By</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.Comment#getEditedBy <em>Edited By</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.Comment#getCreatedAt <em>Created At</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Comment#getCommentCreatedAt <em>Comment Created At</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.Comment#getLastEditedAt <em>Last Edited At</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.Comment#isCurrentUserCanEdit <em>Current User Can Edit</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.Comment#getReactions <em>Reactions</em>}</li>
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Comment extends EObject {
+public interface Comment extends Node {
 	/**
 	 * Returns the value of the '<em><b>Body</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,72 +73,60 @@ public interface Comment extends EObject {
 	void setBodyRendered(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Created By</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.User#getIssueComments <em>Issue Comments</em>}'.
+	 * Returns the value of the '<em><b>Comment Created By</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Created By</em>' reference.
-	 * @see #setCreatedBy(User)
-	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_CreatedBy()
-	 * @see de.unistuttgart.gropius.User#getIssueComments
-	 * @model opposite="issueComments"
+	 * @return the value of the '<em>Comment Created By</em>' reference.
+	 * @see #setCommentCreatedBy(User)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_CommentCreatedBy()
+	 * @model
 	 * @generated
 	 */
-	User getCreatedBy();
+	User getCommentCreatedBy();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getCreatedBy <em>Created By</em>}' reference.
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getCommentCreatedBy <em>Comment Created By</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created By</em>' reference.
-	 * @see #getCreatedBy()
+	 * @param value the new value of the '<em>Comment Created By</em>' reference.
+	 * @see #getCommentCreatedBy()
 	 * @generated
 	 */
-	void setCreatedBy(User value);
+	void setCommentCreatedBy(User value);
 
 	/**
-	 * Returns the value of the '<em><b>Edited By</b></em>' reference.
+	 * Returns the value of the '<em><b>Edited By</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.User}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Edited By</em>' reference.
-	 * @see #setEditedBy(User)
+	 * @return the value of the '<em>Edited By</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_EditedBy()
 	 * @model
 	 * @generated
 	 */
-	User getEditedBy();
+	EList<User> getEditedBy();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getEditedBy <em>Edited By</em>}' reference.
+	 * Returns the value of the '<em><b>Comment Created At</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Edited By</em>' reference.
-	 * @see #getEditedBy()
-	 * @generated
-	 */
-	void setEditedBy(User value);
-
-	/**
-	 * Returns the value of the '<em><b>Created At</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Created At</em>' attribute.
-	 * @see #setCreatedAt(Object)
-	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_CreatedAt()
+	 * @return the value of the '<em>Comment Created At</em>' attribute.
+	 * @see #setCommentCreatedAt(Object)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_CommentCreatedAt()
 	 * @model dataType="de.unistuttgart.gropius.Date"
 	 * @generated
 	 */
-	Object getCreatedAt();
+	Object getCommentCreatedAt();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getCreatedAt <em>Created At</em>}' attribute.
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getCommentCreatedAt <em>Comment Created At</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created At</em>' attribute.
-	 * @see #getCreatedAt()
+	 * @param value the new value of the '<em>Comment Created At</em>' attribute.
+	 * @see #getCommentCreatedAt()
 	 * @generated
 	 */
-	void setCreatedAt(Object value);
+	void setCommentCreatedAt(Object value);
 
 	/**
 	 * Returns the value of the '<em><b>Last Edited At</b></em>' attribute.
@@ -185,25 +173,15 @@ public interface Comment extends EObject {
 	void setCurrentUserCanEdit(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Reactions</b></em>' reference.
+	 * Returns the value of the '<em><b>Reactions</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.ReactionGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reactions</em>' reference.
-	 * @see #setReactions(ReactionGroup)
+	 * @return the value of the '<em>Reactions</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_Reactions()
 	 * @model
 	 * @generated
 	 */
-	ReactionGroup getReactions();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getReactions <em>Reactions</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reactions</em>' reference.
-	 * @see #getReactions()
-	 * @generated
-	 */
-	void setReactions(ReactionGroup value);
+	EList<ReactionGroup> getReactions();
 
 } // Comment

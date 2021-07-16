@@ -15,7 +15,6 @@
 package org.eclipse.bpmn2.impl;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.bpmn2.Bpmn2Package;
 import org.eclipse.bpmn2.ConversationLink;
@@ -24,11 +23,15 @@ import org.eclipse.bpmn2.InteractionNode;
 import org.eclipse.bpmn2.Property;
 import org.eclipse.bpmn2.util.Bpmn2Resource;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,11 +86,15 @@ public abstract class EventImpl extends FlowNodeImpl implements Event {
      * @generated NOT
      */
     public EList<ConversationLink> getIncomingConversationLinks() {
-//        if (eResource() instanceof Bpmn2Resource) {
-//            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
-//                    ConversationLink.class, this,
-//                    Bpmn2Package.Literals.CONVERSATION_LINK__TARGET_REF);
-//        }
+    	Resource r = eResource();
+        if (eResource() instanceof Bpmn2Resource) {
+            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
+                    ConversationLink.class, this,
+                    Bpmn2Package.eINSTANCE.getConversationLink_TargetRef());
+        }
+        if (eResource() instanceof XMIResource) {
+        	return new BasicEList<>();
+        }
         throw new UnsupportedOperationException();
     }
 
@@ -99,11 +106,14 @@ public abstract class EventImpl extends FlowNodeImpl implements Event {
      * @generated NOT
      */
     public EList<ConversationLink> getOutgoingConversationLinks() {
-//        if (eResource() instanceof Bpmn2Resource) {
-//            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
-//                    ConversationLink.class, this,
-//                    Bpmn2Package.Literals.CONVERSATION_LINK__SOURCE_REF);
-//        }
+        if (eResource() instanceof Bpmn2Resource) {
+            return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
+                    ConversationLink.class, this,
+                    Bpmn2Package.eINSTANCE.getConversationLink_SourceRef());
+        }
+        if (eResource() instanceof XMIResource) {
+        	return new BasicEList<>();
+        }
         throw new UnsupportedOperationException();
     }
 

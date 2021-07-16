@@ -122,6 +122,7 @@ public class SagaSwitch<T> extends Switch<T> {
 				Violation violation = (Violation)theEObject;
 				T result = caseViolation(violation);
 				if (result == null) result = caseChainLink(violation);
+				if (result == null) result = caseIdentifiableElement(violation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,12 +130,14 @@ public class SagaSwitch<T> extends Switch<T> {
 				Impact impact = (Impact)theEObject;
 				T result = caseImpact(impact);
 				if (result == null) result = caseChainLink(impact);
+				if (result == null) result = caseIdentifiableElement(impact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SagaPackage.CHAIN_LINK: {
 				ChainLink chainLink = (ChainLink)theEObject;
 				T result = caseChainLink(chainLink);
+				if (result == null) result = caseIdentifiableElement(chainLink);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

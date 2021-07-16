@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.gropius;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Component</b></em>'.
@@ -70,115 +72,65 @@ public interface Component extends IssueLocation, Node {
 	void setIms(IMS value);
 
 	/**
-	 * Returns the value of the '<em><b>Issues</b></em>' reference.
+	 * Returns the value of the '<em><b>Issues</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Issues</em>' reference.
-	 * @see #setIssues(Issue)
+	 * @return the value of the '<em>Issues</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_Issues()
 	 * @model
 	 * @generated
 	 */
-	Issue getIssues();
+	EList<Issue> getIssues();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Component#getIssues <em>Issues</em>}' reference.
+	 * Returns the value of the '<em><b>Projects</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Project}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Issues</em>' reference.
-	 * @see #getIssues()
-	 * @generated
-	 */
-	void setIssues(Issue value);
-
-	/**
-	 * Returns the value of the '<em><b>Projects</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Projects</em>' reference.
-	 * @see #setProjects(Project)
+	 * @return the value of the '<em>Projects</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_Projects()
 	 * @model
 	 * @generated
 	 */
-	Project getProjects();
+	EList<Project> getProjects();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Component#getProjects <em>Projects</em>}' reference.
+	 * Returns the value of the '<em><b>Interfaces</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.ComponentInterface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Projects</em>' reference.
-	 * @see #getProjects()
-	 * @generated
-	 */
-	void setProjects(Project value);
-
-	/**
-	 * Returns the value of the '<em><b>Interfaces</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Interfaces</em>' reference.
-	 * @see #setInterfaces(ComponentInterface)
+	 * @return the value of the '<em>Interfaces</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_Interfaces()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	ComponentInterface getInterfaces();
+	EList<ComponentInterface> getInterfaces();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Component#getInterfaces <em>Interfaces</em>}' reference.
+	 * Returns the value of the '<em><b>Consumed Interfaces</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.ComponentInterface}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interfaces</em>' reference.
-	 * @see #getInterfaces()
-	 * @generated
-	 */
-	void setInterfaces(ComponentInterface value);
-
-	/**
-	 * Returns the value of the '<em><b>Consumed Interfaces</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Consumed Interfaces</em>' reference.
-	 * @see #setConsumedInterfaces(ComponentInterface)
+	 * @return the value of the '<em>Consumed Interfaces</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_ConsumedInterfaces()
 	 * @model
 	 * @generated
 	 */
-	ComponentInterface getConsumedInterfaces();
+	EList<ComponentInterface> getConsumedInterfaces();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Component#getConsumedInterfaces <em>Consumed Interfaces</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Consumed Interfaces</em>' reference.
-	 * @see #getConsumedInterfaces()
-	 * @generated
-	 */
-	void setConsumedInterfaces(ComponentInterface value);
-
-	/**
-	 * Returns the value of the '<em><b>Labels</b></em>' reference.
+	 * Returns the value of the '<em><b>Labels</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Label}.
 	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.Label#getComponents <em>Components</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Labels</em>' reference.
-	 * @see #setLabels(Label)
+	 * @return the value of the '<em>Labels</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_Labels()
 	 * @see de.unistuttgart.gropius.Label#getComponents
 	 * @model opposite="components"
 	 * @generated
 	 */
-	Label getLabels();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.Component#getLabels <em>Labels</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Labels</em>' reference.
-	 * @see #getLabels()
-	 * @generated
-	 */
-	void setLabels(Label value);
+	EList<Label> getLabels();
 
 } // Component

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -153,7 +154,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	protected EList<Project> projects;
 
 	/**
-	 * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' reference list.
+	 * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInterfaces()
@@ -383,7 +384,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 */
 	public EList<ComponentInterface> getInterfaces() {
 		if (interfaces == null) {
-			interfaces = new EObjectResolvingEList<ComponentInterface>(ComponentInterface.class, this, GropiusPackage.COMPONENT__INTERFACES);
+			interfaces = new EObjectContainmentEList<ComponentInterface>(ComponentInterface.class, this, GropiusPackage.COMPONENT__INTERFACES);
 		}
 		return interfaces;
 	}
@@ -435,6 +436,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GropiusPackage.COMPONENT__INTERFACES:
+				return ((InternalEList<?>)getInterfaces()).basicRemove(otherEnd, msgs);
 			case GropiusPackage.COMPONENT__LABELS:
 				return ((InternalEList<?>)getLabels()).basicRemove(otherEnd, msgs);
 		}

@@ -9,14 +9,20 @@ import de.unistuttgart.gropius.Label;
 import de.unistuttgart.gropius.Project;
 import de.unistuttgart.gropius.User;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,54 +96,54 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference.
+	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponents()
 	 * @generated
 	 * @ordered
 	 */
-	protected Component components;
+	protected EList<Component> components;
 
 	/**
-	 * The cached value of the '{@link #getUsers() <em>Users</em>}' reference.
+	 * The cached value of the '{@link #getUsers() <em>Users</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUsers()
 	 * @generated
 	 * @ordered
 	 */
-	protected User users;
+	protected EList<User> users;
 
 	/**
-	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
+	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOwner()
 	 * @generated
 	 * @ordered
 	 */
-	protected User owner;
+	protected EList<User> owner;
 
 	/**
-	 * The cached value of the '{@link #getIssues() <em>Issues</em>}' reference.
+	 * The cached value of the '{@link #getIssues() <em>Issues</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIssues()
 	 * @generated
 	 * @ordered
 	 */
-	protected Issue issues;
+	protected EList<Issue> issues;
 
 	/**
-	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' reference.
+	 * The cached value of the '{@link #getLabels() <em>Labels</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLabels()
 	 * @generated
 	 * @ordered
 	 */
-	protected Label labels;
+	protected EList<Label> labels;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,15 +233,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component getComponents() {
-		if (components != null && components.eIsProxy()) {
-			InternalEObject oldComponents = (InternalEObject) components;
-			components = (Component) eResolveProxy(oldComponents);
-			if (components != oldComponents) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.PROJECT__COMPONENTS,
-							oldComponents, components));
-			}
+	public EList<Component> getComponents() {
+		if (components == null) {
+			components = new EObjectContainmentEList<Component>(Component.class, this,
+					GropiusPackage.PROJECT__COMPONENTS);
 		}
 		return components;
 	}
@@ -245,37 +246,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component basicGetComponents() {
-		return components;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComponents(Component newComponents) {
-		Component oldComponents = components;
-		components = newComponents;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.PROJECT__COMPONENTS, oldComponents,
-					components));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public User getUsers() {
-		if (users != null && users.eIsProxy()) {
-			InternalEObject oldUsers = (InternalEObject) users;
-			users = (User) eResolveProxy(oldUsers);
-			if (users != oldUsers) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.PROJECT__USERS, oldUsers,
-							users));
-			}
+	public EList<User> getUsers() {
+		if (users == null) {
+			users = new EObjectWithInverseResolvingEList.ManyInverse<User>(User.class, this,
+					GropiusPackage.PROJECT__USERS, GropiusPackage.USER__PROJECTS);
 		}
 		return users;
 	}
@@ -285,62 +259,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public User basicGetUsers() {
-		return users;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetUsers(User newUsers, NotificationChain msgs) {
-		User oldUsers = users;
-		users = newUsers;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GropiusPackage.PROJECT__USERS, oldUsers, newUsers);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUsers(User newUsers) {
-		if (newUsers != users) {
-			NotificationChain msgs = null;
-			if (users != null)
-				msgs = ((InternalEObject) users).eInverseRemove(this, GropiusPackage.USER__PROJECTS, User.class, msgs);
-			if (newUsers != null)
-				msgs = ((InternalEObject) newUsers).eInverseAdd(this, GropiusPackage.USER__PROJECTS, User.class, msgs);
-			msgs = basicSetUsers(newUsers, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.PROJECT__USERS, newUsers, newUsers));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public User getOwner() {
-		if (owner != null && owner.eIsProxy()) {
-			InternalEObject oldOwner = (InternalEObject) owner;
-			owner = (User) eResolveProxy(oldOwner);
-			if (owner != oldOwner) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.PROJECT__OWNER, oldOwner,
-							owner));
-			}
+	public EList<User> getOwner() {
+		if (owner == null) {
+			owner = new EObjectResolvingEList<User>(User.class, this, GropiusPackage.PROJECT__OWNER);
 		}
 		return owner;
 	}
@@ -350,36 +271,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public User basicGetOwner() {
-		return owner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOwner(User newOwner) {
-		User oldOwner = owner;
-		owner = newOwner;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.PROJECT__OWNER, oldOwner, owner));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Issue getIssues() {
-		if (issues != null && issues.eIsProxy()) {
-			InternalEObject oldIssues = (InternalEObject) issues;
-			issues = (Issue) eResolveProxy(oldIssues);
-			if (issues != oldIssues) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.PROJECT__ISSUES, oldIssues,
-							issues));
-			}
+	public EList<Issue> getIssues() {
+		if (issues == null) {
+			issues = new EObjectContainmentEList<Issue>(Issue.class, this, GropiusPackage.PROJECT__ISSUES);
 		}
 		return issues;
 	}
@@ -389,36 +283,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Issue basicGetIssues() {
-		return issues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIssues(Issue newIssues) {
-		Issue oldIssues = issues;
-		issues = newIssues;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.PROJECT__ISSUES, oldIssues, issues));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Label getLabels() {
-		if (labels != null && labels.eIsProxy()) {
-			InternalEObject oldLabels = (InternalEObject) labels;
-			labels = (Label) eResolveProxy(oldLabels);
-			if (labels != oldLabels) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GropiusPackage.PROJECT__LABELS, oldLabels,
-							labels));
-			}
+	public EList<Label> getLabels() {
+		if (labels == null) {
+			labels = new EObjectContainmentEList<Label>(Label.class, this, GropiusPackage.PROJECT__LABELS);
 		}
 		return labels;
 	}
@@ -428,34 +295,12 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Label basicGetLabels() {
-		return labels;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabels(Label newLabels) {
-		Label oldLabels = labels;
-		labels = newLabels;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.PROJECT__LABELS, oldLabels, labels));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case GropiusPackage.PROJECT__USERS:
-			if (users != null)
-				msgs = ((InternalEObject) users).eInverseRemove(this, GropiusPackage.USER__PROJECTS, User.class, msgs);
-			return basicSetUsers((User) otherEnd, msgs);
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getUsers()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -468,8 +313,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case GropiusPackage.PROJECT__COMPONENTS:
+			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
 		case GropiusPackage.PROJECT__USERS:
-			return basicSetUsers(null, msgs);
+			return ((InternalEList<?>) getUsers()).basicRemove(otherEnd, msgs);
+		case GropiusPackage.PROJECT__ISSUES:
+			return ((InternalEList<?>) getIssues()).basicRemove(otherEnd, msgs);
+		case GropiusPackage.PROJECT__LABELS:
+			return ((InternalEList<?>) getLabels()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -489,25 +340,15 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		case GropiusPackage.PROJECT__DESCRIPTION:
 			return getDescription();
 		case GropiusPackage.PROJECT__COMPONENTS:
-			if (resolve)
-				return getComponents();
-			return basicGetComponents();
+			return getComponents();
 		case GropiusPackage.PROJECT__USERS:
-			if (resolve)
-				return getUsers();
-			return basicGetUsers();
+			return getUsers();
 		case GropiusPackage.PROJECT__OWNER:
-			if (resolve)
-				return getOwner();
-			return basicGetOwner();
+			return getOwner();
 		case GropiusPackage.PROJECT__ISSUES:
-			if (resolve)
-				return getIssues();
-			return basicGetIssues();
+			return getIssues();
 		case GropiusPackage.PROJECT__LABELS:
-			if (resolve)
-				return getLabels();
-			return basicGetLabels();
+			return getLabels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -517,6 +358,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -530,19 +372,24 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			setDescription((String) newValue);
 			return;
 		case GropiusPackage.PROJECT__COMPONENTS:
-			setComponents((Component) newValue);
+			getComponents().clear();
+			getComponents().addAll((Collection<? extends Component>) newValue);
 			return;
 		case GropiusPackage.PROJECT__USERS:
-			setUsers((User) newValue);
+			getUsers().clear();
+			getUsers().addAll((Collection<? extends User>) newValue);
 			return;
 		case GropiusPackage.PROJECT__OWNER:
-			setOwner((User) newValue);
+			getOwner().clear();
+			getOwner().addAll((Collection<? extends User>) newValue);
 			return;
 		case GropiusPackage.PROJECT__ISSUES:
-			setIssues((Issue) newValue);
+			getIssues().clear();
+			getIssues().addAll((Collection<? extends Issue>) newValue);
 			return;
 		case GropiusPackage.PROJECT__LABELS:
-			setLabels((Label) newValue);
+			getLabels().clear();
+			getLabels().addAll((Collection<? extends Label>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -566,19 +413,19 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
 		case GropiusPackage.PROJECT__COMPONENTS:
-			setComponents((Component) null);
+			getComponents().clear();
 			return;
 		case GropiusPackage.PROJECT__USERS:
-			setUsers((User) null);
+			getUsers().clear();
 			return;
 		case GropiusPackage.PROJECT__OWNER:
-			setOwner((User) null);
+			getOwner().clear();
 			return;
 		case GropiusPackage.PROJECT__ISSUES:
-			setIssues((Issue) null);
+			getIssues().clear();
 			return;
 		case GropiusPackage.PROJECT__LABELS:
-			setLabels((Label) null);
+			getLabels().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -599,15 +446,15 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 		case GropiusPackage.PROJECT__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		case GropiusPackage.PROJECT__COMPONENTS:
-			return components != null;
+			return components != null && !components.isEmpty();
 		case GropiusPackage.PROJECT__USERS:
-			return users != null;
+			return users != null && !users.isEmpty();
 		case GropiusPackage.PROJECT__OWNER:
-			return owner != null;
+			return owner != null && !owner.isEmpty();
 		case GropiusPackage.PROJECT__ISSUES:
-			return issues != null;
+			return issues != null && !issues.isEmpty();
 		case GropiusPackage.PROJECT__LABELS:
-			return labels != null;
+			return labels != null && !labels.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
