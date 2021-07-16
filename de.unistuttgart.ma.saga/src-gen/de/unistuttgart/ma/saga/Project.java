@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.ma.saga;
 
+import de.unistuttgart.gropius.Component;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -13,29 +15,17 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.Project#getComponents <em>Components</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.Project#getSagas <em>Sagas</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.Project#getProcesses <em>Processes</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.Project#getChains <em>Chains</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.Project#getComponents <em>Components</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.Project#getNotifications <em>Notifications</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.SagaPackage#getProject()
  * @model
  * @generated
  */
-public interface Project extends NamedElement {
-	/**
-	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
-	 * The list contents are of type {@link de.unistuttgart.ma.saga.Component}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Components</em>' containment reference list.
-	 * @see de.unistuttgart.ma.saga.SagaPackage#getProject_Components()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Component> getComponents();
-
+public interface Project extends IdentifiableElement {
 	/**
 	 * Returns the value of the '<em><b>Sagas</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.ma.saga.Saga}.
@@ -50,7 +40,7 @@ public interface Project extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
-	 * The list contents are of type {@link de.unistuttgart.ma.saga.Process}.
+	 * The list contents are of type {@link org.eclipse.bpmn2.Process}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Processes</em>' containment reference list.
@@ -58,18 +48,30 @@ public interface Project extends NamedElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<de.unistuttgart.ma.saga.Process> getProcesses();
+	EList<org.eclipse.bpmn2.Process> getProcesses();
 
 	/**
-	 * Returns the value of the '<em><b>Chains</b></em>' containment reference list.
-	 * The list contents are of type {@link de.unistuttgart.ma.saga.ChainLink}.
+	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.gropius.Component}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Chains</em>' containment reference list.
-	 * @see de.unistuttgart.ma.saga.SagaPackage#getProject_Chains()
+	 * @return the value of the '<em>Components</em>' containment reference list.
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getProject_Components()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ChainLink> getChains();
+	EList<Component> getComponents();
+
+	/**
+	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.ma.saga.Notification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Notifications</em>' containment reference list.
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getProject_Notifications()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Notification> getNotifications();
 
 } // Project

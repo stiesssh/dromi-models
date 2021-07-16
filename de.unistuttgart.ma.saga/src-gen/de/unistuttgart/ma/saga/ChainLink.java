@@ -13,8 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.ChainLink#getCausedBy <em>Caused By</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.ChainLink#getLocation <em>Location</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.ChainLink#getLocationId <em>Location Id</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.SagaPackage#getChainLink()
@@ -22,48 +21,26 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ChainLink extends EObject {
-
 	/**
-	 * Returns the value of the '<em><b>Caused By</b></em>' reference.
+	 * Returns the value of the '<em><b>Location Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Caused By</em>' reference.
-	 * @see #setCausedBy(ChainLink)
-	 * @see de.unistuttgart.ma.saga.SagaPackage#getChainLink_CausedBy()
+	 * @return the value of the '<em>Location Id</em>' attribute.
+	 * @see #setLocationId(String)
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getChainLink_LocationId()
 	 * @model required="true"
 	 * @generated
 	 */
-	ChainLink getCausedBy();
+	String getLocationId();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.ChainLink#getCausedBy <em>Caused By</em>}' reference.
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.ChainLink#getLocationId <em>Location Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Caused By</em>' reference.
-	 * @see #getCausedBy()
+	 * @param value the new value of the '<em>Location Id</em>' attribute.
+	 * @see #getLocationId()
 	 * @generated
 	 */
-	void setCausedBy(ChainLink value);
+	void setLocationId(String value);
 
-	/**
-	 * Returns the value of the '<em><b>Location</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Location</em>' reference.
-	 * @see #setLocation(ElementWithSLO)
-	 * @see de.unistuttgart.ma.saga.SagaPackage#getChainLink_Location()
-	 * @model
-	 * @generated
-	 */
-	ElementWithSLO getLocation();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.ChainLink#getLocation <em>Location</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' reference.
-	 * @see #getLocation()
-	 * @generated
-	 */
-	void setLocation(ElementWithSLO value);
 } // ChainLink

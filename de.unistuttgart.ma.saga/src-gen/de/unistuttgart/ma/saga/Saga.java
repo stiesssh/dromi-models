@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Saga extends ElementWithSLO {
+public interface Saga extends IdentifiableElement {
 	/**
 	 * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.ma.saga.SagaStep}.

@@ -4,12 +4,13 @@ import java.io.IOException;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.unistuttgart.ma.saga.ComponentInterface;
+import de.foo.generated.Project;
 import de.foo.generated.Query;
 import de.foo.generated.QueryQuery;
-import de.unistuttgart.ma.saga.Component;
-import de.unistuttgart.ma.saga.Project;
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.ma.saga.SagaFactory;
+
 
 /**
  * 
@@ -45,7 +46,7 @@ public class GropiusImporter {//implements ArchitectureImporter {
 	}
 	
 	private EObject parse(Query response) {
-		Project root = factory.createProject();
+		de.unistuttgart.ma.saga.Project root = factory.createProject();
 		
 		// add the projects
 		for (de.foo.generated.Project gropiusProject : response.getProjects().getNodes()) {
@@ -54,17 +55,17 @@ public class GropiusImporter {//implements ArchitectureImporter {
 			for (de.foo.generated.Component gropiusComponent : gropiusProject.getComponents().getNodes()) {
 				//Id id = Id.of(gropiusComponent.getId().toString());
 				String name = gropiusComponent.getName();
-				Component component = factory.createComponent();
-				root.getComponents().add(component);
+				Component component = factory.createComponentAdapter();
+				//root.getComponents().add(component);
 				component.setName(name);
 				
 				for (de.foo.generated.ComponentInterface gropiusInterface : gropiusComponent.getInterfaces().getNodes()) {
 					//Id idFace = Id.of(gropiusInterface.getId().toString());
 					String nameFace = gropiusInterface.getName();
-					ComponentInterface face = factory.createComponentInterface(); 
+					ComponentInterface face = factory.createComponentInterfaceAdapter(); 
 					face.setName(nameFace);
 							
-					component.getInterfaces().add(face);
+					//component.getInterfaces().add(face);
 				}
 			}
 			

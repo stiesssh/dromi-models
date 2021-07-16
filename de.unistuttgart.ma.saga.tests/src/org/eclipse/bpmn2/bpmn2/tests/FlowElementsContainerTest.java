@@ -1,0 +1,36 @@
+/**
+ */
+package org.eclipse.bpmn2.bpmn2.tests;
+
+import org.eclipse.bpmn2.bpmn2.FlowElementsContainer;
+
+/**
+ * <!-- begin-user-doc -->
+ * A test case for the model object '<em><b>Flow Elements Container</b></em>'.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public abstract class FlowElementsContainerTest extends BaseElementTest {
+
+	/**
+	 * Constructs a new Flow Elements Container test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FlowElementsContainerTest(String name) {
+		super(name);
+	}
+
+	/**
+	 * Returns the fixture for this Flow Elements Container test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected FlowElementsContainer getFixture() {
+		return (FlowElementsContainer)fixture;
+	}
+
+} //FlowElementsContainerTest

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="saga" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="saga" version="12.0.0.2017041100">
   <ownedViewpoints name="sagaViewpoint" modelFileExtension="saga">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="totalDiagram" domainClass="saga::Project" enablePopupBars="true">
       <metamodel href="http://www.example.org/saga#/"/>
+      <layout xsi:type="description_1:CompositeLayout" padding="100" direction="LeftToRight"/>
       <defaultLayer name="Default">
         <nodeMappings name="component" domainClass="saga::Component">
           <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
@@ -87,11 +88,14 @@
         </edgeMappings>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="compartedDiagram" domainClass="saga::Project" enablePopupBars="true">
-      <metamodel href="http://www.example.org/saga#/"/>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="traceView" domainClass="saga::Project" preconditionExpression="service:" enablePopupBars="true">
+      <filters xsi:type="filter:CompositeFilterDescription" name="testfilter">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']" semanticConditionExpression="aql:not self.steps->isEmpty()"/>
+      </filters>
+      <layout xsi:type="description_1:CustomLayoutConfiguration" id="AlgoFromFoo2-id" label="AlgoFromFoo2-label" description="AlgoFromFoo2-description"/>
       <defaultLayer name="Default"/>
       <additionalLayers name="sagaLayer">
-        <edgeMappings name="stepEdge" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='compartedDiagram']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:steps">
+        <edgeMappings name="stepEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:steps">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -111,104 +115,8 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-          </style>
-        </containerMappings>
-      </additionalLayers>
-      <additionalLayers name="componentLayer">
-        <edgeMappings name="providedEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='compartedDiagram']/@additionalLayers[name='componentLayer']/@containerMappings[name='projectContainer']/@subNodeMappings[name='component']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='compartedDiagram']/@additionalLayers[name='componentLayer']/@containerMappings[name='projectContainer']/@subNodeMappings[name='componentInterface']" targetFinderExpression="feature:interfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings name="projectContainer" semanticCandidatesExpression="var:self" domainClass="saga::Project">
-          <subNodeMappings name="component" domainClass="saga::Component">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="componentInterface" domainClass="saga::ComponentInterface">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
-        </containerMappings>
-      </additionalLayers>
-      <additionalLayers name="edgelayer">
-        <edgeMappings name="NextLevelEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='compartedDiagram']/@additionalLayers[name='componentLayer']/@containerMappings[name='projectContainer']/@subNodeMappings[name='componentInterface']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='compartedDiagram']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:nextLevelElements">
-          <style lineStyle="dash" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="NextLevelEdge2" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='compartedDiagram']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:nextLevelElements">
-          <style lineStyle="dash" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </additionalLayers>
-      <additionalLayers name="processLayer" activeByDefault="true">
-        <edgeMappings name="edge" targetFinderExpression="feature:interfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings name="processContainer" semanticCandidatesExpression="feature:processes" domainClass="saga::Process">
-          <subNodeMappings name="activity" domainClass="saga::Activity">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/saga.design/icons/rounded.gif">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-          </style>
-        </containerMappings>
-      </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="traceView" domainClass="saga::Project" enablePopupBars="true">
-      <defaultLayer name="Default"/>
-      <additionalLayers name="sagaLayer">
-        <edgeMappings name="stepEdge" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:steps">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings name="sagaContainer" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga">
-          <subNodeMappings name="sagaStepNode" semanticCandidatesExpression="feature:steps" domainClass="saga::SagaStep">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="3">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-            </style>
-          </subNodeMappings>
           <conditionnalStyles predicateExpression="aql:self.steps->isEmpty()">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -237,21 +145,12 @@
           </style>
         </edgeMappings>
         <containerMappings name="projectContainer" semanticCandidatesExpression="var:self" domainClass="saga::Project">
-          <subNodeMappings name="component" semanticCandidatesExpression="aql:self.chains.location" domainClass="saga::Component">
-            <conditionnalStyles predicateExpression="aql:self.foo()">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
-              </style>
-            </conditionnalStyles>
-            <conditionnalStyles predicateExpression="aql:not self.foo()">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </style>
-            </conditionnalStyles>
+          <subNodeMappings name="component" semanticCandidatesExpression="feature:components" domainClass="saga::Component">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            </style>
           </subNodeMappings>
           <subNodeMappings name="componentInterface" domainClass="saga::ComponentInterface">
             <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
@@ -277,7 +176,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="NextLevelEdge2" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:nextLevelElements">
+        <edgeMappings name="NextLevelEdge2" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='processLayer']/@containerMappings[name='processContainer']/@subNodeMappings[name='activity']" targetFinderExpression="feature:nextLevelElements">
           <style lineStyle="dash" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -287,14 +186,6 @@
         </edgeMappings>
       </additionalLayers>
       <additionalLayers name="processLayer" activeByDefault="true">
-        <edgeMappings name="edge" targetFinderExpression="feature:interfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
         <containerMappings name="processContainer" semanticCandidatesExpression="feature:processes" domainClass="saga::Process">
           <subNodeMappings name="activity" domainClass="saga::Activity">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/saga.design/icons/rounded.gif">
@@ -310,7 +201,134 @@
           </style>
         </containerMappings>
       </additionalLayers>
+      <additionalLayers name="svgLayer">
+        <nodeMappings name="custom " semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.event.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ActionTest" domainClass="saga::Project" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="some node" semanticCandidatesExpression="var:self" domainClass="saga::Project">
+          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="fooo" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Tool">
+          <ownedTools xsi:type="tool:ToolDescription" name="toooly">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="fooocall" action="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='ActionTest']/@defaultLayer/@toolSections.0/@ownedTools[name='toooly']/@initialOperation/@firstModelOperations/@subModelOperations.0">
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="fooo" icon="/org.apache.batik.bridge/org/apache/batik/bridge/BrokenLink.svg" id="saga.design.javaActions1"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="saga.design.Services"/>
+    <ownedJavaExtensions qualifiedClassName="saga.design.Services2"/>
+    <ownedJavaExtensions qualifiedClassName="de.unistuttgart.ma.saga.presentation.FooView"/>
+    <ownedJavaExtensions qualifiedClassName="saga.design.JavaActions1"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="newmodelviewpoint" modelFileExtension="saga">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="notificationView" domainClass="saga::Project" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="componentNode" semanticCandidatesExpression="feature:components" domainClass="saga::ComponentAdapter">
+          <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer().eContainer().notifications.chainlinks->exists(x : saga::ChainLink | x.locationId.equalsIgnoreCase(self.id))">
+            <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelAlignment="LEFT" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="IntefaceNode" semanticCandidatesExpression="aql:self.components.providedInterfaces" domainClass="saga::ComponentInterfaceAdapter">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelAlignment="LEFT" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer().eContainer().notifications.chainlinks->exists(x : saga::ChainLink | x.locationId.equalsIgnoreCase(self.id))">
+            <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelAlignment="LEFT" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="ProcessNode" semanticCandidatesExpression="feature:processes" domainClass="bpmn2::Process">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelAlignment="LEFT" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="TaskNode" semanticCandidatesExpression="aql:self.processes.flowElements" domainClass="bpmn2::Task">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelAlignment="LEFT" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer().eContainer().notifications.chainlinks->exists(x : saga::ChainLink | x.locationId.equalsIgnoreCase(self.id))">
+            <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="feature:id" labelAlignment="LEFT" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="SagaNode" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="feature:id" labelAlignment="LEFT" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="SagaStepNode" semanticCandidatesExpression="aql:self.sagas.steps" domainClass="saga::SagaStep">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="feature:id" labelAlignment="LEFT" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="aql:self.eContainer().eContainer().notifications.chainlinks->exists(x : saga::ChainLink | x.locationId.equalsIgnoreCase(self.id))">
+            <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="feature:id" labelAlignment="LEFT" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+      </defaultLayer>
+      <additionalLayers name="edgeLayer"/>
+      <additionalLayers name="notificationLayer">
+        <nodeMappings name="notification" semanticCandidatesExpression="feature:notifications" domainClass="saga::Notification">
+          <style xsi:type="style:LozengeNodeDescription" labelSize="12" showIcon="false" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="chainlink" semanticCandidatesExpression="aql:self.notifications.chainlinks" domainClass="saga::ChainLink">
+          <style xsi:type="style:LozengeNodeDescription" labelSize="12" showIcon="false" labelExpression="feature:locationId" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+          </style>
+        </nodeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>

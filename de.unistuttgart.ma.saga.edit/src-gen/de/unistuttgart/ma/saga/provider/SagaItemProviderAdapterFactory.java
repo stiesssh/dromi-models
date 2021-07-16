@@ -32,8 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -96,49 +95,49 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Component} instances.
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.ComponentAdapter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComponentItemProvider componentItemProvider;
+	protected ComponentAdapterItemProvider componentAdapterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Component}.
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.ComponentAdapter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComponentAdapter() {
-		if (componentItemProvider == null) {
-			componentItemProvider = new ComponentItemProvider(this);
+	public Adapter createComponentAdapterAdapter() {
+		if (componentAdapterItemProvider == null) {
+			componentAdapterItemProvider = new ComponentAdapterItemProvider(this);
 		}
 
-		return componentItemProvider;
+		return componentAdapterItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.ComponentInterface} instances.
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.ComponentInterfaceAdapter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComponentInterfaceItemProvider componentInterfaceItemProvider;
+	protected ComponentInterfaceAdapterItemProvider componentInterfaceAdapterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.ComponentInterface}.
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.ComponentInterfaceAdapter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComponentInterfaceAdapter() {
-		if (componentInterfaceItemProvider == null) {
-			componentInterfaceItemProvider = new ComponentInterfaceItemProvider(this);
+	public Adapter createComponentInterfaceAdapterAdapter() {
+		if (componentInterfaceAdapterItemProvider == null) {
+			componentInterfaceAdapterItemProvider = new ComponentInterfaceAdapterItemProvider(this);
 		}
 
-		return componentInterfaceItemProvider;
+		return componentInterfaceAdapterItemProvider;
 	}
 
 	/**
@@ -188,75 +187,6 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Process} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProcessItemProvider processItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Process}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProcessAdapter() {
-		if (processItemProvider == null) {
-			processItemProvider = new ProcessItemProvider(this);
-		}
-
-		return processItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Activity} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActivityItemProvider activityItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Activity}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createActivityAdapter() {
-		if (activityItemProvider == null) {
-			activityItemProvider = new ActivityItemProvider(this);
-		}
-
-		return activityItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Slo} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SloItemProvider sloItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Slo}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSloAdapter() {
-		if (sloItemProvider == null) {
-			sloItemProvider = new SloItemProvider(this);
-		}
-
-		return sloItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Violation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,26 +233,26 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.ChainStart} instances.
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Notification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChainStartItemProvider chainStartItemProvider;
+	protected NotificationItemProvider notificationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.ChainStart}.
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Notification}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createChainStartAdapter() {
-		if (chainStartItemProvider == null) {
-			chainStartItemProvider = new ChainStartItemProvider(this);
+	public Adapter createNotificationAdapter() {
+		if (notificationItemProvider == null) {
+			notificationItemProvider = new NotificationItemProvider(this);
 		}
 
-		return chainStartItemProvider;
+		return notificationItemProvider;
 	}
 
 	/**
@@ -375,7 +305,7 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -424,28 +354,14 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (projectItemProvider != null)
-			projectItemProvider.dispose();
-		if (componentItemProvider != null)
-			componentItemProvider.dispose();
-		if (componentInterfaceItemProvider != null)
-			componentInterfaceItemProvider.dispose();
-		if (sagaItemProvider != null)
-			sagaItemProvider.dispose();
-		if (sagaStepItemProvider != null)
-			sagaStepItemProvider.dispose();
-		if (processItemProvider != null)
-			processItemProvider.dispose();
-		if (activityItemProvider != null)
-			activityItemProvider.dispose();
-		if (sloItemProvider != null)
-			sloItemProvider.dispose();
-		if (violationItemProvider != null)
-			violationItemProvider.dispose();
-		if (impactItemProvider != null)
-			impactItemProvider.dispose();
-		if (chainStartItemProvider != null)
-			chainStartItemProvider.dispose();
+		if (projectItemProvider != null) projectItemProvider.dispose();
+		if (componentAdapterItemProvider != null) componentAdapterItemProvider.dispose();
+		if (componentInterfaceAdapterItemProvider != null) componentInterfaceAdapterItemProvider.dispose();
+		if (sagaItemProvider != null) sagaItemProvider.dispose();
+		if (sagaStepItemProvider != null) sagaStepItemProvider.dispose();
+		if (violationItemProvider != null) violationItemProvider.dispose();
+		if (impactItemProvider != null) impactItemProvider.dispose();
+		if (notificationItemProvider != null) notificationItemProvider.dispose();
 	}
 
 }

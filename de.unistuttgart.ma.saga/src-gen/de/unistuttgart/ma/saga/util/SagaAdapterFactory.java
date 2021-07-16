@@ -2,20 +2,13 @@
  */
 package de.unistuttgart.ma.saga.util;
 
-import de.unistuttgart.ma.saga.Activity;
-import de.unistuttgart.ma.saga.ChainLink;
-import de.unistuttgart.ma.saga.ChainStart;
-import de.unistuttgart.ma.saga.Component;
-import de.unistuttgart.ma.saga.ComponentInterface;
-import de.unistuttgart.ma.saga.ElementWithSLO;
-import de.unistuttgart.ma.saga.Impact;
-import de.unistuttgart.ma.saga.NamedElement;
-import de.unistuttgart.ma.saga.Project;
-import de.unistuttgart.ma.saga.Saga;
-import de.unistuttgart.ma.saga.SagaPackage;
-import de.unistuttgart.ma.saga.SagaStep;
-import de.unistuttgart.ma.saga.Slo;
-import de.unistuttgart.ma.saga.Violation;
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
+import de.unistuttgart.gropius.IssueLocation;
+import de.unistuttgart.gropius.Node;
+
+import de.unistuttgart.ma.saga.*;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -66,7 +59,7 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -77,82 +70,73 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SagaSwitch<Adapter> modelSwitch = new SagaSwitch<Adapter>() {
-		@Override
-		public Adapter caseProject(Project object) {
-			return createProjectAdapter();
-		}
-
-		@Override
-		public Adapter caseComponent(Component object) {
-			return createComponentAdapter();
-		}
-
-		@Override
-		public Adapter caseComponentInterface(ComponentInterface object) {
-			return createComponentInterfaceAdapter();
-		}
-
-		@Override
-		public Adapter caseNamedElement(NamedElement object) {
-			return createNamedElementAdapter();
-		}
-
-		@Override
-		public Adapter caseSaga(Saga object) {
-			return createSagaAdapter();
-		}
-
-		@Override
-		public Adapter caseSagaStep(SagaStep object) {
-			return createSagaStepAdapter();
-		}
-
-		@Override
-		public Adapter caseProcess(de.unistuttgart.ma.saga.Process object) {
-			return createProcessAdapter();
-		}
-
-		@Override
-		public Adapter caseActivity(Activity object) {
-			return createActivityAdapter();
-		}
-
-		@Override
-		public Adapter caseSlo(Slo object) {
-			return createSloAdapter();
-		}
-
-		@Override
-		public Adapter caseElementWithSLO(ElementWithSLO object) {
-			return createElementWithSLOAdapter();
-		}
-
-		@Override
-		public Adapter caseViolation(Violation object) {
-			return createViolationAdapter();
-		}
-
-		@Override
-		public Adapter caseImpact(Impact object) {
-			return createImpactAdapter();
-		}
-
-		@Override
-		public Adapter caseChainLink(ChainLink object) {
-			return createChainLinkAdapter();
-		}
-
-		@Override
-		public Adapter caseChainStart(ChainStart object) {
-			return createChainStartAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+	protected SagaSwitch<Adapter> modelSwitch =
+		new SagaSwitch<Adapter>() {
+			@Override
+			public Adapter caseProject(Project object) {
+				return createProjectAdapter();
+			}
+			@Override
+			public Adapter caseComponentAdapter(ComponentAdapter object) {
+				return createComponentAdapterAdapter();
+			}
+			@Override
+			public Adapter caseComponentInterfaceAdapter(ComponentInterfaceAdapter object) {
+				return createComponentInterfaceAdapterAdapter();
+			}
+			@Override
+			public Adapter caseSaga(Saga object) {
+				return createSagaAdapter();
+			}
+			@Override
+			public Adapter caseSagaStep(SagaStep object) {
+				return createSagaStepAdapter();
+			}
+			@Override
+			public Adapter caseElementWithSLO(ElementWithSLO object) {
+				return createElementWithSLOAdapter();
+			}
+			@Override
+			public Adapter caseViolation(Violation object) {
+				return createViolationAdapter();
+			}
+			@Override
+			public Adapter caseImpact(Impact object) {
+				return createImpactAdapter();
+			}
+			@Override
+			public Adapter caseChainLink(ChainLink object) {
+				return createChainLinkAdapter();
+			}
+			@Override
+			public Adapter caseNotification(Notification object) {
+				return createNotificationAdapter();
+			}
+			@Override
+			public Adapter caseIdentifiableElement(IdentifiableElement object) {
+				return createIdentifiableElementAdapter();
+			}
+			@Override
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
+			}
+			@Override
+			public Adapter caseIssueLocation(IssueLocation object) {
+				return createIssueLocationAdapter();
+			}
+			@Override
+			public Adapter caseComponent(Component object) {
+				return createComponentAdapter();
+			}
+			@Override
+			public Adapter caseComponentInterface(ComponentInterface object) {
+				return createComponentInterfaceAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -164,8 +148,9 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
+
 
 	/**
 	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Project <em>Project</em>}'.
@@ -182,44 +167,30 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Component <em>Component</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.ComponentAdapter <em>Component Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.Component
+	 * @see de.unistuttgart.ma.saga.ComponentAdapter
 	 * @generated
 	 */
-	public Adapter createComponentAdapter() {
+	public Adapter createComponentAdapterAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.ComponentInterface <em>Component Interface</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.ComponentInterfaceAdapter <em>Component Interface Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.ComponentInterface
+	 * @see de.unistuttgart.ma.saga.ComponentInterfaceAdapter
 	 * @generated
 	 */
-	public Adapter createComponentInterfaceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.NamedElement <em>Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.NamedElement
-	 * @generated
-	 */
-	public Adapter createNamedElementAdapter() {
+	public Adapter createComponentInterfaceAdapterAdapter() {
 		return null;
 	}
 
@@ -248,48 +219,6 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSagaStepAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Process <em>Process</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.Process
-	 * @generated
-	 */
-	public Adapter createProcessAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Activity <em>Activity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.Activity
-	 * @generated
-	 */
-	public Adapter createActivityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Slo <em>Slo</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.Slo
-	 * @generated
-	 */
-	public Adapter createSloAdapter() {
 		return null;
 	}
 
@@ -350,16 +279,86 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.ChainStart <em>Chain Start</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Notification <em>Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.ChainStart
+	 * @see de.unistuttgart.ma.saga.Notification
 	 * @generated
 	 */
-	public Adapter createChainStartAdapter() {
+	public Adapter createNotificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.IdentifiableElement <em>Identifiable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.IdentifiableElement
+	 * @generated
+	 */
+	public Adapter createIdentifiableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.Node <em>Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.gropius.Node
+	 * @generated
+	 */
+	public Adapter createNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.IssueLocation <em>Issue Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.gropius.IssueLocation
+	 * @generated
+	 */
+	public Adapter createIssueLocationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.Component <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.gropius.Component
+	 * @generated
+	 */
+	public Adapter createComponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.ComponentInterface <em>Component Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.gropius.ComponentInterface
+	 * @generated
+	 */
+	public Adapter createComponentInterfaceAdapter() {
 		return null;
 	}
 

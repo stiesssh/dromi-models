@@ -1,0 +1,442 @@
+/**
+ */
+package de.unistuttgart.gropius;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Issue</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getUpdatedAt <em>Updated At</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#isIsOpen <em>Is Open</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#isIsDuplicate <em>Is Duplicate</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getCategory <em>Category</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#isCurrentUserCanComment <em>Current User Can Comment</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getStartDate <em>Start Date</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getDueDate <em>Due Date</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getEstimatedTime <em>Estimated Time</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getSpentTime <em>Spent Time</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getIssueComments <em>Issue Comments</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getLinksToIssues <em>Links To Issues</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getLinkedByIssues <em>Linked By Issues</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getAssignees <em>Assignees</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getLabels <em>Labels</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getParticipants <em>Participants</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getPinnedOn <em>Pinned On</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getTimeline <em>Timeline</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.Issue#getLocation <em>Location</em>}</li>
+ * </ul>
+ *
+ * @see de.unistuttgart.gropius.GropiusPackage#getIssue()
+ * @model
+ * @generated
+ */
+public interface Issue extends Comment, Node {
+	/**
+	 * Returns the value of the '<em><b>Updated At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Updated At</em>' attribute.
+	 * @see #setUpdatedAt(Object)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_UpdatedAt()
+	 * @model dataType="de.unistuttgart.gropius.Date"
+	 * @generated
+	 */
+	Object getUpdatedAt();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getUpdatedAt <em>Updated At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Updated At</em>' attribute.
+	 * @see #getUpdatedAt()
+	 * @generated
+	 */
+	void setUpdatedAt(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Open</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Open</em>' attribute.
+	 * @see #setIsOpen(boolean)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_IsOpen()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsOpen();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#isIsOpen <em>Is Open</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Open</em>' attribute.
+	 * @see #isIsOpen()
+	 * @generated
+	 */
+	void setIsOpen(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Duplicate</em>' attribute.
+	 * @see #setIsDuplicate(boolean)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_IsDuplicate()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsDuplicate();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#isIsDuplicate <em>Is Duplicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Duplicate</em>' attribute.
+	 * @see #isIsDuplicate()
+	 * @generated
+	 */
+	void setIsDuplicate(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.unistuttgart.gropius.IssueCategory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Category</em>' attribute.
+	 * @see de.unistuttgart.gropius.IssueCategory
+	 * @see #setCategory(IssueCategory)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Category()
+	 * @model
+	 * @generated
+	 */
+	IssueCategory getCategory();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getCategory <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @see de.unistuttgart.gropius.IssueCategory
+	 * @see #getCategory()
+	 * @generated
+	 */
+	void setCategory(IssueCategory value);
+
+	/**
+	 * Returns the value of the '<em><b>Current User Can Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current User Can Comment</em>' attribute.
+	 * @see #setCurrentUserCanComment(boolean)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_CurrentUserCanComment()
+	 * @model
+	 * @generated
+	 */
+	boolean isCurrentUserCanComment();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#isCurrentUserCanComment <em>Current User Can Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current User Can Comment</em>' attribute.
+	 * @see #isCurrentUserCanComment()
+	 * @generated
+	 */
+	void setCurrentUserCanComment(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Start Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start Date</em>' attribute.
+	 * @see #setStartDate(Object)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_StartDate()
+	 * @model dataType="de.unistuttgart.gropius.Date"
+	 * @generated
+	 */
+	Object getStartDate();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getStartDate <em>Start Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Date</em>' attribute.
+	 * @see #getStartDate()
+	 * @generated
+	 */
+	void setStartDate(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Due Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Due Date</em>' attribute.
+	 * @see #setDueDate(Object)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_DueDate()
+	 * @model dataType="de.unistuttgart.gropius.Date"
+	 * @generated
+	 */
+	Object getDueDate();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getDueDate <em>Due Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Due Date</em>' attribute.
+	 * @see #getDueDate()
+	 * @generated
+	 */
+	void setDueDate(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Estimated Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Estimated Time</em>' attribute.
+	 * @see #setEstimatedTime(Object)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_EstimatedTime()
+	 * @model dataType="de.unistuttgart.gropius.TimeSpan"
+	 * @generated
+	 */
+	Object getEstimatedTime();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getEstimatedTime <em>Estimated Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Estimated Time</em>' attribute.
+	 * @see #getEstimatedTime()
+	 * @generated
+	 */
+	void setEstimatedTime(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Spent Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Spent Time</em>' attribute.
+	 * @see #setSpentTime(Object)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_SpentTime()
+	 * @model dataType="de.unistuttgart.gropius.TimeSpan"
+	 * @generated
+	 */
+	Object getSpentTime();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getSpentTime <em>Spent Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Spent Time</em>' attribute.
+	 * @see #getSpentTime()
+	 * @generated
+	 */
+	void setSpentTime(Object value);
+
+	/**
+	 * Returns the value of the '<em><b>Issue Comments</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Issue Comments</em>' reference.
+	 * @see #setIssueComments(Comment)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_IssueComments()
+	 * @model
+	 * @generated
+	 */
+	Comment getIssueComments();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getIssueComments <em>Issue Comments</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Issue Comments</em>' reference.
+	 * @see #getIssueComments()
+	 * @generated
+	 */
+	void setIssueComments(Comment value);
+
+	/**
+	 * Returns the value of the '<em><b>Links To Issues</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Links To Issues</em>' reference.
+	 * @see #setLinksToIssues(Issue)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_LinksToIssues()
+	 * @model
+	 * @generated
+	 */
+	Issue getLinksToIssues();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLinksToIssues <em>Links To Issues</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Links To Issues</em>' reference.
+	 * @see #getLinksToIssues()
+	 * @generated
+	 */
+	void setLinksToIssues(Issue value);
+
+	/**
+	 * Returns the value of the '<em><b>Linked By Issues</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Linked By Issues</em>' reference.
+	 * @see #setLinkedByIssues(Issue)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_LinkedByIssues()
+	 * @model
+	 * @generated
+	 */
+	Issue getLinkedByIssues();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLinkedByIssues <em>Linked By Issues</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Linked By Issues</em>' reference.
+	 * @see #getLinkedByIssues()
+	 * @generated
+	 */
+	void setLinkedByIssues(Issue value);
+
+	/**
+	 * Returns the value of the '<em><b>Assignees</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.User#getAssignedToIssues <em>Assigned To Issues</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Assignees</em>' reference.
+	 * @see #setAssignees(User)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Assignees()
+	 * @see de.unistuttgart.gropius.User#getAssignedToIssues
+	 * @model opposite="assignedToIssues"
+	 * @generated
+	 */
+	User getAssignees();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getAssignees <em>Assignees</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Assignees</em>' reference.
+	 * @see #getAssignees()
+	 * @generated
+	 */
+	void setAssignees(User value);
+
+	/**
+	 * Returns the value of the '<em><b>Labels</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Labels</em>' reference.
+	 * @see #setLabels(Label)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Labels()
+	 * @model
+	 * @generated
+	 */
+	Label getLabels();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLabels <em>Labels</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Labels</em>' reference.
+	 * @see #getLabels()
+	 * @generated
+	 */
+	void setLabels(Label value);
+
+	/**
+	 * Returns the value of the '<em><b>Participants</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.User#getParticipantOfIssue <em>Participant Of Issue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Participants</em>' reference.
+	 * @see #setParticipants(User)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Participants()
+	 * @see de.unistuttgart.gropius.User#getParticipantOfIssue
+	 * @model opposite="participantOfIssue"
+	 * @generated
+	 */
+	User getParticipants();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getParticipants <em>Participants</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Participants</em>' reference.
+	 * @see #getParticipants()
+	 * @generated
+	 */
+	void setParticipants(User value);
+
+	/**
+	 * Returns the value of the '<em><b>Pinned On</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pinned On</em>' reference.
+	 * @see #setPinnedOn(Component)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_PinnedOn()
+	 * @model
+	 * @generated
+	 */
+	Component getPinnedOn();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getPinnedOn <em>Pinned On</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pinned On</em>' reference.
+	 * @see #getPinnedOn()
+	 * @generated
+	 */
+	void setPinnedOn(Component value);
+
+	/**
+	 * Returns the value of the '<em><b>Timeline</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Timeline</em>' reference.
+	 * @see #setTimeline(IssueTimelineItem)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Timeline()
+	 * @model
+	 * @generated
+	 */
+	IssueTimelineItem getTimeline();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getTimeline <em>Timeline</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timeline</em>' reference.
+	 * @see #getTimeline()
+	 * @generated
+	 */
+	void setTimeline(IssueTimelineItem value);
+
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Location</em>' reference.
+	 * @see #setLocation(IssueLocation)
+	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_Location()
+	 * @model
+	 * @generated
+	 */
+	IssueLocation getLocation();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getLocation <em>Location</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' reference.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	void setLocation(IssueLocation value);
+
+} // Issue

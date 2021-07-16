@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.saga.provider;
 
+
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
 
@@ -20,7 +21,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SagaStepItemProvider extends ElementWithSLOItemProvider {
+public class SagaStepItemProvider extends IdentifiableElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -43,6 +44,7 @@ public class SagaStepItemProvider extends ElementWithSLOItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNextLevelElementsPropertyDescriptor(object);
+			addNextStepPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -54,12 +56,41 @@ public class SagaStepItemProvider extends ElementWithSLOItemProvider {
 	 * @generated
 	 */
 	protected void addNextLevelElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_SagaStep_nextLevelElements_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_SagaStep_nextLevelElements_feature",
-								"_UI_SagaStep_type"),
-						SagaPackage.Literals.SAGA_STEP__NEXT_LEVEL_ELEMENTS, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SagaStep_nextLevelElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SagaStep_nextLevelElements_feature", "_UI_SagaStep_type"),
+				 SagaPackage.Literals.SAGA_STEP__NEXT_LEVEL_ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Next Step feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNextStepPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SagaStep_nextStep_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SagaStep_nextStep_feature", "_UI_SagaStep_type"),
+				 SagaPackage.Literals.SAGA_STEP__NEXT_STEP,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -74,16 +105,6 @@ public class SagaStepItemProvider extends ElementWithSLOItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,10 +112,12 @@ public class SagaStepItemProvider extends ElementWithSLOItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SagaStep) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_SagaStep_type")
-				: getString("_UI_SagaStep_type") + " " + label;
+		String label = ((SagaStep)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SagaStep_type") :
+			getString("_UI_SagaStep_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

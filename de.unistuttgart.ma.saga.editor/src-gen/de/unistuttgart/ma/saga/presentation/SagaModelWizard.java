@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.saga.presentation;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -29,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
+import org.eclipse.bpmn2.Process;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -57,6 +58,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
@@ -67,10 +69,12 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.unistuttgart.ma.importer.architecture.GropiusImporter;
+import de.unistuttgart.ma.importer.process.BPMNImporter;
+import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
+
 
 import org.eclipse.core.runtime.Path;
 
@@ -81,6 +85,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+
 
 /**
  * This is a simple wizard for creating a new model file.
@@ -95,8 +100,8 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(
-			Arrays.asList(SagaEditorPlugin.INSTANCE.getString("_UI_SagaEditorFilenameExtensions").split("\\s*,\\s*")));
+	public static final List<String> FILE_EXTENSIONS =
+		Collections.unmodifiableList(Arrays.asList(SagaEditorPlugin.INSTANCE.getString("_UI_SagaEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -104,8 +109,8 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final String FORMATTED_FILE_EXTENSIONS = SagaEditorPlugin.INSTANCE
-			.getString("_UI_SagaEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+	public static final String FORMATTED_FILE_EXTENSIONS =
+		SagaEditorPlugin.INSTANCE.getString("_UI_SagaEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -138,15 +143,6 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected SagaModelWizardInitialObjectCreationPage initialObjectCreationPage;
-
-	/**
-	 * This is the gropius import page.
-	 */
-	protected SagaModelWizardGropiusImportPage gropiusImportPage;
-	/**
-	 * This is the solomon import page.
-	 */
-	protected SagaModelWizardSolomonRulesImportPage solomonImportPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -182,8 +178,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(SagaEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
-				.getImageDescriptor(SagaEditorPlugin.INSTANCE.getImage("full/wizban/NewSaga")));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(SagaEditorPlugin.INSTANCE.getImage("full/wizban/NewSaga")));
 	}
 
 	/**
@@ -197,7 +192,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 			initialObjectNames = new ArrayList<String>();
 			for (EClassifier eClassifier : sagaPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass) eClassifier;
+					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract()) {
 						initialObjectNames.add(eClass.getName());
 					}
@@ -212,18 +207,18 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
+		EClass eClass = (EClass)sagaPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = sagaFactory.create(eClass);
 		
-		if (gropiusImportPage.getGropiusUrlField().isEmpty()) {
-			return sagaFactory.createChainStart();
-		}
-
-		GropiusImporter importer = new GropiusImporter(gropiusImportPage.getGropiusUrlField(),
-				gropiusImportPage.getGropiusProjectIdField(), sagaFactory);
-		EObject root = importer.parse();
-
-		return root;
+		BPMNImporter importer = new BPMNImporter("/home/maumau/uni/14_21SS/project/repos/ma-sirius/de.unistuttgart.ma.saga.editor/t2Process.bpmn2");
+		Process p = importer.parse();
+				
+		((Project) rootObject).getProcesses().add(p);
+		
+		return rootObject;
 	}
 
 	/**
@@ -241,41 +236,44 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 
 			// Do the work within an operation.
 			//
-			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-				@Override
-				protected void execute(IProgressMonitor progressMonitor) {
-					try {
-						// Create a resource set
-						//
-						ResourceSet resourceSet = new ResourceSetImpl();
+			WorkspaceModifyOperation operation =
+				new WorkspaceModifyOperation() {
+					@Override
+					protected void execute(IProgressMonitor progressMonitor) {
+						try {
+							// Create a resource set
+							//
+							ResourceSet resourceSet = new ResourceSetImpl();
 
-						// Get the URI of the model file.
-						//
-						URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+							// Get the URI of the model file.
+							//
+							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
-						// Create a resource for this file.
-						//
-						Resource resource = resourceSet.createResource(fileURI);
+							// Create a resource for this file.
+							//
+							Resource resource = resourceSet.createResource(fileURI);
 
-						// Add the initial model object to the contents.
-						//
-						EObject rootObject = createInitialModel();
-						if (rootObject != null) {
-							resource.getContents().add(rootObject);
+							// Add the initial model object to the contents.
+							//
+							EObject rootObject = createInitialModel();
+							if (rootObject != null) {
+								resource.getContents().add(rootObject);
+							}
+
+							// Save the contents of the resource to the file system.
+							//
+							Map<Object, Object> options = new HashMap<Object, Object>();
+							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+							resource.save(options);
 						}
-
-						// Save the contents of the resource to the file system.
-						//
-						Map<Object, Object> options = new HashMap<Object, Object>();
-						options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
-						resource.save(options);
-					} catch (Exception exception) {
-						SagaEditorPlugin.INSTANCE.log(exception);
-					} finally {
-						progressMonitor.done();
+						catch (Exception exception) {
+							SagaEditorPlugin.INSTANCE.log(exception);
+						}
+						finally {
+							progressMonitor.done();
+						}
 					}
-				}
-			};
+				};
 
 			getContainer().run(false, false, operation);
 
@@ -286,26 +284,29 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 			final IWorkbenchPart activePart = page.getActivePart();
 			if (activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
-				getShell().getDisplay().asyncExec(new Runnable() {
-					public void run() {
-						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
-					}
-				});
+				getShell().getDisplay().asyncExec
+					(new Runnable() {
+						 public void run() {
+							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
+						 }
+					 });
 			}
 
 			// Open an editor on the new file.
 			//
 			try {
-				page.openEditor(new FileEditorInput(modelFile),
-						workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
-			} catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(),
-						SagaEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				page.openEditor
+					(new FileEditorInput(modelFile),
+					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
+			}
+			catch (PartInitException exception) {
+				MessageDialog.openError(workbenchWindow.getShell(), SagaEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			SagaEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
@@ -340,8 +341,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(
-							SagaEditorPlugin.INSTANCE.getString(key, new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(SagaEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -403,8 +403,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -475,11 +474,12 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected ModifyListener validator = new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				setPageComplete(validatePage());
-			}
-		};
+		protected ModifyListener validator =
+			new ModifyListener() {
+				public void modifyText(ModifyEvent e) {
+					setPageComplete(validatePage());
+				}
+			};
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -502,7 +502,8 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 				if (initialObjectField.getItemCount() == 1) {
 					initialObjectField.clearSelection();
 					encodingField.setFocus();
-				} else {
+				}
+				else {
 					encodingField.clearSelection();
 					initialObjectField.setFocus();
 				}
@@ -543,7 +544,8 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		protected String getLabel(String typeName) {
 			try {
 				return SagaEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-			} catch (MissingResourceException mre) {
+			}
+			catch(MissingResourceException mre) {
 				SagaEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
@@ -557,9 +559,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(
-						SagaEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
-								.hasMoreTokens();) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(SagaEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -571,16 +571,16 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	@Override
+		@Override
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new SagaModelWizardNewFileCreationPage("Whatever", selection);
 		newFileCreationPage.setTitle(SagaEditorPlugin.INSTANCE.getString("_UI_SagaModelWizard_label"));
 		newFileCreationPage.setDescription(SagaEditorPlugin.INSTANCE.getString("_UI_SagaModelWizard_description"));
-		newFileCreationPage.setFileName(SagaEditorPlugin.INSTANCE.getString("_UI_SagaEditorFilenameDefaultBase") + "."
-				+ FILE_EXTENSIONS.get(0));
+		newFileCreationPage.setFileName(SagaEditorPlugin.INSTANCE.getString("_UI_SagaEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -592,7 +592,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
 				//
-				IResource selectedResource = (IResource) selectedElement;
+				IResource selectedResource = (IResource)selectedElement;
 				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
@@ -606,11 +606,10 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = SagaEditorPlugin.INSTANCE
-							.getString("_UI_SagaEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = SagaEditorPlugin.INSTANCE.getString("_UI_SagaEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
@@ -619,14 +618,8 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		}
 		initialObjectCreationPage = new SagaModelWizardInitialObjectCreationPage("Whatever2");
 		initialObjectCreationPage.setTitle(SagaEditorPlugin.INSTANCE.getString("_UI_SagaModelWizard_label"));
-		initialObjectCreationPage
-				.setDescription(SagaEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setDescription(SagaEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
-
-		gropiusImportPage = new SagaModelWizardGropiusImportPage("Whatever3");
-		gropiusImportPage.setTitle("Gropius Import");
-		gropiusImportPage.setDescription("Import from gropius");
-		addPage(gropiusImportPage);
 	}
 
 	/**

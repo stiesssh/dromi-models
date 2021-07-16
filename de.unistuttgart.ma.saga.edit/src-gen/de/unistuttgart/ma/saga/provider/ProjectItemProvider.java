@@ -2,12 +2,17 @@
  */
 package de.unistuttgart.ma.saga.provider;
 
+
+import de.unistuttgart.gropius.GropiusFactory;
+
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 
 import java.util.Collection;
 import java.util.List;
+
+import org.eclipse.bpmn2.Bpmn2Factory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -23,7 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectItemProvider extends NamedElementItemProvider {
+public class ProjectItemProvider extends IdentifiableElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -61,10 +66,10 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SagaPackage.Literals.PROJECT__COMPONENTS);
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__SAGAS);
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__PROCESSES);
-			childrenFeatures.add(SagaPackage.Literals.PROJECT__CHAINS);
+			childrenFeatures.add(SagaPackage.Literals.PROJECT__COMPONENTS);
+			childrenFeatures.add(SagaPackage.Literals.PROJECT__NOTIFICATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -94,16 +99,6 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,10 +106,12 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Project) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Project_type")
-				: getString("_UI_Project_type") + " " + label;
+		String label = ((Project)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Project_type") :
+			getString("_UI_Project_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -128,12 +125,12 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Project.class)) {
-		case SagaPackage.PROJECT__COMPONENTS:
-		case SagaPackage.PROJECT__SAGAS:
-		case SagaPackage.PROJECT__PROCESSES:
-		case SagaPackage.PROJECT__CHAINS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case SagaPackage.PROJECT__SAGAS:
+			case SagaPackage.PROJECT__PROCESSES:
+			case SagaPackage.PROJECT__COMPONENTS:
+			case SagaPackage.PROJECT__NOTIFICATIONS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -149,20 +146,30 @@ public class ProjectItemProvider extends NamedElementItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(SagaPackage.Literals.PROJECT__COMPONENTS,
-				SagaFactory.eINSTANCE.createComponent()));
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.PROJECT__SAGAS,
+				 SagaFactory.eINSTANCE.createSaga()));
 
-		newChildDescriptors
-				.add(createChildParameter(SagaPackage.Literals.PROJECT__SAGAS, SagaFactory.eINSTANCE.createSaga()));
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.PROJECT__PROCESSES,
+				 Bpmn2Factory.eINSTANCE.createProcess()));
 
-		newChildDescriptors.add(
-				createChildParameter(SagaPackage.Literals.PROJECT__PROCESSES, SagaFactory.eINSTANCE.createProcess()));
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.PROJECT__COMPONENTS,
+				 SagaFactory.eINSTANCE.createComponentAdapter()));
 
-		newChildDescriptors.add(
-				createChildParameter(SagaPackage.Literals.PROJECT__CHAINS, SagaFactory.eINSTANCE.createViolation()));
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.PROJECT__COMPONENTS,
+				 GropiusFactory.eINSTANCE.createComponent()));
 
-		newChildDescriptors
-				.add(createChildParameter(SagaPackage.Literals.PROJECT__CHAINS, SagaFactory.eINSTANCE.createImpact()));
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.PROJECT__NOTIFICATIONS,
+				 SagaFactory.eINSTANCE.createNotification()));
 	}
 
 }

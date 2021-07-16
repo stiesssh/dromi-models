@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated gropius -->
+      <package
+            uri="http://www.example.org/gropius"
+            class="de.unistuttgart.gropius.GropiusPackage"
+            genModel="model/gropius.genmodel"/>
+   </extension>
+
+</plugin>

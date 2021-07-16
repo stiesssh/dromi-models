@@ -9,8 +9,15 @@ Bundle-ClassPath: .,
 Bundle-Activator: de.unistuttgart.ma.saga.presentation.SagaEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: de.unistuttgart.ma.saga.presentation
+Bundle-RequiredExecutionEnvironment: JavaSE-11,
+ J2SE-1.5
+Export-Package: de.unistuttgart.gropius.presentation,
+ de.unistuttgart.ma.saga.presentation,
+ gropius.slo.presentation,
+ org.eclipse.bpmn2.di.presentation,
+ org.eclipse.bpmn2.presentation,
+ org.eclipse.dd.dc.presentation,
+ org.eclipse.dd.di.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.unistuttgart.ma.saga.edit;visibility:=reexport,

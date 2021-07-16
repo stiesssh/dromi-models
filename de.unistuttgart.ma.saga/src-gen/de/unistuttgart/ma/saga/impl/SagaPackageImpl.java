@@ -2,29 +2,50 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
-import de.unistuttgart.ma.saga.Activity;
+import de.unistuttgart.gropius.GropiusPackage;
+
+import de.unistuttgart.gropius.impl.GropiusPackageImpl;
+
 import de.unistuttgart.ma.saga.ChainLink;
-import de.unistuttgart.ma.saga.ChainStart;
-import de.unistuttgart.ma.saga.Component;
-import de.unistuttgart.ma.saga.ComponentInterface;
+import de.unistuttgart.ma.saga.ComponentAdapter;
+import de.unistuttgart.ma.saga.ComponentInterfaceAdapter;
 import de.unistuttgart.ma.saga.ElementWithSLO;
+import de.unistuttgart.ma.saga.IdentifiableElement;
 import de.unistuttgart.ma.saga.Impact;
-import de.unistuttgart.ma.saga.NamedElement;
+import de.unistuttgart.ma.saga.Notification;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
-
 import de.unistuttgart.ma.saga.SagaStep;
-import de.unistuttgart.ma.saga.Slo;
 import de.unistuttgart.ma.saga.Violation;
+
+import gropius.slo.SloPackage;
+
+import gropius.slo.impl.SloPackageImpl;
+
+import org.eclipse.bpmn2.Bpmn2Package;
+
+import org.eclipse.bpmn2.di.BpmnDiPackage;
+
+import org.eclipse.bpmn2.di.impl.BpmnDiPackageImpl;
+
+import org.eclipse.bpmn2.impl.Bpmn2PackageImpl;
+
+import org.eclipse.dd.dc.DcPackage;
+
+import org.eclipse.dd.dc.impl.DcPackageImpl;
+
+import org.eclipse.dd.di.DiPackage;
+
+import org.eclipse.dd.di.impl.DiPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,21 +66,14 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentEClass = null;
+	private EClass componentAdapterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentInterfaceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass namedElementEClass = null;
+	private EClass componentInterfaceAdapterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,27 +88,6 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	private EClass sagaStepEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass processEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass activityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sloEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,7 +122,14 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass chainStartEClass = null;
+	private EClass notificationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass identifiableElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -170,25 +170,49 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	public static SagaPackage init() {
-		if (isInited)
-			return (SagaPackage) EPackage.Registry.INSTANCE.getEPackage(SagaPackage.eNS_URI);
+		if (isInited) return (SagaPackage)EPackage.Registry.INSTANCE.getEPackage(SagaPackage.eNS_URI);
 
 		// Obtain or create and register package
 		Object registeredSagaPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		SagaPackageImpl theSagaPackage = registeredSagaPackage instanceof SagaPackageImpl
-				? (SagaPackageImpl) registeredSagaPackage
-				: new SagaPackageImpl();
+		SagaPackageImpl theSagaPackage = registeredSagaPackage instanceof SagaPackageImpl ? (SagaPackageImpl)registeredSagaPackage : new SagaPackageImpl();
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		XMLTypePackage.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
+		Bpmn2PackageImpl theBpmn2Package = (Bpmn2PackageImpl)(registeredPackage instanceof Bpmn2PackageImpl ? registeredPackage : Bpmn2Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DiPackage.eNS_URI);
+		DiPackageImpl theDiPackage = (DiPackageImpl)(registeredPackage instanceof DiPackageImpl ? registeredPackage : DiPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(BpmnDiPackage.eNS_URI);
+		BpmnDiPackageImpl theDiPackage_1 = (BpmnDiPackageImpl)(registeredPackage instanceof BpmnDiPackageImpl ? registeredPackage : BpmnDiPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DcPackage.eNS_URI);
+		DcPackageImpl theDcPackage = (DcPackageImpl)(registeredPackage instanceof DcPackageImpl ? registeredPackage : DcPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SloPackage.eNS_URI);
+		SloPackageImpl theSloPackage = (SloPackageImpl)(registeredPackage instanceof SloPackageImpl ? registeredPackage : SloPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GropiusPackage.eNS_URI);
+		GropiusPackageImpl theGropiusPackage = (GropiusPackageImpl)(registeredPackage instanceof GropiusPackageImpl ? registeredPackage : GropiusPackage.eINSTANCE);
+
+		// Load packages
+		theBpmn2Package.loadPackage();
 
 		// Create package meta-data objects
 		theSagaPackage.createPackageContents();
+		theDiPackage.createPackageContents();
+		theDiPackage_1.createPackageContents();
+		theDcPackage.createPackageContents();
+		theSloPackage.createPackageContents();
+		theGropiusPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSagaPackage.initializePackageContents();
+		theDiPackage.initializePackageContents();
+		theDiPackage_1.initializePackageContents();
+		theDcPackage.initializePackageContents();
+		theSloPackage.initializePackageContents();
+		theGropiusPackage.initializePackageContents();
+
+		// Fix loaded packages
+		theBpmn2Package.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSagaPackage.freeze();
@@ -212,17 +236,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProject_Components() {
-		return (EReference) projectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getProject_Sagas() {
-		return (EReference) projectEClass.getEStructuralFeatures().get(1);
+		return (EReference)projectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -231,7 +246,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	public EReference getProject_Processes() {
-		return (EReference) projectEClass.getEStructuralFeatures().get(2);
+		return (EReference)projectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -239,8 +254,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProject_Chains() {
-		return (EReference) projectEClass.getEStructuralFeatures().get(3);
+	public EReference getProject_Components() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -248,8 +263,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComponent() {
-		return componentEClass;
+	public EReference getProject_Notifications() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -257,8 +272,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Interfaces() {
-		return (EReference) componentEClass.getEStructuralFeatures().get(0);
+	public EClass getComponentAdapter() {
+		return componentAdapterEClass;
 	}
 
 	/**
@@ -266,8 +281,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComponentInterface() {
-		return componentInterfaceEClass;
+	public EClass getComponentInterfaceAdapter() {
+		return componentInterfaceAdapterEClass;
 	}
 
 	/**
@@ -275,26 +290,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponentInterface_NextLevelElements() {
-		return (EReference) componentInterfaceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNamedElement() {
-		return namedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNamedElement_Name() {
-		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
+	public EReference getComponentInterfaceAdapter_NextLevelElements() {
+		return (EReference)componentInterfaceAdapterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -312,7 +309,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	public EReference getSaga_Steps() {
-		return (EReference) sagaEClass.getEStructuralFeatures().get(0);
+		return (EReference)sagaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -330,7 +327,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	public EReference getSagaStep_NextLevelElements() {
-		return (EReference) sagaStepEClass.getEStructuralFeatures().get(0);
+		return (EReference)sagaStepEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -338,35 +335,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProcess() {
-		return processEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProcess_Activities() {
-		return (EReference) processEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getActivity() {
-		return activityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSlo() {
-		return sloEClass;
+	public EReference getSagaStep_NextStep() {
+		return (EReference)sagaStepEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -383,8 +353,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementWithSLO_Slos() {
-		return (EReference) elementWithSLOEClass.getEStructuralFeatures().get(0);
+	public EReference getElementWithSLO_SloRules() {
+		return (EReference)elementWithSLOEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -401,8 +371,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViolation_Slo() {
-		return (EReference) violationEClass.getEStructuralFeatures().get(0);
+	public EReference getViolation_PassingImpacts() {
+		return (EReference)violationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -410,8 +380,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getViolation_PassingImpacts() {
-		return (EReference) violationEClass.getEStructuralFeatures().get(1);
+	public EReference getViolation_ViolatedRule() {
+		return (EReference)violationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -428,6 +398,15 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getImpact_CausedBy() {
+		return (EReference)impactEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getChainLink() {
 		return chainLinkEClass;
 	}
@@ -437,8 +416,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChainLink_CausedBy() {
-		return (EReference) chainLinkEClass.getEStructuralFeatures().get(0);
+	public EAttribute getChainLink_LocationId() {
+		return (EAttribute)chainLinkEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -446,8 +425,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChainLink_Location() {
-		return (EReference) chainLinkEClass.getEStructuralFeatures().get(1);
+	public EClass getNotification() {
+		return notificationEClass;
 	}
 
 	/**
@@ -455,8 +434,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getChainStart() {
-		return chainStartEClass;
+	public EReference getNotification_Chainlinks() {
+		return (EReference)notificationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -464,8 +443,35 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getChainStart_Chainlink() {
-		return (EReference) chainStartEClass.getEStructuralFeatures().get(0);
+	public EReference getNotification_TopLevelImpact() {
+		return (EReference)notificationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIdentifiableElement() {
+		return identifiableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIdentifiableElement_Id() {
+		return (EAttribute)identifiableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIdentifiableElement_Name() {
+		return (EAttribute)identifiableElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -474,7 +480,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	public SagaFactory getSagaFactory() {
-		return (SagaFactory) getEFactoryInstance();
+		return (SagaFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -492,54 +498,48 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
 		projectEClass = createEClass(PROJECT);
-		createEReference(projectEClass, PROJECT__COMPONENTS);
 		createEReference(projectEClass, PROJECT__SAGAS);
 		createEReference(projectEClass, PROJECT__PROCESSES);
-		createEReference(projectEClass, PROJECT__CHAINS);
+		createEReference(projectEClass, PROJECT__COMPONENTS);
+		createEReference(projectEClass, PROJECT__NOTIFICATIONS);
 
-		componentEClass = createEClass(COMPONENT);
-		createEReference(componentEClass, COMPONENT__INTERFACES);
+		componentAdapterEClass = createEClass(COMPONENT_ADAPTER);
 
-		componentInterfaceEClass = createEClass(COMPONENT_INTERFACE);
-		createEReference(componentInterfaceEClass, COMPONENT_INTERFACE__NEXT_LEVEL_ELEMENTS);
-
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+		componentInterfaceAdapterEClass = createEClass(COMPONENT_INTERFACE_ADAPTER);
+		createEReference(componentInterfaceAdapterEClass, COMPONENT_INTERFACE_ADAPTER__NEXT_LEVEL_ELEMENTS);
 
 		sagaEClass = createEClass(SAGA);
 		createEReference(sagaEClass, SAGA__STEPS);
 
 		sagaStepEClass = createEClass(SAGA_STEP);
 		createEReference(sagaStepEClass, SAGA_STEP__NEXT_LEVEL_ELEMENTS);
-
-		processEClass = createEClass(PROCESS);
-		createEReference(processEClass, PROCESS__ACTIVITIES);
-
-		activityEClass = createEClass(ACTIVITY);
-
-		sloEClass = createEClass(SLO);
+		createEReference(sagaStepEClass, SAGA_STEP__NEXT_STEP);
 
 		elementWithSLOEClass = createEClass(ELEMENT_WITH_SLO);
-		createEReference(elementWithSLOEClass, ELEMENT_WITH_SLO__SLOS);
+		createEReference(elementWithSLOEClass, ELEMENT_WITH_SLO__SLO_RULES);
 
 		violationEClass = createEClass(VIOLATION);
-		createEReference(violationEClass, VIOLATION__SLO);
 		createEReference(violationEClass, VIOLATION__PASSING_IMPACTS);
+		createEReference(violationEClass, VIOLATION__VIOLATED_RULE);
 
 		impactEClass = createEClass(IMPACT);
+		createEReference(impactEClass, IMPACT__CAUSED_BY);
 
 		chainLinkEClass = createEClass(CHAIN_LINK);
-		createEReference(chainLinkEClass, CHAIN_LINK__CAUSED_BY);
-		createEReference(chainLinkEClass, CHAIN_LINK__LOCATION);
+		createEAttribute(chainLinkEClass, CHAIN_LINK__LOCATION_ID);
 
-		chainStartEClass = createEClass(CHAIN_START);
-		createEReference(chainStartEClass, CHAIN_START__CHAINLINK);
+		notificationEClass = createEClass(NOTIFICATION);
+		createEReference(notificationEClass, NOTIFICATION__CHAINLINKS);
+		createEReference(notificationEClass, NOTIFICATION__TOP_LEVEL_IMPACT);
+
+		identifiableElementEClass = createEClass(IDENTIFIABLE_ELEMENT);
+		createEAttribute(identifiableElementEClass, IDENTIFIABLE_ELEMENT__ID);
+		createEAttribute(identifiableElementEClass, IDENTIFIABLE_ELEMENT__NAME);
 	}
 
 	/**
@@ -557,8 +557,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -567,110 +566,65 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE
-				.getEPackage(XMLTypePackage.eNS_URI);
+		Bpmn2Package theBpmn2Package = (Bpmn2Package)EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
+		GropiusPackage theGropiusPackage = (GropiusPackage)EPackage.Registry.INSTANCE.getEPackage(GropiusPackage.eNS_URI);
+		SloPackage theSloPackage = (SloPackage)EPackage.Registry.INSTANCE.getEPackage(SloPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		projectEClass.getESuperTypes().add(this.getNamedElement());
-		componentEClass.getESuperTypes().add(this.getElementWithSLO());
-		componentInterfaceEClass.getESuperTypes().add(this.getElementWithSLO());
-		sagaEClass.getESuperTypes().add(this.getElementWithSLO());
-		sagaStepEClass.getESuperTypes().add(this.getElementWithSLO());
-		processEClass.getESuperTypes().add(this.getElementWithSLO());
-		activityEClass.getESuperTypes().add(this.getElementWithSLO());
-		elementWithSLOEClass.getESuperTypes().add(this.getNamedElement());
+		projectEClass.getESuperTypes().add(this.getIdentifiableElement());
+		componentAdapterEClass.getESuperTypes().add(this.getElementWithSLO());
+		componentAdapterEClass.getESuperTypes().add(theGropiusPackage.getComponent());
+		componentInterfaceAdapterEClass.getESuperTypes().add(this.getElementWithSLO());
+		componentInterfaceAdapterEClass.getESuperTypes().add(theGropiusPackage.getComponentInterface());
+		sagaEClass.getESuperTypes().add(this.getIdentifiableElement());
+		sagaStepEClass.getESuperTypes().add(this.getIdentifiableElement());
 		violationEClass.getESuperTypes().add(this.getChainLink());
 		impactEClass.getESuperTypes().add(this.getChainLink());
+		notificationEClass.getESuperTypes().add(this.getIdentifiableElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProject_Components(), this.getComponent(), null, "components", null, 0, -1, Project.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProject_Sagas(), this.getSaga(), null, "sagas", null, 0, -1, Project.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getProject_Processes(), this.getProcess(), null, "processes", null, 0, -1, Project.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProject_Chains(), this.getChainLink(), null, "chains", null, 0, -1, Project.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Sagas(), this.getSaga(), null, "sagas", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Processes(), theBpmn2Package.getProcess(), null, "processes", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Components(), theGropiusPackage.getComponent(), null, "components", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Notifications(), this.getNotification(), null, "notifications", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponent_Interfaces(), this.getComponentInterface(), null, "interfaces", null, 0, -1,
-				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(componentAdapterEClass, ComponentAdapter.class, "ComponentAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(componentInterfaceEClass, ComponentInterface.class, "ComponentInterface", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentInterface_NextLevelElements(), this.getSagaStep(), null, "nextLevelElements", null,
-				0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), theXMLTypePackage.getString(), "name", null, 0, 1, NamedElement.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(componentInterfaceAdapterEClass, ComponentInterfaceAdapter.class, "ComponentInterfaceAdapter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComponentInterfaceAdapter_NextLevelElements(), this.getSagaStep(), null, "nextLevelElements", null, 0, -1, ComponentInterfaceAdapter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sagaEClass, Saga.class, "Saga", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSaga_Steps(), this.getSagaStep(), null, "steps", null, 0, -1, Saga.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getSaga_Steps(), this.getSagaStep(), null, "steps", null, 0, -1, Saga.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sagaStepEClass, SagaStep.class, "SagaStep", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSagaStep_NextLevelElements(), this.getActivity(), null, "nextLevelElements", null, 0, 1,
-				SagaStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sagaStepEClass, SagaStep.class, "SagaStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSagaStep_NextLevelElements(), theBpmn2Package.getTask(), null, "nextLevelElements", null, 1, -1, SagaStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSagaStep_NextStep(), this.getSagaStep(), null, "nextStep", null, 0, 1, SagaStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(processEClass, de.unistuttgart.ma.saga.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProcess_Activities(), this.getActivity(), null, "activities", null, 0, -1,
-				de.unistuttgart.ma.saga.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementWithSLOEClass, ElementWithSLO.class, "ElementWithSLO", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementWithSLO_SloRules(), theSloPackage.getSloRule(), null, "sloRules", null, 0, -1, ElementWithSLO.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(activityEClass, Activity.class, "Activity", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(sloEClass, Slo.class, "Slo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(elementWithSLOEClass, ElementWithSLO.class, "ElementWithSLO", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElementWithSLO_Slos(), this.getSlo(), null, "slos", null, 0, -1, ElementWithSLO.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(violationEClass, Violation.class, "Violation", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getViolation_Slo(), this.getSlo(), null, "slo", null, 1, -1, Violation.class, !IS_TRANSIENT,
-				!IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getViolation_PassingImpacts(), this.getChainLink(), null, "passingImpacts", null, 0, -1,
-				Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(violationEClass, Violation.class, "Violation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getViolation_PassingImpacts(), this.getChainLink(), null, "passingImpacts", null, 0, -1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getViolation_ViolatedRule(), theSloPackage.getSloRule(), null, "violatedRule", null, 1, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(impactEClass, Impact.class, "Impact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getImpact_CausedBy(), this.getChainLink(), null, "causedBy", null, 1, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(chainLinkEClass, ChainLink.class, "ChainLink", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChainLink_CausedBy(), this.getChainLink(), null, "causedBy", null, 1, 1, ChainLink.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getChainLink_Location(), this.getElementWithSLO(), null, "location", null, 0, 1, ChainLink.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(chainLinkEClass, ChainLink.class, "ChainLink", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getChainLink_LocationId(), ecorePackage.getEString(), "locationId", null, 1, 1, ChainLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(chainStartEClass, ChainStart.class, "ChainStart", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChainStart_Chainlink(), this.getChainLink(), null, "chainlink", null, 0, -1, ChainStart.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(notificationEClass, Notification.class, "Notification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNotification_Chainlinks(), this.getChainLink(), null, "chainlinks", null, 0, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotification_TopLevelImpact(), this.getImpact(), null, "topLevelImpact", null, 1, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(identifiableElementEClass, IdentifiableElement.class, "IdentifiableElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIdentifiableElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, IdentifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIdentifiableElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, IdentifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

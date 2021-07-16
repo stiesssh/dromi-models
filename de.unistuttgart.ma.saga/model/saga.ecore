@@ -1,57 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="saga" nsURI="http://www.example.org/saga" nsPrefix="saga">
-  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//IdentifiableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sagas" upperBound="-1"
         eType="#//Saga" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
-        eType="#//Process" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="chains" upperBound="-1"
-        eType="#//ChainLink" containment="true"/>
+        eType="ecore:EClass BPMN20.ecore#//Process" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//Component"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notifications" upperBound="-1"
+        eType="#//Notification" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//ElementWithSLO">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
-        eType="#//ComponentInterface" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentAdapter" eSuperTypes="#//ElementWithSLO ../../de.unistuttgart.gropius/model/gropius.ecore#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfaceAdapter" eSuperTypes="#//ElementWithSLO ../../de.unistuttgart.gropius/model/gropius.ecore#//ComponentInterface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextLevelElements" upperBound="-1"
+        eType="#//SagaStep"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterface" eSuperTypes="#//ElementWithSLO">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextLevelElements" eType="#//SagaStep"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Saga" eSuperTypes="#//ElementWithSLO">
+  <eClassifiers xsi:type="ecore:EClass" name="Saga" eSuperTypes="#//IdentifiableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
         eType="#//SagaStep" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SagaStep" eSuperTypes="#//ElementWithSLO">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nextLevelElements" eType="#//Activity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SagaStep" eSuperTypes="#//IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextLevelElements" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass BPMN20.ecore#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextStep" eType="#//SagaStep"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Process" eSuperTypes="#//ElementWithSLO">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activities" upperBound="-1"
-        eType="#//Activity" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Activity" eSuperTypes="#//ElementWithSLO"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Slo"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ElementWithSLO" abstract="true" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="slos" ordered="false" upperBound="-1"
-        eType="#//Slo" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementWithSLO" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sloRules" upperBound="-1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Violation" eSuperTypes="#//ChainLink">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="slo" lowerBound="1" upperBound="-1"
-        eType="#//Slo" changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="passingImpacts" ordered="false"
         upperBound="-1" eType="#//ChainLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="violatedRule" lowerBound="1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Impact" eSuperTypes="#//ChainLink"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ChainLink" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Impact" eSuperTypes="#//ChainLink">
     <eStructuralFeatures xsi:type="ecore:EReference" name="causedBy" lowerBound="1"
-        eType="#//ChainLink"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//ElementWithSLO"/>
+        eType="#//ChainLink" resolveProxies="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChainStart">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="chainlink" upperBound="-1"
+  <eClassifiers xsi:type="ecore:EClass" name="ChainLink" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locationId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Notification" eSuperTypes="#//IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chainlinks" upperBound="-1"
         eType="#//ChainLink" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topLevelImpact" lowerBound="1"
+        eType="#//Impact" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

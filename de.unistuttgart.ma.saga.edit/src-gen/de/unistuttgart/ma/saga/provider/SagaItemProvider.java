@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.saga.provider;
 
+
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
@@ -23,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SagaItemProvider extends ElementWithSLOItemProvider {
+public class SagaItemProvider extends IdentifiableElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -91,16 +92,6 @@ public class SagaItemProvider extends ElementWithSLOItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,10 +99,12 @@ public class SagaItemProvider extends ElementWithSLOItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Saga) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Saga_type")
-				: getString("_UI_Saga_type") + " " + label;
+		String label = ((Saga)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Saga_type") :
+			getString("_UI_Saga_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -125,9 +118,9 @@ public class SagaItemProvider extends ElementWithSLOItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Saga.class)) {
-		case SagaPackage.SAGA__STEPS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case SagaPackage.SAGA__STEPS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -143,8 +136,10 @@ public class SagaItemProvider extends ElementWithSLOItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(SagaPackage.Literals.SAGA__STEPS, SagaFactory.eINSTANCE.createSagaStep()));
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.SAGA__STEPS,
+				 SagaFactory.eINSTANCE.createSagaStep()));
 	}
 
 }

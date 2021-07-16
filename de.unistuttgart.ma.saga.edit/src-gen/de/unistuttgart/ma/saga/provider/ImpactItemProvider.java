@@ -2,12 +2,17 @@
  */
 package de.unistuttgart.ma.saga.provider;
 
+
+import de.unistuttgart.ma.saga.Impact;
+import de.unistuttgart.ma.saga.SagaPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -38,8 +43,31 @@ public class ImpactItemProvider extends ChainLinkItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCausedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Caused By feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCausedByPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Impact_causedBy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Impact_causedBy_feature", "_UI_Impact_type"),
+				 SagaPackage.Literals.IMPACT__CAUSED_BY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -54,16 +82,6 @@ public class ImpactItemProvider extends ChainLinkItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,8 +89,12 @@ public class ImpactItemProvider extends ChainLinkItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Impact_type");
+		String label = ((Impact)object).getLocationId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Impact_type") :
+			getString("_UI_Impact_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

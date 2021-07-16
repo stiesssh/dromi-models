@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.ma.saga;
 
+import gropius.slo.SloRule;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -13,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.Violation#getSlo <em>Slo</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.Violation#getPassingImpacts <em>Passing Impacts</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.Violation#getViolatedRule <em>Violated Rule</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.SagaPackage#getViolation()
@@ -22,18 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Violation extends ChainLink {
-	/**
-	 * Returns the value of the '<em><b>Slo</b></em>' reference list.
-	 * The list contents are of type {@link de.unistuttgart.ma.saga.Slo}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Slo</em>' reference list.
-	 * @see de.unistuttgart.ma.saga.SagaPackage#getViolation_Slo()
-	 * @model required="true" changeable="false"
-	 * @generated
-	 */
-	EList<Slo> getSlo();
-
 	/**
 	 * Returns the value of the '<em><b>Passing Impacts</b></em>' reference list.
 	 * The list contents are of type {@link de.unistuttgart.ma.saga.ChainLink}.
@@ -45,5 +35,27 @@ public interface Violation extends ChainLink {
 	 * @generated
 	 */
 	EList<ChainLink> getPassingImpacts();
+
+	/**
+	 * Returns the value of the '<em><b>Violated Rule</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Violated Rule</em>' reference.
+	 * @see #setViolatedRule(SloRule)
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getViolation_ViolatedRule()
+	 * @model required="true"
+	 * @generated
+	 */
+	SloRule getViolatedRule();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.Violation#getViolatedRule <em>Violated Rule</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Violated Rule</em>' reference.
+	 * @see #getViolatedRule()
+	 * @generated
+	 */
+	void setViolatedRule(SloRule value);
 
 } // Violation

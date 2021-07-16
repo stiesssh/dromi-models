@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.ma.saga.provider;
 
+
+import de.unistuttgart.ma.saga.ChainLink;
 import de.unistuttgart.ma.saga.SagaPackage;
 
 import java.util.Collection;
@@ -19,7 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.ChainLink} object.
@@ -27,8 +31,14 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChainLinkItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ChainLinkItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -50,50 +60,31 @@ public class ChainLinkItemProvider extends ItemProviderAdapter implements IEditi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCausedByPropertyDescriptor(object);
-			addLocationPropertyDescriptor(object);
+			addLocationIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Caused By feature.
+	 * This adds a property descriptor for the Location Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCausedByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ChainLink_causedBy_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ChainLink_causedBy_feature",
-								"_UI_ChainLink_type"),
-						SagaPackage.Literals.CHAIN_LINK__CAUSED_BY, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Location feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_ChainLink_location_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_ChainLink_location_feature",
-								"_UI_ChainLink_type"),
-						SagaPackage.Literals.CHAIN_LINK__LOCATION, true, false, true, null, null, null));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
+	protected void addLocationIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ChainLink_locationId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ChainLink_locationId_feature", "_UI_ChainLink_type"),
+				 SagaPackage.Literals.CHAIN_LINK__LOCATION_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -104,8 +95,12 @@ public class ChainLinkItemProvider extends ItemProviderAdapter implements IEditi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ChainLink_type");
+		String label = ((ChainLink)object).getLocationId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ChainLink_type") :
+			getString("_UI_ChainLink_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -117,6 +112,12 @@ public class ChainLinkItemProvider extends ItemProviderAdapter implements IEditi
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ChainLink.class)) {
+			case SagaPackage.CHAIN_LINK__LOCATION_ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

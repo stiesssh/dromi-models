@@ -2,18 +2,8 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
-import de.unistuttgart.ma.saga.Activity;
-import de.unistuttgart.ma.saga.ChainStart;
-import de.unistuttgart.ma.saga.Component;
-import de.unistuttgart.ma.saga.ComponentInterface;
-import de.unistuttgart.ma.saga.Impact;
-import de.unistuttgart.ma.saga.Project;
-import de.unistuttgart.ma.saga.Saga;
-import de.unistuttgart.ma.saga.SagaFactory;
-import de.unistuttgart.ma.saga.SagaPackage;
-import de.unistuttgart.ma.saga.SagaStep;
-import de.unistuttgart.ma.saga.Slo;
-import de.unistuttgart.ma.saga.Violation;
+import de.unistuttgart.ma.saga.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -37,11 +27,12 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 */
 	public static SagaFactory init() {
 		try {
-			SagaFactory theSagaFactory = (SagaFactory) EPackage.Registry.INSTANCE.getEFactory(SagaPackage.eNS_URI);
+			SagaFactory theSagaFactory = (SagaFactory)EPackage.Registry.INSTANCE.getEFactory(SagaPackage.eNS_URI);
 			if (theSagaFactory != null) {
 				return theSagaFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new SagaFactoryImpl();
@@ -65,30 +56,16 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case SagaPackage.PROJECT:
-			return createProject();
-		case SagaPackage.COMPONENT:
-			return createComponent();
-		case SagaPackage.COMPONENT_INTERFACE:
-			return createComponentInterface();
-		case SagaPackage.SAGA:
-			return createSaga();
-		case SagaPackage.SAGA_STEP:
-			return createSagaStep();
-		case SagaPackage.PROCESS:
-			return createProcess();
-		case SagaPackage.ACTIVITY:
-			return createActivity();
-		case SagaPackage.SLO:
-			return createSlo();
-		case SagaPackage.VIOLATION:
-			return createViolation();
-		case SagaPackage.IMPACT:
-			return createImpact();
-		case SagaPackage.CHAIN_START:
-			return createChainStart();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case SagaPackage.PROJECT: return createProject();
+			case SagaPackage.COMPONENT_ADAPTER: return createComponentAdapter();
+			case SagaPackage.COMPONENT_INTERFACE_ADAPTER: return createComponentInterfaceAdapter();
+			case SagaPackage.SAGA: return createSaga();
+			case SagaPackage.SAGA_STEP: return createSagaStep();
+			case SagaPackage.VIOLATION: return createViolation();
+			case SagaPackage.IMPACT: return createImpact();
+			case SagaPackage.NOTIFICATION: return createNotification();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -107,9 +84,9 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Component createComponent() {
-		ComponentImpl component = new ComponentImpl();
-		return component;
+	public ComponentAdapter createComponentAdapter() {
+		ComponentAdapterImpl componentAdapter = new ComponentAdapterImpl();
+		return componentAdapter;
 	}
 
 	/**
@@ -117,9 +94,9 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComponentInterface createComponentInterface() {
-		ComponentInterfaceImpl componentInterface = new ComponentInterfaceImpl();
-		return componentInterface;
+	public ComponentInterfaceAdapter createComponentInterfaceAdapter() {
+		ComponentInterfaceAdapterImpl componentInterfaceAdapter = new ComponentInterfaceAdapterImpl();
+		return componentInterfaceAdapter;
 	}
 
 	/**
@@ -147,36 +124,6 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public de.unistuttgart.ma.saga.Process createProcess() {
-		ProcessImpl process = new ProcessImpl();
-		return process;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Activity createActivity() {
-		ActivityImpl activity = new ActivityImpl();
-		return activity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Slo createSlo() {
-		SloImpl slo = new SloImpl();
-		return slo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Violation createViolation() {
 		ViolationImpl violation = new ViolationImpl();
 		return violation;
@@ -197,9 +144,9 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ChainStart createChainStart() {
-		ChainStartImpl chainStart = new ChainStartImpl();
-		return chainStart;
+	public Notification createNotification() {
+		NotificationImpl notification = new NotificationImpl();
+		return notification;
 	}
 
 	/**
@@ -208,7 +155,7 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * @generated
 	 */
 	public SagaPackage getSagaPackage() {
-		return (SagaPackage) getEPackage();
+		return (SagaPackage)getEPackage();
 	}
 
 	/**

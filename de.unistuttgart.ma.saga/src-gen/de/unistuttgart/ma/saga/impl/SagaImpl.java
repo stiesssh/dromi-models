@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SagaImpl extends ElementWithSLOImpl implements Saga {
+public class SagaImpl extends IdentifiableElementImpl implements Saga {
 	/**
 	 * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -81,8 +81,8 @@ public class SagaImpl extends ElementWithSLOImpl implements Saga {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case SagaPackage.SAGA__STEPS:
-			return ((InternalEList<?>) getSteps()).basicRemove(otherEnd, msgs);
+			case SagaPackage.SAGA__STEPS:
+				return ((InternalEList<?>)getSteps()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,8 +95,8 @@ public class SagaImpl extends ElementWithSLOImpl implements Saga {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SagaPackage.SAGA__STEPS:
-			return getSteps();
+			case SagaPackage.SAGA__STEPS:
+				return getSteps();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,10 +110,10 @@ public class SagaImpl extends ElementWithSLOImpl implements Saga {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SagaPackage.SAGA__STEPS:
-			getSteps().clear();
-			getSteps().addAll((Collection<? extends SagaStep>) newValue);
-			return;
+			case SagaPackage.SAGA__STEPS:
+				getSteps().clear();
+				getSteps().addAll((Collection<? extends SagaStep>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -126,9 +126,9 @@ public class SagaImpl extends ElementWithSLOImpl implements Saga {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SagaPackage.SAGA__STEPS:
-			getSteps().clear();
-			return;
+			case SagaPackage.SAGA__STEPS:
+				getSteps().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -141,8 +141,8 @@ public class SagaImpl extends ElementWithSLOImpl implements Saga {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SagaPackage.SAGA__STEPS:
-			return steps != null && !steps.isEmpty();
+			case SagaPackage.SAGA__STEPS:
+				return steps != null && !steps.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

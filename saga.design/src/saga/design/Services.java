@@ -1,8 +1,11 @@
 package saga.design;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import de.unistuttgart.ma.saga.Component;
+import de.unistuttgart.ma.saga.Saga;
+import de.unistuttgart.ma.saga.SagaStep;
 
 /**
  * The services class used by VSM.
@@ -16,9 +19,4 @@ public class Services {
        // TODO Auto-generated code
       return self;
     }
-    
-    public Boolean foo(Component self) {
-        // TODO Auto-generated code
-       return self.getSlos().isEmpty();
-     }
 }

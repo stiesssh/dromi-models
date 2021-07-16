@@ -12,7 +12,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
+import de.unistuttgart.ma.saga.presentation.SagaEditorPlugin;
 
 /**
  * This is the page where the type of object to create is selected.
@@ -151,7 +151,7 @@ public class SagaModelWizardSolomonRulesImportPage extends WizardPage {
 	 */
 	protected String getLabel(String typeName) {
 		try {
-			return SagaEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+			return de.unistuttgart.ma.saga.provider.SagaEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 		} catch (MissingResourceException mre) {
 			SagaEditorPlugin.INSTANCE.log(mre);
 		}

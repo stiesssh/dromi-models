@@ -13,7 +13,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
-
 /**
  * This is the page where the type of object to create is selected.
  * 

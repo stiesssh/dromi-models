@@ -31,22 +31,22 @@ public interface SagaFactory extends EFactory {
 	Project createProject();
 
 	/**
-	 * Returns a new object of class '<em>Component</em>'.
+	 * Returns a new object of class '<em>Component Adapter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component</em>'.
+	 * @return a new object of class '<em>Component Adapter</em>'.
 	 * @generated
 	 */
-	Component createComponent();
+	ComponentAdapter createComponentAdapter();
 
 	/**
-	 * Returns a new object of class '<em>Component Interface</em>'.
+	 * Returns a new object of class '<em>Component Interface Adapter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component Interface</em>'.
+	 * @return a new object of class '<em>Component Interface Adapter</em>'.
 	 * @generated
 	 */
-	ComponentInterface createComponentInterface();
+	ComponentInterfaceAdapter createComponentInterfaceAdapter();
 
 	/**
 	 * Returns a new object of class '<em>Saga</em>'.
@@ -67,33 +67,6 @@ public interface SagaFactory extends EFactory {
 	SagaStep createSagaStep();
 
 	/**
-	 * Returns a new object of class '<em>Process</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Process</em>'.
-	 * @generated
-	 */
-	Process createProcess();
-
-	/**
-	 * Returns a new object of class '<em>Activity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Activity</em>'.
-	 * @generated
-	 */
-	Activity createActivity();
-
-	/**
-	 * Returns a new object of class '<em>Slo</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Slo</em>'.
-	 * @generated
-	 */
-	Slo createSlo();
-
-	/**
 	 * Returns a new object of class '<em>Violation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,13 +85,13 @@ public interface SagaFactory extends EFactory {
 	Impact createImpact();
 
 	/**
-	 * Returns a new object of class '<em>Chain Start</em>'.
+	 * Returns a new object of class '<em>Notification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Chain Start</em>'.
+	 * @return a new object of class '<em>Notification</em>'.
 	 * @generated
 	 */
-	ChainStart createChainStart();
+	Notification createNotification();
 
 	/**
 	 * Returns the package supported by this factory.

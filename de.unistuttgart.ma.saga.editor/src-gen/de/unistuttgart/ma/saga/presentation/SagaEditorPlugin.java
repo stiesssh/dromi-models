@@ -22,7 +22,7 @@ public final class SagaEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public static final SagaEditorPlugin INSTANCE = new SagaEditorPlugin();
-
+	
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -38,7 +38,9 @@ public final class SagaEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public SagaEditorPlugin() {
-		super(new ResourceLocator[] {});
+		super
+			(new ResourceLocator [] {
+			});
 	}
 
 	/**
@@ -52,7 +54,7 @@ public final class SagaEditorPlugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
-
+	
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.
 	 * <!-- begin-user-doc -->
@@ -63,7 +65,7 @@ public final class SagaEditorPlugin extends EMFPlugin {
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-
+	
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
@@ -79,7 +81,7 @@ public final class SagaEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

@@ -36,7 +36,9 @@ public final class SagaEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public SagaEditPlugin() {
-		super(new ResourceLocator[] {});
+		super
+		  (new ResourceLocator [] {
+		   });
 	}
 
 	/**

@@ -2,7 +2,11 @@
  */
 package de.unistuttgart.ma.saga;
 
+import gropius.slo.SloRule;
+
 import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,24 +17,24 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.ElementWithSLO#getSlos <em>Slos</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.ElementWithSLO#getSloRules <em>Slo Rules</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.SagaPackage#getElementWithSLO()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface ElementWithSLO extends NamedElement {
+public interface ElementWithSLO extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Slos</b></em>' containment reference list.
-	 * The list contents are of type {@link de.unistuttgart.ma.saga.Slo}.
+	 * Returns the value of the '<em><b>Slo Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link gropius.slo.SloRule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Slos</em>' containment reference list.
-	 * @see de.unistuttgart.ma.saga.SagaPackage#getElementWithSLO_Slos()
-	 * @model containment="true" ordered="false"
+	 * @return the value of the '<em>Slo Rules</em>' containment reference list.
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getElementWithSLO_SloRules()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Slo> getSlos();
+	EList<SloRule> getSloRules();
 
 } // ElementWithSLO

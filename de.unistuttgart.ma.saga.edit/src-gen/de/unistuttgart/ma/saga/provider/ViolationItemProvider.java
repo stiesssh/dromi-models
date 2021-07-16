@@ -2,7 +2,9 @@
  */
 package de.unistuttgart.ma.saga.provider;
 
+
 import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.Violation;
 
 import java.util.Collection;
 import java.util.List;
@@ -41,25 +43,10 @@ public class ViolationItemProvider extends ChainLinkItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSloPropertyDescriptor(object);
 			addPassingImpactsPropertyDescriptor(object);
+			addViolatedRulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Slo feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSloPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Violation_slo_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Violation_slo_feature",
-								"_UI_Violation_type"),
-						SagaPackage.Literals.VIOLATION__SLO, true, false, true, null, null, null));
 	}
 
 	/**
@@ -69,12 +56,41 @@ public class ViolationItemProvider extends ChainLinkItemProvider {
 	 * @generated
 	 */
 	protected void addPassingImpactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Violation_passingImpacts_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Violation_passingImpacts_feature",
-								"_UI_Violation_type"),
-						SagaPackage.Literals.VIOLATION__PASSING_IMPACTS, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Violation_passingImpacts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Violation_passingImpacts_feature", "_UI_Violation_type"),
+				 SagaPackage.Literals.VIOLATION__PASSING_IMPACTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Violated Rule feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addViolatedRulePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Violation_violatedRule_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Violation_violatedRule_feature", "_UI_Violation_type"),
+				 SagaPackage.Literals.VIOLATION__VIOLATED_RULE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,16 +105,6 @@ public class ViolationItemProvider extends ChainLinkItemProvider {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,8 +112,12 @@ public class ViolationItemProvider extends ChainLinkItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Violation_type");
+		String label = ((Violation)object).getLocationId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Violation_type") :
+			getString("_UI_Violation_type") + " " + label;
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
