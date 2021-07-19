@@ -12,10 +12,6 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11,
  J2SE-1.5
 Export-Package: de.unistuttgart.ma.saga.presentation,
- org.eclipse.bpmn2.di.presentation,
- org.eclipse.bpmn2.presentation,
- org.eclipse.dd.dc.presentation,
- org.eclipse.dd.di.presentation,
  de.unistuttgart.ma.saga.impact.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
@@ -23,6 +19,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
+ org.eclipse.bpmn2.edit;visibility:=reexport,
  de.unistuttgart.gropius.edit;visibility:=reexport,
  de.unistuttgart.gropius.slo.edit;visibility:=reexport,
  javax.inject;bundle-version="1.0.0",

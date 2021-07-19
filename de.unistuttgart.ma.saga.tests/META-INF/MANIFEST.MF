@@ -8,23 +8,11 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: de.unistuttgart.gropius.tests,
- de.unistuttgart.ma.saga.tests,
- gropius.slo.tests,
- gropius.tests,
- org.eclipse.bpmn.di.tests,
- org.eclipse.bpmn2.tests,
- gropius.CCIMSMetamodel.tests,
- gropius.slo.slo.tests,
- org.eclipse.bpmn2.bpmn2.tests,
- org.eclipse.bpmn2.di.tests,
- org.eclipse.dd.dc.tests,
- org.eclipse.dd.di.tests,
- uni.stuttgart.saga.tests,
- de.unistuttgart.ma.saga.impact.impact.tests,
- de.unistuttgart.ma.saga.impact.tests
+Export-Package: uni.stuttgart.saga.tests,
+ de.unistuttgart.ma.saga.tests
 Require-Bundle: org.eclipse.core.runtime,
  de.unistuttgart.ma.saga;visibility:=reexport,
+ org.eclipse.bpmn2;visibility:=reexport,
  de.unistuttgart.gropius;visibility:=reexport,
  de.unistuttgart.gropius.slo;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

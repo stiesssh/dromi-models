@@ -5,7 +5,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sagas" upperBound="-1"
         eType="#//Saga" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
-        eType="ecore:EClass BPMN20.ecore#//Process" containment="true"/>
+        eType="ecore:EClass ../../org.eclipse.bpmn2/model/BPMN20.ecore#//Process"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//Component"
         containment="true"/>
@@ -16,7 +17,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SagaStep" eSuperTypes="#//IdentifiableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
-        eType="ecore:EClass BPMN20.ecore#//Task"/>
+        eType="ecore:EClass ../../org.eclipse.bpmn2/model/BPMN20.ecore#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextStep" eType="#//SagaStep"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentInterface" lowerBound="1"
         eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//ComponentInterface"/>

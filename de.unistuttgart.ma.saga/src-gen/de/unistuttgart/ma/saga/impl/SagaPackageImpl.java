@@ -3,9 +3,6 @@
 package de.unistuttgart.ma.saga.impl;
 
 import de.unistuttgart.gropius.GropiusPackage;
-
-import de.unistuttgart.gropius.slo.SloPackage;
-
 import de.unistuttgart.ma.saga.IdentifiableElement;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
@@ -16,19 +13,8 @@ import de.unistuttgart.ma.saga.SagaStep;
 import org.eclipse.bpmn2.Bpmn2Package;
 
 import org.eclipse.bpmn2.di.BpmnDiPackage;
-
-import org.eclipse.bpmn2.di.impl.BpmnDiPackageImpl;
-
-import org.eclipse.bpmn2.impl.Bpmn2PackageImpl;
-
 import org.eclipse.dd.dc.DcPackage;
-
-import org.eclipse.dd.dc.impl.DcPackageImpl;
-
 import org.eclipse.dd.di.DiPackage;
-
-import org.eclipse.dd.di.impl.DiPackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -119,36 +105,17 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		Bpmn2Package.eINSTANCE.eClass();
+		BpmnDiPackage.eINSTANCE.eClass();
+		DiPackage.eINSTANCE.eClass();
+		DcPackage.eINSTANCE.eClass();
 		GropiusPackage.eINSTANCE.eClass();
-		SloPackage.eINSTANCE.eClass();
-
-		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
-		Bpmn2PackageImpl theBpmn2Package = (Bpmn2PackageImpl)(registeredPackage instanceof Bpmn2PackageImpl ? registeredPackage : Bpmn2Package.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DiPackage.eNS_URI);
-		DiPackageImpl theDiPackage = (DiPackageImpl)(registeredPackage instanceof DiPackageImpl ? registeredPackage : DiPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(BpmnDiPackage.eNS_URI);
-		BpmnDiPackageImpl theBpmnDiPackage = (BpmnDiPackageImpl)(registeredPackage instanceof BpmnDiPackageImpl ? registeredPackage : BpmnDiPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DcPackage.eNS_URI);
-		DcPackageImpl theDcPackage = (DcPackageImpl)(registeredPackage instanceof DcPackageImpl ? registeredPackage : DcPackage.eINSTANCE);
-
-		// Load packages
-		theBpmn2Package.loadPackage();
 
 		// Create package meta-data objects
 		theSagaPackage.createPackageContents();
-		theDiPackage.createPackageContents();
-		theBpmnDiPackage.createPackageContents();
-		theDcPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSagaPackage.initializePackageContents();
-		theDiPackage.initializePackageContents();
-		theBpmnDiPackage.initializePackageContents();
-		theDcPackage.initializePackageContents();
-
-		// Fix loaded packages
-		theBpmn2Package.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSagaPackage.freeze();

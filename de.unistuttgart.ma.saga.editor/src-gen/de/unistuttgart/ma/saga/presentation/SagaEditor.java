@@ -158,9 +158,6 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import de.unistuttgart.ma.saga.provider.SagaItemProviderAdapterFactory;
 
 import de.unistuttgart.gropius.provider.GropiusItemProviderAdapterFactory;
-
-import de.unistuttgart.gropius.slo.provider.SloItemProviderAdapterFactory;
-
 import org.eclipse.bpmn2.di.provider.BpmnDiItemProviderAdapterFactory;
 
 import org.eclipse.bpmn2.provider.Bpmn2ItemProviderAdapterFactory;
@@ -714,11 +711,10 @@ public class SagaEditor
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SagaItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new Bpmn2ItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new DiItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new BpmnDiItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new DiItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DcItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GropiusItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SloItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

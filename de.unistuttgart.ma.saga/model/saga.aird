@@ -8,17 +8,13 @@
     <semanticResources>platform:/resource/org.eclipse.bpmn2/model/DC.ecore</semanticResources>
     <semanticResources>platform:/resource/de.unistuttgart.gropius.slo/model/slo.ecore</semanticResources>
     <semanticResources>platform:/resource/ccims-eclipse-plugin-data/model/CCIMSMetamodel.ecore</semanticResources>
-    <semanticResources>BPMN20.ecore</semanticResources>
-    <semanticResources>BPMNDI.ecore</semanticResources>
-    <semanticResources>DI.ecore</semanticResources>
-    <semanticResources>DC.ecore</semanticResources>
     <semanticResources>saga.genmodel</semanticResources>
     <semanticResources>platform:/resource/de.unistuttgart.gropius/model/gropius.ecore</semanticResources>
-    <semanticResources>../src-gen/org/eclipse/bpmn2/impl/bpmn2.ecore</semanticResources>
     <semanticResources>platform:/resource/de.unistuttgart.gropius/model/gropius.genmodel</semanticResources>
     <semanticResources>platform:/resource/de.unistuttgart.gropius.slo/model/slo.genmodel</semanticResources>
     <semanticResources>impact.ecore</semanticResources>
     <semanticResources>impact.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.eclipse.bpmn2/model/bpmn20.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_wUcGsN2iEeulsIcETEiJTw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_wdD3MN2iEeulsIcETEiJTw" name="saga" repPath="#_wbNdEN2iEeulsIcETEiJTw" changeId="b1c3cc3f-2514-4a33-867a-0b013de53e99">

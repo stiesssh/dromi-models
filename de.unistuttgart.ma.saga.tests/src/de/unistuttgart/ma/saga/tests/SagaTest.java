@@ -4,6 +4,7 @@ package de.unistuttgart.ma.saga.tests;
 
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaFactory;
+
 import junit.textui.TestRunner;
 
 /**
