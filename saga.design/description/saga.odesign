@@ -319,7 +319,16 @@
           </conditionnalStyles>
         </nodeMappings>
       </defaultLayer>
-      <additionalLayers name="edgeLayer"/>
+      <additionalLayers name="edgeLayer">
+        <edgeMappings name="arch edge" sourceMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@nodeMappings[name='componentNode'] //@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@nodeMappings[name='ProcessNode'] //@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@nodeMappings[name='SagaNode']" targetMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@nodeMappings[name='IntefaceNode'] //@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@nodeMappings[name='SagaStepNode'] //@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@nodeMappings[name='TaskNode']" targetFinderExpression="feature:eContents">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
       <additionalLayers name="notificationLayer">
         <nodeMappings name="notification" semanticCandidatesExpression="feature:notifications" domainClass="saga::Notification">
           <style xsi:type="style:LozengeNodeDescription" labelSize="12" showIcon="false" resizeKind="NSEW">

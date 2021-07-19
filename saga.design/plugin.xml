@@ -24,47 +24,4 @@
       <borderSizeAttribute borderSizeAttribute="stroke-width"></borderSizeAttribute>
     </image>
   </extension>
-   <extension
-         point="org.eclipse.sirius.diagram.ui.viewOrderingProvider">
-      <viewOrderingProvider
-            providerClass="saga.design.ViewOrderingProvider1">
-      </viewOrderingProvider>
-   </extension>
-   <extension
-         point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
-      <layoutProvider
-            class="saga.design.FooLayoutProvider">
-         <Priority
-               name="Lowest">
-         </Priority>
-      </layoutProvider>
-   </extension>
-   <extension
-         id="line.layout"
-         name="name"
-         point="org.eclipse.sirius.diagram.ui.layoutProvider">
-      <layoutProvider
-            priority="highest"
-            providerClass="saga.design.FooLayoutProvider">
-      </layoutProvider>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.diagram.ui.viewOrderingProvider">
-      <viewOrderingProvider
-            providerClass="saga.design.ViewOrderingProvider1">
-      </viewOrderingProvider>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.diagram.ui.customLayoutAlgorithmProvider">
-      <customLayoutProvider
-            class="saga.design.FooLayoutProvider2">
-      </customLayoutProvider>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.externalJavaAction">
-      <javaActions
-            actionClass="saga.design.JavaActions1"
-            id="saga.design.javaActions1">
-      </javaActions>
-   </extension>
 </plugin>

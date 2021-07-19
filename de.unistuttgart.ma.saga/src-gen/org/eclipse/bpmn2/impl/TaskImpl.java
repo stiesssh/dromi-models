@@ -21,8 +21,10 @@ import org.eclipse.bpmn2.ConversationLink;
 import org.eclipse.bpmn2.InteractionNode;
 import org.eclipse.bpmn2.Task;
 import org.eclipse.bpmn2.util.Bpmn2Resource;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.xmi.XMIResource;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,6 +73,9 @@ public class TaskImpl extends ActivityImpl implements Task {
                     ConversationLink.class, this,
                     Bpmn2Package.eINSTANCE.getConversationLink_TargetRef());
         }
+        if (eResource() instanceof XMIResource) {
+        	return new BasicEList<>();
+        }
         throw new UnsupportedOperationException();
     }
 
@@ -86,6 +91,9 @@ public class TaskImpl extends ActivityImpl implements Task {
             return ((Bpmn2Resource) eResource()).getOppositeReferenceAdapter().getOppositeList(
                     ConversationLink.class, this,
                     Bpmn2Package.eINSTANCE.getConversationLink_SourceRef());
+        }
+        if (eResource() instanceof XMIResource) {
+        	return new BasicEList<>();
         }
         throw new UnsupportedOperationException();
     }

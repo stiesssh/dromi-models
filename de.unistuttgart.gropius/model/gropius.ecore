@@ -73,6 +73,9 @@
         eType="#//IssueTimelineItem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
         eType="#//IssueLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" upperBound="-1"
+        eType="#//Issue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItem" abstract="true" interface="true"
       eSuperTypes="#//Node">

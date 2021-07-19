@@ -15,7 +15,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/notifications"/>
     </genClasses>
-    <genClasses ecoreClass="saga.ecore#//ComponentAdapter"/>
     <genClasses ecoreClass="saga.ecore#//ComponentInterfaceAdapter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//ComponentInterfaceAdapter/nextLevelElements"/>
     </genClasses>

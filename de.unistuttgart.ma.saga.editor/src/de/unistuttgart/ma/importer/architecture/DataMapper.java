@@ -34,6 +34,8 @@ public class DataMapper {
 		
 		var result = factory.createComponentAdapter();
 		result.setName(component.getName());
+		result.setId(component.getId().toString());
+		result.setDescription(component.getDescription());
 		componentMap.put(id, result);
 		return result;
 	}
@@ -51,6 +53,8 @@ public class DataMapper {
 		
 		var result = factory.createComponentInterfaceAdapter();
 		result.setName(compInterface.getName());
+		result.setId(compInterface.getId().toString());
+		result.setDescription(compInterface.getDescription());
 		result.setComponent(getEcoreComponent(compInterface.getComponent()));
 		interfaceMap.put(id, result);
 		return result;
