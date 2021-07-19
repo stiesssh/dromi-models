@@ -32,14 +32,6 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated saga -->
       <package
-            uri="http://www.example.org/gropius"
-            class="de.unistuttgart.gropius.GropiusPackage"
-            genModel="model/saga.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated saga -->
-      <package
             uri="http://www.omg.org/spec/BPMN/20100524/DI-XMI"
             class="org.eclipse.dd.di.DiPackage"
             genModel="model/saga.genmodel"/>
@@ -80,14 +72,6 @@
       <parser
             type="dc"
             class="org.eclipse.dd.dc.util.DcResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated saga -->
-      <package
-            uri="http://www.example.org/slo"
-            class="gropius.slo.SloPackage"
-            genModel="model/saga.genmodel"/>
    </extension>
 
 null

@@ -283,8 +283,7 @@ public class IssueCommentItemProvider extends ItemProviderAdapter implements IEd
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((IssueComment) object).getId();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((IssueComment) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_IssueComment_type")
 				: getString("_UI_IssueComment_type") + " " + label;
 	}

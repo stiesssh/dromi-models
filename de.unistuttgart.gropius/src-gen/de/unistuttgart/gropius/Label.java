@@ -74,12 +74,12 @@ public interface Label extends Node {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Color</em>' attribute.
-	 * @see #setColor(Object)
+	 * @see #setColor(String)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getLabel_Color()
 	 * @model dataType="de.unistuttgart.gropius.Color"
 	 * @generated
 	 */
-	Object getColor();
+	String getColor();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Label#getColor <em>Color</em>}' attribute.
@@ -89,7 +89,7 @@ public interface Label extends Node {
 	 * @see #getColor()
 	 * @generated
 	 */
-	void setColor(Object value);
+	void setColor(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Components</b></em>' reference list.

@@ -8,10 +8,6 @@
     <semanticResources>platform:/resource/org.eclipse.bpmn2/model/DC.ecore</semanticResources>
     <semanticResources>platform:/resource/de.unistuttgart.gropius.slo/model/slo.ecore</semanticResources>
     <semanticResources>platform:/resource/ccims-eclipse-plugin-data/model/CCIMSMetamodel.ecore</semanticResources>
-    <semanticResources>../ref-model/BPMN20.ecore</semanticResources>
-    <semanticResources>../ref-model/BPMNDI.ecore</semanticResources>
-    <semanticResources>../ref-model/DI.ecore</semanticResources>
-    <semanticResources>../ref-model/DC.ecore</semanticResources>
     <semanticResources>BPMN20.ecore</semanticResources>
     <semanticResources>BPMNDI.ecore</semanticResources>
     <semanticResources>DI.ecore</semanticResources>
@@ -19,11 +15,11 @@
     <semanticResources>saga.genmodel</semanticResources>
     <semanticResources>platform:/resource/de.unistuttgart.gropius/model/gropius.ecore</semanticResources>
     <semanticResources>../src-gen/org/eclipse/bpmn2/impl/bpmn2.ecore</semanticResources>
-    <semanticResources>gropius.ecore</semanticResources>
-    <semanticResources>slo.ecore</semanticResources>
+    <semanticResources>platform:/resource/de.unistuttgart.gropius/model/gropius.genmodel</semanticResources>
+    <semanticResources>platform:/resource/de.unistuttgart.gropius.slo/model/slo.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_wUcGsN2iEeulsIcETEiJTw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_wdD3MN2iEeulsIcETEiJTw" name="saga" repPath="#_wbNdEN2iEeulsIcETEiJTw" changeId="5ff8729e-f1c3-4482-9888-7b886f7100c8">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_wdD3MN2iEeulsIcETEiJTw" name="saga" repPath="#_wbNdEN2iEeulsIcETEiJTw" changeId="453a81a1-01b3-4ca3-9514-4131a472ecaa">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="saga.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1331,6 +1327,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_jXJwkOZYEeuMlpUsb4stvQ" description="_GGQkNt8XEeu90L45aHY92Q" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_jXJwkuZYEeuMlpUsb4stvQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_jXJwkeZYEeuMlpUsb4stvQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -1344,6 +1341,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_jXK-sOZYEeuMlpUsb4stvQ" description="_GGQkNt8XEeu90L45aHY92Q" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_jXK-suZYEeuMlpUsb4stvQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_jXK-seZYEeuMlpUsb4stvQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>

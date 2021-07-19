@@ -4,6 +4,7 @@ package de.unistuttgart.gropius.impl;
 
 import de.unistuttgart.gropius.*;
 
+import java.util.Date;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -321,8 +322,8 @@ public class GropiusFactoryImpl extends EFactoryImpl implements GropiusFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object createColorFromString(EDataType eDataType, String initialValue) {
-		return super.createFromString(eDataType, initialValue);
+	public String createColorFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -339,8 +340,8 @@ public class GropiusFactoryImpl extends EFactoryImpl implements GropiusFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object createIDFromString(EDataType eDataType, String initialValue) {
-		return super.createFromString(eDataType, initialValue);
+	public String createIDFromString(EDataType eDataType, String initialValue) {
+		return (String) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -357,8 +358,8 @@ public class GropiusFactoryImpl extends EFactoryImpl implements GropiusFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object createDateFromString(EDataType eDataType, String initialValue) {
-		return super.createFromString(eDataType, initialValue);
+	public Date createDateFromString(EDataType eDataType, String initialValue) {
+		return (Date) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -375,8 +376,8 @@ public class GropiusFactoryImpl extends EFactoryImpl implements GropiusFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object createTimeSpanFromString(EDataType eDataType, String initialValue) {
-		return super.createFromString(eDataType, initialValue);
+	public Integer createTimeSpanFromString(EDataType eDataType, String initialValue) {
+		return (Integer) super.createFromString(eDataType, initialValue);
 	}
 
 	/**

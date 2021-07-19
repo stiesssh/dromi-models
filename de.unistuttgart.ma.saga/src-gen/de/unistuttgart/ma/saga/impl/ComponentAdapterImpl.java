@@ -13,10 +13,10 @@ import de.unistuttgart.gropius.Node;
 import de.unistuttgart.gropius.Project;
 import de.unistuttgart.gropius.User;
 
+import de.unistuttgart.gropius.slo.SloRule;
+
 import de.unistuttgart.ma.saga.ComponentAdapter;
 import de.unistuttgart.ma.saga.SagaPackage;
-
-import gropius.slo.SloRule;
 
 import java.util.Collection;
 
@@ -72,6 +72,16 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 	protected EList<SloRule> sloRules;
 
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -79,7 +89,7 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -237,7 +247,7 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -246,8 +256,8 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SagaPackage.COMPONENT_ADAPTER__ID, oldId, id));
@@ -528,7 +538,7 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 				getSloRules().addAll((Collection<? extends SloRule>)newValue);
 				return;
 			case SagaPackage.COMPONENT_ADAPTER__ID:
-				setId(newValue);
+				setId((String)newValue);
 				return;
 			case SagaPackage.COMPONENT_ADAPTER__NAME:
 				setName((String)newValue);
@@ -582,7 +592,7 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 				getSloRules().clear();
 				return;
 			case SagaPackage.COMPONENT_ADAPTER__ID:
-				setId((Object)null);
+				setId(ID_EDEFAULT);
 				return;
 			case SagaPackage.COMPONENT_ADAPTER__NAME:
 				setName(NAME_EDEFAULT);
@@ -629,7 +639,7 @@ public class ComponentAdapterImpl extends MinimalEObjectImpl.Container implement
 			case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
 				return sloRules != null && !sloRules.isEmpty();
 			case SagaPackage.COMPONENT_ADAPTER__ID:
-				return id != null;
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case SagaPackage.COMPONENT_ADAPTER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SagaPackage.COMPONENT_ADAPTER__DESCRIPTION:

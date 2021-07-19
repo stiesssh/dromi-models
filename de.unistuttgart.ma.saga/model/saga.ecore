@@ -7,12 +7,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
         eType="ecore:EClass BPMN20.ecore#//Process" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="ecore:EClass gropius.ecore#//Component" containment="true"/>
+        eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//Component"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="notifications" upperBound="-1"
         eType="#//Notification" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentAdapter" eSuperTypes="#//ElementWithSLO gropius.ecore#//Component"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfaceAdapter" eSuperTypes="#//ElementWithSLO gropius.ecore#//ComponentInterface">
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentAdapter" eSuperTypes="#//ElementWithSLO ../../de.unistuttgart.gropius/model/gropius.ecore#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfaceAdapter" eSuperTypes="#//ElementWithSLO ../../de.unistuttgart.gropius/model/gropius.ecore#//ComponentInterface">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextLevelElements" upperBound="-1"
         eType="#//SagaStep"/>
   </eClassifiers>
@@ -27,13 +28,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElementWithSLO" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sloRules" upperBound="-1"
-        eType="ecore:EClass slo.ecore#//SloRule" containment="true"/>
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Violation" eSuperTypes="#//ChainLink">
     <eStructuralFeatures xsi:type="ecore:EReference" name="passingImpacts" ordered="false"
         upperBound="-1" eType="#//ChainLink"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="violatedRule" lowerBound="1"
-        eType="ecore:EClass slo.ecore#//SloRule"/>
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Impact" eSuperTypes="#//ChainLink">
     <eStructuralFeatures xsi:type="ecore:EReference" name="causedBy" lowerBound="1"

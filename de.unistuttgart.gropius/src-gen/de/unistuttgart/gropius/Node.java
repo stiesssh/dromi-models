@@ -26,12 +26,12 @@ public interface Node extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(Object)
+	 * @see #setId(String)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getNode_Id()
 	 * @model dataType="de.unistuttgart.gropius.ID"
 	 * @generated
 	 */
-	Object getId();
+	String getId();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Node#getId <em>Id</em>}' attribute.
@@ -41,6 +41,6 @@ public interface Node extends EObject {
 	 * @see #getId()
 	 * @generated
 	 */
-	void setId(Object value);
+	void setId(String value);
 
 } // Node

@@ -133,8 +133,7 @@ public class IMSItemProvider extends ItemProviderAdapter implements IEditingDoma
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((IMS) object).getId();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((IMS) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_IMS_type")
 				: getString("_UI_IMS_type") + " " + label;
 	}

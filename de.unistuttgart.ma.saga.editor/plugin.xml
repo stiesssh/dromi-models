@@ -69,34 +69,6 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.unistuttgart.gropius.presentation.GropiusModelWizardID"
-            name="%_UI_GropiusModelWizard_label"
-            class="de.unistuttgart.gropius.presentation.GropiusModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/GropiusModelFile.gif">
-         <description>%_UI_GropiusModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated saga -->
-      <editor
-            id="de.unistuttgart.gropius.presentation.GropiusEditorID"
-            name="%_UI_GropiusEditor_label"
-            icon="icons/full/obj16/GropiusModelFile.gif"
-            extensions="gropius"
-            class="de.unistuttgart.gropius.presentation.GropiusEditor"
-            contributorClass="de.unistuttgart.gropius.presentation.GropiusActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated saga -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
             id="org.eclipse.dd.di.presentation.DiModelWizardID"
             name="%_UI_DiModelWizard_label"
             class="org.eclipse.dd.di.presentation.DiModelWizard"
@@ -172,34 +144,6 @@
             extensions="dc"
             class="org.eclipse.dd.dc.presentation.DcEditor"
             contributorClass="org.eclipse.dd.dc.presentation.DcActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated saga -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="gropius.slo.presentation.SloModelWizardID"
-            name="%_UI_SloModelWizard_label"
-            class="gropius.slo.presentation.SloModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/SloModelFile.gif">
-         <description>%_UI_SloModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated saga -->
-      <editor
-            id="gropius.slo.presentation.SloEditorID"
-            name="%_UI_SloEditor_label"
-            icon="icons/full/obj16/SloModelFile.gif"
-            extensions="slo"
-            class="gropius.slo.presentation.SloEditor"
-            contributorClass="gropius.slo.presentation.SloActionBarContributor">
       </editor>
    </extension>
 

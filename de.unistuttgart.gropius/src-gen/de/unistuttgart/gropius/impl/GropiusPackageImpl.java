@@ -21,6 +21,7 @@ import de.unistuttgart.gropius.Project;
 import de.unistuttgart.gropius.ReactionGroup;
 import de.unistuttgart.gropius.User;
 
+import java.util.Date;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -1431,10 +1432,10 @@ public class GropiusPackageImpl extends EPackageImpl implements GropiusPackage {
 		initEEnum(priorityEEnum, Priority.class, "Priority");
 
 		// Initialize data types
-		initEDataType(colorEDataType, Object.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(idEDataType, Object.class, "ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(dateEDataType, Object.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(timeSpanEDataType, Object.class, "TimeSpan", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(colorEDataType, String.class, "Color", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(idEDataType, String.class, "ID", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(dateEDataType, Date.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(timeSpanEDataType, Integer.class, "TimeSpan", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

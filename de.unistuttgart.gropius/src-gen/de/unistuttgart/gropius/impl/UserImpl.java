@@ -44,6 +44,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -51,7 +61,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
@@ -177,7 +187,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -186,8 +196,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.USER__ID, oldId, id));
@@ -386,7 +396,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.USER__ID:
-			setId(newValue);
+			setId((String) newValue);
 			return;
 		case GropiusPackage.USER__USERNAME:
 			setUsername((String) newValue);
@@ -426,7 +436,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.USER__ID:
-			setId((Object) null);
+			setId(ID_EDEFAULT);
 			return;
 		case GropiusPackage.USER__USERNAME:
 			setUsername(USERNAME_EDEFAULT);
@@ -462,7 +472,7 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.USER__ID:
-			return id != null;
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case GropiusPackage.USER__USERNAME:
 			return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
 		case GropiusPackage.USER__DISPLAYNAME:

@@ -35,19 +35,6 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated saga -->
       <factory
-            uri="http://www.example.org/gropius"
-            class="de.unistuttgart.gropius.provider.GropiusItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated saga -->
-      <factory
             uri="http://www.omg.org/spec/BPMN/20100524/DI-XMI"
             class="org.eclipse.dd.di.provider.DiItemProviderAdapterFactory"
             supportedTypes=
@@ -76,19 +63,6 @@
       <factory
             uri="http://www.omg.org/spec/DD/20100524/DC-XMI"
             class="org.eclipse.dd.dc.provider.DcItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated saga -->
-      <factory
-            uri="http://www.example.org/slo"
-            class="gropius.slo.provider.SloItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

@@ -2,7 +2,7 @@
  */
 package de.unistuttgart.ma.saga;
 
-import gropius.slo.SloRule;
+import de.unistuttgart.gropius.slo.SloRule;
 
 import org.eclipse.emf.common.util.EList;
 

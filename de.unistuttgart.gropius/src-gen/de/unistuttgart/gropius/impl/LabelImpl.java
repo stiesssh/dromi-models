@@ -41,6 +41,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,7 +58,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -91,6 +101,16 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COLOR_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,7 +118,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object color;
+	protected String color = COLOR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
@@ -144,7 +164,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -153,8 +173,8 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.LABEL__ID, oldId, id));
@@ -208,7 +228,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getColor() {
+	public String getColor() {
 		return color;
 	}
 
@@ -217,8 +237,8 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColor(Object newColor) {
-		Object oldColor = color;
+	public void setColor(String newColor) {
+		String oldColor = color;
 		color = newColor;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.LABEL__COLOR, oldColor, color));
@@ -312,7 +332,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.LABEL__ID:
-			setId(newValue);
+			setId((String) newValue);
 			return;
 		case GropiusPackage.LABEL__NAME:
 			setName((String) newValue);
@@ -321,7 +341,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 			setDescription((String) newValue);
 			return;
 		case GropiusPackage.LABEL__COLOR:
-			setColor(newValue);
+			setColor((String) newValue);
 			return;
 		case GropiusPackage.LABEL__COMPONENTS:
 			getComponents().clear();
@@ -344,7 +364,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.LABEL__ID:
-			setId((Object) null);
+			setId(ID_EDEFAULT);
 			return;
 		case GropiusPackage.LABEL__NAME:
 			setName(NAME_EDEFAULT);
@@ -353,7 +373,7 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 			setDescription(DESCRIPTION_EDEFAULT);
 			return;
 		case GropiusPackage.LABEL__COLOR:
-			setColor((Object) null);
+			setColor(COLOR_EDEFAULT);
 			return;
 		case GropiusPackage.LABEL__COMPONENTS:
 			getComponents().clear();
@@ -374,13 +394,13 @@ public class LabelImpl extends MinimalEObjectImpl.Container implements Label {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.LABEL__ID:
-			return id != null;
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case GropiusPackage.LABEL__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case GropiusPackage.LABEL__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		case GropiusPackage.LABEL__COLOR:
-			return color != null;
+			return COLOR_EDEFAULT == null ? color != null : !COLOR_EDEFAULT.equals(color);
 		case GropiusPackage.LABEL__COMPONENTS:
 			return components != null && !components.isEmpty();
 		case GropiusPackage.LABEL__PROJECTS:

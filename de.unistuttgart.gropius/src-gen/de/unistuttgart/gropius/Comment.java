@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.gropius;
 
+import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -111,12 +112,12 @@ public interface Comment extends Node {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comment Created At</em>' attribute.
-	 * @see #setCommentCreatedAt(Object)
+	 * @see #setCommentCreatedAt(Date)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_CommentCreatedAt()
 	 * @model dataType="de.unistuttgart.gropius.Date"
 	 * @generated
 	 */
-	Object getCommentCreatedAt();
+	Date getCommentCreatedAt();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getCommentCreatedAt <em>Comment Created At</em>}' attribute.
@@ -126,19 +127,19 @@ public interface Comment extends Node {
 	 * @see #getCommentCreatedAt()
 	 * @generated
 	 */
-	void setCommentCreatedAt(Object value);
+	void setCommentCreatedAt(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Last Edited At</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Edited At</em>' attribute.
-	 * @see #setLastEditedAt(Object)
+	 * @see #setLastEditedAt(Date)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComment_LastEditedAt()
 	 * @model dataType="de.unistuttgart.gropius.Date"
 	 * @generated
 	 */
-	Object getLastEditedAt();
+	Date getLastEditedAt();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Comment#getLastEditedAt <em>Last Edited At</em>}' attribute.
@@ -148,7 +149,7 @@ public interface Comment extends Node {
 	 * @see #getLastEditedAt()
 	 * @generated
 	 */
-	void setLastEditedAt(Object value);
+	void setLastEditedAt(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Current User Can Edit</b></em>' attribute.

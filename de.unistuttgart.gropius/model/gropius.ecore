@@ -130,8 +130,8 @@
         eType="#//IssueComment"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueComment" eSuperTypes="#//Comment #//IssueTimelineItem #//Node"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceTypeName="Color"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="ID" instanceTypeName="ID"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceTypeName="Date"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="TimeSpan" instanceTypeName="TimeSpan"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ID" instanceClassName="java.lang.String"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.util.Date"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TimeSpan" instanceClassName="java.lang.Integer"/>
 </ecore:EPackage>

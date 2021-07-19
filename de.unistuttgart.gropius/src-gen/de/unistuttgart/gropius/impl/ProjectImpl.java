@@ -46,6 +46,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ProjectImpl extends MinimalEObjectImpl.Container implements Project {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,7 +63,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -169,7 +179,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -178,8 +188,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.PROJECT__ID, oldId, id));
@@ -363,7 +373,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.PROJECT__ID:
-			setId(newValue);
+			setId((String) newValue);
 			return;
 		case GropiusPackage.PROJECT__NAME:
 			setName((String) newValue);
@@ -404,7 +414,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.PROJECT__ID:
-			setId((Object) null);
+			setId(ID_EDEFAULT);
 			return;
 		case GropiusPackage.PROJECT__NAME:
 			setName(NAME_EDEFAULT);
@@ -440,7 +450,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.PROJECT__ID:
-			return id != null;
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case GropiusPackage.PROJECT__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case GropiusPackage.PROJECT__DESCRIPTION:

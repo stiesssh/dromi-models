@@ -5,10 +5,10 @@ package de.unistuttgart.ma.saga.provider;
 
 import de.unistuttgart.gropius.GropiusPackage;
 
+import de.unistuttgart.gropius.slo.SloFactory;
+
 import de.unistuttgart.ma.saga.ComponentInterfaceAdapter;
 import de.unistuttgart.ma.saga.SagaPackage;
-
-import gropius.slo.SloFactory;
 
 import java.util.Collection;
 import java.util.List;

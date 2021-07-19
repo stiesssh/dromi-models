@@ -2,11 +2,11 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
+import de.unistuttgart.gropius.slo.SloRule;
+
 import de.unistuttgart.ma.saga.ChainLink;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.Violation;
-
-import gropius.slo.SloRule;
 
 import java.util.Collection;
 

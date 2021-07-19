@@ -18,8 +18,8 @@ import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.impl.GropiusPackageImpl;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.impl.SagaPackageImpl;
-import gropius.slo.SloPackage;
-import gropius.slo.impl.SloPackageImpl;
+import de.unistuttgart.gropius.slo.SloPackage;
+import de.unistuttgart.gropius.slo.impl.SloPackageImpl;
 import java.io.IOException;
 import java.net.URL;
 

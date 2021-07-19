@@ -5,11 +5,11 @@ package org.eclipse.bpmn2.provider;
 
 import de.unistuttgart.gropius.GropiusFactory;
 
+import de.unistuttgart.gropius.slo.SloFactory;
+
 import de.unistuttgart.ma.saga.SagaFactory;
 
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
-
-import gropius.slo.SloFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -3655,6 +3655,56 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DiFactory.eINSTANCE.createBPMNDiagram()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DiFactory.eINSTANCE.createBPMNEdge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DiFactory.eINSTANCE.createBPMNLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DiFactory.eINSTANCE.createBPMNLabelStyle()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DiFactory.eINSTANCE.createBPMNPlane()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DiFactory.eINSTANCE.createBPMNShape()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 BpmnDiFactory.eINSTANCE.createDiagramElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DcFactory.eINSTANCE.createBounds()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DcFactory.eINSTANCE.createFont()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
+				 DcFactory.eINSTANCE.createPoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
 				 GropiusFactory.eINSTANCE.createComponent()));
 
 		newChildDescriptors.add
@@ -3711,56 +3761,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
 				 SloFactory.eINSTANCE.createModel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DiFactory.eINSTANCE.createBPMNDiagram()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DiFactory.eINSTANCE.createBPMNEdge()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DiFactory.eINSTANCE.createBPMNLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DiFactory.eINSTANCE.createBPMNLabelStyle()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DiFactory.eINSTANCE.createBPMNPlane()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DiFactory.eINSTANCE.createBPMNShape()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 BpmnDiFactory.eINSTANCE.createDiagramElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DcFactory.eINSTANCE.createBounds()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DcFactory.eINSTANCE.createFont()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 DcFactory.eINSTANCE.createPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -4560,6 +4560,56 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DiFactory.eINSTANCE.createBPMNDiagram()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DiFactory.eINSTANCE.createBPMNEdge()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DiFactory.eINSTANCE.createBPMNLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DiFactory.eINSTANCE.createBPMNLabelStyle()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DiFactory.eINSTANCE.createBPMNPlane()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DiFactory.eINSTANCE.createBPMNShape()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 BpmnDiFactory.eINSTANCE.createDiagramElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DcFactory.eINSTANCE.createBounds()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DcFactory.eINSTANCE.createFont()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
+				 DcFactory.eINSTANCE.createPoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
 				 GropiusFactory.eINSTANCE.createComponent()));
 
 		newChildDescriptors.add
@@ -4616,56 +4666,6 @@ public class DocumentRootItemProvider
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
 				 SloFactory.eINSTANCE.createModel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DiFactory.eINSTANCE.createBPMNDiagram()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DiFactory.eINSTANCE.createBPMNEdge()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DiFactory.eINSTANCE.createBPMNLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DiFactory.eINSTANCE.createBPMNLabelStyle()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DiFactory.eINSTANCE.createBPMNPlane()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DiFactory.eINSTANCE.createBPMNShape()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 BpmnDiFactory.eINSTANCE.createDiagramElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DcFactory.eINSTANCE.createBounds()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DcFactory.eINSTANCE.createFont()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 DcFactory.eINSTANCE.createPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter

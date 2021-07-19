@@ -6,7 +6,7 @@
     <semanticResources>gropiusPages.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_48YX0OVAEeuwR8gmB1rh4g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_48u9IOVAEeuwR8gmB1rh4g" name="gropius" repPath="#_48r50OVAEeuwR8gmB1rh4g" changeId="7d9560c7-85ee-4275-9490-be0621e87335">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_48u9IOVAEeuwR8gmB1rh4g" name="gropius" repPath="#_48r50OVAEeuwR8gmB1rh4g" changeId="9496ce91-ef2c-48fb-91b1-3d9afbf7c66d">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="gropius.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -2083,7 +2083,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Qpjr0uYSEeuhl-KrkIVxFg" name="java.lang.Object" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Qpjr0uYSEeuhl-KrkIVxFg" name="java.lang.String" tooltipText="">
         <target xmi:type="ecore:EDataType" href="gropius.ecore#//Color"/>
         <semanticElements xmi:type="ecore:EDataType" href="gropius.ecore#//Color"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_QpkS4OYSEeuhl-KrkIVxFg">
@@ -2117,7 +2117,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_jf7U5eYSEeuhl-KrkIVxFg" name="java.lang.Object" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_jf7U5eYSEeuhl-KrkIVxFg" name="java.lang.String" tooltipText="">
         <target xmi:type="ecore:EDataType" href="gropius.ecore#//ID"/>
         <semanticElements xmi:type="ecore:EDataType" href="gropius.ecore#//ID"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_jf7U5uYSEeuhl-KrkIVxFg">
@@ -2140,7 +2140,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_mDHqYuYSEeuhl-KrkIVxFg" name="java.lang.Object" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_mDHqYuYSEeuhl-KrkIVxFg" name="java.util.Date" tooltipText="">
         <target xmi:type="ecore:EDataType" href="gropius.ecore#//Date"/>
         <semanticElements xmi:type="ecore:EDataType" href="gropius.ecore#//Date"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_mDHqY-YSEeuhl-KrkIVxFg">
@@ -2163,7 +2163,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_oF9r5-YSEeuhl-KrkIVxFg" name="java.lang.Object" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_oF9r5-YSEeuhl-KrkIVxFg" name="java.lang.Integer" tooltipText="">
         <target xmi:type="ecore:EDataType" href="gropius.ecore#//TimeSpan"/>
         <semanticElements xmi:type="ecore:EDataType" href="gropius.ecore#//TimeSpan"/>
         <decorations xmi:type="viewpoint:Decoration" uid="_oF-S8OYSEeuhl-KrkIVxFg">

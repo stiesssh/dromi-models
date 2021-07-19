@@ -4,7 +4,7 @@ package de.unistuttgart.ma.saga.impl;
 
 import de.unistuttgart.gropius.GropiusPackage;
 
-import de.unistuttgart.gropius.impl.GropiusPackageImpl;
+import de.unistuttgart.gropius.slo.SloPackage;
 
 import de.unistuttgart.ma.saga.ChainLink;
 import de.unistuttgart.ma.saga.ComponentAdapter;
@@ -19,10 +19,6 @@ import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
 import de.unistuttgart.ma.saga.Violation;
-
-import gropius.slo.SloPackage;
-
-import gropius.slo.impl.SloPackageImpl;
 
 import org.eclipse.bpmn2.Bpmn2Package;
 
@@ -178,13 +174,13 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		GropiusPackage.eINSTANCE.eClass();
+		SloPackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
 		Bpmn2PackageImpl theBpmn2Package = (Bpmn2PackageImpl)(registeredPackage instanceof Bpmn2PackageImpl ? registeredPackage : Bpmn2Package.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GropiusPackage.eNS_URI);
-		GropiusPackageImpl theGropiusPackage = (GropiusPackageImpl)(registeredPackage instanceof GropiusPackageImpl ? registeredPackage : GropiusPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SloPackage.eNS_URI);
-		SloPackageImpl theSloPackage = (SloPackageImpl)(registeredPackage instanceof SloPackageImpl ? registeredPackage : SloPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DiPackage.eNS_URI);
 		DiPackageImpl theDiPackage = (DiPackageImpl)(registeredPackage instanceof DiPackageImpl ? registeredPackage : DiPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(BpmnDiPackage.eNS_URI);
@@ -197,16 +193,12 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 
 		// Create package meta-data objects
 		theSagaPackage.createPackageContents();
-		theGropiusPackage.createPackageContents();
-		theSloPackage.createPackageContents();
 		theDiPackage.createPackageContents();
 		theBpmnDiPackage.createPackageContents();
 		theDcPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSagaPackage.initializePackageContents();
-		theGropiusPackage.initializePackageContents();
-		theSloPackage.initializePackageContents();
 		theDiPackage.initializePackageContents();
 		theBpmnDiPackage.initializePackageContents();
 		theDcPackage.initializePackageContents();

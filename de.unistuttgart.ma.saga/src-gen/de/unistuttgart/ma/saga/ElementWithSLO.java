@@ -2,7 +2,7 @@
  */
 package de.unistuttgart.ma.saga;
 
-import gropius.slo.SloRule;
+import de.unistuttgart.gropius.slo.SloRule;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface ElementWithSLO extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Slo Rules</b></em>' containment reference list.
-	 * The list contents are of type {@link gropius.slo.SloRule}.
+	 * The list contents are of type {@link de.unistuttgart.gropius.slo.SloRule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slo Rules</em>' containment reference list.

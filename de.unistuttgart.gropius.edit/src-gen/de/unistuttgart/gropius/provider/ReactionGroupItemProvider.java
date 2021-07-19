@@ -152,8 +152,7 @@ public class ReactionGroupItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((ReactionGroup) object).getId();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ReactionGroup) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_ReactionGroup_type")
 				: getString("_UI_ReactionGroup_type") + " " + label;
 	}

@@ -1393,7 +1393,7 @@ public interface GropiusPackage extends EPackage {
 	 * The meta object id for the '<em>Color</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Object
+	 * @see java.lang.String
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getColor()
 	 * @generated
 	 */
@@ -1403,7 +1403,7 @@ public interface GropiusPackage extends EPackage {
 	 * The meta object id for the '<em>ID</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Object
+	 * @see java.lang.String
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getID()
 	 * @generated
 	 */
@@ -1413,7 +1413,7 @@ public interface GropiusPackage extends EPackage {
 	 * The meta object id for the '<em>Date</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Object
+	 * @see java.util.Date
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getDate()
 	 * @generated
 	 */
@@ -1423,7 +1423,7 @@ public interface GropiusPackage extends EPackage {
 	 * The meta object id for the '<em>Time Span</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see java.lang.Object
+	 * @see java.lang.Integer
 	 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getTimeSpan()
 	 * @generated
 	 */
@@ -2326,45 +2326,45 @@ public interface GropiusPackage extends EPackage {
 	EEnum getPriority();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Object <em>Color</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.String <em>Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Color</em>'.
-	 * @see java.lang.Object
-	 * @model instanceClass="java.lang.Object"
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
 	 * @generated
 	 */
 	EDataType getColor();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Object <em>ID</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.String <em>ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>ID</em>'.
-	 * @see java.lang.Object
-	 * @model instanceClass="java.lang.Object"
+	 * @see java.lang.String
+	 * @model instanceClass="java.lang.String"
 	 * @generated
 	 */
 	EDataType getID();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Object <em>Date</em>}'.
+	 * Returns the meta object for data type '{@link java.util.Date <em>Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Date</em>'.
-	 * @see java.lang.Object
-	 * @model instanceClass="java.lang.Object"
+	 * @see java.util.Date
+	 * @model instanceClass="java.util.Date"
 	 * @generated
 	 */
 	EDataType getDate();
 
 	/**
-	 * Returns the meta object for data type '{@link java.lang.Object <em>Time Span</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.Integer <em>Time Span</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Time Span</em>'.
-	 * @see java.lang.Object
-	 * @model instanceClass="java.lang.Object"
+	 * @see java.lang.Integer
+	 * @model instanceClass="java.lang.Integer"
 	 * @generated
 	 */
 	EDataType getTimeSpan();
@@ -3094,7 +3094,7 @@ public interface GropiusPackage extends EPackage {
 		 * The meta object literal for the '<em>Color</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Object
+		 * @see java.lang.String
 		 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getColor()
 		 * @generated
 		 */
@@ -3104,7 +3104,7 @@ public interface GropiusPackage extends EPackage {
 		 * The meta object literal for the '<em>ID</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Object
+		 * @see java.lang.String
 		 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getID()
 		 * @generated
 		 */
@@ -3114,7 +3114,7 @@ public interface GropiusPackage extends EPackage {
 		 * The meta object literal for the '<em>Date</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Object
+		 * @see java.util.Date
 		 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getDate()
 		 * @generated
 		 */
@@ -3124,7 +3124,7 @@ public interface GropiusPackage extends EPackage {
 		 * The meta object literal for the '<em>Time Span</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see java.lang.Object
+		 * @see java.lang.Integer
 		 * @see de.unistuttgart.gropius.impl.GropiusPackageImpl#getTimeSpan()
 		 * @generated
 		 */

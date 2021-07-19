@@ -524,8 +524,7 @@ public class IssueItemProvider extends ItemProviderAdapter implements IEditingDo
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((Issue) object).getId();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Issue) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_Issue_type")
 				: getString("_UI_Issue_type") + " " + label;
 	}

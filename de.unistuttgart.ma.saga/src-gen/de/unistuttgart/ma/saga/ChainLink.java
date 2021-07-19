@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.saga;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Chain Link</b></em>'.

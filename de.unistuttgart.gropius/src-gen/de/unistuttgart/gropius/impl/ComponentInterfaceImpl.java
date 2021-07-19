@@ -38,6 +38,16 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container implements ComponentInterface {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,7 +55,7 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -141,7 +151,7 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -150,8 +160,8 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.COMPONENT_INTERFACE__ID, oldId, id));
@@ -303,7 +313,7 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.COMPONENT_INTERFACE__ID:
-			setId(newValue);
+			setId((String) newValue);
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__NAME:
 			setName((String) newValue);
@@ -335,7 +345,7 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.COMPONENT_INTERFACE__ID:
-			setId((Object) null);
+			setId(ID_EDEFAULT);
 			return;
 		case GropiusPackage.COMPONENT_INTERFACE__NAME:
 			setName(NAME_EDEFAULT);
@@ -365,7 +375,7 @@ public class ComponentInterfaceImpl extends MinimalEObjectImpl.Container impleme
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.COMPONENT_INTERFACE__ID:
-			return id != null;
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case GropiusPackage.COMPONENT_INTERFACE__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case GropiusPackage.COMPONENT_INTERFACE__DESCRIPTION:

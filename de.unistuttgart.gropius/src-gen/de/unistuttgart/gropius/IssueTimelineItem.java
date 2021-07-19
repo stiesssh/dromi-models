@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.gropius;
 
+import java.util.Date;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Issue Timeline Item</b></em>'.
@@ -70,12 +72,12 @@ public interface IssueTimelineItem extends Node {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Created At</em>' attribute.
-	 * @see #setCreatedAt(Object)
+	 * @see #setCreatedAt(Date)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssueTimelineItem_CreatedAt()
 	 * @model dataType="de.unistuttgart.gropius.Date"
 	 * @generated
 	 */
-	Object getCreatedAt();
+	Date getCreatedAt();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.IssueTimelineItem#getCreatedAt <em>Created At</em>}' attribute.
@@ -85,6 +87,6 @@ public interface IssueTimelineItem extends Node {
 	 * @see #getCreatedAt()
 	 * @generated
 	 */
-	void setCreatedAt(Object value);
+	void setCreatedAt(Date value);
 
 } // IssueTimelineItem

@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.gropius;
 
+import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -43,12 +44,12 @@ public interface Issue extends Comment, Node {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Updated At</em>' attribute.
-	 * @see #setUpdatedAt(Object)
+	 * @see #setUpdatedAt(Date)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_UpdatedAt()
 	 * @model dataType="de.unistuttgart.gropius.Date"
 	 * @generated
 	 */
-	Object getUpdatedAt();
+	Date getUpdatedAt();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getUpdatedAt <em>Updated At</em>}' attribute.
@@ -58,7 +59,7 @@ public interface Issue extends Comment, Node {
 	 * @see #getUpdatedAt()
 	 * @generated
 	 */
-	void setUpdatedAt(Object value);
+	void setUpdatedAt(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Open</b></em>' attribute.
@@ -156,12 +157,12 @@ public interface Issue extends Comment, Node {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Date</em>' attribute.
-	 * @see #setStartDate(Object)
+	 * @see #setStartDate(Date)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_StartDate()
 	 * @model dataType="de.unistuttgart.gropius.Date"
 	 * @generated
 	 */
-	Object getStartDate();
+	Date getStartDate();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getStartDate <em>Start Date</em>}' attribute.
@@ -171,19 +172,19 @@ public interface Issue extends Comment, Node {
 	 * @see #getStartDate()
 	 * @generated
 	 */
-	void setStartDate(Object value);
+	void setStartDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Due Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Due Date</em>' attribute.
-	 * @see #setDueDate(Object)
+	 * @see #setDueDate(Date)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_DueDate()
 	 * @model dataType="de.unistuttgart.gropius.Date"
 	 * @generated
 	 */
-	Object getDueDate();
+	Date getDueDate();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getDueDate <em>Due Date</em>}' attribute.
@@ -193,19 +194,19 @@ public interface Issue extends Comment, Node {
 	 * @see #getDueDate()
 	 * @generated
 	 */
-	void setDueDate(Object value);
+	void setDueDate(Date value);
 
 	/**
 	 * Returns the value of the '<em><b>Estimated Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Estimated Time</em>' attribute.
-	 * @see #setEstimatedTime(Object)
+	 * @see #setEstimatedTime(Integer)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_EstimatedTime()
 	 * @model dataType="de.unistuttgart.gropius.TimeSpan"
 	 * @generated
 	 */
-	Object getEstimatedTime();
+	Integer getEstimatedTime();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getEstimatedTime <em>Estimated Time</em>}' attribute.
@@ -215,19 +216,19 @@ public interface Issue extends Comment, Node {
 	 * @see #getEstimatedTime()
 	 * @generated
 	 */
-	void setEstimatedTime(Object value);
+	void setEstimatedTime(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Spent Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Spent Time</em>' attribute.
-	 * @see #setSpentTime(Object)
+	 * @see #setSpentTime(Integer)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getIssue_SpentTime()
 	 * @model dataType="de.unistuttgart.gropius.TimeSpan"
 	 * @generated
 	 */
-	Object getSpentTime();
+	Integer getSpentTime();
 
 	/**
 	 * Sets the value of the '{@link de.unistuttgart.gropius.Issue#getSpentTime <em>Spent Time</em>}' attribute.
@@ -237,7 +238,7 @@ public interface Issue extends Comment, Node {
 	 * @see #getSpentTime()
 	 * @generated
 	 */
-	void setSpentTime(Object value);
+	void setSpentTime(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Issue Comments</b></em>' reference list.

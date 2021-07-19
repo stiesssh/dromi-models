@@ -11,6 +11,7 @@ import de.unistuttgart.gropius.User;
 
 import java.util.Collection;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -49,6 +50,16 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class IssueCommentImpl extends MinimalEObjectImpl.Container implements IssueComment {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +67,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
@@ -119,6 +130,16 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	protected EList<User> editedBy;
 
 	/**
+	 * The default value of the '{@link #getCommentCreatedAt() <em>Comment Created At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommentCreatedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date COMMENT_CREATED_AT_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getCommentCreatedAt() <em>Comment Created At</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,7 +147,17 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * @generated
 	 * @ordered
 	 */
-	protected Object commentCreatedAt;
+	protected Date commentCreatedAt = COMMENT_CREATED_AT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastEditedAt() <em>Last Edited At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastEditedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date LAST_EDITED_AT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLastEditedAt() <em>Last Edited At</em>}' attribute.
@@ -136,7 +167,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * @generated
 	 * @ordered
 	 */
-	protected Object lastEditedAt;
+	protected Date lastEditedAt = LAST_EDITED_AT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isCurrentUserCanEdit() <em>Current User Can Edit</em>}' attribute.
@@ -189,6 +220,16 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	protected User createdBy;
 
 	/**
+	 * The default value of the '{@link #getCreatedAt() <em>Created At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreatedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date CREATED_AT_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getCreatedAt() <em>Created At</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,7 +237,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * @generated
 	 * @ordered
 	 */
-	protected Object createdAt;
+	protected Date createdAt = CREATED_AT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,7 +263,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -231,8 +272,8 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE_COMMENT__ID, oldId, id));
@@ -338,7 +379,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getCommentCreatedAt() {
+	public Date getCommentCreatedAt() {
 		return commentCreatedAt;
 	}
 
@@ -347,8 +388,8 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCommentCreatedAt(Object newCommentCreatedAt) {
-		Object oldCommentCreatedAt = commentCreatedAt;
+	public void setCommentCreatedAt(Date newCommentCreatedAt) {
+		Date oldCommentCreatedAt = commentCreatedAt;
 		commentCreatedAt = newCommentCreatedAt;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE_COMMENT__COMMENT_CREATED_AT,
@@ -360,7 +401,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getLastEditedAt() {
+	public Date getLastEditedAt() {
 		return lastEditedAt;
 	}
 
@@ -369,8 +410,8 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLastEditedAt(Object newLastEditedAt) {
-		Object oldLastEditedAt = lastEditedAt;
+	public void setLastEditedAt(Date newLastEditedAt) {
+		Date oldLastEditedAt = lastEditedAt;
 		lastEditedAt = newLastEditedAt;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE_COMMENT__LAST_EDITED_AT,
@@ -497,7 +538,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getCreatedAt() {
+	public Date getCreatedAt() {
 		return createdAt;
 	}
 
@@ -506,8 +547,8 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreatedAt(Object newCreatedAt) {
-		Object oldCreatedAt = createdAt;
+	public void setCreatedAt(Date newCreatedAt) {
+		Date oldCreatedAt = createdAt;
 		createdAt = newCreatedAt;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE_COMMENT__CREATED_AT,
@@ -566,7 +607,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.ISSUE_COMMENT__ID:
-			setId(newValue);
+			setId((String) newValue);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__BODY:
 			setBody((String) newValue);
@@ -582,10 +623,10 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 			getEditedBy().addAll((Collection<? extends User>) newValue);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__COMMENT_CREATED_AT:
-			setCommentCreatedAt(newValue);
+			setCommentCreatedAt((Date) newValue);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__LAST_EDITED_AT:
-			setLastEditedAt(newValue);
+			setLastEditedAt((Date) newValue);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__CURRENT_USER_CAN_EDIT:
 			setCurrentUserCanEdit((Boolean) newValue);
@@ -601,7 +642,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 			setCreatedBy((User) newValue);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__CREATED_AT:
-			setCreatedAt(newValue);
+			setCreatedAt((Date) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -616,7 +657,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.ISSUE_COMMENT__ID:
-			setId((Object) null);
+			setId(ID_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__BODY:
 			setBody(BODY_EDEFAULT);
@@ -631,10 +672,10 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 			getEditedBy().clear();
 			return;
 		case GropiusPackage.ISSUE_COMMENT__COMMENT_CREATED_AT:
-			setCommentCreatedAt((Object) null);
+			setCommentCreatedAt(COMMENT_CREATED_AT_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__LAST_EDITED_AT:
-			setLastEditedAt((Object) null);
+			setLastEditedAt(LAST_EDITED_AT_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__CURRENT_USER_CAN_EDIT:
 			setCurrentUserCanEdit(CURRENT_USER_CAN_EDIT_EDEFAULT);
@@ -649,7 +690,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 			setCreatedBy((User) null);
 			return;
 		case GropiusPackage.ISSUE_COMMENT__CREATED_AT:
-			setCreatedAt((Object) null);
+			setCreatedAt(CREATED_AT_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -664,7 +705,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.ISSUE_COMMENT__ID:
-			return id != null;
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case GropiusPackage.ISSUE_COMMENT__BODY:
 			return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
 		case GropiusPackage.ISSUE_COMMENT__BODY_RENDERED:
@@ -674,9 +715,11 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 		case GropiusPackage.ISSUE_COMMENT__EDITED_BY:
 			return editedBy != null && !editedBy.isEmpty();
 		case GropiusPackage.ISSUE_COMMENT__COMMENT_CREATED_AT:
-			return commentCreatedAt != null;
+			return COMMENT_CREATED_AT_EDEFAULT == null ? commentCreatedAt != null
+					: !COMMENT_CREATED_AT_EDEFAULT.equals(commentCreatedAt);
 		case GropiusPackage.ISSUE_COMMENT__LAST_EDITED_AT:
-			return lastEditedAt != null;
+			return LAST_EDITED_AT_EDEFAULT == null ? lastEditedAt != null
+					: !LAST_EDITED_AT_EDEFAULT.equals(lastEditedAt);
 		case GropiusPackage.ISSUE_COMMENT__CURRENT_USER_CAN_EDIT:
 			return currentUserCanEdit != CURRENT_USER_CAN_EDIT_EDEFAULT;
 		case GropiusPackage.ISSUE_COMMENT__REACTIONS:
@@ -686,7 +729,7 @@ public class IssueCommentImpl extends MinimalEObjectImpl.Container implements Is
 		case GropiusPackage.ISSUE_COMMENT__CREATED_BY:
 			return createdBy != null;
 		case GropiusPackage.ISSUE_COMMENT__CREATED_AT:
-			return createdAt != null;
+			return CREATED_AT_EDEFAULT == null ? createdAt != null : !CREATED_AT_EDEFAULT.equals(createdAt);
 		}
 		return super.eIsSet(featureID);
 	}

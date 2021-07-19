@@ -214,8 +214,7 @@ public class UserItemProvider extends ItemProviderAdapter implements IEditingDom
 	 */
 	@Override
 	public String getText(Object object) {
-		Object labelValue = ((User) object).getId();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((User) object).getId();
 		return label == null || label.length() == 0 ? getString("_UI_User_type")
 				: getString("_UI_User_type") + " " + label;
 	}

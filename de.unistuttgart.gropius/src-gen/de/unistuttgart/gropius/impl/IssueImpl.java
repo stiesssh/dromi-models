@@ -14,6 +14,7 @@ import de.unistuttgart.gropius.ReactionGroup;
 import de.unistuttgart.gropius.User;
 
 import java.util.Collection;
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -68,6 +69,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,7 +86,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getBody() <em>Body</em>}' attribute.
@@ -138,6 +149,16 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	protected EList<User> editedBy;
 
 	/**
+	 * The default value of the '{@link #getCommentCreatedAt() <em>Comment Created At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommentCreatedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date COMMENT_CREATED_AT_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getCommentCreatedAt() <em>Comment Created At</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,7 +166,17 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object commentCreatedAt;
+	protected Date commentCreatedAt = COMMENT_CREATED_AT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastEditedAt() <em>Last Edited At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastEditedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date LAST_EDITED_AT_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLastEditedAt() <em>Last Edited At</em>}' attribute.
@@ -155,7 +186,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object lastEditedAt;
+	protected Date lastEditedAt = LAST_EDITED_AT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isCurrentUserCanEdit() <em>Current User Can Edit</em>}' attribute.
@@ -188,6 +219,16 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	protected EList<ReactionGroup> reactions;
 
 	/**
+	 * The default value of the '{@link #getUpdatedAt() <em>Updated At</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUpdatedAt()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date UPDATED_AT_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getUpdatedAt() <em>Updated At</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,7 +236,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object updatedAt;
+	protected Date updatedAt = UPDATED_AT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isIsOpen() <em>Is Open</em>}' attribute.
@@ -278,6 +319,16 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	protected boolean currentUserCanComment = CURRENT_USER_CAN_COMMENT_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date START_DATE_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,7 +336,17 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object startDate;
+	protected Date startDate = START_DATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDueDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date DUE_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getDueDate() <em>Due Date</em>}' attribute.
@@ -295,7 +356,17 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object dueDate;
+	protected Date dueDate = DUE_DATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEstimatedTime() <em>Estimated Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEstimatedTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer ESTIMATED_TIME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getEstimatedTime() <em>Estimated Time</em>}' attribute.
@@ -305,7 +376,17 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object estimatedTime;
+	protected Integer estimatedTime = ESTIMATED_TIME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSpentTime() <em>Spent Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpentTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer SPENT_TIME_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getSpentTime() <em>Spent Time</em>}' attribute.
@@ -315,7 +396,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object spentTime;
+	protected Integer spentTime = SPENT_TIME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getIssueComments() <em>Issue Comments</em>}' reference list.
@@ -526,7 +607,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getCommentCreatedAt() {
+	public Date getCommentCreatedAt() {
 		return commentCreatedAt;
 	}
 
@@ -535,8 +616,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCommentCreatedAt(Object newCommentCreatedAt) {
-		Object oldCommentCreatedAt = commentCreatedAt;
+	public void setCommentCreatedAt(Date newCommentCreatedAt) {
+		Date oldCommentCreatedAt = commentCreatedAt;
 		commentCreatedAt = newCommentCreatedAt;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__COMMENT_CREATED_AT,
@@ -548,7 +629,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getLastEditedAt() {
+	public Date getLastEditedAt() {
 		return lastEditedAt;
 	}
 
@@ -557,8 +638,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLastEditedAt(Object newLastEditedAt) {
-		Object oldLastEditedAt = lastEditedAt;
+	public void setLastEditedAt(Date newLastEditedAt) {
+		Date oldLastEditedAt = lastEditedAt;
 		lastEditedAt = newLastEditedAt;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__LAST_EDITED_AT, oldLastEditedAt,
@@ -605,7 +686,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -614,8 +695,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__ID, oldId, id));
@@ -626,7 +707,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getUpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
@@ -635,8 +716,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpdatedAt(Object newUpdatedAt) {
-		Object oldUpdatedAt = updatedAt;
+	public void setUpdatedAt(Date newUpdatedAt) {
+		Date oldUpdatedAt = updatedAt;
 		updatedAt = newUpdatedAt;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__UPDATED_AT, oldUpdatedAt,
@@ -735,7 +816,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
@@ -744,8 +825,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStartDate(Object newStartDate) {
-		Object oldStartDate = startDate;
+	public void setStartDate(Date newStartDate) {
+		Date oldStartDate = startDate;
 		startDate = newStartDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__START_DATE, oldStartDate,
@@ -757,7 +838,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getDueDate() {
+	public Date getDueDate() {
 		return dueDate;
 	}
 
@@ -766,8 +847,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDueDate(Object newDueDate) {
-		Object oldDueDate = dueDate;
+	public void setDueDate(Date newDueDate) {
+		Date oldDueDate = dueDate;
 		dueDate = newDueDate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__DUE_DATE, oldDueDate, dueDate));
@@ -778,7 +859,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getEstimatedTime() {
+	public Integer getEstimatedTime() {
 		return estimatedTime;
 	}
 
@@ -787,8 +868,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEstimatedTime(Object newEstimatedTime) {
-		Object oldEstimatedTime = estimatedTime;
+	public void setEstimatedTime(Integer newEstimatedTime) {
+		Integer oldEstimatedTime = estimatedTime;
 		estimatedTime = newEstimatedTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__ESTIMATED_TIME,
@@ -800,7 +881,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getSpentTime() {
+	public Integer getSpentTime() {
 		return spentTime;
 	}
 
@@ -809,8 +890,8 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSpentTime(Object newSpentTime) {
-		Object oldSpentTime = spentTime;
+	public void setSpentTime(Integer newSpentTime) {
+		Integer oldSpentTime = spentTime;
 		spentTime = newSpentTime;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.ISSUE__SPENT_TIME, oldSpentTime,
@@ -1042,7 +1123,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.ISSUE__ID:
-			setId(newValue);
+			setId((String) newValue);
 			return;
 		case GropiusPackage.ISSUE__BODY:
 			setBody((String) newValue);
@@ -1058,10 +1139,10 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 			getEditedBy().addAll((Collection<? extends User>) newValue);
 			return;
 		case GropiusPackage.ISSUE__COMMENT_CREATED_AT:
-			setCommentCreatedAt(newValue);
+			setCommentCreatedAt((Date) newValue);
 			return;
 		case GropiusPackage.ISSUE__LAST_EDITED_AT:
-			setLastEditedAt(newValue);
+			setLastEditedAt((Date) newValue);
 			return;
 		case GropiusPackage.ISSUE__CURRENT_USER_CAN_EDIT:
 			setCurrentUserCanEdit((Boolean) newValue);
@@ -1071,7 +1152,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 			getReactions().addAll((Collection<? extends ReactionGroup>) newValue);
 			return;
 		case GropiusPackage.ISSUE__UPDATED_AT:
-			setUpdatedAt(newValue);
+			setUpdatedAt((Date) newValue);
 			return;
 		case GropiusPackage.ISSUE__IS_OPEN:
 			setIsOpen((Boolean) newValue);
@@ -1086,16 +1167,16 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 			setCurrentUserCanComment((Boolean) newValue);
 			return;
 		case GropiusPackage.ISSUE__START_DATE:
-			setStartDate(newValue);
+			setStartDate((Date) newValue);
 			return;
 		case GropiusPackage.ISSUE__DUE_DATE:
-			setDueDate(newValue);
+			setDueDate((Date) newValue);
 			return;
 		case GropiusPackage.ISSUE__ESTIMATED_TIME:
-			setEstimatedTime(newValue);
+			setEstimatedTime((Integer) newValue);
 			return;
 		case GropiusPackage.ISSUE__SPENT_TIME:
-			setSpentTime(newValue);
+			setSpentTime((Integer) newValue);
 			return;
 		case GropiusPackage.ISSUE__ISSUE_COMMENTS:
 			getIssueComments().clear();
@@ -1146,7 +1227,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.ISSUE__ID:
-			setId((Object) null);
+			setId(ID_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__BODY:
 			setBody(BODY_EDEFAULT);
@@ -1161,10 +1242,10 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 			getEditedBy().clear();
 			return;
 		case GropiusPackage.ISSUE__COMMENT_CREATED_AT:
-			setCommentCreatedAt((Object) null);
+			setCommentCreatedAt(COMMENT_CREATED_AT_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__LAST_EDITED_AT:
-			setLastEditedAt((Object) null);
+			setLastEditedAt(LAST_EDITED_AT_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__CURRENT_USER_CAN_EDIT:
 			setCurrentUserCanEdit(CURRENT_USER_CAN_EDIT_EDEFAULT);
@@ -1173,7 +1254,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 			getReactions().clear();
 			return;
 		case GropiusPackage.ISSUE__UPDATED_AT:
-			setUpdatedAt((Object) null);
+			setUpdatedAt(UPDATED_AT_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__IS_OPEN:
 			setIsOpen(IS_OPEN_EDEFAULT);
@@ -1188,16 +1269,16 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 			setCurrentUserCanComment(CURRENT_USER_CAN_COMMENT_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__START_DATE:
-			setStartDate((Object) null);
+			setStartDate(START_DATE_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__DUE_DATE:
-			setDueDate((Object) null);
+			setDueDate(DUE_DATE_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__ESTIMATED_TIME:
-			setEstimatedTime((Object) null);
+			setEstimatedTime(ESTIMATED_TIME_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__SPENT_TIME:
-			setSpentTime((Object) null);
+			setSpentTime(SPENT_TIME_EDEFAULT);
 			return;
 		case GropiusPackage.ISSUE__ISSUE_COMMENTS:
 			getIssueComments().clear();
@@ -1239,7 +1320,7 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.ISSUE__ID:
-			return id != null;
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case GropiusPackage.ISSUE__BODY:
 			return BODY_EDEFAULT == null ? body != null : !BODY_EDEFAULT.equals(body);
 		case GropiusPackage.ISSUE__BODY_RENDERED:
@@ -1249,15 +1330,17 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 		case GropiusPackage.ISSUE__EDITED_BY:
 			return editedBy != null && !editedBy.isEmpty();
 		case GropiusPackage.ISSUE__COMMENT_CREATED_AT:
-			return commentCreatedAt != null;
+			return COMMENT_CREATED_AT_EDEFAULT == null ? commentCreatedAt != null
+					: !COMMENT_CREATED_AT_EDEFAULT.equals(commentCreatedAt);
 		case GropiusPackage.ISSUE__LAST_EDITED_AT:
-			return lastEditedAt != null;
+			return LAST_EDITED_AT_EDEFAULT == null ? lastEditedAt != null
+					: !LAST_EDITED_AT_EDEFAULT.equals(lastEditedAt);
 		case GropiusPackage.ISSUE__CURRENT_USER_CAN_EDIT:
 			return currentUserCanEdit != CURRENT_USER_CAN_EDIT_EDEFAULT;
 		case GropiusPackage.ISSUE__REACTIONS:
 			return reactions != null && !reactions.isEmpty();
 		case GropiusPackage.ISSUE__UPDATED_AT:
-			return updatedAt != null;
+			return UPDATED_AT_EDEFAULT == null ? updatedAt != null : !UPDATED_AT_EDEFAULT.equals(updatedAt);
 		case GropiusPackage.ISSUE__IS_OPEN:
 			return isOpen != IS_OPEN_EDEFAULT;
 		case GropiusPackage.ISSUE__IS_DUPLICATE:
@@ -1267,13 +1350,14 @@ public class IssueImpl extends MinimalEObjectImpl.Container implements Issue {
 		case GropiusPackage.ISSUE__CURRENT_USER_CAN_COMMENT:
 			return currentUserCanComment != CURRENT_USER_CAN_COMMENT_EDEFAULT;
 		case GropiusPackage.ISSUE__START_DATE:
-			return startDate != null;
+			return START_DATE_EDEFAULT == null ? startDate != null : !START_DATE_EDEFAULT.equals(startDate);
 		case GropiusPackage.ISSUE__DUE_DATE:
-			return dueDate != null;
+			return DUE_DATE_EDEFAULT == null ? dueDate != null : !DUE_DATE_EDEFAULT.equals(dueDate);
 		case GropiusPackage.ISSUE__ESTIMATED_TIME:
-			return estimatedTime != null;
+			return ESTIMATED_TIME_EDEFAULT == null ? estimatedTime != null
+					: !ESTIMATED_TIME_EDEFAULT.equals(estimatedTime);
 		case GropiusPackage.ISSUE__SPENT_TIME:
-			return spentTime != null;
+			return SPENT_TIME_EDEFAULT == null ? spentTime != null : !SPENT_TIME_EDEFAULT.equals(spentTime);
 		case GropiusPackage.ISSUE__ISSUE_COMMENTS:
 			return issueComments != null && !issueComments.isEmpty();
 		case GropiusPackage.ISSUE__LINKS_TO_ISSUES:

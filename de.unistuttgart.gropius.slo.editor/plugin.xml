@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated slo -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.unistuttgart.gropius.slo.presentation.SloModelWizardID"
+            name="%_UI_SloModelWizard_label"
+            class="de.unistuttgart.gropius.slo.presentation.SloModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SloModelFile.gif">
+         <description>%_UI_SloModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated slo -->
+      <editor
+            id="de.unistuttgart.gropius.slo.presentation.SloEditorID"
+            name="%_UI_SloEditor_label"
+            icon="icons/full/obj16/SloModelFile.gif"
+            extensions="slo"
+            class="de.unistuttgart.gropius.slo.presentation.SloEditor"
+            contributorClass="de.unistuttgart.gropius.slo.presentation.SloActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

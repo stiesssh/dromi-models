@@ -32,6 +32,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class IMSImpl extends MinimalEObjectImpl.Container implements IMS {
 	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,7 +49,7 @@ public class IMSImpl extends MinimalEObjectImpl.Container implements IMS {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object id;
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getImsType() <em>Ims Type</em>}' attribute.
@@ -95,7 +105,7 @@ public class IMSImpl extends MinimalEObjectImpl.Container implements IMS {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -104,8 +114,8 @@ public class IMSImpl extends MinimalEObjectImpl.Container implements IMS {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(Object newId) {
-		Object oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GropiusPackage.IMS__ID, oldId, id));
@@ -201,7 +211,7 @@ public class IMSImpl extends MinimalEObjectImpl.Container implements IMS {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case GropiusPackage.IMS__ID:
-			setId(newValue);
+			setId((String) newValue);
 			return;
 		case GropiusPackage.IMS__IMS_TYPE:
 			setImsType((IMSType) newValue);
@@ -222,7 +232,7 @@ public class IMSImpl extends MinimalEObjectImpl.Container implements IMS {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.IMS__ID:
-			setId((Object) null);
+			setId(ID_EDEFAULT);
 			return;
 		case GropiusPackage.IMS__IMS_TYPE:
 			setImsType(IMS_TYPE_EDEFAULT);
@@ -243,7 +253,7 @@ public class IMSImpl extends MinimalEObjectImpl.Container implements IMS {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case GropiusPackage.IMS__ID:
-			return id != null;
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		case GropiusPackage.IMS__IMS_TYPE:
 			return imsType != IMS_TYPE_EDEFAULT;
 		case GropiusPackage.IMS__COMPONENT:

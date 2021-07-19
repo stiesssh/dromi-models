@@ -6,11 +6,11 @@ package de.unistuttgart.ma.saga.provider;
 import de.unistuttgart.gropius.GropiusFactory;
 import de.unistuttgart.gropius.GropiusPackage;
 
+import de.unistuttgart.gropius.slo.SloFactory;
+
 import de.unistuttgart.ma.saga.ComponentAdapter;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
-
-import gropius.slo.SloFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -275,7 +275,7 @@ public class ComponentAdapterItemProvider
 				 GropiusPackage.Literals.COMPONENT__INTERFACES,
 				 true,
 				 false,
-				 false,
+				 true,
 				 null,
 				 null,
 				 null));
