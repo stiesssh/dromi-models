@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.gropius.slo.presentation;
 
+import de.unistuttgart.gropius.provider.GropiusEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
@@ -38,7 +39,7 @@ public final class SloEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public SloEditorPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { GropiusEditPlugin.INSTANCE, });
 	}
 
 	/**

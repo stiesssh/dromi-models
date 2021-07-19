@@ -3620,37 +3620,12 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SagaFactory.eINSTANCE.createComponentAdapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SagaFactory.eINSTANCE.createComponentInterfaceAdapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
 				 SagaFactory.eINSTANCE.createSaga()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
 				 SagaFactory.eINSTANCE.createSagaStep()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SagaFactory.eINSTANCE.createViolation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SagaFactory.eINSTANCE.createImpact()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SagaFactory.eINSTANCE.createNotification()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -3760,7 +3735,7 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Script(),
-				 SloFactory.eINSTANCE.createModel()));
+				 SloFactory.eINSTANCE.createsolomon()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -4525,37 +4500,12 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SagaFactory.eINSTANCE.createComponentAdapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SagaFactory.eINSTANCE.createComponentInterfaceAdapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
 				 SagaFactory.eINSTANCE.createSaga()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
 				 SagaFactory.eINSTANCE.createSagaStep()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SagaFactory.eINSTANCE.createViolation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SagaFactory.eINSTANCE.createImpact()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SagaFactory.eINSTANCE.createNotification()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -4665,7 +4615,7 @@ public class DocumentRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(Bpmn2Package.eINSTANCE.getDocumentRoot_Text(),
-				 SloFactory.eINSTANCE.createModel()));
+				 SloFactory.eINSTANCE.createsolomon()));
 
 		newChildDescriptors.add
 			(createChildParameter

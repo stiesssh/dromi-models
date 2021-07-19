@@ -2,6 +2,11 @@
  */
 package de.unistuttgart.gropius.slo;
 
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
+import de.unistuttgart.gropius.Project;
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Rule</b></em>'.
@@ -12,19 +17,18 @@ package de.unistuttgart.gropius.slo;
  * </p>
  * <ul>
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getName <em>Name</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusProjectId <em>Gropius Project Id</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentId <em>Gropius Component Id</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getPeriod <em>Period</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getThreshold <em>Threshold</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getId <em>Id</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterfaceId <em>Gropius Component Interface Id</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusProject <em>Gropius Project</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponent <em>Gropius Component</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterface <em>Gropius Component Interface</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule()
  * @model
  * @generated
  */
-public interface SloRule extends ModelElement {
+public interface SloRule extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,7 +36,7 @@ public interface SloRule extends ModelElement {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_Name()
-	 * @model
+	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getName();
@@ -46,50 +50,6 @@ public interface SloRule extends ModelElement {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Gropius Project Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gropius Project Id</em>' attribute.
-	 * @see #setGropiusProjectId(String)
-	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_GropiusProjectId()
-	 * @model
-	 * @generated
-	 */
-	String getGropiusProjectId();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusProjectId <em>Gropius Project Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Gropius Project Id</em>' attribute.
-	 * @see #getGropiusProjectId()
-	 * @generated
-	 */
-	void setGropiusProjectId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Gropius Component Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gropius Component Id</em>' attribute.
-	 * @see #setGropiusComponentId(String)
-	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_GropiusComponentId()
-	 * @model
-	 * @generated
-	 */
-	String getGropiusComponentId();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentId <em>Gropius Component Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Gropius Component Id</em>' attribute.
-	 * @see #getGropiusComponentId()
-	 * @generated
-	 */
-	void setGropiusComponentId(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' attribute.
@@ -136,47 +96,69 @@ public interface SloRule extends ModelElement {
 	void setThreshold(double value);
 
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Gropius Project</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_Id()
-	 * @model
+	 * @return the value of the '<em>Gropius Project</em>' reference.
+	 * @see #setGropiusProject(Project)
+	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_GropiusProject()
+	 * @model required="true"
 	 * @generated
 	 */
-	String getId();
+	Project getGropiusProject();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusProject <em>Gropius Project</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Gropius Project</em>' reference.
+	 * @see #getGropiusProject()
 	 * @generated
 	 */
-	void setId(String value);
+	void setGropiusProject(Project value);
 
 	/**
-	 * Returns the value of the '<em><b>Gropius Component Interface Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Gropius Component</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Gropius Component Interface Id</em>' attribute.
-	 * @see #setGropiusComponentInterfaceId(String)
-	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_GropiusComponentInterfaceId()
-	 * @model
+	 * @return the value of the '<em>Gropius Component</em>' reference.
+	 * @see #setGropiusComponent(Component)
+	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_GropiusComponent()
+	 * @model required="true"
 	 * @generated
 	 */
-	String getGropiusComponentInterfaceId();
+	Component getGropiusComponent();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterfaceId <em>Gropius Component Interface Id</em>}' attribute.
+	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponent <em>Gropius Component</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Gropius Component Interface Id</em>' attribute.
-	 * @see #getGropiusComponentInterfaceId()
+	 * @param value the new value of the '<em>Gropius Component</em>' reference.
+	 * @see #getGropiusComponent()
 	 * @generated
 	 */
-	void setGropiusComponentInterfaceId(String value);
+	void setGropiusComponent(Component value);
+
+	/**
+	 * Returns the value of the '<em><b>Gropius Component Interface</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Gropius Component Interface</em>' reference.
+	 * @see #setGropiusComponentInterface(ComponentInterface)
+	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_GropiusComponentInterface()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	ComponentInterface getGropiusComponentInterface();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterface <em>Gropius Component Interface</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Gropius Component Interface</em>' reference.
+	 * @see #getGropiusComponentInterface()
+	 * @generated
+	 */
+	void setGropiusComponentInterface(ComponentInterface value);
 
 } // SloRule

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -395,8 +395,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 */
 	public EList<ComponentInterface> getInterfaces() {
 		if (interfaces == null) {
-			interfaces = new EObjectContainmentEList<ComponentInterface>(ComponentInterface.class, this,
-					GropiusPackage.COMPONENT__INTERFACES);
+			interfaces = new EObjectContainmentWithInverseEList<ComponentInterface>(ComponentInterface.class, this,
+					GropiusPackage.COMPONENT__INTERFACES, GropiusPackage.COMPONENT_INTERFACE__COMPONENT);
 		}
 		return interfaces;
 	}
@@ -408,8 +408,9 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 */
 	public EList<ComponentInterface> getConsumedInterfaces() {
 		if (consumedInterfaces == null) {
-			consumedInterfaces = new EObjectResolvingEList<ComponentInterface>(ComponentInterface.class, this,
-					GropiusPackage.COMPONENT__CONSUMED_INTERFACES);
+			consumedInterfaces = new EObjectWithInverseResolvingEList.ManyInverse<ComponentInterface>(
+					ComponentInterface.class, this, GropiusPackage.COMPONENT__CONSUMED_INTERFACES,
+					GropiusPackage.COMPONENT_INTERFACE__CONSUMED_BY);
 		}
 		return consumedInterfaces;
 	}
@@ -436,6 +437,11 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case GropiusPackage.COMPONENT__INTERFACES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getInterfaces()).basicAdd(otherEnd, msgs);
+		case GropiusPackage.COMPONENT__CONSUMED_INTERFACES:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getConsumedInterfaces()).basicAdd(otherEnd,
+					msgs);
 		case GropiusPackage.COMPONENT__LABELS:
 			return ((InternalEList<InternalEObject>) (InternalEList<?>) getLabels()).basicAdd(otherEnd, msgs);
 		}
@@ -452,6 +458,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 		switch (featureID) {
 		case GropiusPackage.COMPONENT__INTERFACES:
 			return ((InternalEList<?>) getInterfaces()).basicRemove(otherEnd, msgs);
+		case GropiusPackage.COMPONENT__CONSUMED_INTERFACES:
+			return ((InternalEList<?>) getConsumedInterfaces()).basicRemove(otherEnd, msgs);
 		case GropiusPackage.COMPONENT__LABELS:
 			return ((InternalEList<?>) getLabels()).basicRemove(otherEnd, msgs);
 		}

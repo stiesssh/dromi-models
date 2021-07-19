@@ -40,13 +40,13 @@ public interface SloFactory extends EFactory {
 	Alert createAlert();
 
 	/**
-	 * Returns a new object of class '<em>Model</em>'.
+	 * Returns a new object of class '<em>solomon</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model</em>'.
+	 * @return a new object of class '<em>solomon</em>'.
 	 * @generated
 	 */
-	Model createModel();
+	solomon createsolomon();
 
 	/**
 	 * Returns the package supported by this factory.

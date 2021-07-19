@@ -98,11 +98,13 @@ public interface Component extends IssueLocation, Node {
 	/**
 	 * Returns the value of the '<em><b>Interfaces</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.gropius.ComponentInterface}.
+	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.ComponentInterface#getComponent <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interfaces</em>' containment reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_Interfaces()
-	 * @model containment="true"
+	 * @see de.unistuttgart.gropius.ComponentInterface#getComponent
+	 * @model opposite="component" containment="true"
 	 * @generated
 	 */
 	EList<ComponentInterface> getInterfaces();
@@ -110,11 +112,13 @@ public interface Component extends IssueLocation, Node {
 	/**
 	 * Returns the value of the '<em><b>Consumed Interfaces</b></em>' reference list.
 	 * The list contents are of type {@link de.unistuttgart.gropius.ComponentInterface}.
+	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.ComponentInterface#getConsumedBy <em>Consumed By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Consumed Interfaces</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponent_ConsumedInterfaces()
-	 * @model
+	 * @see de.unistuttgart.gropius.ComponentInterface#getConsumedBy
+	 * @model opposite="consumedBy"
 	 * @generated
 	 */
 	EList<ComponentInterface> getConsumedInterfaces();

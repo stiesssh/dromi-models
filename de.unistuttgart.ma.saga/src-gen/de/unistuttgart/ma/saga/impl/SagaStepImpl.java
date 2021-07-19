@@ -2,23 +2,19 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
+import de.unistuttgart.gropius.ComponentInterface;
+
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
-
-import java.util.Collection;
 
 import org.eclipse.bpmn2.Task;
 
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,22 +24,23 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.impl.SagaStepImpl#getNextLevelElements <em>Next Level Elements</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SagaStepImpl#getTask <em>Task</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.SagaStepImpl#getNextStep <em>Next Step</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SagaStepImpl#getComponentInterface <em>Component Interface</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SagaStepImpl extends IdentifiableElementImpl implements SagaStep {
 	/**
-	 * The cached value of the '{@link #getNextLevelElements() <em>Next Level Elements</em>}' reference list.
+	 * The cached value of the '{@link #getTask() <em>Task</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNextLevelElements()
+	 * @see #getTask()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Task> nextLevelElements;
+	protected Task task;
 
 	/**
 	 * The cached value of the '{@link #getNextStep() <em>Next Step</em>}' reference.
@@ -54,6 +51,16 @@ public class SagaStepImpl extends IdentifiableElementImpl implements SagaStep {
 	 * @ordered
 	 */
 	protected SagaStep nextStep;
+
+	/**
+	 * The cached value of the '{@link #getComponentInterface() <em>Component Interface</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentInterface()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComponentInterface componentInterface;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,11 +86,37 @@ public class SagaStepImpl extends IdentifiableElementImpl implements SagaStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Task> getNextLevelElements() {
-		if (nextLevelElements == null) {
-			nextLevelElements = new EObjectResolvingEList<Task>(Task.class, this, SagaPackage.SAGA_STEP__NEXT_LEVEL_ELEMENTS);
+	public Task getTask() {
+		if (task != null && task.eIsProxy()) {
+			InternalEObject oldTask = (InternalEObject)task;
+			task = (Task)eResolveProxy(oldTask);
+			if (task != oldTask) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SagaPackage.SAGA_STEP__TASK, oldTask, task));
+			}
 		}
-		return nextLevelElements;
+		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task basicGetTask() {
+		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTask(Task newTask) {
+		Task oldTask = task;
+		task = newTask;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SagaPackage.SAGA_STEP__TASK, oldTask, task));
 	}
 
 	/**
@@ -129,14 +162,56 @@ public class SagaStepImpl extends IdentifiableElementImpl implements SagaStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ComponentInterface getComponentInterface() {
+		if (componentInterface != null && componentInterface.eIsProxy()) {
+			InternalEObject oldComponentInterface = (InternalEObject)componentInterface;
+			componentInterface = (ComponentInterface)eResolveProxy(oldComponentInterface);
+			if (componentInterface != oldComponentInterface) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SagaPackage.SAGA_STEP__COMPONENT_INTERFACE, oldComponentInterface, componentInterface));
+			}
+		}
+		return componentInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComponentInterface basicGetComponentInterface() {
+		return componentInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComponentInterface(ComponentInterface newComponentInterface) {
+		ComponentInterface oldComponentInterface = componentInterface;
+		componentInterface = newComponentInterface;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SagaPackage.SAGA_STEP__COMPONENT_INTERFACE, oldComponentInterface, componentInterface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SagaPackage.SAGA_STEP__NEXT_LEVEL_ELEMENTS:
-				return getNextLevelElements();
+			case SagaPackage.SAGA_STEP__TASK:
+				if (resolve) return getTask();
+				return basicGetTask();
 			case SagaPackage.SAGA_STEP__NEXT_STEP:
 				if (resolve) return getNextStep();
 				return basicGetNextStep();
+			case SagaPackage.SAGA_STEP__COMPONENT_INTERFACE:
+				if (resolve) return getComponentInterface();
+				return basicGetComponentInterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,16 +221,17 @@ public class SagaStepImpl extends IdentifiableElementImpl implements SagaStep {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SagaPackage.SAGA_STEP__NEXT_LEVEL_ELEMENTS:
-				getNextLevelElements().clear();
-				getNextLevelElements().addAll((Collection<? extends Task>)newValue);
+			case SagaPackage.SAGA_STEP__TASK:
+				setTask((Task)newValue);
 				return;
 			case SagaPackage.SAGA_STEP__NEXT_STEP:
 				setNextStep((SagaStep)newValue);
+				return;
+			case SagaPackage.SAGA_STEP__COMPONENT_INTERFACE:
+				setComponentInterface((ComponentInterface)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -169,11 +245,14 @@ public class SagaStepImpl extends IdentifiableElementImpl implements SagaStep {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SagaPackage.SAGA_STEP__NEXT_LEVEL_ELEMENTS:
-				getNextLevelElements().clear();
+			case SagaPackage.SAGA_STEP__TASK:
+				setTask((Task)null);
 				return;
 			case SagaPackage.SAGA_STEP__NEXT_STEP:
 				setNextStep((SagaStep)null);
+				return;
+			case SagaPackage.SAGA_STEP__COMPONENT_INTERFACE:
+				setComponentInterface((ComponentInterface)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -187,10 +266,12 @@ public class SagaStepImpl extends IdentifiableElementImpl implements SagaStep {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SagaPackage.SAGA_STEP__NEXT_LEVEL_ELEMENTS:
-				return nextLevelElements != null && !nextLevelElements.isEmpty();
+			case SagaPackage.SAGA_STEP__TASK:
+				return task != null;
 			case SagaPackage.SAGA_STEP__NEXT_STEP:
 				return nextStep != null;
+			case SagaPackage.SAGA_STEP__COMPONENT_INTERFACE:
+				return componentInterface != null;
 		}
 		return super.eIsSet(featureID);
 	}

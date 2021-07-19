@@ -11,9 +11,16 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -22,7 +29,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AlertItemProvider extends ModelElementItemProvider {
+public class AlertItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -45,12 +53,8 @@ public class AlertItemProvider extends ModelElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addSloIdPropertyDescriptor(object);
-			addSloNamePropertyDescriptor(object);
-			addGropiusComponentIdPropertyDescriptor(object);
-			addGropiusProjectIdPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
-			addGropiusComponentInterfaceIdPropertyDescriptor(object);
+			addSloRulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -71,68 +75,6 @@ public class AlertItemProvider extends ModelElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Slo Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSloIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_sloId_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_sloId_feature", "_UI_Alert_type"),
-						SloPackage.Literals.ALERT__SLO_ID, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Slo Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSloNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_sloName_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_sloName_feature", "_UI_Alert_type"),
-						SloPackage.Literals.ALERT__SLO_NAME, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Gropius Component Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGropiusComponentIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_gropiusComponentId_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_gropiusComponentId_feature",
-								"_UI_Alert_type"),
-						SloPackage.Literals.ALERT__GROPIUS_COMPONENT_ID, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Gropius Project Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGropiusProjectIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_gropiusProjectId_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_gropiusProjectId_feature",
-								"_UI_Alert_type"),
-						SloPackage.Literals.ALERT__GROPIUS_PROJECT_ID, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,19 +90,17 @@ public class AlertItemProvider extends ModelElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Gropius Component Interface Id feature.
+	 * This adds a property descriptor for the Slo Rule feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGropiusComponentInterfaceIdPropertyDescriptor(Object object) {
+	protected void addSloRulePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_gropiusComponentInterfaceId_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_gropiusComponentInterfaceId_feature",
-								"_UI_Alert_type"),
-						SloPackage.Literals.ALERT__GROPIUS_COMPONENT_INTERFACE_ID, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						getResourceLocator(), getString("_UI_Alert_sloRule_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Alert_sloRule_feature", "_UI_Alert_type"),
+						SloPackage.Literals.ALERT__SLO_RULE, true, false, true, null, null, null));
 	}
 
 	/**
@@ -210,12 +150,7 @@ public class AlertItemProvider extends ModelElementItemProvider {
 
 		switch (notification.getFeatureID(Alert.class)) {
 		case SloPackage.ALERT__NAME:
-		case SloPackage.ALERT__SLO_ID:
-		case SloPackage.ALERT__SLO_NAME:
-		case SloPackage.ALERT__GROPIUS_COMPONENT_ID:
-		case SloPackage.ALERT__GROPIUS_PROJECT_ID:
 		case SloPackage.ALERT__VALUE:
-		case SloPackage.ALERT__GROPIUS_COMPONENT_INTERFACE_ID:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
@@ -232,6 +167,17 @@ public class AlertItemProvider extends ModelElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return SloEditPlugin.INSTANCE;
 	}
 
 }

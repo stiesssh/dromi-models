@@ -119,26 +119,26 @@ public class SloItemProviderAdapterFactory extends SloAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.gropius.slo.Model} instances.
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.gropius.slo.solomon} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelItemProvider modelItemProvider;
+	protected solomonItemProvider solomonItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.unistuttgart.gropius.slo.Model}.
+	 * This creates an adapter for a {@link de.unistuttgart.gropius.slo.solomon}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createModelAdapter() {
-		if (modelItemProvider == null) {
-			modelItemProvider = new ModelItemProvider(this);
+	public Adapter createsolomonAdapter() {
+		if (solomonItemProvider == null) {
+			solomonItemProvider = new solomonItemProvider(this);
 		}
 
-		return modelItemProvider;
+		return solomonItemProvider;
 	}
 
 	/**
@@ -244,8 +244,8 @@ public class SloItemProviderAdapterFactory extends SloAdapterFactory
 			sloRuleItemProvider.dispose();
 		if (alertItemProvider != null)
 			alertItemProvider.dispose();
-		if (modelItemProvider != null)
-			modelItemProvider.dispose();
+		if (solomonItemProvider != null)
+			solomonItemProvider.dispose();
 	}
 
 }

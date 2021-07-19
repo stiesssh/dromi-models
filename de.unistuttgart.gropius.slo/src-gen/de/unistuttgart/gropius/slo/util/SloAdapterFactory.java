@@ -77,13 +77,8 @@ public class SloAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseModel(Model object) {
-			return createModelAdapter();
-		}
-
-		@Override
-		public Adapter caseModelElement(ModelElement object) {
-			return createModelElementAdapter();
+		public Adapter casesolomon(solomon object) {
+			return createsolomonAdapter();
 		}
 
 		@Override
@@ -134,30 +129,16 @@ public class SloAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.slo.Model <em>Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.slo.solomon <em>solomon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.gropius.slo.Model
+	 * @see de.unistuttgart.gropius.slo.solomon
 	 * @generated
 	 */
-	public Adapter createModelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.slo.ModelElement <em>Model Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.gropius.slo.ModelElement
-	 * @generated
-	 */
-	public Adapter createModelElementAdapter() {
+	public Adapter createsolomonAdapter() {
 		return null;
 	}
 

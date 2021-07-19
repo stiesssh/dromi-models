@@ -7,6 +7,7 @@ import com.shopify.graphql.support.ID;
 
 import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
+import de.unistuttgart.gropius.GropiusFactory;
 import de.unistuttgart.ma.saga.SagaFactory;
 
 public class DataMapper {
@@ -14,7 +15,8 @@ public class DataMapper {
 	private Map<ID, Component> componentMap;
 	private Map<ID, ComponentInterface> interfaceMap;
 
-	SagaFactory factory = SagaFactory.eINSTANCE;
+	//SagaFactory factory = SagaFactory.eINSTANCE;
+	GropiusFactory factory = GropiusFactory.eINSTANCE; 
 	
 	public DataMapper() {
 		componentMap = new HashMap<>();
@@ -32,7 +34,7 @@ public class DataMapper {
 			return componentMap.get(id);
 		} 
 		
-		var result = factory.createComponentAdapter();
+		Component result = factory.createComponent();
 		result.setName(component.getName());
 		result.setId(component.getId().toString());
 		result.setDescription(component.getDescription());
@@ -51,7 +53,7 @@ public class DataMapper {
 			return interfaceMap.get(id);
 		}
 		
-		var result = factory.createComponentInterfaceAdapter();
+		ComponentInterface result = factory.createComponentInterface();
 		result.setName(compInterface.getName());
 		result.setId(compInterface.getId().toString());
 		result.setDescription(compInterface.getDescription());

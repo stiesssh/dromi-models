@@ -23,22 +23,24 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ComponentInterface extends IssueLocation, Node {
 	/**
-	 * Returns the value of the '<em><b>Component</b></em>' reference.
+	 * Returns the value of the '<em><b>Component</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.Component#getInterfaces <em>Interfaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Component</em>' reference.
+	 * @return the value of the '<em>Component</em>' container reference.
 	 * @see #setComponent(Component)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponentInterface_Component()
-	 * @model
+	 * @see de.unistuttgart.gropius.Component#getInterfaces
+	 * @model opposite="interfaces" required="true" transient="false"
 	 * @generated
 	 */
 	Component getComponent();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.gropius.ComponentInterface#getComponent <em>Component</em>}' reference.
+	 * Sets the value of the '{@link de.unistuttgart.gropius.ComponentInterface#getComponent <em>Component</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Component</em>' reference.
+	 * @param value the new value of the '<em>Component</em>' container reference.
 	 * @see #getComponent()
 	 * @generated
 	 */
@@ -47,11 +49,13 @@ public interface ComponentInterface extends IssueLocation, Node {
 	/**
 	 * Returns the value of the '<em><b>Consumed By</b></em>' reference list.
 	 * The list contents are of type {@link de.unistuttgart.gropius.Component}.
+	 * It is bidirectional and its opposite is '{@link de.unistuttgart.gropius.Component#getConsumedInterfaces <em>Consumed Interfaces</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Consumed By</em>' reference list.
 	 * @see de.unistuttgart.gropius.GropiusPackage#getComponentInterface_ConsumedBy()
-	 * @model
+	 * @see de.unistuttgart.gropius.Component#getConsumedInterfaces
+	 * @model opposite="consumedInterfaces"
 	 * @generated
 	 */
 	EList<Component> getConsumedBy();

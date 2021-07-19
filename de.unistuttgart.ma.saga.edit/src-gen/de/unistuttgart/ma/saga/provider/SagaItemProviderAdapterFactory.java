@@ -95,52 +95,6 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.ComponentAdapter} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ComponentAdapterItemProvider componentAdapterItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.ComponentAdapter}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createComponentAdapterAdapter() {
-		if (componentAdapterItemProvider == null) {
-			componentAdapterItemProvider = new ComponentAdapterItemProvider(this);
-		}
-
-		return componentAdapterItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.ComponentInterfaceAdapter} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ComponentInterfaceAdapterItemProvider componentInterfaceAdapterItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.ComponentInterfaceAdapter}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createComponentInterfaceAdapterAdapter() {
-		if (componentInterfaceAdapterItemProvider == null) {
-			componentInterfaceAdapterItemProvider = new ComponentInterfaceAdapterItemProvider(this);
-		}
-
-		return componentInterfaceAdapterItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Saga} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -184,75 +138,6 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implement
 		}
 
 		return sagaStepItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Violation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ViolationItemProvider violationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Violation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createViolationAdapter() {
-		if (violationItemProvider == null) {
-			violationItemProvider = new ViolationItemProvider(this);
-		}
-
-		return violationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Impact} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ImpactItemProvider impactItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Impact}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createImpactAdapter() {
-		if (impactItemProvider == null) {
-			impactItemProvider = new ImpactItemProvider(this);
-		}
-
-		return impactItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Notification} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NotificationItemProvider notificationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Notification}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNotificationAdapter() {
-		if (notificationItemProvider == null) {
-			notificationItemProvider = new NotificationItemProvider(this);
-		}
-
-		return notificationItemProvider;
 	}
 
 	/**
@@ -355,13 +240,8 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implement
 	 */
 	public void dispose() {
 		if (projectItemProvider != null) projectItemProvider.dispose();
-		if (componentAdapterItemProvider != null) componentAdapterItemProvider.dispose();
-		if (componentInterfaceAdapterItemProvider != null) componentInterfaceAdapterItemProvider.dispose();
 		if (sagaItemProvider != null) sagaItemProvider.dispose();
 		if (sagaStepItemProvider != null) sagaStepItemProvider.dispose();
-		if (violationItemProvider != null) violationItemProvider.dispose();
-		if (impactItemProvider != null) impactItemProvider.dispose();
-		if (notificationItemProvider != null) notificationItemProvider.dispose();
 	}
 
 }

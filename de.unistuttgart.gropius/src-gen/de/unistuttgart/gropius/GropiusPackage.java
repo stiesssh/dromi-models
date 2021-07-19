@@ -497,7 +497,7 @@ public interface GropiusPackage extends EPackage {
 	int COMPONENT_INTERFACE__ISSUE_ON_LOCATION = ISSUE_LOCATION__ISSUE_ON_LOCATION;
 
 	/**
-	 * The feature id for the '<em><b>Component</b></em>' reference.
+	 * The feature id for the '<em><b>Component</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1678,10 +1678,10 @@ public interface GropiusPackage extends EPackage {
 	EClass getComponentInterface();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.ComponentInterface#getComponent <em>Component</em>}'.
+	 * Returns the meta object for the container reference '{@link de.unistuttgart.gropius.ComponentInterface#getComponent <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Component</em>'.
+	 * @return the meta object for the container reference '<em>Component</em>'.
 	 * @see de.unistuttgart.gropius.ComponentInterface#getComponent()
 	 * @see #getComponentInterface()
 	 * @generated
@@ -2587,7 +2587,7 @@ public interface GropiusPackage extends EPackage {
 		EClass COMPONENT_INTERFACE = eINSTANCE.getComponentInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Component</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -13,38 +13,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/sagas"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/processes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/components"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/notifications"/>
-    </genClasses>
-    <genClasses ecoreClass="saga.ecore#//ComponentInterfaceAdapter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//ComponentInterfaceAdapter/nextLevelElements"/>
     </genClasses>
     <genClasses ecoreClass="saga.ecore#//Saga">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Saga/steps"/>
     </genClasses>
     <genClasses ecoreClass="saga.ecore#//SagaStep">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//SagaStep/nextLevelElements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//SagaStep/task"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//SagaStep/nextStep"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="saga.ecore#//ElementWithSLO">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//ElementWithSLO/sloRules"/>
-    </genClasses>
-    <genClasses ecoreClass="saga.ecore#//Violation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//Violation/passingImpacts"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//Violation/violatedRule"/>
-    </genClasses>
-    <genClasses ecoreClass="saga.ecore#//Impact">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//Impact/causedBy"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="saga.ecore#//ChainLink">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute saga.ecore#//ChainLink/locationId"/>
-    </genClasses>
-    <genClasses ecoreClass="saga.ecore#//Notification">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Notification/chainlinks"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//Notification/topLevelImpact"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//SagaStep/componentInterface"/>
     </genClasses>
     <genClasses image="false" ecoreClass="saga.ecore#//IdentifiableElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute saga.ecore#//IdentifiableElement/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute saga.ecore#//IdentifiableElement/name"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Bpmn2" basePackage="org.eclipse" resource="XML" disposableProviderFactory="true"

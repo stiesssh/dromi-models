@@ -159,9 +159,12 @@ import org.eclipse.dd.dc.provider.DcItemProviderAdapterFactory;
 
 import de.unistuttgart.gropius.provider.GropiusItemProviderAdapterFactory;
 
+import de.unistuttgart.gropius.slo.provider.SloItemProviderAdapterFactory;
+
 import de.unistuttgart.ma.saga.presentation.SagaEditorPlugin;
 
 import de.unistuttgart.ma.saga.provider.SagaItemProviderAdapterFactory;
+
 import org.eclipse.bpmn2.di.provider.BpmnDiItemProviderAdapterFactory;
 
 import org.eclipse.bpmn2.provider.Bpmn2ItemProviderAdapterFactory;
@@ -717,7 +720,7 @@ public class DcEditor
 		adapterFactory.addAdapterFactory(new BpmnDiItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DcItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GropiusItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new de.unistuttgart.gropius.slo.provider.SloItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SloItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

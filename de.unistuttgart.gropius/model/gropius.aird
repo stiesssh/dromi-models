@@ -3,10 +3,9 @@
   <viewpoint:DAnalysis uid="_47zwEOVAEeuwR8gmB1rh4g" selectedViews="_48YX0OVAEeuwR8gmB1rh4g" version="14.3.1.202003261200">
     <semanticResources>gropius.ecore</semanticResources>
     <semanticResources>gropius.genmodel</semanticResources>
-    <semanticResources>gropiusPages.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_48YX0OVAEeuwR8gmB1rh4g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_48u9IOVAEeuwR8gmB1rh4g" name="gropius" repPath="#_48r50OVAEeuwR8gmB1rh4g" changeId="9496ce91-ef2c-48fb-91b1-3d9afbf7c66d">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_48u9IOVAEeuwR8gmB1rh4g" name="gropius" repPath="#_48r50OVAEeuwR8gmB1rh4g" changeId="87c528d2-b464-4222-ab13-bba40cfa6000">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="gropius.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1298,7 +1297,7 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_ZZZL8-YhEeuhl-KrkIVxFg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_e_bEUehmEeuchtKskl-CHg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -1950,24 +1949,24 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PRI81uYREeuhl-KrkIVxFg" sourceNode="_PQT2YuYREeuhl-KrkIVxFg" targetNode="_PQQzEOYREeuhl-KrkIVxFg">
       <target xmi:type="ecore:EClass" href="gropius.ecore#//Issue"/>
       <semanticElements xmi:type="ecore:EClass" href="gropius.ecore#//Issue"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ZZi9COYhEeuhl-KrkIVxFg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_e_3JMOhmEeuchtKskl-CHg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_ZZi9CeYhEeuhl-KrkIVxFg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_e_3JMehmEeuchtKskl-CHg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ZZi9CuYhEeuhl-KrkIVxFg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_e_3JMuhmEeuchtKskl-CHg" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PRJj5uYREeuhl-KrkIVxFg" sourceNode="_PQT2YuYREeuhl-KrkIVxFg" targetNode="_PQPk8-YREeuhl-KrkIVxFg">
       <target xmi:type="ecore:EClass" href="gropius.ecore#//Issue"/>
       <semanticElements xmi:type="ecore:EClass" href="gropius.ecore#//Issue"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ZZi9DuYhEeuhl-KrkIVxFg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_e_3JNuhmEeuchtKskl-CHg" lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@conditionnalStyles.0/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_ZZi9D-YhEeuhl-KrkIVxFg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_e_3JN-hmEeuchtKskl-CHg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ZZi9EOYhEeuhl-KrkIVxFg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_e_3JOOhmEeuchtKskl-CHg" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>

@@ -57,34 +57,6 @@ public interface SloPackage extends EPackage {
 	SloPackage eINSTANCE = de.unistuttgart.gropius.slo.impl.SloPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.ModelElementImpl <em>Model Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.gropius.slo.impl.ModelElementImpl
-	 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getModelElement()
-	 * @generated
-	 */
-	int MODEL_ELEMENT = 3;
-
-	/**
-	 * The number of structural features of the '<em>Model Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Model Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl <em>Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,25 +73,7 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE__NAME = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Gropius Project Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLO_RULE__GROPIUS_PROJECT_ID = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Gropius Component Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLO_RULE__GROPIUS_COMPONENT_ID = MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int SLO_RULE__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -128,7 +82,7 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE__PERIOD = MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int SLO_RULE__PERIOD = 1;
 
 	/**
 	 * The feature id for the '<em><b>Threshold</b></em>' attribute.
@@ -137,25 +91,34 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE__THRESHOLD = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int SLO_RULE__THRESHOLD = 2;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Gropius Project</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE__ID = MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int SLO_RULE__GROPIUS_PROJECT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Gropius Component Interface Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Gropius Component</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE__GROPIUS_COMPONENT_INTERFACE_ID = MODEL_ELEMENT_FEATURE_COUNT + 6;
+	int SLO_RULE__GROPIUS_COMPONENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Gropius Component Interface</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLO_RULE__GROPIUS_COMPONENT_INTERFACE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
@@ -164,7 +127,7 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 7;
+	int SLO_RULE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Rule</em>' class.
@@ -173,7 +136,7 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int SLO_RULE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.AlertImpl <em>Alert</em>}' class.
@@ -192,43 +155,7 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT__NAME = MODEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Slo Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALERT__SLO_ID = MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Slo Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALERT__SLO_NAME = MODEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Gropius Component Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALERT__GROPIUS_COMPONENT_ID = MODEL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Gropius Project Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALERT__GROPIUS_PROJECT_ID = MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int ALERT__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -237,16 +164,16 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT__VALUE = MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int ALERT__VALUE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Gropius Component Interface Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Slo Rule</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT__GROPIUS_COMPONENT_INTERFACE_ID = MODEL_ELEMENT_FEATURE_COUNT + 6;
+	int ALERT__SLO_RULE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Alert</em>' class.
@@ -255,7 +182,7 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 7;
+	int ALERT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Alert</em>' class.
@@ -264,44 +191,53 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT_OPERATION_COUNT = MODEL_ELEMENT_OPERATION_COUNT + 0;
+	int ALERT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.ModelImpl <em>Model</em>}' class.
+	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.solomonImpl <em>solomon</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.gropius.slo.impl.ModelImpl
-	 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getModel()
+	 * @see de.unistuttgart.gropius.slo.impl.solomonImpl
+	 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getsolomon()
 	 * @generated
 	 */
-	int MODEL = 2;
+	int SOLOMON = 2;
 
 	/**
-	 * The feature id for the '<em><b>Modelelement</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__MODELELEMENT = 0;
-
-	/**
-	 * The number of structural features of the '<em>Model</em>' class.
+	 * The feature id for the '<em><b>Rules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 1;
+	int SOLOMON__RULES = 0;
 
 	/**
-	 * The number of operations of the '<em>Model</em>' class.
+	 * The feature id for the '<em><b>Alerts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = 0;
+	int SOLOMON__ALERTS = 1;
+
+	/**
+	 * The number of structural features of the '<em>solomon</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLOMON_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>solomon</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLOMON_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.SloRule <em>Rule</em>}'.
@@ -323,28 +259,6 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSloRule_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusProjectId <em>Gropius Project Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Gropius Project Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.SloRule#getGropiusProjectId()
-	 * @see #getSloRule()
-	 * @generated
-	 */
-	EAttribute getSloRule_GropiusProjectId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentId <em>Gropius Component Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Gropius Component Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.SloRule#getGropiusComponentId()
-	 * @see #getSloRule()
-	 * @generated
-	 */
-	EAttribute getSloRule_GropiusComponentId();
 
 	/**
 	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getPeriod <em>Period</em>}'.
@@ -369,26 +283,37 @@ public interface SloPackage extends EPackage {
 	EAttribute getSloRule_Threshold();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getId <em>Id</em>}'.
+	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusProject <em>Gropius Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.SloRule#getId()
+	 * @return the meta object for the reference '<em>Gropius Project</em>'.
+	 * @see de.unistuttgart.gropius.slo.SloRule#getGropiusProject()
 	 * @see #getSloRule()
 	 * @generated
 	 */
-	EAttribute getSloRule_Id();
+	EReference getSloRule_GropiusProject();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterfaceId <em>Gropius Component Interface Id</em>}'.
+	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponent <em>Gropius Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Gropius Component Interface Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterfaceId()
+	 * @return the meta object for the reference '<em>Gropius Component</em>'.
+	 * @see de.unistuttgart.gropius.slo.SloRule#getGropiusComponent()
 	 * @see #getSloRule()
 	 * @generated
 	 */
-	EAttribute getSloRule_GropiusComponentInterfaceId();
+	EReference getSloRule_GropiusComponent();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterface <em>Gropius Component Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Gropius Component Interface</em>'.
+	 * @see de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterface()
+	 * @see #getSloRule()
+	 * @generated
+	 */
+	EReference getSloRule_GropiusComponentInterface();
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.Alert <em>Alert</em>}'.
@@ -412,50 +337,6 @@ public interface SloPackage extends EPackage {
 	EAttribute getAlert_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getSloId <em>Slo Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Slo Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getSloId()
-	 * @see #getAlert()
-	 * @generated
-	 */
-	EAttribute getAlert_SloId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getSloName <em>Slo Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Slo Name</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getSloName()
-	 * @see #getAlert()
-	 * @generated
-	 */
-	EAttribute getAlert_SloName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getGropiusComponentId <em>Gropius Component Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Gropius Component Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getGropiusComponentId()
-	 * @see #getAlert()
-	 * @generated
-	 */
-	EAttribute getAlert_GropiusComponentId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getGropiusProjectId <em>Gropius Project Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Gropius Project Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getGropiusProjectId()
-	 * @see #getAlert()
-	 * @generated
-	 */
-	EAttribute getAlert_GropiusProjectId();
-
-	/**
 	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -467,46 +348,47 @@ public interface SloPackage extends EPackage {
 	EAttribute getAlert_Value();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getGropiusComponentInterfaceId <em>Gropius Component Interface Id</em>}'.
+	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.slo.Alert#getSloRule <em>Slo Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Gropius Component Interface Id</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getGropiusComponentInterfaceId()
+	 * @return the meta object for the reference '<em>Slo Rule</em>'.
+	 * @see de.unistuttgart.gropius.slo.Alert#getSloRule()
 	 * @see #getAlert()
 	 * @generated
 	 */
-	EAttribute getAlert_GropiusComponentInterfaceId();
+	EReference getAlert_SloRule();
 
 	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.Model <em>Model</em>}'.
+	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.solomon <em>solomon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model</em>'.
-	 * @see de.unistuttgart.gropius.slo.Model
+	 * @return the meta object for class '<em>solomon</em>'.
+	 * @see de.unistuttgart.gropius.slo.solomon
 	 * @generated
 	 */
-	EClass getModel();
+	EClass getsolomon();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.slo.Model#getModelelement <em>Modelelement</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.slo.solomon#getRules <em>Rules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Modelelement</em>'.
-	 * @see de.unistuttgart.gropius.slo.Model#getModelelement()
-	 * @see #getModel()
+	 * @return the meta object for the containment reference list '<em>Rules</em>'.
+	 * @see de.unistuttgart.gropius.slo.solomon#getRules()
+	 * @see #getsolomon()
 	 * @generated
 	 */
-	EReference getModel_Modelelement();
+	EReference getsolomon_Rules();
 
 	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.ModelElement <em>Model Element</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.slo.solomon#getAlerts <em>Alerts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model Element</em>'.
-	 * @see de.unistuttgart.gropius.slo.ModelElement
+	 * @return the meta object for the containment reference list '<em>Alerts</em>'.
+	 * @see de.unistuttgart.gropius.slo.solomon#getAlerts()
+	 * @see #getsolomon()
 	 * @generated
 	 */
-	EClass getModelElement();
+	EReference getsolomon_Alerts();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -550,22 +432,6 @@ public interface SloPackage extends EPackage {
 		EAttribute SLO_RULE__NAME = eINSTANCE.getSloRule_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Gropius Project Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SLO_RULE__GROPIUS_PROJECT_ID = eINSTANCE.getSloRule_GropiusProjectId();
-
-		/**
-		 * The meta object literal for the '<em><b>Gropius Component Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SLO_RULE__GROPIUS_COMPONENT_ID = eINSTANCE.getSloRule_GropiusComponentId();
-
-		/**
 		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -582,20 +448,28 @@ public interface SloPackage extends EPackage {
 		EAttribute SLO_RULE__THRESHOLD = eINSTANCE.getSloRule_Threshold();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Gropius Project</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SLO_RULE__ID = eINSTANCE.getSloRule_Id();
+		EReference SLO_RULE__GROPIUS_PROJECT = eINSTANCE.getSloRule_GropiusProject();
 
 		/**
-		 * The meta object literal for the '<em><b>Gropius Component Interface Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Gropius Component</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SLO_RULE__GROPIUS_COMPONENT_INTERFACE_ID = eINSTANCE.getSloRule_GropiusComponentInterfaceId();
+		EReference SLO_RULE__GROPIUS_COMPONENT = eINSTANCE.getSloRule_GropiusComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Gropius Component Interface</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLO_RULE__GROPIUS_COMPONENT_INTERFACE = eINSTANCE.getSloRule_GropiusComponentInterface();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.AlertImpl <em>Alert</em>}' class.
@@ -616,38 +490,6 @@ public interface SloPackage extends EPackage {
 		EAttribute ALERT__NAME = eINSTANCE.getAlert_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Slo Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ALERT__SLO_ID = eINSTANCE.getAlert_SloId();
-
-		/**
-		 * The meta object literal for the '<em><b>Slo Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ALERT__SLO_NAME = eINSTANCE.getAlert_SloName();
-
-		/**
-		 * The meta object literal for the '<em><b>Gropius Component Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ALERT__GROPIUS_COMPONENT_ID = eINSTANCE.getAlert_GropiusComponentId();
-
-		/**
-		 * The meta object literal for the '<em><b>Gropius Project Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ALERT__GROPIUS_PROJECT_ID = eINSTANCE.getAlert_GropiusProjectId();
-
-		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -656,40 +498,38 @@ public interface SloPackage extends EPackage {
 		EAttribute ALERT__VALUE = eINSTANCE.getAlert_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Gropius Component Interface Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Slo Rule</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ALERT__GROPIUS_COMPONENT_INTERFACE_ID = eINSTANCE.getAlert_GropiusComponentInterfaceId();
+		EReference ALERT__SLO_RULE = eINSTANCE.getAlert_SloRule();
 
 		/**
-		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.ModelImpl <em>Model</em>}' class.
+		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.solomonImpl <em>solomon</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.gropius.slo.impl.ModelImpl
-		 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getModel()
+		 * @see de.unistuttgart.gropius.slo.impl.solomonImpl
+		 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getsolomon()
 		 * @generated
 		 */
-		EClass MODEL = eINSTANCE.getModel();
+		EClass SOLOMON = eINSTANCE.getsolomon();
 
 		/**
-		 * The meta object literal for the '<em><b>Modelelement</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__MODELELEMENT = eINSTANCE.getModel_Modelelement();
+		EReference SOLOMON__RULES = eINSTANCE.getsolomon_Rules();
 
 		/**
-		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.ModelElementImpl <em>Model Element</em>}' class.
+		 * The meta object literal for the '<em><b>Alerts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.gropius.slo.impl.ModelElementImpl
-		 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getModelElement()
 		 * @generated
 		 */
-		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
+		EReference SOLOMON__ALERTS = eINSTANCE.getsolomon_Alerts();
 
 	}
 

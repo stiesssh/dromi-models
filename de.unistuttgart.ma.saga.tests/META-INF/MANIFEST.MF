@@ -20,9 +20,13 @@ Export-Package: de.unistuttgart.gropius.tests,
  org.eclipse.bpmn2.di.tests,
  org.eclipse.dd.dc.tests,
  org.eclipse.dd.di.tests,
- uni.stuttgart.saga.tests
+ uni.stuttgart.saga.tests,
+ de.unistuttgart.ma.saga.impact.impact.tests,
+ de.unistuttgart.ma.saga.impact.tests
 Require-Bundle: org.eclipse.core.runtime,
  de.unistuttgart.ma.saga;visibility:=reexport,
+ de.unistuttgart.gropius;visibility:=reexport,
+ de.unistuttgart.gropius.slo;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

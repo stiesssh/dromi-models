@@ -67,8 +67,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/pinnedOn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/timeline"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/location"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/issue"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/issue.1"/>
     </genClasses>
     <genClasses image="false" ecoreClass="gropius.ecore#//IssueTimelineItem">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//IssueTimelineItem/issue"/>

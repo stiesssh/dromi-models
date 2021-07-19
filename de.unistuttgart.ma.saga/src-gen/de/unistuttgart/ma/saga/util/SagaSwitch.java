@@ -2,11 +2,6 @@
  */
 package de.unistuttgart.ma.saga.util;
 
-import de.unistuttgart.gropius.Component;
-import de.unistuttgart.gropius.ComponentInterface;
-import de.unistuttgart.gropius.IssueLocation;
-import de.unistuttgart.gropius.Node;
-
 import de.unistuttgart.ma.saga.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -78,26 +73,6 @@ public class SagaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SagaPackage.COMPONENT_ADAPTER: {
-				ComponentAdapter componentAdapter = (ComponentAdapter)theEObject;
-				T result = caseComponentAdapter(componentAdapter);
-				if (result == null) result = caseElementWithSLO(componentAdapter);
-				if (result == null) result = caseComponent(componentAdapter);
-				if (result == null) result = caseIssueLocation(componentAdapter);
-				if (result == null) result = caseNode(componentAdapter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SagaPackage.COMPONENT_INTERFACE_ADAPTER: {
-				ComponentInterfaceAdapter componentInterfaceAdapter = (ComponentInterfaceAdapter)theEObject;
-				T result = caseComponentInterfaceAdapter(componentInterfaceAdapter);
-				if (result == null) result = caseElementWithSLO(componentInterfaceAdapter);
-				if (result == null) result = caseComponentInterface(componentInterfaceAdapter);
-				if (result == null) result = caseIssueLocation(componentInterfaceAdapter);
-				if (result == null) result = caseNode(componentInterfaceAdapter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SagaPackage.SAGA: {
 				Saga saga = (Saga)theEObject;
 				T result = caseSaga(saga);
@@ -109,42 +84,6 @@ public class SagaSwitch<T> extends Switch<T> {
 				SagaStep sagaStep = (SagaStep)theEObject;
 				T result = caseSagaStep(sagaStep);
 				if (result == null) result = caseIdentifiableElement(sagaStep);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SagaPackage.ELEMENT_WITH_SLO: {
-				ElementWithSLO elementWithSLO = (ElementWithSLO)theEObject;
-				T result = caseElementWithSLO(elementWithSLO);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SagaPackage.VIOLATION: {
-				Violation violation = (Violation)theEObject;
-				T result = caseViolation(violation);
-				if (result == null) result = caseChainLink(violation);
-				if (result == null) result = caseIdentifiableElement(violation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SagaPackage.IMPACT: {
-				Impact impact = (Impact)theEObject;
-				T result = caseImpact(impact);
-				if (result == null) result = caseChainLink(impact);
-				if (result == null) result = caseIdentifiableElement(impact);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SagaPackage.CHAIN_LINK: {
-				ChainLink chainLink = (ChainLink)theEObject;
-				T result = caseChainLink(chainLink);
-				if (result == null) result = caseIdentifiableElement(chainLink);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SagaPackage.NOTIFICATION: {
-				Notification notification = (Notification)theEObject;
-				T result = caseNotification(notification);
-				if (result == null) result = caseIdentifiableElement(notification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -170,36 +109,6 @@ public class SagaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProject(Project object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Adapter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComponentAdapter(ComponentAdapter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Interface Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Interface Adapter</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComponentInterfaceAdapter(ComponentInterfaceAdapter object) {
 		return null;
 	}
 
@@ -234,81 +143,6 @@ public class SagaSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element With SLO</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element With SLO</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseElementWithSLO(ElementWithSLO object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Violation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Violation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseViolation(Violation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Impact</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Impact</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseImpact(Impact object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Chain Link</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Chain Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseChainLink(ChainLink object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Notification</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Notification</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNotification(Notification object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -320,66 +154,6 @@ public class SagaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIdentifiableElement(IdentifiableElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Node</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNode(Node object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Issue Location</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Issue Location</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIssueLocation(IssueLocation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComponent(Component object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Interface</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Interface</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComponentInterface(ComponentInterface object) {
 		return null;
 	}
 

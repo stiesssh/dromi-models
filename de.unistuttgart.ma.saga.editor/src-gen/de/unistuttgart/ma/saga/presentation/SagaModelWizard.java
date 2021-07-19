@@ -220,7 +220,6 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		((Project) rootObject).getComponents().addAll(gropiusImporter.parse());
 		
 		((Project) rootObject).setId("testProject");
-		((Project) rootObject).setName("testPproject");
 		
 		return rootObject;
 	}

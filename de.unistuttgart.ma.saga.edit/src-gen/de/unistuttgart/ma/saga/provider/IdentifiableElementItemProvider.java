@@ -61,7 +61,6 @@ public class IdentifiableElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,28 +88,6 @@ public class IdentifiableElementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IdentifiableElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IdentifiableElement_name_feature", "_UI_IdentifiableElement_type"),
-				 SagaPackage.Literals.IDENTIFIABLE_ELEMENT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,7 +95,7 @@ public class IdentifiableElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((IdentifiableElement)object).getName();
+		String label = ((IdentifiableElement)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_IdentifiableElement_type") :
 			getString("_UI_IdentifiableElement_type") + " " + label;
@@ -138,7 +115,6 @@ public class IdentifiableElementItemProvider
 
 		switch (notification.getFeatureID(IdentifiableElement.class)) {
 			case SagaPackage.IDENTIFIABLE_ELEMENT__ID:
-			case SagaPackage.IDENTIFIABLE_ELEMENT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

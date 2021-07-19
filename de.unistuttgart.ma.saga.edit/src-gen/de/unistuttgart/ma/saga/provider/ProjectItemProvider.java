@@ -69,7 +69,6 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__SAGAS);
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__PROCESSES);
 			childrenFeatures.add(SagaPackage.Literals.PROJECT__COMPONENTS);
-			childrenFeatures.add(SagaPackage.Literals.PROJECT__NOTIFICATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -106,7 +105,7 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Project)object).getName();
+		String label = ((Project)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Project_type") :
 			getString("_UI_Project_type") + " " + label;
@@ -128,7 +127,6 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 			case SagaPackage.PROJECT__SAGAS:
 			case SagaPackage.PROJECT__PROCESSES:
 			case SagaPackage.PROJECT__COMPONENTS:
-			case SagaPackage.PROJECT__NOTIFICATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -159,17 +157,7 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(SagaPackage.Literals.PROJECT__COMPONENTS,
-				 SagaFactory.eINSTANCE.createComponentAdapter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SagaPackage.Literals.PROJECT__COMPONENTS,
 				 GropiusFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SagaPackage.Literals.PROJECT__NOTIFICATIONS,
-				 SagaFactory.eINSTANCE.createNotification()));
 	}
 
 }

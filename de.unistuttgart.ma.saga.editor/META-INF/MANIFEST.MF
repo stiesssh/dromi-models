@@ -15,7 +15,8 @@ Export-Package: de.unistuttgart.ma.saga.presentation,
  org.eclipse.bpmn2.di.presentation,
  org.eclipse.bpmn2.presentation,
  org.eclipse.dd.dc.presentation,
- org.eclipse.dd.di.presentation
+ org.eclipse.dd.di.presentation,
+ de.unistuttgart.ma.saga.impact.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.unistuttgart.ma.saga.edit;visibility:=reexport,

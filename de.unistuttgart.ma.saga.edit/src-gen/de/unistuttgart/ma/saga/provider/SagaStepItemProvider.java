@@ -43,26 +43,27 @@ public class SagaStepItemProvider extends IdentifiableElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNextLevelElementsPropertyDescriptor(object);
+			addTaskPropertyDescriptor(object);
 			addNextStepPropertyDescriptor(object);
+			addComponentInterfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Next Level Elements feature.
+	 * This adds a property descriptor for the Task feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNextLevelElementsPropertyDescriptor(Object object) {
+	protected void addTaskPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SagaStep_nextLevelElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SagaStep_nextLevelElements_feature", "_UI_SagaStep_type"),
-				 SagaPackage.Literals.SAGA_STEP__NEXT_LEVEL_ELEMENTS,
+				 getString("_UI_SagaStep_task_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SagaStep_task_feature", "_UI_SagaStep_type"),
+				 SagaPackage.Literals.SAGA_STEP__TASK,
 				 true,
 				 false,
 				 true,
@@ -94,6 +95,28 @@ public class SagaStepItemProvider extends IdentifiableElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Component Interface feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addComponentInterfacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SagaStep_componentInterface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SagaStep_componentInterface_feature", "_UI_SagaStep_type"),
+				 SagaPackage.Literals.SAGA_STEP__COMPONENT_INTERFACE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns SagaStep.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,7 +135,7 @@ public class SagaStepItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SagaStep)object).getName();
+		String label = ((SagaStep)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SagaStep_type") :
 			getString("_UI_SagaStep_type") + " " + label;

@@ -59,8 +59,8 @@ public class SloFactoryImpl extends EFactoryImpl implements SloFactory {
 			return createSloRule();
 		case SloPackage.ALERT:
 			return createAlert();
-		case SloPackage.MODEL:
-			return createModel();
+		case SloPackage.SOLOMON:
+			return createsolomon();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -91,9 +91,9 @@ public class SloFactoryImpl extends EFactoryImpl implements SloFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Model createModel() {
-		ModelImpl model = new ModelImpl();
-		return model;
+	public solomon createsolomon() {
+		solomonImpl solomon = new solomonImpl();
+		return solomon;
 	}
 
 	/**

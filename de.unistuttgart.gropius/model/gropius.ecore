@@ -29,9 +29,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
         eType="#//Project"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
-        eType="#//ComponentInterface" containment="true"/>
+        eType="#//ComponentInterface" containment="true" eOpposite="#//ComponentInterface/component"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="consumedInterfaces" upperBound="-1"
-        eType="#//ComponentInterface"/>
+        eType="#//ComponentInterface" eOpposite="#//ComponentInterface/consumedBy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
         eType="#//Label" eOpposite="#//Label/components"/>
   </eClassifiers>
@@ -40,9 +40,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentInterface" eSuperTypes="#//IssueLocation #//Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component" eOpposite="#//Component/interfaces"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="consumedBy" upperBound="-1"
-        eType="#//Component"/>
+        eType="#//Component" eOpposite="#//Component/consumedInterfaces"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Issue" eSuperTypes="#//Comment #//Node">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatedAt" eType="#//Date"/>
@@ -73,9 +74,6 @@
         eType="#//IssueTimelineItem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
         eType="#//IssueLocation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" eType="#//Issue"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" upperBound="-1"
-        eType="#//Issue" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItem" abstract="true" interface="true"
       eSuperTypes="#//Node">

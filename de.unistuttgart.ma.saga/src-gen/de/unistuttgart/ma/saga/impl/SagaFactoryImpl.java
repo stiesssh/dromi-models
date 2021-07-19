@@ -57,13 +57,8 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SagaPackage.PROJECT: return createProject();
-			case SagaPackage.COMPONENT_ADAPTER: return createComponentAdapter();
-			case SagaPackage.COMPONENT_INTERFACE_ADAPTER: return createComponentInterfaceAdapter();
 			case SagaPackage.SAGA: return createSaga();
 			case SagaPackage.SAGA_STEP: return createSagaStep();
-			case SagaPackage.VIOLATION: return createViolation();
-			case SagaPackage.IMPACT: return createImpact();
-			case SagaPackage.NOTIFICATION: return createNotification();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -84,26 +79,6 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComponentAdapter createComponentAdapter() {
-		ComponentAdapterImpl componentAdapter = new ComponentAdapterImpl();
-		return componentAdapter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComponentInterfaceAdapter createComponentInterfaceAdapter() {
-		ComponentInterfaceAdapterImpl componentInterfaceAdapter = new ComponentInterfaceAdapterImpl();
-		return componentInterfaceAdapter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Saga createSaga() {
 		SagaImpl saga = new SagaImpl();
 		return saga;
@@ -117,36 +92,6 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	public SagaStep createSagaStep() {
 		SagaStepImpl sagaStep = new SagaStepImpl();
 		return sagaStep;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Violation createViolation() {
-		ViolationImpl violation = new ViolationImpl();
-		return violation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Impact createImpact() {
-		ImpactImpl impact = new ImpactImpl();
-		return impact;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Notification createNotification() {
-		NotificationImpl notification = new NotificationImpl();
-		return notification;
 	}
 
 	/**

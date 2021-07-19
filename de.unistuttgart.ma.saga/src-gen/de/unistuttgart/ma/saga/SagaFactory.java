@@ -31,24 +31,6 @@ public interface SagaFactory extends EFactory {
 	Project createProject();
 
 	/**
-	 * Returns a new object of class '<em>Component Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component Adapter</em>'.
-	 * @generated
-	 */
-	ComponentAdapter createComponentAdapter();
-
-	/**
-	 * Returns a new object of class '<em>Component Interface Adapter</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component Interface Adapter</em>'.
-	 * @generated
-	 */
-	ComponentInterfaceAdapter createComponentInterfaceAdapter();
-
-	/**
 	 * Returns a new object of class '<em>Saga</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,33 +47,6 @@ public interface SagaFactory extends EFactory {
 	 * @generated
 	 */
 	SagaStep createSagaStep();
-
-	/**
-	 * Returns a new object of class '<em>Violation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Violation</em>'.
-	 * @generated
-	 */
-	Violation createViolation();
-
-	/**
-	 * Returns a new object of class '<em>Impact</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Impact</em>'.
-	 * @generated
-	 */
-	Impact createImpact();
-
-	/**
-	 * Returns a new object of class '<em>Notification</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Notification</em>'.
-	 * @generated
-	 */
-	Notification createNotification();
 
 	/**
 	 * Returns the package supported by this factory.

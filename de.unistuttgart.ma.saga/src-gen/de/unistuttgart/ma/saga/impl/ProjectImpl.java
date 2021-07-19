@@ -4,7 +4,6 @@ package de.unistuttgart.ma.saga.impl;
 
 import de.unistuttgart.gropius.Component;
 
-import de.unistuttgart.ma.saga.Notification;
 import de.unistuttgart.ma.saga.Project;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaPackage;
@@ -32,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getSagas <em>Sagas</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getProcesses <em>Processes</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impl.ProjectImpl#getNotifications <em>Notifications</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,16 +65,6 @@ public class ProjectImpl extends IdentifiableElementImpl implements Project {
 	 * @ordered
 	 */
 	protected EList<Component> components;
-
-	/**
-	 * The cached value of the '{@link #getNotifications() <em>Notifications</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotifications()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Notification> notifications;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,18 +126,6 @@ public class ProjectImpl extends IdentifiableElementImpl implements Project {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Notification> getNotifications() {
-		if (notifications == null) {
-			notifications = new EObjectContainmentEList<Notification>(Notification.class, this, SagaPackage.PROJECT__NOTIFICATIONS);
-		}
-		return notifications;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -159,8 +135,6 @@ public class ProjectImpl extends IdentifiableElementImpl implements Project {
 				return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
 			case SagaPackage.PROJECT__COMPONENTS:
 				return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
-			case SagaPackage.PROJECT__NOTIFICATIONS:
-				return ((InternalEList<?>)getNotifications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -179,8 +153,6 @@ public class ProjectImpl extends IdentifiableElementImpl implements Project {
 				return getProcesses();
 			case SagaPackage.PROJECT__COMPONENTS:
 				return getComponents();
-			case SagaPackage.PROJECT__NOTIFICATIONS:
-				return getNotifications();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -206,10 +178,6 @@ public class ProjectImpl extends IdentifiableElementImpl implements Project {
 				getComponents().clear();
 				getComponents().addAll((Collection<? extends Component>)newValue);
 				return;
-			case SagaPackage.PROJECT__NOTIFICATIONS:
-				getNotifications().clear();
-				getNotifications().addAll((Collection<? extends Notification>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -231,9 +199,6 @@ public class ProjectImpl extends IdentifiableElementImpl implements Project {
 			case SagaPackage.PROJECT__COMPONENTS:
 				getComponents().clear();
 				return;
-			case SagaPackage.PROJECT__NOTIFICATIONS:
-				getNotifications().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -252,8 +217,6 @@ public class ProjectImpl extends IdentifiableElementImpl implements Project {
 				return processes != null && !processes.isEmpty();
 			case SagaPackage.PROJECT__COMPONENTS:
 				return components != null && !components.isEmpty();
-			case SagaPackage.PROJECT__NOTIFICATIONS:
-				return notifications != null && !notifications.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

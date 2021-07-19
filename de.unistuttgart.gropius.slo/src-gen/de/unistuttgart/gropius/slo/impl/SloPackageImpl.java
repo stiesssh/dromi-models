@@ -2,13 +2,13 @@
  */
 package de.unistuttgart.gropius.slo.impl;
 
+import de.unistuttgart.gropius.GropiusPackage;
 import de.unistuttgart.gropius.slo.Alert;
-import de.unistuttgart.gropius.slo.Model;
-import de.unistuttgart.gropius.slo.ModelElement;
 import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloPackage;
 import de.unistuttgart.gropius.slo.SloRule;
 
+import de.unistuttgart.gropius.slo.solomon;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -42,14 +42,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modelElementEClass = null;
+	private EClass solomonEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -101,6 +94,9 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		GropiusPackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theSloPackage.createPackageContents();
 
@@ -138,7 +134,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSloRule_GropiusProjectId() {
+	public EAttribute getSloRule_Period() {
 		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -147,7 +143,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSloRule_GropiusComponentId() {
+	public EAttribute getSloRule_Threshold() {
 		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -156,8 +152,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSloRule_Period() {
-		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(3);
+	public EReference getSloRule_GropiusProject() {
+		return (EReference) sloRuleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -165,8 +161,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSloRule_Threshold() {
-		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(4);
+	public EReference getSloRule_GropiusComponent() {
+		return (EReference) sloRuleEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -174,17 +170,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSloRule_Id() {
-		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSloRule_GropiusComponentInterfaceId() {
-		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(6);
+	public EReference getSloRule_GropiusComponentInterface() {
+		return (EReference) sloRuleEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -210,7 +197,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAlert_SloId() {
+	public EAttribute getAlert_Value() {
 		return (EAttribute) alertEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -219,8 +206,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAlert_SloName() {
-		return (EAttribute) alertEClass.getEStructuralFeatures().get(2);
+	public EReference getAlert_SloRule() {
+		return (EReference) alertEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -228,8 +215,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAlert_GropiusComponentId() {
-		return (EAttribute) alertEClass.getEStructuralFeatures().get(3);
+	public EClass getsolomon() {
+		return solomonEClass;
 	}
 
 	/**
@@ -237,8 +224,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAlert_GropiusProjectId() {
-		return (EAttribute) alertEClass.getEStructuralFeatures().get(4);
+	public EReference getsolomon_Rules() {
+		return (EReference) solomonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -246,44 +233,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAlert_Value() {
-		return (EAttribute) alertEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAlert_GropiusComponentInterfaceId() {
-		return (EAttribute) alertEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModel() {
-		return modelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModel_Modelelement() {
-		return (EReference) modelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModelElement() {
-		return modelElementEClass;
+	public EReference getsolomon_Alerts() {
+		return (EReference) solomonEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -317,26 +268,20 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		// Create classes and their features
 		sloRuleEClass = createEClass(SLO_RULE);
 		createEAttribute(sloRuleEClass, SLO_RULE__NAME);
-		createEAttribute(sloRuleEClass, SLO_RULE__GROPIUS_PROJECT_ID);
-		createEAttribute(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT_ID);
 		createEAttribute(sloRuleEClass, SLO_RULE__PERIOD);
 		createEAttribute(sloRuleEClass, SLO_RULE__THRESHOLD);
-		createEAttribute(sloRuleEClass, SLO_RULE__ID);
-		createEAttribute(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT_INTERFACE_ID);
+		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_PROJECT);
+		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT);
+		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT_INTERFACE);
 
 		alertEClass = createEClass(ALERT);
 		createEAttribute(alertEClass, ALERT__NAME);
-		createEAttribute(alertEClass, ALERT__SLO_ID);
-		createEAttribute(alertEClass, ALERT__SLO_NAME);
-		createEAttribute(alertEClass, ALERT__GROPIUS_COMPONENT_ID);
-		createEAttribute(alertEClass, ALERT__GROPIUS_PROJECT_ID);
 		createEAttribute(alertEClass, ALERT__VALUE);
-		createEAttribute(alertEClass, ALERT__GROPIUS_COMPONENT_INTERFACE_ID);
+		createEReference(alertEClass, ALERT__SLO_RULE);
 
-		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__MODELELEMENT);
-
-		modelElementEClass = createEClass(MODEL_ELEMENT);
+		solomonEClass = createEClass(SOLOMON);
+		createEReference(solomonEClass, SOLOMON__RULES);
+		createEReference(solomonEClass, SOLOMON__ALERTS);
 	}
 
 	/**
@@ -363,60 +308,50 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		GropiusPackage theGropiusPackage = (GropiusPackage) EPackage.Registry.INSTANCE
+				.getEPackage(GropiusPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		sloRuleEClass.getESuperTypes().add(this.getModelElement());
-		alertEClass.getESuperTypes().add(this.getModelElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sloRuleEClass, SloRule.class, "SloRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSloRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, SloRule.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSloRule_GropiusProjectId(), ecorePackage.getEString(), "gropiusProjectId", null, 0, 1,
-				SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSloRule_GropiusComponentId(), ecorePackage.getEString(), "gropiusComponentId", null, 0, 1,
-				SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSloRule_Name(), ecorePackage.getEString(), "name", null, 1, 1, SloRule.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSloRule_Period(), ecorePackage.getEDouble(), "period", null, 0, 1, SloRule.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSloRule_Threshold(), ecorePackage.getEDouble(), "threshold", null, 0, 1, SloRule.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSloRule_Id(), ecorePackage.getEString(), "id", null, 0, 1, SloRule.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSloRule_GropiusComponentInterfaceId(), ecorePackage.getEString(),
-				"gropiusComponentInterfaceId", null, 0, 1, SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSloRule_GropiusProject(), theGropiusPackage.getProject(), null, "gropiusProject", null, 1, 1,
+				SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSloRule_GropiusComponent(), theGropiusPackage.getComponent(), null, "gropiusComponent", null,
+				1, 1, SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSloRule_GropiusComponentInterface(), theGropiusPackage.getComponentInterface(), null,
+				"gropiusComponentInterface", null, 1, 1, SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAlert_Name(), ecorePackage.getEString(), "name", null, 0, 1, Alert.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAlert_SloId(), ecorePackage.getEString(), "sloId", null, 0, 1, Alert.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAlert_SloName(), ecorePackage.getEString(), "sloName", null, 0, 1, Alert.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAlert_GropiusComponentId(), ecorePackage.getEString(), "gropiusComponentId", null, 0, 1,
-				Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEAttribute(getAlert_GropiusProjectId(), ecorePackage.getEString(), "gropiusProjectId", null, 0, 1,
-				Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAlert_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Alert.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAlert_GropiusComponentInterfaceId(), ecorePackage.getEString(), "gropiusComponentInterfaceId",
-				null, 0, 1, Alert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-				!IS_DERIVED, IS_ORDERED);
+		initEReference(getAlert_SloRule(), this.getSloRule(), null, "sloRule", null, 0, 1, Alert.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
-		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Modelelement(), this.getModelElement(), null, "modelelement", null, 0, -1, Model.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
+		initEClass(solomonEClass, solomon.class, "solomon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getsolomon_Rules(), this.getSloRule(), null, "rules", null, 0, -1, solomon.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getsolomon_Alerts(), this.getAlert(), null, "alerts", null, 0, -1, solomon.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
