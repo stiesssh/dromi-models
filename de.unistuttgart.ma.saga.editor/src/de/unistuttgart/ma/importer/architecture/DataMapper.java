@@ -2,25 +2,38 @@ package de.unistuttgart.ma.importer.architecture;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import com.shopify.graphql.support.ID;
 
 import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.GropiusFactory;
+import de.unistuttgart.gropius.Project;
 import de.unistuttgart.ma.saga.SagaFactory;
 
 public class DataMapper {
 	
+	private Map<ID, Project> projectMap;
 	private Map<ID, Component> componentMap;
 	private Map<ID, ComponentInterface> interfaceMap;
 
-	//SagaFactory factory = SagaFactory.eINSTANCE;
 	GropiusFactory factory = GropiusFactory.eINSTANCE; 
 	
-	public DataMapper() {
+	private static DataMapper instance; 
+	
+	public static DataMapper getMapper() {
+		if (instance != null) {
+			return instance;
+		} 
+		instance = new DataMapper();
+		return instance;
+	}
+	
+	private DataMapper() {
 		componentMap = new HashMap<>();
 		interfaceMap = new HashMap<>();
+		projectMap = new HashMap<>();
 	}
 	
 	/**
@@ -60,5 +73,44 @@ public class DataMapper {
 		result.setComponent(getEcoreComponent(compInterface.getComponent()));
 		interfaceMap.put(id, result);
 		return result;
+	}
+	
+	/**
+	 * project. 
+	 * @param component
+	 * @return
+	 */
+	public Project getEcoreProject (de.foo.generated.Project project) {
+		ID id = project.getId();
+		if(projectMap.containsKey(id)) {
+			return projectMap.get(id);
+		} 
+		
+		Project result = factory.createProject();
+		result.setName(project.getName());
+		result.setId(project.getId().toString());
+		projectMap.put(id, result);
+		return result;
+	}
+	
+	public Component getComponentByID(ID id) {
+		if(componentMap.containsKey(id)) {
+			return componentMap.get(id);
+		}
+		throw new NoSuchElementException();
+	}
+	
+	public ComponentInterface getComponentInterfaceByID(ID id) {
+		if(interfaceMap.containsKey(id)) {
+			return interfaceMap.get(id);
+		}
+		throw new NoSuchElementException();
+	}
+	
+	public Project getProjectByID(ID id) {
+		if(projectMap.containsKey(id)) {
+			return projectMap.get(id);
+		}
+		throw new NoSuchElementException();
 	}
 }

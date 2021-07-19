@@ -4,15 +4,16 @@
     editorDirectory="/de.unistuttgart.ma.saga.editor/src-gen" modelPluginID="de.unistuttgart.ma.saga"
     modelName="Saga" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
-    usedGenPackages="../../org.eclipse.bpmn2/model/bpmn20.genmodel#//bpmn2 ../../org.eclipse.bpmn2/model/bpmn20.genmodel#//di ../../org.eclipse.bpmn2/model/bpmn20.genmodel#//di.1 ../../org.eclipse.bpmn2/model/bpmn20.genmodel#//dc ../../de.unistuttgart.gropius/model/gropius.genmodel#//gropius"
+    usedGenPackages="../../org.eclipse.bpmn2/model/bpmn20.genmodel#//bpmn2 ../../org.eclipse.bpmn2/model/bpmn20.genmodel#//di ../../org.eclipse.bpmn2/model/bpmn20.genmodel#//di.1 ../../org.eclipse.bpmn2/model/bpmn20.genmodel#//dc ../../de.unistuttgart.gropius/model/gropius.genmodel#//gropius ../../de.unistuttgart.gropius.slo/model/slo.genmodel#//slo"
     operationReflection="true" importOrganizing="true">
   <foreignModel>saga.ecore</foreignModel>
   <genPackages prefix="Saga" basePackage="de.unistuttgart.ma" disposableProviderFactory="true"
       ecorePackage="saga.ecore#/">
-    <genClasses ecoreClass="saga.ecore#//Project">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/sagas"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/processes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/components"/>
+    <genClasses ecoreClass="saga.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Model/sagas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Model/processes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Model/gropiusProject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Model/sloRules"/>
     </genClasses>
     <genClasses ecoreClass="saga.ecore#//Saga">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Saga/steps"/>

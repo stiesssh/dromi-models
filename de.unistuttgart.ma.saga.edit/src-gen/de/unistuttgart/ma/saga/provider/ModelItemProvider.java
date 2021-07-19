@@ -5,7 +5,9 @@ package de.unistuttgart.ma.saga.provider;
 
 import de.unistuttgart.gropius.GropiusFactory;
 
-import de.unistuttgart.ma.saga.Project;
+import de.unistuttgart.gropius.slo.SloFactory;
+
+import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 
@@ -23,19 +25,19 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.Project} object.
+ * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.Model} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProjectItemProvider extends IdentifiableElementItemProvider {
+public class ModelItemProvider extends IdentifiableElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProjectItemProvider(AdapterFactory adapterFactory) {
+	public ModelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,9 +68,10 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SagaPackage.Literals.PROJECT__SAGAS);
-			childrenFeatures.add(SagaPackage.Literals.PROJECT__PROCESSES);
-			childrenFeatures.add(SagaPackage.Literals.PROJECT__COMPONENTS);
+			childrenFeatures.add(SagaPackage.Literals.MODEL__SAGAS);
+			childrenFeatures.add(SagaPackage.Literals.MODEL__PROCESSES);
+			childrenFeatures.add(SagaPackage.Literals.MODEL__GROPIUS_PROJECT);
+			childrenFeatures.add(SagaPackage.Literals.MODEL__SLO_RULES);
 		}
 		return childrenFeatures;
 	}
@@ -87,14 +90,14 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 	}
 
 	/**
-	 * This returns Project.gif.
+	 * This returns Model.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Project"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Model"));
 	}
 
 	/**
@@ -105,10 +108,10 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Project)object).getId();
+		String label = ((Model)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Project_type") :
-			getString("_UI_Project_type") + " " + label;
+			getString("_UI_Model_type") :
+			getString("_UI_Model_type") + " " + label;
 	}
 
 
@@ -123,10 +126,11 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Project.class)) {
-			case SagaPackage.PROJECT__SAGAS:
-			case SagaPackage.PROJECT__PROCESSES:
-			case SagaPackage.PROJECT__COMPONENTS:
+		switch (notification.getFeatureID(Model.class)) {
+			case SagaPackage.MODEL__SAGAS:
+			case SagaPackage.MODEL__PROCESSES:
+			case SagaPackage.MODEL__GROPIUS_PROJECT:
+			case SagaPackage.MODEL__SLO_RULES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -146,18 +150,23 @@ public class ProjectItemProvider extends IdentifiableElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SagaPackage.Literals.PROJECT__SAGAS,
+				(SagaPackage.Literals.MODEL__SAGAS,
 				 SagaFactory.eINSTANCE.createSaga()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SagaPackage.Literals.PROJECT__PROCESSES,
+				(SagaPackage.Literals.MODEL__PROCESSES,
 				 Bpmn2Factory.eINSTANCE.createProcess()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SagaPackage.Literals.PROJECT__COMPONENTS,
-				 GropiusFactory.eINSTANCE.createComponent()));
+				(SagaPackage.Literals.MODEL__GROPIUS_PROJECT,
+				 GropiusFactory.eINSTANCE.createProject()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.MODEL__SLO_RULES,
+				 SloFactory.eINSTANCE.createSloRule()));
 	}
 
 }

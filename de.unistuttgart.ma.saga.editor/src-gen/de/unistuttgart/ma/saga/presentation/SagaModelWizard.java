@@ -67,10 +67,10 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
-
 import de.unistuttgart.ma.importer.architecture.GropiusImporter;
 import de.unistuttgart.ma.importer.process.BPMNImporter;
-import de.unistuttgart.ma.saga.Project;
+import de.unistuttgart.ma.importer.slo.SolomonImporter;
+import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
@@ -214,12 +214,15 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		EObject rootObject = sagaFactory.create(eClass);
 		
 		BPMNImporter bpmnImporter = new BPMNImporter("/home/maumau/uni/14_21SS/project/repos/ma-sirius/de.unistuttgart.ma.saga.editor/t2Process.bpmn2");
-		((Project) rootObject).getProcesses().add(bpmnImporter.parse());
+		((Model) rootObject).getProcesses().add(bpmnImporter.parse());
 		
-		GropiusImporter gropiusImporter = new GropiusImporter("http://localhost:8080/api", "t2-extended", sagaFactory);
-		((Project) rootObject).getComponents().addAll(gropiusImporter.parse());
+		GropiusImporter gropiusImporter = new GropiusImporter("http://localhost:8080/api", "t2-extended");
+		((Model) rootObject).setGropiusProject(gropiusImporter.parse());
 		
-		((Project) rootObject).setId("testProject");
+		SolomonImporter solomonImporter = new SolomonImporter("http://localhost:8082", "/rules/kubernetes");
+		((Model) rootObject).getSloRules().addAll(solomonImporter.parse());
+		
+		((Model) rootObject).setId("testProject");
 		
 		return rootObject;
 	}

@@ -56,7 +56,7 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SagaPackage.PROJECT: return createProject();
+			case SagaPackage.MODEL: return createModel();
 			case SagaPackage.SAGA: return createSaga();
 			case SagaPackage.SAGA_STEP: return createSagaStep();
 			default:
@@ -69,9 +69,9 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Project createProject() {
-		ProjectImpl project = new ProjectImpl();
-		return project;
+	public Model createModel() {
+		ModelImpl model = new ModelImpl();
+		return model;
 	}
 
 	/**

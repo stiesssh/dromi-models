@@ -68,8 +68,8 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	protected SagaSwitch<Adapter> modelSwitch =
 		new SagaSwitch<Adapter>() {
 			@Override
-			public Adapter caseProject(Project object) {
-				return createProjectAdapter();
+			public Adapter caseModel(Model object) {
+				return createModelAdapter();
 			}
 			@Override
 			public Adapter caseSaga(Saga object) {
@@ -104,16 +104,16 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Project <em>Project</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.Project
+	 * @see de.unistuttgart.ma.saga.Model
 	 * @generated
 	 */
-	public Adapter createProjectAdapter() {
+	public Adapter createModelAdapter() {
 		return null;
 	}
 

@@ -94,14 +94,14 @@ public interface SagaPackage extends EPackage {
 	int IDENTIFIABLE_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ProjectImpl <em>Project</em>}' class.
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.ma.saga.impl.ProjectImpl
-	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getProject()
+	 * @see de.unistuttgart.ma.saga.impl.ModelImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getModel()
 	 * @generated
 	 */
-	int PROJECT = 0;
+	int MODEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -110,7 +110,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ID = IDENTIFIABLE_ELEMENT__ID;
+	int MODEL__ID = IDENTIFIABLE_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Sagas</b></em>' containment reference list.
@@ -119,7 +119,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SAGAS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 0;
+	int MODEL__SAGAS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
@@ -128,34 +128,43 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PROCESSES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 1;
+	int MODEL__PROCESSES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Gropius Project</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__COMPONENTS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 2;
+	int MODEL__GROPIUS_PROJECT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Project</em>' class.
+	 * The feature id for the '<em><b>Slo Rules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
+	int MODEL__SLO_RULES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Project</em>' class.
+	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_OPERATION_COUNT = IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
+	int MODEL_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OPERATION_COUNT = IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.SagaImpl <em>Saga</em>}' class.
@@ -269,47 +278,58 @@ public interface SagaPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Project <em>Project</em>}'.
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Project</em>'.
-	 * @see de.unistuttgart.ma.saga.Project
+	 * @return the meta object for class '<em>Model</em>'.
+	 * @see de.unistuttgart.ma.saga.Model
 	 * @generated
 	 */
-	EClass getProject();
+	EClass getModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Project#getSagas <em>Sagas</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Model#getSagas <em>Sagas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Sagas</em>'.
-	 * @see de.unistuttgart.ma.saga.Project#getSagas()
-	 * @see #getProject()
+	 * @see de.unistuttgart.ma.saga.Model#getSagas()
+	 * @see #getModel()
 	 * @generated
 	 */
-	EReference getProject_Sagas();
+	EReference getModel_Sagas();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Project#getProcesses <em>Processes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Model#getProcesses <em>Processes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Processes</em>'.
-	 * @see de.unistuttgart.ma.saga.Project#getProcesses()
-	 * @see #getProject()
+	 * @see de.unistuttgart.ma.saga.Model#getProcesses()
+	 * @see #getModel()
 	 * @generated
 	 */
-	EReference getProject_Processes();
+	EReference getModel_Processes();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Project#getComponents <em>Components</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.unistuttgart.ma.saga.Model#getGropiusProject <em>Gropius Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Components</em>'.
-	 * @see de.unistuttgart.ma.saga.Project#getComponents()
-	 * @see #getProject()
+	 * @return the meta object for the containment reference '<em>Gropius Project</em>'.
+	 * @see de.unistuttgart.ma.saga.Model#getGropiusProject()
+	 * @see #getModel()
 	 * @generated
 	 */
-	EReference getProject_Components();
+	EReference getModel_GropiusProject();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Model#getSloRules <em>Slo Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Slo Rules</em>'.
+	 * @see de.unistuttgart.ma.saga.Model#getSloRules()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_SloRules();
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Saga <em>Saga</em>}'.
@@ -420,14 +440,14 @@ public interface SagaPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ProjectImpl <em>Project</em>}' class.
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.ma.saga.impl.ProjectImpl
-		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getProject()
+		 * @see de.unistuttgart.ma.saga.impl.ModelImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getModel()
 		 * @generated
 		 */
-		EClass PROJECT = eINSTANCE.getProject();
+		EClass MODEL = eINSTANCE.getModel();
 
 		/**
 		 * The meta object literal for the '<em><b>Sagas</b></em>' containment reference list feature.
@@ -435,7 +455,7 @@ public interface SagaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__SAGAS = eINSTANCE.getProject_Sagas();
+		EReference MODEL__SAGAS = eINSTANCE.getModel_Sagas();
 
 		/**
 		 * The meta object literal for the '<em><b>Processes</b></em>' containment reference list feature.
@@ -443,15 +463,23 @@ public interface SagaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__PROCESSES = eINSTANCE.getProject_Processes();
+		EReference MODEL__PROCESSES = eINSTANCE.getModel_Processes();
 
 		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Gropius Project</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__COMPONENTS = eINSTANCE.getProject_Components();
+		EReference MODEL__GROPIUS_PROJECT = eINSTANCE.getModel_GropiusProject();
+
+		/**
+		 * The meta object literal for the '<em><b>Slo Rules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__SLO_RULES = eINSTANCE.getModel_SloRules();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.SagaImpl <em>Saga</em>}' class.

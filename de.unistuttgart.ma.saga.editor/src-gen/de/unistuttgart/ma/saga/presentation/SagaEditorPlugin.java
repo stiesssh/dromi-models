@@ -3,6 +3,7 @@
 package de.unistuttgart.ma.saga.presentation;
 
 import de.unistuttgart.gropius.provider.GropiusEditPlugin;
+import de.unistuttgart.gropius.slo.provider.SloEditPlugin;
 import org.eclipse.bpmn2.provider.Bpmn20EditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
@@ -44,6 +45,7 @@ public final class SagaEditorPlugin extends EMFPlugin {
 			(new ResourceLocator [] {
 				Bpmn20EditPlugin.INSTANCE,
 				GropiusEditPlugin.INSTANCE,
+				SloEditPlugin.INSTANCE,
 			});
 	}
 

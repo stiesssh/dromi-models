@@ -66,10 +66,10 @@ public class SagaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SagaPackage.PROJECT: {
-				Project project = (Project)theEObject;
-				T result = caseProject(project);
-				if (result == null) result = caseIdentifiableElement(project);
+			case SagaPackage.MODEL: {
+				Model model = (Model)theEObject;
+				T result = caseModel(model);
+				if (result == null) result = caseIdentifiableElement(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,17 +98,17 @@ public class SagaSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProject(Project object) {
+	public T caseModel(Model object) {
 		return null;
 	}
 
