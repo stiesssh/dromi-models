@@ -14,14 +14,50 @@
      </contexts>
   </extension>
    <extension
-      id="saga.event.svg"
-      name="event"
+      id="saga.event.start"
+      name="event start"
       point="org.eclipse.sirius.diagram.customBundledImageShape">
-    <image imagePath="/saga.design/images/Event.svg" label="saga.event">
+    <image imagePath="/saga.design/images/event_start.svg" label="saga.event.start">
       <borderColorIdentifier borderColorIdentifier="shape"></borderColorIdentifier>
       <borderColorAttribute borderColorAttribute="stroke"></borderColorAttribute>
       <borderSizeIdentifier borderSizeIdentifier="shape"></borderSizeIdentifier>
       <borderSizeAttribute borderSizeAttribute="stroke-width"></borderSizeAttribute>
     </image>
   </extension>
+   <extension
+         id="saga.task"
+         name="task"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/task_800_250.svg"
+            label="saga.task">
+      </image>
+   </extension>
+   <extension
+         id="saga.event.end"
+         name="even end"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/event_end.svg"
+            label="saga.event.end">
+      </image>
+   </extension>
+   <extension
+         id="saga.arch.interface"
+         name="arch interface"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/interface.svg"
+            label="saga.arch.interface">
+      </image>
+   </extension>
+   <extension
+         id="saga.arch.component"
+         name="arch component"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/component_800_250.svg"
+            label="saga.arch.component">
+      </image>
+   </extension>
 </plugin>

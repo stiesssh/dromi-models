@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="801px" height="241px" viewBox="-0.5 -0.5 801 241" style="background-color: rgb(255, 255, 255);">
+<defs/>
+<g>
+<rect x="0" y="0" width="800" height="240" fill="#ffffff" stroke="#000000" pointer-events="all"/>
+<path d="M 734 20 L 781 20 L 781 70 L 734 70 L 734 56 L 720 56 L 720 47 L 734 47 L 734 38 L 720 38 L 720 29 L 734 29 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/>
+<path d="M 734 29 L 748 29 L 748 38 L 734 38 M 734 47 L 748 47 L 748 56 L 734 56" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/>
+</g>
+</svg>

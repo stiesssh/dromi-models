@@ -13,7 +13,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.ui.PlatformUI;
 
-import de.unistuttgart.ma.saga.Project;
+import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.SagaFactory;
 
 
@@ -37,7 +37,7 @@ public class JavaActions1 implements IExternalJavaAction {
 	@Override
 	public boolean canExecute(Collection<? extends EObject> selections) {
 		// TODO Auto-generated method stub
-		return selections.stream().anyMatch(o -> o instanceof Project);
+		return selections.stream().anyMatch(o -> o instanceof Model);
 	}
 
 }

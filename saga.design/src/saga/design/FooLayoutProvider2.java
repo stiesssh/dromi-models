@@ -24,7 +24,7 @@ import org.eclipse.sirius.diagram.ui.tools.api.layout.provider.LineLayoutProvide
  */
 //public class FooLayoutProvider extends LineLayoutProvider implements LayoutProvider {
 public class FooLayoutProvider2 implements CustomLayoutAlgorithmProvider {
-
+	
 	@Override
 	public List<CustomLayoutAlgorithm> getCustomLayoutAlgorithms() {
 		// TODO Auto-generated method stub
