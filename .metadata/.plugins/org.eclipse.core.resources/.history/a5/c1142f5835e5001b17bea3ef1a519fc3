@@ -1,0 +1,37 @@
+/**
+ */
+package de.unistuttgart.ma.saga.impl;
+
+import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.Whole;
+
+import org.eclipse.emf.ecore.EClass;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Whole</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * @generated
+ */
+public abstract class WholeImpl extends ElementWithSLOImpl implements Whole {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WholeImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return SagaPackage.Literals.WHOLE;
+	}
+
+} //WholeImpl

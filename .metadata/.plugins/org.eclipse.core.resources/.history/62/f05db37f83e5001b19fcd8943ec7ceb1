@@ -1,0 +1,78 @@
+/**
+ */
+package uni.stuttgart.saga;
+
+import gropius.CCIMSMetamodel.Component;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Project</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link uni.stuttgart.saga.Project#getSagas <em>Sagas</em>}</li>
+ *   <li>{@link uni.stuttgart.saga.Project#getProcesses <em>Processes</em>}</li>
+ *   <li>{@link uni.stuttgart.saga.Project#getComponents <em>Components</em>}</li>
+ *   <li>{@link uni.stuttgart.saga.Project#getNotifications <em>Notifications</em>}</li>
+ * </ul>
+ *
+ * @see uni.stuttgart.saga.SagaPackage#getProject()
+ * @model
+ * @generated
+ */
+public interface Project extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Sagas</b></em>' containment reference list.
+	 * The list contents are of type {@link uni.stuttgart.saga.Saga}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sagas</em>' containment reference list.
+	 * @see uni.stuttgart.saga.SagaPackage#getProject_Sagas()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Saga> getSagas();
+
+	/**
+	 * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.bpmn2.bpmn2.Process}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Processes</em>' containment reference list.
+	 * @see uni.stuttgart.saga.SagaPackage#getProject_Processes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<org.eclipse.bpmn2.bpmn2.Process> getProcesses();
+
+	/**
+	 * Returns the value of the '<em><b>Components</b></em>' containment reference list.
+	 * The list contents are of type {@link gropius.CCIMSMetamodel.Component}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Components</em>' containment reference list.
+	 * @see uni.stuttgart.saga.SagaPackage#getProject_Components()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Component> getComponents();
+
+	/**
+	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
+	 * The list contents are of type {@link uni.stuttgart.saga.Notification}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Notifications</em>' containment reference list.
+	 * @see uni.stuttgart.saga.SagaPackage#getProject_Notifications()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Notification> getNotifications();
+
+} // Project

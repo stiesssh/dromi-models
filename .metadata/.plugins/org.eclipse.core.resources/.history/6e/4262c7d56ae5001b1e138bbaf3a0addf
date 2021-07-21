@@ -1,0 +1,46 @@
+/**
+ */
+package uni.stuttgart.saga;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Chain Link</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link uni.stuttgart.saga.ChainLink#getLocation <em>Location</em>}</li>
+ * </ul>
+ *
+ * @see uni.stuttgart.saga.SagaPackage#getChainLink()
+ * @model abstract="true"
+ * @generated
+ */
+public interface ChainLink extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Location</em>' reference.
+	 * @see #setLocation(ElementWithSLO)
+	 * @see uni.stuttgart.saga.SagaPackage#getChainLink_Location()
+	 * @model
+	 * @generated
+	 */
+	ElementWithSLO getLocation();
+
+	/**
+	 * Sets the value of the '{@link uni.stuttgart.saga.ChainLink#getLocation <em>Location</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location</em>' reference.
+	 * @see #getLocation()
+	 * @generated
+	 */
+	void setLocation(ElementWithSLO value);
+
+} // ChainLink

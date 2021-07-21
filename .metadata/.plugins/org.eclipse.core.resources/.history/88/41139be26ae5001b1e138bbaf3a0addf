@@ -1,0 +1,228 @@
+/**
+ */
+package de.unistuttgart.ma.saga.impl;
+
+import ccims.CCIMSMetamodel.impl.InterfaceImpl;
+
+import de.unistuttgart.ma.saga.ComponentInterfaceAdapter;
+import de.unistuttgart.ma.saga.ElementWithSLO;
+import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.SagaStep;
+
+import gropius.slo.SloRule;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Component Interface Adapter</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.ComponentInterfaceAdapterImpl#getSloRules <em>Slo Rules</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.ComponentInterfaceAdapterImpl#getNextLevelElements <em>Next Level Elements</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ComponentInterfaceAdapterImpl extends InterfaceImpl implements ComponentInterfaceAdapter {
+	/**
+	 * The cached value of the '{@link #getSloRules() <em>Slo Rules</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSloRules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SloRule> sloRules;
+
+	/**
+	 * The cached value of the '{@link #getNextLevelElements() <em>Next Level Elements</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextLevelElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SagaStep> nextLevelElements;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComponentInterfaceAdapterImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return SagaPackage.Literals.COMPONENT_INTERFACE_ADAPTER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SloRule> getSloRules() {
+		if (sloRules == null) {
+			sloRules = new EObjectContainmentEList<SloRule>(SloRule.class, this,
+					SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES);
+		}
+		return sloRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SagaStep> getNextLevelElements() {
+		if (nextLevelElements == null) {
+			nextLevelElements = new EObjectResolvingEList<SagaStep>(SagaStep.class, this,
+					SagaPackage.COMPONENT_INTERFACE_ADAPTER__NEXT_LEVEL_ELEMENTS);
+		}
+		return nextLevelElements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES:
+			return ((InternalEList<?>) getSloRules()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES:
+			return getSloRules();
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__NEXT_LEVEL_ELEMENTS:
+			return getNextLevelElements();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES:
+			getSloRules().clear();
+			getSloRules().addAll((Collection<? extends SloRule>) newValue);
+			return;
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__NEXT_LEVEL_ELEMENTS:
+			getNextLevelElements().clear();
+			getNextLevelElements().addAll((Collection<? extends SagaStep>) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES:
+			getSloRules().clear();
+			return;
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__NEXT_LEVEL_ELEMENTS:
+			getNextLevelElements().clear();
+			return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES:
+			return sloRules != null && !sloRules.isEmpty();
+		case SagaPackage.COMPONENT_INTERFACE_ADAPTER__NEXT_LEVEL_ELEMENTS:
+			return nextLevelElements != null && !nextLevelElements.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithSLO.class) {
+			switch (derivedFeatureID) {
+			case SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES:
+				return SagaPackage.ELEMENT_WITH_SLO__SLO_RULES;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithSLO.class) {
+			switch (baseFeatureID) {
+			case SagaPackage.ELEMENT_WITH_SLO__SLO_RULES:
+				return SagaPackage.COMPONENT_INTERFACE_ADAPTER__SLO_RULES;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+} //ComponentInterfaceAdapterImpl

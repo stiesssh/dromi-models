@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="saga" nsURI="http://www.example.org/saga" nsPrefix="saga">
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sagas" upperBound="-1"
+        eType="#//Saga" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+        eType="ecore:EClass ../ref-model/org.eclipse.bpmn2/model/BPMN20.ecore#//DocumentRoot"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" upperBound="-1"
+        eType="ecore:EClass ../../ccims-eclipse-plugin-data/model/CCIMSMetamodel.ecore#//CrossComponentIssueManagementSystem"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentAdapter" eSuperTypes="../../ccims-eclipse-plugin-data/model/CCIMSMetamodel.ecore#//Component #//ElementWithSLO"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfaceAdapter" eSuperTypes="../../ccims-eclipse-plugin-data/model/CCIMSMetamodel.ecore#//Interface #//ElementWithSLO">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextLevelElements" upperBound="-1"
+        eType="#//SagaStep"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Saga">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//SagaStep" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SagaStep">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextLevelElements" eType="ecore:EClass ../../org.eclipse.bpmn2/model/BPMN20.ecore#//Activity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextStep" eType="#//SagaStep"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementWithSLO" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sloRules" upperBound="-1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Violation" eSuperTypes="#//ChainLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passingImpacts" ordered="false"
+        upperBound="-1" eType="#//ChainLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="violatedRule" lowerBound="1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Impact" eSuperTypes="#//ChainLink">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="causedBy" lowerBound="1"
+        eType="#//ChainLink" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainLink" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//ElementWithSLO"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Notification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chainlinks" upperBound="-1"
+        eType="#//ChainLink" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topLevelImpact" lowerBound="1"
+        eType="#//Impact" resolveProxies="false"/>
+  </eClassifiers>
+</ecore:EPackage>

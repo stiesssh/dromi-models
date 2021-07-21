@@ -1,0 +1,159 @@
+/**
+ */
+package gropius.slo.impl;
+
+import gropius.slo.Alert;
+import gropius.slo.SloPackage;
+import gropius.slo.SloRule;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Alert</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link gropius.slo.impl.AlertImpl#getViolatedRule <em>Violated Rule</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class AlertImpl extends ModelElementImpl implements Alert {
+	/**
+	 * The cached value of the '{@link #getViolatedRule() <em>Violated Rule</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getViolatedRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected SloRule violatedRule;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AlertImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return SloPackage.Literals.ALERT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SloRule getViolatedRule() {
+		if (violatedRule != null && violatedRule.eIsProxy()) {
+			InternalEObject oldViolatedRule = (InternalEObject) violatedRule;
+			violatedRule = (SloRule) eResolveProxy(oldViolatedRule);
+			if (violatedRule != oldViolatedRule) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SloPackage.ALERT__VIOLATED_RULE,
+							oldViolatedRule, violatedRule));
+			}
+		}
+		return violatedRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SloRule basicGetViolatedRule() {
+		return violatedRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setViolatedRule(SloRule newViolatedRule) {
+		SloRule oldViolatedRule = violatedRule;
+		violatedRule = newViolatedRule;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.ALERT__VIOLATED_RULE, oldViolatedRule,
+					violatedRule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case SloPackage.ALERT__VIOLATED_RULE:
+			if (resolve)
+				return getViolatedRule();
+			return basicGetViolatedRule();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case SloPackage.ALERT__VIOLATED_RULE:
+			setViolatedRule((SloRule) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case SloPackage.ALERT__VIOLATED_RULE:
+			setViolatedRule((SloRule) null);
+			return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case SloPackage.ALERT__VIOLATED_RULE:
+			return violatedRule != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+} //AlertImpl

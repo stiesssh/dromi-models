@@ -9,7 +9,6 @@ import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

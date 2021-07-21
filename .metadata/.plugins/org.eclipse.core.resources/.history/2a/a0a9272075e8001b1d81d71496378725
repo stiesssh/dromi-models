@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.unistuttgart.ma.saga/src-gen" editDirectory="/de.unistuttgart.ma.saga.edit/src-gen"
+    editorDirectory="/de.unistuttgart.ma.saga.editor/src-gen" modelPluginID="de.unistuttgart.ma.saga"
+    modelName="Impact" editPluginClass="de.unistuttgart.ma.saga.impact.provider.ImpactEditPlugin"
+    editorPluginClass="de.unistuttgart.ma.saga.impact.presentation.ImpactEditorPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../de.unistuttgart.gropius/model/gropius.genmodel#//gropius saga.genmodel#//saga saga.genmodel#//bpmn2 saga.genmodel#//di saga.genmodel#//di.1 saga.genmodel#//dc ../../de.unistuttgart.gropius.slo/model/slo.genmodel#//slo"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>impact.ecore</foreignModel>
+  <genPackages prefix="Impact" basePackage="de.unistuttgart.ma.saga" disposableProviderFactory="true"
+      ecorePackage="impact.ecore#/">
+    <genClasses ecoreClass="impact.ecore#//Impact">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/cause"/>
+      <genFeatures notify="false" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/rootCause"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute impact.ecore#//Impact/locationType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/location"/>
+      <genOperations ecoreOperation="impact.ecore#//Impact/getLocationId"/>
+    </genClasses>
+    <genClasses ecoreClass="impact.ecore#//Notification">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/impacts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/topLevelImpacts"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

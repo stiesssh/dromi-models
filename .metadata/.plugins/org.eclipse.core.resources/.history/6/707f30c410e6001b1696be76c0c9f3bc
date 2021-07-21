@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gropius" nsURI="http://www.example.org/gropius" nsPrefix="gropius">
+  <eClassifiers xsi:type="ecore:EEnum" name="IMSType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="IssueCategory"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="IssueTimelineItemType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Priority"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Comment" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bodyRendered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createdBy" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editedBy" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastEditedAt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUserCanEdit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reactions" eType="#//ReactionGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//IssueLocation #//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ims" eType="#//IMS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issues" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" eType="#//Project"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" eType="#//ComponentInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumedInterfaces" eType="#//ComponentInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labels"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IMS" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imsType" eType="#//IMSType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterface" eSuperTypes="#//IssueLocation #//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumedBy" eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Issue" eSuperTypes="#//Comment #//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatedAt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOpen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDuplicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//IssueCategory"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUserCanComment"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedTime"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spentTime"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueComments" eType="#//Comment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToIssues" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkedByIssues" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignees" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" eType="#//Label"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pinnedOn" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeline" eType="#//IssueTimelineItem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//IssueLocation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItem" abstract="true" interface="true"
+      eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createdBy" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueLocation" abstract="true" interface="true"
+      eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueOnLocation" eType="#//Issue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" eType="#//Project"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reaction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReactionGroup" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalUserCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issues" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" eType="#//Label"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//Node"/>
+</ecore:EPackage>

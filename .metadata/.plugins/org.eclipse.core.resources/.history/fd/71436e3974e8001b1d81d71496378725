@@ -1,0 +1,497 @@
+/**
+ */
+package de.unistuttgart.ma.saga.impact.impl;
+
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
+
+import de.unistuttgart.ma.saga.Saga;
+import de.unistuttgart.ma.saga.SagaStep;
+
+import de.unistuttgart.ma.saga.impact.ImpactPackage;
+import de.unistuttgart.ma.saga.impact.LocationAdapter;
+
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.bpmn2.Task;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Location Adapter</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.LocationAdapterImpl#getComponent <em>Component</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.LocationAdapterImpl#getComponentInterface <em>Component Interface</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.LocationAdapterImpl#getSaga <em>Saga</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.LocationAdapterImpl#getSagaStep <em>Saga Step</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.LocationAdapterImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.LocationAdapterImpl#getProcess <em>Process</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class LocationAdapterImpl extends MinimalEObjectImpl.Container implements LocationAdapter {
+	/**
+	 * The cached value of the '{@link #getComponent() <em>Component</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Component component;
+
+	/**
+	 * The cached value of the '{@link #getComponentInterface() <em>Component Interface</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentInterface()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComponentInterface componentInterface;
+
+	/**
+	 * The cached value of the '{@link #getSaga() <em>Saga</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSaga()
+	 * @generated
+	 * @ordered
+	 */
+	protected Saga saga;
+
+	/**
+	 * The cached value of the '{@link #getSagaStep() <em>Saga Step</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSagaStep()
+	 * @generated
+	 * @ordered
+	 */
+	protected SagaStep sagaStep;
+
+	/**
+	 * The cached value of the '{@link #getTask() <em>Task</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTask()
+	 * @generated
+	 * @ordered
+	 */
+	protected Task task;
+
+	/**
+	 * The cached value of the '{@link #getProcess() <em>Process</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcess()
+	 * @generated
+	 * @ordered
+	 */
+	protected org.eclipse.bpmn2.Process process;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LocationAdapterImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ImpactPackage.Literals.LOCATION_ADAPTER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Component getComponent() {
+		if (component != null && component.eIsProxy()) {
+			InternalEObject oldComponent = (InternalEObject)component;
+			component = (Component)eResolveProxy(oldComponent);
+			if (component != oldComponent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.LOCATION_ADAPTER__COMPONENT, oldComponent, component));
+			}
+		}
+		return component;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Component basicGetComponent() {
+		return component;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComponent(Component newComponent) {
+		Component oldComponent = component;
+		component = newComponent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.LOCATION_ADAPTER__COMPONENT, oldComponent, component));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComponentInterface getComponentInterface() {
+		if (componentInterface != null && componentInterface.eIsProxy()) {
+			InternalEObject oldComponentInterface = (InternalEObject)componentInterface;
+			componentInterface = (ComponentInterface)eResolveProxy(oldComponentInterface);
+			if (componentInterface != oldComponentInterface) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.LOCATION_ADAPTER__COMPONENT_INTERFACE, oldComponentInterface, componentInterface));
+			}
+		}
+		return componentInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComponentInterface basicGetComponentInterface() {
+		return componentInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComponentInterface(ComponentInterface newComponentInterface) {
+		ComponentInterface oldComponentInterface = componentInterface;
+		componentInterface = newComponentInterface;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.LOCATION_ADAPTER__COMPONENT_INTERFACE, oldComponentInterface, componentInterface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Saga getSaga() {
+		if (saga != null && saga.eIsProxy()) {
+			InternalEObject oldSaga = (InternalEObject)saga;
+			saga = (Saga)eResolveProxy(oldSaga);
+			if (saga != oldSaga) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.LOCATION_ADAPTER__SAGA, oldSaga, saga));
+			}
+		}
+		return saga;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Saga basicGetSaga() {
+		return saga;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSaga(Saga newSaga) {
+		Saga oldSaga = saga;
+		saga = newSaga;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.LOCATION_ADAPTER__SAGA, oldSaga, saga));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SagaStep getSagaStep() {
+		if (sagaStep != null && sagaStep.eIsProxy()) {
+			InternalEObject oldSagaStep = (InternalEObject)sagaStep;
+			sagaStep = (SagaStep)eResolveProxy(oldSagaStep);
+			if (sagaStep != oldSagaStep) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.LOCATION_ADAPTER__SAGA_STEP, oldSagaStep, sagaStep));
+			}
+		}
+		return sagaStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SagaStep basicGetSagaStep() {
+		return sagaStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSagaStep(SagaStep newSagaStep) {
+		SagaStep oldSagaStep = sagaStep;
+		sagaStep = newSagaStep;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.LOCATION_ADAPTER__SAGA_STEP, oldSagaStep, sagaStep));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task getTask() {
+		if (task != null && task.eIsProxy()) {
+			InternalEObject oldTask = (InternalEObject)task;
+			task = (Task)eResolveProxy(oldTask);
+			if (task != oldTask) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.LOCATION_ADAPTER__TASK, oldTask, task));
+			}
+		}
+		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task basicGetTask() {
+		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTask(Task newTask) {
+		Task oldTask = task;
+		task = newTask;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.LOCATION_ADAPTER__TASK, oldTask, task));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.bpmn2.Process getProcess() {
+		if (process != null && process.eIsProxy()) {
+			InternalEObject oldProcess = (InternalEObject)process;
+			process = (org.eclipse.bpmn2.Process)eResolveProxy(oldProcess);
+			if (process != oldProcess) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.LOCATION_ADAPTER__PROCESS, oldProcess, process));
+			}
+		}
+		return process;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public org.eclipse.bpmn2.Process basicGetProcess() {
+		return process;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProcess(org.eclipse.bpmn2.Process newProcess) {
+		org.eclipse.bpmn2.Process oldProcess = process;
+		process = newProcess;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.LOCATION_ADAPTER__PROCESS, oldProcess, process));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getId() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (saga != null) {
+			
+		}
+		
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT:
+				if (resolve) return getComponent();
+				return basicGetComponent();
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT_INTERFACE:
+				if (resolve) return getComponentInterface();
+				return basicGetComponentInterface();
+			case ImpactPackage.LOCATION_ADAPTER__SAGA:
+				if (resolve) return getSaga();
+				return basicGetSaga();
+			case ImpactPackage.LOCATION_ADAPTER__SAGA_STEP:
+				if (resolve) return getSagaStep();
+				return basicGetSagaStep();
+			case ImpactPackage.LOCATION_ADAPTER__TASK:
+				if (resolve) return getTask();
+				return basicGetTask();
+			case ImpactPackage.LOCATION_ADAPTER__PROCESS:
+				if (resolve) return getProcess();
+				return basicGetProcess();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT:
+				setComponent((Component)newValue);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT_INTERFACE:
+				setComponentInterface((ComponentInterface)newValue);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__SAGA:
+				setSaga((Saga)newValue);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__SAGA_STEP:
+				setSagaStep((SagaStep)newValue);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__TASK:
+				setTask((Task)newValue);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__PROCESS:
+				setProcess((org.eclipse.bpmn2.Process)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT:
+				setComponent((Component)null);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT_INTERFACE:
+				setComponentInterface((ComponentInterface)null);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__SAGA:
+				setSaga((Saga)null);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__SAGA_STEP:
+				setSagaStep((SagaStep)null);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__TASK:
+				setTask((Task)null);
+				return;
+			case ImpactPackage.LOCATION_ADAPTER__PROCESS:
+				setProcess((org.eclipse.bpmn2.Process)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT:
+				return component != null;
+			case ImpactPackage.LOCATION_ADAPTER__COMPONENT_INTERFACE:
+				return componentInterface != null;
+			case ImpactPackage.LOCATION_ADAPTER__SAGA:
+				return saga != null;
+			case ImpactPackage.LOCATION_ADAPTER__SAGA_STEP:
+				return sagaStep != null;
+			case ImpactPackage.LOCATION_ADAPTER__TASK:
+				return task != null;
+			case ImpactPackage.LOCATION_ADAPTER__PROCESS:
+				return process != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ImpactPackage.LOCATION_ADAPTER___GET_ID:
+				return getId();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+} //LocationAdapterImpl

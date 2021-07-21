@@ -1,0 +1,20 @@
+package saga.design;
+
+import org.eclipse.sirius.diagram.ui.tools.api.layout.provider.DefaultLayoutProvider;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gef.commands.Command;
+
+public class MyLayoutProvider extends DefaultLayoutProvider{
+	
+    @Override
+    public Command layoutEditParts(final List selectedObjects, final IAdaptable layoutHint) {
+        Injector injector = LayoutConnectorsService.getInstance().getInjector(null, selectedObjects);
+        ElkDiagramLayoutConnector connector = injector.getInstance(ElkDiagramLayoutConnector.class);
+        layoutMapping layoutMapping = connector.buildLayoutGraph(null, selectedObjects);
+        connector.layout(layoutMapping);
+        connector.transferLayout(layoutMapping);
+        return connector.getApplyCommand(layoutMapping);
+    }
+
+	
+}

@@ -1,0 +1,76 @@
+package de.unistuttgart.ma.importer.architecture;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.shopify.graphql.support.ID;
+
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
+import de.unistuttgart.ma.saga.SagaFactory;
+
+public class DataMapper {
+	
+	private Map<ID, Component> componentMap;
+	private Map<ID, ComponentInterface> interfaceMap;
+
+	SagaFactory factory = SagaFactory.eINSTANCE;
+	
+	public DataMapper(String apiLocationUri) {
+		componentMap = new HashMap<>();
+		interfaceMap = new HashMap<>();
+	}
+
+	public CrossComponentIssueManagementSystem mapToEObject(Query apiQuery) {
+		CrossComponentIssueManagementSystem result = fac.createCrossComponentIssueManagementSystem();
+		result.setLocationUri(apiLocationUri);
+		
+		//components and provided interfaces
+		for (Project project: apiQuery.getProjects().getNodes()) {
+			for(Component component : project.getComponents().getNodes()) {
+				var ecoreComponent = getEcoreComponent(component);
+				result.getComponents().add(ecoreComponent);
+				
+				for(ComponentInterface compInterface : component.getInterfaces().getNodes()) {
+					var ecoreInterface = getEcoreInterface(compInterface);
+					ecoreComponent.getProvidedInterfaces().add(ecoreInterface);
+				}
+			}
+		}
+		
+		//consumed interfaces
+		for (Project project: apiQuery.getProjects().getNodes()) {
+			for (Component component : project.getComponents().getNodes()) {
+				for (ComponentInterface compInteface : component.getConsumedInterfaces().getNodes()) {
+					componentMap.get(component.getId()).getConsumedInterfaces().add(interfaceMap.get(compInteface.getId()));
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	private Component getEcoreComponent(de.foo.generated.Component component) {
+		ID id = component.getId();
+		if(componentMap.containsKey(id)) {
+			return componentMap.get(id);
+		} 
+		
+		var result = fac.createComponent();
+		result.setName(component.getName());
+		componentMap.put(id, result);
+		return result;
+	}
+	
+	private ComponentInterface getEcoreInterface(de.foo.generated.ComponentInterface compInterface) {
+		ID id = compInterface.getId();
+		if(interfaceMap.containsKey(id)) {
+			return interfaceMap.get(id);
+		}
+		
+		var result = fac.createInterface();
+		result.setName(compInterface.getName());
+		interfaceMap.put(id, result);
+		return result;
+	}
+}

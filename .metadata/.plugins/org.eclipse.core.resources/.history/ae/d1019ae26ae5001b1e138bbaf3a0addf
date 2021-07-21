@@ -1,0 +1,86 @@
+/**
+ */
+package ccims.CCIMSMetamodel;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Issue Management System</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link ccims.CCIMSMetamodel.IssueManagementSystem#getName <em>Name</em>}</li>
+ *   <li>{@link ccims.CCIMSMetamodel.IssueManagementSystem#getLocationUri <em>Location Uri</em>}</li>
+ *   <li>{@link ccims.CCIMSMetamodel.IssueManagementSystem#getStoredIssues <em>Stored Issues</em>}</li>
+ * </ul>
+ *
+ * @see ccims.CCIMSMetamodel.CCIMSMetamodelPackage#getIssueManagementSystem()
+ * @model
+ * @generated
+ */
+public interface IssueManagementSystem extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see ccims.CCIMSMetamodel.CCIMSMetamodelPackage#getIssueManagementSystem_Name()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link ccims.CCIMSMetamodel.IssueManagementSystem#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Location Uri</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Location Uri</em>' attribute.
+	 * @see #setLocationUri(String)
+	 * @see ccims.CCIMSMetamodel.CCIMSMetamodelPackage#getIssueManagementSystem_LocationUri()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getLocationUri();
+
+	/**
+	 * Sets the value of the '{@link ccims.CCIMSMetamodel.IssueManagementSystem#getLocationUri <em>Location Uri</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Location Uri</em>' attribute.
+	 * @see #getLocationUri()
+	 * @generated
+	 */
+	void setLocationUri(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Stored Issues</b></em>' containment reference list.
+	 * The list contents are of type {@link ccims.CCIMSMetamodel.Issue}.
+	 * It is bidirectional and its opposite is '{@link ccims.CCIMSMetamodel.Issue#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stored Issues</em>' containment reference list.
+	 * @see ccims.CCIMSMetamodel.CCIMSMetamodelPackage#getIssueManagementSystem_StoredIssues()
+	 * @see ccims.CCIMSMetamodel.Issue#getLocation
+	 * @model opposite="location" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<Issue> getStoredIssues();
+
+} // IssueManagementSystem

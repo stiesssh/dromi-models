@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated saga -->
+      <package
+            uri="http://www.example.org/saga"
+            class="de.unistuttgart.ma.saga.SagaPackage"
+            genModel="model/saga.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated saga -->
+      <package
+            uri="http://www.omg.org/spec/BPMN/20100524/MODEL-XMI"
+            class="bpmn2.Bpmn2Package"
+            genModel="model/saga.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated saga -->
+      <package
+            uri="http://www.omg.org/spec/BPMN/20100524/DI-XMI"
+            class="di.DiPackage"
+            genModel="model/saga.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated saga -->
+      <package
+            uri="http://www.omg.org/spec/DD/20100524/DI-XMI"
+            class="di.DiPackage"
+            genModel="model/saga.genmodel"/>
+   </extension>
+
+null
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated saga -->
+      <package
+            uri="http://www.omg.org/spec/DD/20100524/DC-XMI"
+            class="dc.DcPackage"
+            genModel="model/saga.genmodel"/>
+   </extension>
+
+null
+</plugin>

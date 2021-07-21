@@ -1,0 +1,229 @@
+/**
+ */
+package de.unistuttgart.ma.saga.impl;
+
+import ccims.CCIMSMetamodel.impl.ComponentImpl;
+
+import de.unistuttgart.ma.saga.ComponentAdapter;
+import de.unistuttgart.ma.saga.ElementWithSLO;
+import de.unistuttgart.ma.saga.SagaPackage;
+
+import gropius.slo.SloRule;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Component Adapter</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.ComponentAdapterImpl#getSlos <em>Slos</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.ComponentAdapterImpl#getSloRules <em>Slo Rules</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ComponentAdapterImpl extends ComponentImpl implements ComponentAdapter {
+	/**
+	 * The cached value of the '{@link #getSlos() <em>Slos</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSlos()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Short> slos;
+
+	/**
+	 * The cached value of the '{@link #getSloRules() <em>Slo Rules</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSloRules()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SloRule> sloRules;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComponentAdapterImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return SagaPackage.Literals.COMPONENT_ADAPTER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Short> getSlos() {
+		if (slos == null) {
+			slos = new EDataTypeUniqueEList<Short>(Short.class, this, SagaPackage.COMPONENT_ADAPTER__SLOS);
+		}
+		return slos;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SloRule> getSloRules() {
+		if (sloRules == null) {
+			sloRules = new EObjectResolvingEList<SloRule>(SloRule.class, this,
+					SagaPackage.COMPONENT_ADAPTER__SLO_RULES);
+		}
+		return sloRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_ADAPTER__SLOS:
+			return getSlos();
+		case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
+			return getSloRules();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_ADAPTER__SLOS:
+			getSlos().clear();
+			getSlos().addAll((Collection<? extends Short>) newValue);
+			return;
+		case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
+			getSloRules().clear();
+			getSloRules().addAll((Collection<? extends SloRule>) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_ADAPTER__SLOS:
+			getSlos().clear();
+			return;
+		case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
+			getSloRules().clear();
+			return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case SagaPackage.COMPONENT_ADAPTER__SLOS:
+			return slos != null && !slos.isEmpty();
+		case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
+			return sloRules != null && !sloRules.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithSLO.class) {
+			switch (derivedFeatureID) {
+			case SagaPackage.COMPONENT_ADAPTER__SLOS:
+				return SagaPackage.ELEMENT_WITH_SLO__SLOS;
+			case SagaPackage.COMPONENT_ADAPTER__SLO_RULES:
+				return SagaPackage.ELEMENT_WITH_SLO__SLO_RULES;
+			default:
+				return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == ElementWithSLO.class) {
+			switch (baseFeatureID) {
+			case SagaPackage.ELEMENT_WITH_SLO__SLOS:
+				return SagaPackage.COMPONENT_ADAPTER__SLOS;
+			case SagaPackage.ELEMENT_WITH_SLO__SLO_RULES:
+				return SagaPackage.COMPONENT_ADAPTER__SLO_RULES;
+			default:
+				return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (slos: ");
+		result.append(slos);
+		result.append(')');
+		return result.toString();
+	}
+
+} //ComponentAdapterImpl

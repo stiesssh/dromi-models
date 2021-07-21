@@ -1,0 +1,15 @@
+package de.unistuttgart.ma.importer.slo;
+
+import java.util.List;
+
+import de.unistuttgart.gropius.slo.SloRule;
+
+/**
+ * imports SLOs.
+ * 
+ * @author maumau
+ *
+ */
+public interface SloImporter {
+	public List<SloRule> parse();
+}

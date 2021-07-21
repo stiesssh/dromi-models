@@ -1,0 +1,136 @@
+/**
+ */
+package gropius;
+
+import org.eclipse.emf.common.util.EList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Component</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link gropius.Component#getOwner <em>Owner</em>}</li>
+ *   <li>{@link gropius.Component#getIms <em>Ims</em>}</li>
+ *   <li>{@link gropius.Component#getIssues <em>Issues</em>}</li>
+ *   <li>{@link gropius.Component#getProjects <em>Projects</em>}</li>
+ *   <li>{@link gropius.Component#getInterfaces <em>Interfaces</em>}</li>
+ *   <li>{@link gropius.Component#getConsumedInterfaces <em>Consumed Interfaces</em>}</li>
+ *   <li>{@link gropius.Component#getLabels <em>Labels</em>}</li>
+ * </ul>
+ *
+ * @see gropius.GropiusPackage#getComponent()
+ * @model
+ * @generated
+ */
+public interface Component extends IssueLocation, Node {
+	/**
+	 * Returns the value of the '<em><b>Owner</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner</em>' reference.
+	 * @see #setOwner(User)
+	 * @see gropius.GropiusPackage#getComponent_Owner()
+	 * @model
+	 * @generated
+	 */
+	User getOwner();
+
+	/**
+	 * Sets the value of the '{@link gropius.Component#getOwner <em>Owner</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner</em>' reference.
+	 * @see #getOwner()
+	 * @generated
+	 */
+	void setOwner(User value);
+
+	/**
+	 * Returns the value of the '<em><b>Ims</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ims</em>' reference.
+	 * @see #setIms(IMS)
+	 * @see gropius.GropiusPackage#getComponent_Ims()
+	 * @model
+	 * @generated
+	 */
+	IMS getIms();
+
+	/**
+	 * Sets the value of the '{@link gropius.Component#getIms <em>Ims</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ims</em>' reference.
+	 * @see #getIms()
+	 * @generated
+	 */
+	void setIms(IMS value);
+
+	/**
+	 * Returns the value of the '<em><b>Issues</b></em>' reference list.
+	 * The list contents are of type {@link gropius.Issue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Issues</em>' reference list.
+	 * @see gropius.GropiusPackage#getComponent_Issues()
+	 * @model
+	 * @generated
+	 */
+	EList<Issue> getIssues();
+
+	/**
+	 * Returns the value of the '<em><b>Projects</b></em>' reference list.
+	 * The list contents are of type {@link gropius.Project}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Projects</em>' reference list.
+	 * @see gropius.GropiusPackage#getComponent_Projects()
+	 * @model
+	 * @generated
+	 */
+	EList<Project> getProjects();
+
+	/**
+	 * Returns the value of the '<em><b>Interfaces</b></em>' containment reference list.
+	 * The list contents are of type {@link gropius.ComponentInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Interfaces</em>' containment reference list.
+	 * @see gropius.GropiusPackage#getComponent_Interfaces()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ComponentInterface> getInterfaces();
+
+	/**
+	 * Returns the value of the '<em><b>Consumed Interfaces</b></em>' reference list.
+	 * The list contents are of type {@link gropius.ComponentInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Consumed Interfaces</em>' reference list.
+	 * @see gropius.GropiusPackage#getComponent_ConsumedInterfaces()
+	 * @model
+	 * @generated
+	 */
+	EList<ComponentInterface> getConsumedInterfaces();
+
+	/**
+	 * Returns the value of the '<em><b>Labels</b></em>' reference list.
+	 * The list contents are of type {@link gropius.Label}.
+	 * It is bidirectional and its opposite is '{@link gropius.Label#getComponents <em>Components</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Labels</em>' reference list.
+	 * @see gropius.GropiusPackage#getComponent_Labels()
+	 * @see gropius.Label#getComponents
+	 * @model opposite="components"
+	 * @generated
+	 */
+	EList<Label> getLabels();
+
+} // Component

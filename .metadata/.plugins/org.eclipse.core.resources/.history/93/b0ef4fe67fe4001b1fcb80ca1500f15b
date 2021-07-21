@@ -1,0 +1,10 @@
+package saga.design.layout;
+
+import java.util.List;
+
+import org.eclipse.sirius.diagram.ui.tools.api.layout.provider.DefaultLayoutProvider;
+
+public class FooLayoutProvider extends DefaultLayoutProvider{
+
+	
+}

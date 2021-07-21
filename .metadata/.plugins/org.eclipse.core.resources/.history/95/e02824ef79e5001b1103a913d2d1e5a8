@@ -1,0 +1,71 @@
+/**
+ */
+package uni.stuttgart.saga;
+
+import org.eclipse.bpmn2.bpmn2.Activity;
+
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Step</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link uni.stuttgart.saga.SagaStep#getNextLevelElements <em>Next Level Elements</em>}</li>
+ *   <li>{@link uni.stuttgart.saga.SagaStep#getNextStep <em>Next Step</em>}</li>
+ * </ul>
+ *
+ * @see uni.stuttgart.saga.SagaPackage#getSagaStep()
+ * @model
+ * @generated
+ */
+public interface SagaStep extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Next Level Elements</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next Level Elements</em>' reference.
+	 * @see #setNextLevelElements(Activity)
+	 * @see uni.stuttgart.saga.SagaPackage#getSagaStep_NextLevelElements()
+	 * @model
+	 * @generated
+	 */
+	Activity getNextLevelElements();
+
+	/**
+	 * Sets the value of the '{@link uni.stuttgart.saga.SagaStep#getNextLevelElements <em>Next Level Elements</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Next Level Elements</em>' reference.
+	 * @see #getNextLevelElements()
+	 * @generated
+	 */
+	void setNextLevelElements(Activity value);
+
+	/**
+	 * Returns the value of the '<em><b>Next Step</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next Step</em>' reference.
+	 * @see #setNextStep(SagaStep)
+	 * @see uni.stuttgart.saga.SagaPackage#getSagaStep_NextStep()
+	 * @model
+	 * @generated
+	 */
+	SagaStep getNextStep();
+
+	/**
+	 * Sets the value of the '{@link uni.stuttgart.saga.SagaStep#getNextStep <em>Next Step</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Next Step</em>' reference.
+	 * @see #getNextStep()
+	 * @generated
+	 */
+	void setNextStep(SagaStep value);
+
+} // SagaStep

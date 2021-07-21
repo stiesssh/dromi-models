@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="Definitions"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="true"/>
+		<list key="findhistory">
+			<item value="definitions"/>
+			<item value="getOP"/>
+			<item value="BPMN_DI"/>
+			<item value="XSD"/>
+			<item value="platform:/resource/ccims-eclipse-plugin-data/model/CCIMSMetamodel\.ecore"/>
+			<item value="literals"/>
+			<item value="Uri"/>
+			<item value="resourceSe"/>
+			<item value="resource"/>
+			<item value="Resource"/>
+			<item value="dd"/>
+			<item value="dd.di"/>
+			<item value="\.dd\."/>
+			<item value=".dd."/>
+			<item value="BPMN_DIAGRAM"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1507"/>
+		<item key="DIALOG_Y_ORIGIN" value="534"/>
+		<item key="DIALOG_WIDTH" value="413"/>
+		<item key="DIALOG_HEIGHT" value="456"/>
+		<item key="DIALOG_FONT_NAME" value="1|Noto Sans|9.0|0|GTK|1|"/>
+	</section>
+</section>

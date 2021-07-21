@@ -1,0 +1,14 @@
+1625550830138	Rename field 'initialObjectField'
+1625550846348	Rename field 'encodingField'
+1625550867747	Rename method 'getInitialObjectName'
+1625550886071	Rename method 'getEncoding'
+1625550906395	Rename field 'initialObjectCreationPage'
+1625550920142	Rename type 'SagaModelWizardInitialObjectCreationPage'
+1625566073921	Rename compilation unit 'FOO.java'
+1625566116997	Copy compilation unit
+1625566478423	Copy compilation unit
+1625669621322	Copy compilation unit
+1625669626750	Delete elements
+1625670600609	Delete element
+1625670608107	Delete element
+1625732889992	Move compilation unit

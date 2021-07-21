@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="saga.design.Activator"
+               id="saga.design"
+	       name="saga">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.help.contexts">
+     <contexts
+           file="contexts.xml">
+     </contexts>
+  </extension>
+   <extension
+      id="saga.event.svg"
+      name="event"
+      point="org.eclipse.sirius.diagram.customBundledImageShape">
+    <image imagePath="/saga.design/images/Event.svg" label="saga.event">
+      <borderColorIdentifier borderColorIdentifier="shape"></borderColorIdentifier>
+      <borderColorAttribute borderColorAttribute="stroke"></borderColorAttribute>
+      <borderSizeIdentifier borderSizeIdentifier="shape"></borderSizeIdentifier>
+      <borderSizeAttribute borderSizeAttribute="stroke-width"></borderSizeAttribute>
+    </image>
+  </extension>
+   <extension
+         point="org.eclipse.sirius.diagram.ui.viewOrderingProvider">
+      <viewOrderingProvider
+            providerClass="saga.design.ViewOrderingProvider1">
+      </viewOrderingProvider>
+   </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
+      <layoutProvider
+            class="saga.design.FooLayoutProvider">
+         <Priority
+               name="Lowest">
+         </Priority>
+      </layoutProvider>
+   </extension>
+   <extension
+         id="line.layout"
+         name="name"
+         point="org.eclipse.sirius.diagram.ui.layoutProvider">
+      <layoutProvider
+            priority="highest"
+            providerClass="saga.design.FooLayoutProvider">
+      </layoutProvider>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.diagram.ui.viewOrderingProvider">
+      <viewOrderingProvider
+            providerClass="saga.design.ViewOrderingProvider1">
+      </viewOrderingProvider>
+   </extension>
+</plugin>

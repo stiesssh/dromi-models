@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gropius" nsURI="http://www.example.org/gropius" nsPrefix="gropius">
+  <eClassifiers xsi:type="ecore:EEnum" name="IMSType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="IssueCategory"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="IssueTimelineItemType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Priority"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="#//ID"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Comment" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="body" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bodyRendered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createdBy" eType="#//User"
+        eOpposite="#//User/issueComments"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="editedBy" upperBound="-1"
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastEditedAt" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUserCanEdit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reactions" eType="#//ReactionGroupPage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueComment" eSuperTypes="#//Comment #//IssueTimelineItem #//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//IssueLocation #//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ims" eType="#//IMS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issues" eType="#//IssuePage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" eType="#//ProjectPage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" eType="#//ComponentInterfacePage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumedInterfaces" eType="#//ComponentInterfacePage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" eType="#//LabelPage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IMS" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="imsType" eType="#//IMSType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterface" eSuperTypes="#//IssueLocation #//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="consumedBy" eType="#//ComponentPage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Issue" eSuperTypes="#//Comment #//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatedAt" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isOpen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDuplicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//IssueCategory"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentUserCanComment"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDate" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dueDate" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedTime" eType="#//TimeSpan"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spentTime" eType="#//TimeSpan"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueComments" eType="#//IssueCommentPage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linksToIssues" eType="#//IssuePage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkedByIssues" eType="#//IssuePage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignees" eType="#//UserPage"
+        eOpposite="#//User/assignedToIssues"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" eType="#//LabelPage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participants" eType="#//UserPage"
+        eOpposite="#//User/participantOfIssue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pinnedOn" eType="#//ComponentPage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeline" eType="#//IssueTimelineItemPage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//IssueLocationPage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItem" abstract="true" interface="true"
+      eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createdBy" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="#//Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueLocation" abstract="true" interface="true"
+      eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueOnLocation" eType="#//IssuePage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" eType="#//ComponentPage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" eType="#//ProjectPage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reaction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReactionGroup" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalUserCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" eType="#//User"
+        eOpposite="#//User/projects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issues" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" eType="#//Label"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="#//Node">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="displayname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" eType="#//Project"
+        eOpposite="#//Project/users"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedToIssues" eType="#//Issue"
+        eOpposite="#//Issue/assignees"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="participantOfIssue" eType="#//Issue"
+        eOpposite="#//Issue/participants"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueComments" eType="#//Comment"
+        eOpposite="#//Comment/createdBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Color" instanceTypeName="Color"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ID" instanceTypeName="ID"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceTypeName="Date"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TimeSpan" instanceTypeName="TimeSpan"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Page" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pageInfo" eType="#//PageInfo"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="totalCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PageInfo" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startCursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endCursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasNextPage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasPreviousPage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfacePage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//ComponentInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//ComponentInterfaceEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//ComponentEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueCommentPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//IssueComment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//IssueCommentEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueLocationPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//IssueLocation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//IssueLocationEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssuePage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//IssueEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabelPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//Label"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//LabelEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItemPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//IssueTimelineItem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//IssueTimelineItemEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//UserEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReactionGroupPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//ReactionGroup"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//ReactionGroupEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectPage" eSuperTypes="#//Page">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" eType="#//Project"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edges" eType="#//ProjectEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfaceEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//ComponentInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueCommentEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//IssueComment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Issue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueLocationEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//IssueLocation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItemEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//IssueTimelineItem"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabelEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Label"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Project"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReactionGroupEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//ReactionGroup"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UserEdge">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//User"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,65 @@
+/**
+ */
+package de.unistuttgart.ma.saga;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Slo</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link de.unistuttgart.ma.saga.Slo#getStatostocOperation <em>Statostoc Operation</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.Slo#getViolatedBy <em>Violated By</em>}</li>
+ * </ul>
+ *
+ * @see de.unistuttgart.ma.saga.SagaPackage#getSlo()
+ * @model
+ * @generated
+ */
+public interface Slo extends EObject {
+
+	/**
+	 * Returns the value of the '<em><b>Statostoc Operation</b></em>' attribute.
+	 * The default value is <code>"AVG"</code>.
+	 * The literals are from the enumeration {@link de.unistuttgart.ma.saga.Statistics}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Statostoc Operation</em>' attribute.
+	 * @see de.unistuttgart.ma.saga.Statistics
+	 * @see #isSetStatostocOperation()
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getSlo_StatostocOperation()
+	 * @model default="AVG" unsettable="true" required="true" changeable="false"
+	 * @generated
+	 */
+	Statistics getStatostocOperation();
+
+	/**
+	 * Returns whether the value of the '{@link de.unistuttgart.ma.saga.Slo#getStatostocOperation <em>Statostoc Operation</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Statostoc Operation</em>' attribute is set.
+	 * @see #getStatostocOperation()
+	 * @generated
+	 */
+	boolean isSetStatostocOperation();
+
+	/**
+	 * Returns the value of the '<em><b>Violated By</b></em>' reference list.
+	 * The list contents are of type {@link de.unistuttgart.ma.saga.Violation}.
+	 * It is bidirectional and its opposite is '{@link de.unistuttgart.ma.saga.Violation#getSlo <em>Slo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Violated By</em>' reference list.
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getSlo_ViolatedBy()
+	 * @see de.unistuttgart.ma.saga.Violation#getSlo
+	 * @model opposite="slo"
+	 * @generated
+	 */
+	EList<Violation> getViolatedBy();
+} // Slo

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/de.unistuttgart.ma.saga/src-gen" creationIcons="false"
+    editDirectory="/de.unistuttgart.ma.saga.edit/src-gen" editorDirectory="/de.unistuttgart.ma.saga.editor/src-gen"
+    modelPluginID="de.unistuttgart.ma.saga" modelName="Saga" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>saga.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Saga" basePackage="de.unistuttgart.ma" disposableProviderFactory="true"
+      ecorePackage="saga.ecore#/">
+    <genClasses ecoreClass="saga.ecore#//Project">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/sagas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Project/processes"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Component/interfaces"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//ComponentInterface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//ComponentInterface/nextLevelElements"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute saga.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//Saga">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Saga/steps"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//SagaStep">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference saga.ecore#//SagaStep/nextLevelElements"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//Process">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Process/activities"/>
+    </genClasses>
+    <genClasses ecoreClass="saga.ecore#//Activity"/>
+  </genPackages>
+</genmodel:GenModel>

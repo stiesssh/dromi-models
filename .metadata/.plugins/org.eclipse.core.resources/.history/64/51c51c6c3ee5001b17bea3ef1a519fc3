@@ -1,0 +1,16 @@
+/**
+ */
+package de.unistuttgart.ma.saga;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Availability Slo</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see de.unistuttgart.ma.saga.SagaPackage#getAvailabilitySlo()
+ * @model
+ * @generated
+ */
+public interface AvailabilitySlo extends Slo {
+} // AvailabilitySlo

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.unistuttgart.ma.saga.presentation.SagaModelWizardID"
+            name="%_UI_SagaModelWizard_label"
+            class="de.unistuttgart.ma.saga.presentation.SagaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SagaModelFile.gif">
+         <description>%_UI_SagaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="de.unistuttgart.ma.saga.presentation.SagaEditorID"
+            name="%_UI_SagaEditor_label"
+            icon="icons/full/obj16/SagaModelFile.gif"
+            extensions="saga"
+            class="de.unistuttgart.ma.saga.presentation.SagaEditor"
+            contributorClass="de.unistuttgart.ma.saga.presentation.SagaActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="bpmn.bpmn2.presentation.Bpmn2ModelWizardID"
+            name="%_UI_Bpmn2ModelWizard_label"
+            class="bpmn.bpmn2.presentation.Bpmn2ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Bpmn2ModelFile.gif">
+         <description>%_UI_Bpmn2ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="bpmn.bpmn2.presentation.Bpmn2EditorID"
+            name="%_UI_Bpmn2Editor_label"
+            icon="icons/full/obj16/Bpmn2ModelFile.gif"
+            extensions="bpmn2"
+            class="bpmn.bpmn2.presentation.Bpmn2Editor"
+            contributorClass="bpmn.bpmn2.presentation.Bpmn2ActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="dd.di.presentation.DiModelWizardID"
+            name="%_UI_DiModelWizard_label"
+            class="dd.di.presentation.DiModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DiModelFile.gif">
+         <description>%_UI_DiModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="dd.di.presentation.DiEditorID"
+            name="%_UI_DiEditor_label"
+            icon="icons/full/obj16/DiModelFile.gif"
+            extensions="di"
+            class="dd.di.presentation.DiEditor"
+            contributorClass="dd.di.presentation.DiActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="bpmn.di.presentation.DiModelWizardID"
+            name="%_UI_DiModelWizard_label"
+            class="bpmn.di.presentation.DiModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DiModelFile.gif">
+         <description>%_UI_DiModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="bpmn.di.presentation.DiEditorID"
+            name="%_UI_DiEditor_label"
+            icon="icons/full/obj16/DiModelFile.gif"
+            extensions="di"
+            class="bpmn.di.presentation.DiEditor"
+            contributorClass="bpmn.di.presentation.DiActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="dd.dc.presentation.DcModelWizardID"
+            name="%_UI_DcModelWizard_label"
+            class="dd.dc.presentation.DcModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DcModelFile.gif">
+         <description>%_UI_DcModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="dd.dc.presentation.DcEditorID"
+            name="%_UI_DcEditor_label"
+            icon="icons/full/obj16/DcModelFile.gif"
+            extensions="dc"
+            class="dd.dc.presentation.DcEditor"
+            contributorClass="dd.dc.presentation.DcActionBarContributor">
+      </editor>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="gropius.slo.presentation.SloModelWizardID"
+            name="%_UI_SloModelWizard_label"
+            class="gropius.slo.presentation.SloModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SloModelFile.gif">
+         <description>%_UI_SloModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="gropius.slo.presentation.SloEditorID"
+            name="%_UI_SloEditor_label"
+            icon="icons/full/obj16/SloModelFile.gif"
+            extensions="slo"
+            class="gropius.slo.presentation.SloEditor"
+            contributorClass="gropius.slo.presentation.SloActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated saga -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.unistuttgart.gropius.presentation.GropiusModelWizardID"
+            name="%_UI_GropiusModelWizard_label"
+            class="de.unistuttgart.gropius.presentation.GropiusModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GropiusModelFile.gif">
+         <description>%_UI_GropiusModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated saga -->
+      <editor
+            id="de.unistuttgart.gropius.presentation.GropiusEditorID"
+            name="%_UI_GropiusEditor_label"
+            icon="icons/full/obj16/GropiusModelFile.gif"
+            extensions="gropius"
+            class="de.unistuttgart.gropius.presentation.GropiusEditor"
+            contributorClass="de.unistuttgart.gropius.presentation.GropiusActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="de.unistuttgart.ma.saga"
+            name="Sample Category">
+      </category>
+      <view
+            category="de.unistuttgart.ma.saga"
+            class="de.unistuttgart.ma.saga.presentation.FooView"
+            icon="icons/sample.png"
+            id="de.unistuttgart.ma.saga.presentation.FooView"
+            inject="true"
+            name="Foo View">
+      </view>
+   </extension>
+
+</plugin>

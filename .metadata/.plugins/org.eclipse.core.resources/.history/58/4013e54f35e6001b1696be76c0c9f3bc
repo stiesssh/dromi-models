@@ -1,0 +1,13 @@
+#
+
+bin.includes = .,\
+               model/,\
+               META-INF/,\
+               plugin.xml,\
+               plugin.properties,\
+               lib/converter-2.3.0-v200706262000.jar,\
+               lib/exporter-2.3.0-v200706262000.jar,\
+               lib/importer-2.3.0-v200706262000.jar
+jars.compile.order = .
+source.. = src-gen/
+output.. = bin/

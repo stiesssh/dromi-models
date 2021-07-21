@@ -1,0 +1,67 @@
+package de.unistuttgart.ma.importer.slo;
+
+import java.io.IOException;
+import java.util.Set;
+
+import de.unistuttgart.ma.model.Id;
+import de.unistuttgart.ma.model.Project;
+import de.unistuttgart.ma.model.solomon.SloRule;
+import de.unistuttgart.ma.model.things.ThingWithSlo;
+import de.unistuttgart.ma.slo.AvailabilitySlo;
+import de.unistuttgart.ma.slo.ReponsetimeSlo;
+import de.unistuttgart.ma.slo.Slo;
+
+public class SolomonImporter implements SloImporter {
+	
+	private final SolomonApiQuerier querier;
+
+	// TODO : or would i rather have the entire repo??
+	private final Project project; 
+	
+	// TODO : this is a DeploymentEnvironment (currently either 'aws' or 'kubernetes', vgl. solomon/**/slo-rule.model.ts)
+	private final String queryPathparam; 
+
+	public SolomonImporter(String uri, String queryPathparam, Project project) {
+		querier = new SolomonApiQuerier(uri);
+		this.project = project;
+		this.queryPathparam = queryPathparam;
+	}
+	
+	@Override
+	public void parse() {
+		try {
+			Set<SloRule> slorules = querier.query(queryPathparam); 
+			parse(slorules);
+		} catch (IOException | InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void parse(Set<SloRule> slorules) {
+		for (SloRule rule : slorules) {
+			ThingWithSlo things = project.getAnythingById((Id.of(rule.getGropiusComponentId())));
+			
+			Slo slo;
+			
+			switch (rule.getPresetOptions()) {
+			case CUSTOM:
+				slo = new Slo(things, rule.getName());
+				break;
+			case AVAILABILITY:
+				slo = new AvailabilitySlo(things, rule.getName());
+				break;
+			case RESPONSE_TIME:
+				slo = new ReponsetimeSlo(things, rule.getName());
+				break;
+
+			default:
+				slo = new Slo(things, rule.getName());
+				break;
+			}
+			
+			
+			things.addSlo(slo);
+		}
+	}
+}

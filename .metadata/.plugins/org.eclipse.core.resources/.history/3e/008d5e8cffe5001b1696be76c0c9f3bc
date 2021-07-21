@@ -1,0 +1,683 @@
+/**
+ */
+package de.unistuttgart.gropius.impl;
+
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.CrossComponentIssue;
+import de.unistuttgart.gropius.CrossComponentIssueManagementSystem;
+import de.unistuttgart.gropius.Developer;
+import de.unistuttgart.gropius.Interface;
+import de.unistuttgart.gropius.Issue;
+import de.unistuttgart.gropius.IssueManagementSystem;
+import de.unistuttgart.gropius.Label;
+import de.unistuttgart.gropius.gropiusFactory;
+import de.unistuttgart.gropius.gropiusPackage;
+
+import de.unistuttgart.ma.saga.SagaPackage;
+
+import de.unistuttgart.ma.saga.impl.SagaPackageImpl;
+
+import gropius.slo.slo.SloPackage;
+
+import gropius.slo.slo.impl.SloPackageImpl;
+
+import org.eclipse.bpmn2.bpmn2.Bpmn2Package;
+
+import org.eclipse.bpmn2.bpmn2.impl.Bpmn2PackageImpl;
+
+import org.eclipse.dd.dc.DcPackage;
+
+import org.eclipse.dd.dc.impl.DcPackageImpl;
+
+import org.eclipse.dd.di.DiPackage;
+
+import org.eclipse.dd.di.impl.DiPackageImpl;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Package</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class gropiusPackageImpl extends EPackageImpl implements gropiusPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass componentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass crossComponentIssueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass developerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass issueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass issueManagementSystemEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass labelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass crossComponentIssueManagementSystemEClass = null;
+
+	/**
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecore.EPackage.Registry
+	 * @see de.unistuttgart.gropius.gropiusPackage#eNS_URI
+	 * @see #init()
+	 * @generated
+	 */
+	private gropiusPackageImpl() {
+		super(eNS_URI, gropiusFactory.eINSTANCE);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static boolean isInited = false;
+
+	/**
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 *
+	 * <p>This method is used to initialize {@link gropiusPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #eNS_URI
+	 * @see #createPackageContents()
+	 * @see #initializePackageContents()
+	 * @generated
+	 */
+	public static gropiusPackage init() {
+		if (isInited) return (gropiusPackage)EPackage.Registry.INSTANCE.getEPackage(gropiusPackage.eNS_URI);
+
+		// Obtain or create and register package
+		Object registeredgropiusPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		gropiusPackageImpl thegropiusPackage = registeredgropiusPackage instanceof gropiusPackageImpl ? (gropiusPackageImpl)registeredgropiusPackage : new gropiusPackageImpl();
+
+		isInited = true;
+
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SagaPackage.eNS_URI);
+		SagaPackageImpl theSagaPackage = (SagaPackageImpl)(registeredPackage instanceof SagaPackageImpl ? registeredPackage : SagaPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
+		Bpmn2PackageImpl theBpmn2Package = (Bpmn2PackageImpl)(registeredPackage instanceof Bpmn2PackageImpl ? registeredPackage : Bpmn2Package.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SloPackage.eNS_URI);
+		SloPackageImpl theSloPackage = (SloPackageImpl)(registeredPackage instanceof SloPackageImpl ? registeredPackage : SloPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DiPackage.eNS_URI);
+		DiPackageImpl theDiPackage = (DiPackageImpl)(registeredPackage instanceof DiPackageImpl ? registeredPackage : DiPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(org.eclipse.bpmn2.di.DiPackage.eNS_URI);
+		org.eclipse.bpmn2.di.impl.DiPackageImpl theDiPackage_1 = (org.eclipse.bpmn2.di.impl.DiPackageImpl)(registeredPackage instanceof org.eclipse.bpmn2.di.impl.DiPackageImpl ? registeredPackage : org.eclipse.bpmn2.di.DiPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(DcPackage.eNS_URI);
+		DcPackageImpl theDcPackage = (DcPackageImpl)(registeredPackage instanceof DcPackageImpl ? registeredPackage : DcPackage.eINSTANCE);
+
+		// Load packages
+		theBpmn2Package.loadPackage();
+
+		// Create package meta-data objects
+		thegropiusPackage.createPackageContents();
+		theSagaPackage.createPackageContents();
+		theSloPackage.createPackageContents();
+		theDiPackage.createPackageContents();
+		theDiPackage_1.createPackageContents();
+		theDcPackage.createPackageContents();
+
+		// Initialize created meta-data
+		thegropiusPackage.initializePackageContents();
+		theSagaPackage.initializePackageContents();
+		theSloPackage.initializePackageContents();
+		theDiPackage.initializePackageContents();
+		theDiPackage_1.initializePackageContents();
+		theDcPackage.initializePackageContents();
+
+		// Fix loaded packages
+		theBpmn2Package.fixPackageContents();
+
+		// Mark meta-data to indicate it can't be changed
+		thegropiusPackage.freeze();
+
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(gropiusPackage.eNS_URI, thegropiusPackage);
+		return thegropiusPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComponent() {
+		return componentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponent_ProvidedInterfaces() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponent_ConsumedInterfaces() {
+		return (EReference)componentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_Name() {
+		return (EAttribute)componentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInterface() {
+		return interfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInterface_Name() {
+		return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCrossComponentIssue() {
+		return crossComponentIssueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCrossComponentIssue_Title() {
+		return (EAttribute)crossComponentIssueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCrossComponentIssue_TextBody() {
+		return (EAttribute)crossComponentIssueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCrossComponentIssue_IsOpen() {
+		return (EAttribute)crossComponentIssueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssue_Assignees() {
+		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssue_RepresentedIssues() {
+		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssue_ConcernedComponents() {
+		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssue_Labels() {
+		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssue_LinkedIssues() {
+		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssue_ConcernedInterface() {
+		return (EReference)crossComponentIssueEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDeveloper() {
+		return developerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeveloper_DevelopedComponents() {
+		return (EReference)developerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDeveloper_Name() {
+		return (EAttribute)developerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDeveloper_AssignedIssues() {
+		return (EReference)developerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIssue() {
+		return issueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssue_Location() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssue_ConcernedComponent() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssue_Id() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIssueManagementSystem() {
+		return issueManagementSystemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueManagementSystem_Name() {
+		return (EAttribute)issueManagementSystemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueManagementSystem_LocationUri() {
+		return (EAttribute)issueManagementSystemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssueManagementSystem_StoredIssues() {
+		return (EReference)issueManagementSystemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLabel() {
+		return labelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLabel_Name() {
+		return (EAttribute)labelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCrossComponentIssueManagementSystem() {
+		return crossComponentIssueManagementSystemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssueManagementSystem_IssueRootLocations() {
+		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssueManagementSystem_ManagedCroCoIssues() {
+		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssueManagementSystem_Labels() {
+		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssueManagementSystem_Developers() {
+		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCrossComponentIssueManagementSystem_Components() {
+		return (EReference)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCrossComponentIssueManagementSystem_LocationUri() {
+		return (EAttribute)crossComponentIssueManagementSystemEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public gropiusFactory getgropiusFactory() {
+		return (gropiusFactory)getEFactoryInstance();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private boolean isCreated = false;
+
+	/**
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void createPackageContents() {
+		if (isCreated) return;
+		isCreated = true;
+
+		// Create classes and their features
+		componentEClass = createEClass(COMPONENT);
+		createEReference(componentEClass, COMPONENT__PROVIDED_INTERFACES);
+		createEReference(componentEClass, COMPONENT__CONSUMED_INTERFACES);
+		createEAttribute(componentEClass, COMPONENT__NAME);
+
+		interfaceEClass = createEClass(INTERFACE);
+		createEAttribute(interfaceEClass, INTERFACE__NAME);
+
+		crossComponentIssueEClass = createEClass(CROSS_COMPONENT_ISSUE);
+		createEAttribute(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__TITLE);
+		createEAttribute(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__TEXT_BODY);
+		createEAttribute(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__IS_OPEN);
+		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__ASSIGNEES);
+		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__REPRESENTED_ISSUES);
+		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__CONCERNED_COMPONENTS);
+		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__LABELS);
+		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__LINKED_ISSUES);
+		createEReference(crossComponentIssueEClass, CROSS_COMPONENT_ISSUE__CONCERNED_INTERFACE);
+
+		developerEClass = createEClass(DEVELOPER);
+		createEReference(developerEClass, DEVELOPER__DEVELOPED_COMPONENTS);
+		createEAttribute(developerEClass, DEVELOPER__NAME);
+		createEReference(developerEClass, DEVELOPER__ASSIGNED_ISSUES);
+
+		issueEClass = createEClass(ISSUE);
+		createEReference(issueEClass, ISSUE__LOCATION);
+		createEReference(issueEClass, ISSUE__CONCERNED_COMPONENT);
+		createEAttribute(issueEClass, ISSUE__ID);
+
+		issueManagementSystemEClass = createEClass(ISSUE_MANAGEMENT_SYSTEM);
+		createEAttribute(issueManagementSystemEClass, ISSUE_MANAGEMENT_SYSTEM__NAME);
+		createEAttribute(issueManagementSystemEClass, ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI);
+		createEReference(issueManagementSystemEClass, ISSUE_MANAGEMENT_SYSTEM__STORED_ISSUES);
+
+		labelEClass = createEClass(LABEL);
+		createEAttribute(labelEClass, LABEL__NAME);
+
+		crossComponentIssueManagementSystemEClass = createEClass(CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM);
+		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__ISSUE_ROOT_LOCATIONS);
+		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__MANAGED_CRO_CO_ISSUES);
+		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LABELS);
+		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__DEVELOPERS);
+		createEReference(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__COMPONENTS);
+		createEAttribute(crossComponentIssueManagementSystemEClass, CROSS_COMPONENT_ISSUE_MANAGEMENT_SYSTEM__LOCATION_URI);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private boolean isInitialized = false;
+
+	/**
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void initializePackageContents() {
+		if (isInitialized) return;
+		isInitialized = true;
+
+		// Initialize package
+		setName(eNAME);
+		setNsPrefix(eNS_PREFIX);
+		setNsURI(eNS_URI);
+
+		// Create type parameters
+
+		// Set bounds for type parameters
+
+		// Add supertypes to classes
+
+		// Initialize classes, features, and operations; add parameters
+		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComponent_ProvidedInterfaces(), this.getInterface(), null, "providedInterfaces", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getComponent_ConsumedInterfaces(), this.getInterface(), null, "consumedInterfaces", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 1, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInterface_Name(), ecorePackage.getEString(), "name", null, 1, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(crossComponentIssueEClass, CrossComponentIssue.class, "CrossComponentIssue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCrossComponentIssue_Title(), ecorePackage.getEString(), "title", null, 1, 1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCrossComponentIssue_TextBody(), ecorePackage.getEString(), "textBody", null, 1, 1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCrossComponentIssue_IsOpen(), ecorePackage.getEString(), "isOpen", null, 1, 1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssue_Assignees(), this.getDeveloper(), this.getDeveloper_AssignedIssues(), "assignees", null, 0, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssue_RepresentedIssues(), this.getIssue(), null, "representedIssues", null, 1, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssue_ConcernedComponents(), this.getComponent(), null, "concernedComponents", null, 1, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssue_Labels(), this.getLabel(), null, "labels", null, 0, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssue_LinkedIssues(), this.getCrossComponentIssue(), null, "linkedIssues", null, 0, -1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssue_ConcernedInterface(), this.getInterface(), null, "concernedInterface", null, 0, 1, CrossComponentIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(developerEClass, Developer.class, "Developer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDeveloper_DevelopedComponents(), this.getComponent(), null, "developedComponents", null, 1, -1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getDeveloper_Name(), ecorePackage.getEString(), "name", null, 1, 1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getDeveloper_AssignedIssues(), this.getCrossComponentIssue(), this.getCrossComponentIssue_Assignees(), "assignedIssues", null, 0, -1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(issueEClass, Issue.class, "Issue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIssue_Location(), this.getIssueManagementSystem(), this.getIssueManagementSystem_StoredIssues(), "location", null, 1, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIssue_ConcernedComponent(), this.getComponent(), null, "concernedComponent", null, 1, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getIssue_Id(), ecorePackage.getEString(), "id", null, 1, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(issueManagementSystemEClass, IssueManagementSystem.class, "IssueManagementSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIssueManagementSystem_Name(), ecorePackage.getEString(), "name", null, 1, 1, IssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getIssueManagementSystem_LocationUri(), ecorePackage.getEString(), "locationUri", null, 1, 1, IssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIssueManagementSystem_StoredIssues(), this.getIssue(), this.getIssue_Location(), "storedIssues", null, 0, -1, IssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(labelEClass, Label.class, "Label", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLabel_Name(), ecorePackage.getEString(), "name", null, 1, 1, Label.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(crossComponentIssueManagementSystemEClass, CrossComponentIssueManagementSystem.class, "CrossComponentIssueManagementSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCrossComponentIssueManagementSystem_IssueRootLocations(), this.getIssueManagementSystem(), null, "issueRootLocations", null, 1, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssueManagementSystem_ManagedCroCoIssues(), this.getCrossComponentIssue(), null, "managedCroCoIssues", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssueManagementSystem_Labels(), this.getLabel(), null, "labels", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssueManagementSystem_Developers(), this.getDeveloper(), null, "developers", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCrossComponentIssueManagementSystem_Components(), this.getComponent(), null, "components", null, 0, -1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCrossComponentIssueManagementSystem_LocationUri(), ecorePackage.getEString(), "locationUri", null, 1, 1, CrossComponentIssueManagementSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		// Create resource
+		createResource(eNS_URI);
+	}
+
+} //gropiusPackageImpl

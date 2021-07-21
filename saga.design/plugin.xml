@@ -60,4 +60,13 @@
             label="saga.arch.component">
       </image>
    </extension>
+   <extension
+         id="saga.saga.saga"
+         name="saga saga"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/saga.svg"
+            label="saga.saga.saga">
+      </image>
+   </extension>
 </plugin>

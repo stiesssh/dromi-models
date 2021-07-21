@@ -1,0 +1,12 @@
+#
+
+bin.includes = .,\
+               icons/,\
+               META-INF/,\
+               plugin.xml,\
+               plugin.properties,\
+               lib/com.google.gson-2.7.0.jar,\
+               lib/importer-2.3.0-v200706262000.jar
+jars.compile.order = .
+source.. = src-gen/
+output.. = bin

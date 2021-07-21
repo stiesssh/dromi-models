@@ -1,0 +1,331 @@
+/**
+ * <copyright>
+ * 
+ * Copyright (c) 2010 SAP AG.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License 2.0
+ * which accompanies this distribution, and is available at
+ * https://www.eclipse.org/legal/epl-2.0/
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ * 
+ * Contributors:
+ *    Reiner Hille-Doering (SAP AG) - initial API and implementation and/or initial documentation
+ * 
+ * </copyright>
+ *
+ */
+package org.eclipse.bpmn2.provider;
+
+import java.util.Collection;
+import java.util.List;
+
+import org.eclipse.bpmn2.Bpmn2Factory;
+import org.eclipse.bpmn2.Bpmn2Package;
+import org.eclipse.bpmn2.DocumentRoot;
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+/**
+ * This is the item provider adapter for a {@link org.eclipse.bpmn2.DocumentRoot} object.
+ * <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class DocumentRootItemProvider extends ItemProviderAdapter implements
+        IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider,
+        IItemLabelProvider, IItemPropertySource {
+    /**
+     * This constructs an instance from a factory and a notifier.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DocumentRootItemProvider(AdapterFactory adapterFactory) {
+        super(adapterFactory);
+    }
+
+    /**
+     * This returns the property descriptors for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+        if (itemPropertyDescriptors == null) {
+            super.getPropertyDescriptors(object);
+
+        }
+        return itemPropertyDescriptors;
+    }
+
+    /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated not
+     */
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+        if (childrenFeatures == null) {
+            super.getChildrenFeatures(object);
+            childrenFeatures.add(Bpmn2Package.Literals.DOCUMENT_ROOT__DEFINITIONS);
+
+        }
+        return childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature(Object object, Object child) {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature(object, child);
+    }
+
+    /**
+     * This returns DocumentRoot.gif.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getImage(Object object) {
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/DocumentRoot"));
+    }
+
+    /**
+     * This returns the label text for the adapted class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getText(Object object) {
+        return getString("_UI_DocumentRoot_type");
+    }
+
+    /**
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated not
+     */
+    @Override
+    public void notifyChanged(Notification notification) {
+        updateChildren(notification);
+
+        switch (notification.getFeatureID(DocumentRoot.class)) {
+
+        case Bpmn2Package.DOCUMENT_ROOT__DEFINITIONS:
+            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(),
+                    true, false));
+            return;
+        }
+        super.notifyChanged(notification);
+    }
+
+    /**
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * that can be created under this object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated not
+     */
+    @Override
+    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+        super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add(createChildParameter(
+                Bpmn2Package.eINSTANCE.getDocumentRoot_Definitions(),
+                Bpmn2Factory.eINSTANCE.createDefinitions()));
+
+    }
+
+    /**
+     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getCreateChildText(Object owner, Object feature, Object child,
+            Collection<?> selection) {
+        Object childFeature = feature;
+        Object childObject = child;
+
+        boolean qualify =
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Activity() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_FlowElement() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_BaseElement() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_BaseElementWithMixedContent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_FlowNode() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Script() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Text() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_SubProcess() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_AdHocSubProcess() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Task() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_BusinessRuleTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CallActivity() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ManualTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ReceiveTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ScriptTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_SendTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ServiceTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Transaction() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_UserTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_BoundaryEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CatchEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Event() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CallChoreography() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ChoreographyActivity() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ChoreographyTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ComplexGateway() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataObject() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataObjectReference() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataStoreReference() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_EndEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ThrowEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_EventBasedGateway() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ExclusiveGateway() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ImplicitThrowEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_InclusiveGateway() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_IntermediateCatchEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_IntermediateThrowEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ParallelGateway() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_SequenceFlow() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_StartEvent() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_SubChoreography() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Artifact() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Association() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Group() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_TextAnnotation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Assignment() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Auditing() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ConversationNode() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CallConversation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_RootElement() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CallableElement() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_EventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CancelEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Category() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CategoryValue() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Collaboration() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Choreography() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CompensateEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ComplexBehaviorDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ConditionalEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Conversation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ConversationAssociation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ConversationLink() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CorrelationKey() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CorrelationProperty() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CorrelationPropertyBinding() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CorrelationPropertyRetrievalExpression() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_CorrelationSubscription() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataAssociation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataInput() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataInputAssociation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataOutput() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataOutputAssociation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataState() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_DataStore() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Definitions() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Documentation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_EndPoint() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Error() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ErrorEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Escalation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_EscalationEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Expression() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_FormalExpression() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_GlobalTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_GlobalBusinessRuleTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_GlobalChoreographyTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_GlobalConversation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_GlobalManualTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_GlobalScriptTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_GlobalUserTask() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ResourceRole() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Performer() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_HumanPerformer() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_IoBinding() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_IoSpecification() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_InputSet() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Interface() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ItemDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Lane() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_LaneSet() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_LinkEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Message() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_MessageEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_MessageFlow() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_MessageFlowAssociation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Monitoring() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_LoopCharacteristics() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_MultiInstanceLoopCharacteristics() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Operation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_OutputSet() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Participant() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ParticipantAssociation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ParticipantMultiplicity() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_PartnerEntity() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_PartnerRole() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_PotentialOwner() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Process() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Property() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Relationship() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Rendering() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Resource() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ResourceAssignmentExpression() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ResourceParameter() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ResourceParameterBinding() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Signal() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_SignalEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_StandardLoopCharacteristics() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_SubConversation() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_TerminateEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_TimerEventDefinition() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Extension() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_ExtensionElements() ||
+            childFeature == Bpmn2Package.eINSTANCE.getDocumentRoot_Import();
+
+        if (qualify) {
+            return getString
+                ("_UI_CreateChild_text2",
+                 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+        }
+        return super.getCreateChildText(owner, feature, child, selection);
+    }
+
+    /**
+     * Return the resource locator for this item provider's resources.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator() {
+        return Bpmn20EditPlugin.INSTANCE;
+    }
+
+}

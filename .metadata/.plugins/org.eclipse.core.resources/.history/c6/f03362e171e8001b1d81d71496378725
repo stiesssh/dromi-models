@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="impact" nsURI="http://www.example.org/impact" nsPrefix="impact">
+  <eClassifiers xsi:type="ecore:EClass" name="Impact" eSuperTypes="saga.ecore#//IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cause" eType="#//Impact"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+        eType="#//LocationAdapter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootCause" eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//Alert"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Notification" eSuperTypes="saga.ecore#//IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reportedImpacts" upperBound="-1"
+        eType="#//Impact" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocationAdapter">
+    <eOperations name="getId" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" ordered="false"
+        eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentInterface" eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//ComponentInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="saga" eType="ecore:EClass saga.ecore#//Saga"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sagaStep" eType="ecore:EClass saga.ecore#//SagaStep"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" eType="ecore:EClass BPMN20.ecore#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="process" eType="ecore:EClass BPMN20.ecore#//Process"/>
+  </eClassifiers>
+</ecore:EPackage>

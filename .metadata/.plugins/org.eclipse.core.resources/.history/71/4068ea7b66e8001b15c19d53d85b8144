@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/de.unistuttgart.gropius/src-gen" creationIcons="false"
+    editDirectory="/de.unistuttgart.gropius.edit/src-gen" editorDirectory="/de.unistuttgart.gropius.editor/src-gen"
+    modelPluginID="de.unistuttgart.gropius" modelName="Gropius" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>gropius.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Gropius" basePackage="de.unistuttgart" disposableProviderFactory="true"
+      ecorePackage="gropius.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gropius.ecore#//IMSType"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gropius.ecore#//IssueCategory"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gropius.ecore#//IssueTimelineItemType"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gropius.ecore#//Priority"/>
+    <genDataTypes ecoreDataType="gropius.ecore#//Color"/>
+    <genDataTypes ecoreDataType="gropius.ecore#//ID"/>
+    <genDataTypes ecoreDataType="gropius.ecore#//Date"/>
+    <genDataTypes ecoreDataType="gropius.ecore#//TimeSpan"/>
+    <genClasses image="false" ecoreClass="gropius.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Node/id"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gropius.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Comment/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Comment/bodyRendered"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Comment/commentCreatedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Comment/editedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Comment/commentCreatedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Comment/lastEditedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Comment/currentUserCanEdit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Comment/reactions"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//Component">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/owner"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/ims"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/issues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/projects"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/interfaces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/consumedInterfaces"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Component/labels"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//IMS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//IMS/imsType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//IMS/component"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//ComponentInterface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//ComponentInterface/component"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//ComponentInterface/consumedBy"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//Issue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/updatedAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/isOpen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/isDuplicate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/category"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/currentUserCanComment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/startDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/dueDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/estimatedTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Issue/spentTime"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/issueComments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/linksToIssues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/linkedByIssues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/assignees"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/labels"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/participants"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/pinnedOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/timeline"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/location"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/issue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gropius.ecore#//Issue/issue.1"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gropius.ecore#//IssueTimelineItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//IssueTimelineItem/issue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//IssueTimelineItem/createdBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//IssueTimelineItem/createdAt"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gropius.ecore#//IssueLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//IssueLocation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//IssueLocation/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//IssueLocation/issueOnLocation"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Label/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Label/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Label/color"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Label/components"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Label/projects"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//ReactionGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//ReactionGroup/reaction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//ReactionGroup/users"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//ReactionGroup/totalUserCount"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//Project">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Project/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//Project/description"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/components"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/users"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/owner"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/issues"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//Project/labels"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//User/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//User/displayname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gropius.ecore#//User/email"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//User/projects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//User/assignedToIssues"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//User/participantOfIssue"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gropius.ecore#//User/issueComments"/>
+    </genClasses>
+    <genClasses ecoreClass="gropius.ecore#//IssueComment"/>
+  </genPackages>
+</genmodel:GenModel>

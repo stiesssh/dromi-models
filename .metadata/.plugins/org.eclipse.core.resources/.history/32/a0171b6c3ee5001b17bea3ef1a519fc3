@@ -1,0 +1,16 @@
+/**
+ */
+package de.unistuttgart.ma.saga;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>Part</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ *
+ * @see de.unistuttgart.ma.saga.SagaPackage#getPart()
+ * @model abstract="true"
+ * @generated
+ */
+public interface Part extends ElementWithSLO {
+} // Part

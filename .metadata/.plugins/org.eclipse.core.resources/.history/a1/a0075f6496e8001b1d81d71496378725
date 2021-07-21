@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="saga" nsURI="http://www.example.org/saga" nsPrefix="saga">
+  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sagas" upperBound="-1"
+        eType="#//Saga" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.bpmn2/model/BPMN20.ecore#//Process"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gropiusProject" upperBound="-1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//Project"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sloRules" upperBound="-1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Saga" eSuperTypes="#//IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
+        eType="#//SagaStep" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SagaStep" eSuperTypes="#//IdentifiableElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" ordered="false" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.bpmn2/model/BPMN20.ecore#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextStep" eType="#//SagaStep"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentInterface" lowerBound="1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//ComponentInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IdentifiableElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+</ecore:EPackage>

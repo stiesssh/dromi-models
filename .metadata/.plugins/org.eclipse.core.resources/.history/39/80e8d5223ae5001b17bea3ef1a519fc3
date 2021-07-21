@@ -1,0 +1,5 @@
+package bpmn2;
+
+public interface InteractionNode {
+
+}

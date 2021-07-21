@@ -1,0 +1,305 @@
+/**
+ */
+package de.unistuttgart.ma.saga.impact.impl;
+
+import de.unistuttgart.gropius.slo.Alert;
+
+import de.unistuttgart.ma.saga.impact.Impact;
+import de.unistuttgart.ma.saga.impact.ImpactPackage;
+import de.unistuttgart.ma.saga.impact.LocationAdapter;
+
+import de.unistuttgart.ma.saga.impl.IdentifiableElementImpl;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Impact</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getCause <em>Cause</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getRootCause <em>Root Cause</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ImpactImpl extends IdentifiableElementImpl implements Impact {
+	/**
+	 * The cached value of the '{@link #getCause() <em>Cause</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCause()
+	 * @generated
+	 * @ordered
+	 */
+	protected Impact cause;
+
+	/**
+	 * The cached value of the '{@link #getLocation() <em>Location</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected LocationAdapter location;
+
+	/**
+	 * The cached value of the '{@link #getRootCause() <em>Root Cause</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootCause()
+	 * @generated
+	 * @ordered
+	 */
+	protected Alert rootCause;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImpactImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ImpactPackage.Literals.IMPACT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Impact getCause() {
+		return cause;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCause(Impact newCause, NotificationChain msgs) {
+		Impact oldCause = cause;
+		cause = newCause;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ImpactPackage.IMPACT__CAUSE, oldCause, newCause);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCause(Impact newCause) {
+		if (newCause != cause) {
+			NotificationChain msgs = null;
+			if (cause != null)
+				msgs = ((InternalEObject)cause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ImpactPackage.IMPACT__CAUSE, null, msgs);
+			if (newCause != null)
+				msgs = ((InternalEObject)newCause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ImpactPackage.IMPACT__CAUSE, null, msgs);
+			msgs = basicSetCause(newCause, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.IMPACT__CAUSE, newCause, newCause));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LocationAdapter getLocation() {
+		return location;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLocation(LocationAdapter newLocation, NotificationChain msgs) {
+		LocationAdapter oldLocation = location;
+		location = newLocation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ImpactPackage.IMPACT__LOCATION, oldLocation, newLocation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocation(LocationAdapter newLocation) {
+		if (newLocation != location) {
+			NotificationChain msgs = null;
+			if (location != null)
+				msgs = ((InternalEObject)location).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ImpactPackage.IMPACT__LOCATION, null, msgs);
+			if (newLocation != null)
+				msgs = ((InternalEObject)newLocation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ImpactPackage.IMPACT__LOCATION, null, msgs);
+			msgs = basicSetLocation(newLocation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.IMPACT__LOCATION, newLocation, newLocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Alert getRootCause() {
+		if (rootCause != null && rootCause.eIsProxy()) {
+			InternalEObject oldRootCause = (InternalEObject)rootCause;
+			rootCause = (Alert)eResolveProxy(oldRootCause);
+			if (rootCause != oldRootCause) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.IMPACT__ROOT_CAUSE, oldRootCause, rootCause));
+			}
+		}
+		return rootCause;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Alert basicGetRootCause() {
+		return rootCause;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRootCause(Alert newRootCause) {
+		Alert oldRootCause = rootCause;
+		rootCause = newRootCause;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.IMPACT__ROOT_CAUSE, oldRootCause, rootCause));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ImpactPackage.IMPACT__CAUSE:
+				return basicSetCause(null, msgs);
+			case ImpactPackage.IMPACT__LOCATION:
+				return basicSetLocation(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case ImpactPackage.IMPACT__CAUSE:
+				return getCause();
+			case ImpactPackage.IMPACT__LOCATION:
+				return getLocation();
+			case ImpactPackage.IMPACT__ROOT_CAUSE:
+				if (resolve) return getRootCause();
+				return basicGetRootCause();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ImpactPackage.IMPACT__CAUSE:
+				setCause((Impact)newValue);
+				return;
+			case ImpactPackage.IMPACT__LOCATION:
+				setLocation((LocationAdapter)newValue);
+				return;
+			case ImpactPackage.IMPACT__ROOT_CAUSE:
+				setRootCause((Alert)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ImpactPackage.IMPACT__CAUSE:
+				setCause((Impact)null);
+				return;
+			case ImpactPackage.IMPACT__LOCATION:
+				setLocation((LocationAdapter)null);
+				return;
+			case ImpactPackage.IMPACT__ROOT_CAUSE:
+				setRootCause((Alert)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case ImpactPackage.IMPACT__CAUSE:
+				return cause != null;
+			case ImpactPackage.IMPACT__LOCATION:
+				return location != null;
+			case ImpactPackage.IMPACT__ROOT_CAUSE:
+				return rootCause != null;
+		}
+		return super.eIsSet(featureID);
+	}
+
+} //ImpactImpl
