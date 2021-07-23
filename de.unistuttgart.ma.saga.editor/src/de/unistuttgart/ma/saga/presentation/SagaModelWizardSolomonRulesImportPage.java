@@ -17,29 +17,25 @@ import de.unistuttgart.ma.saga.presentation.SagaEditorPlugin;
 /**
  * This is the page where the type of object to create is selected.
  * 
- * This is mandatory. 
- *  
+ * This is mandatory.
+ * 
  */
 public class SagaModelWizardSolomonRulesImportPage extends WizardPage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected Text gropiusUrlField;
-	protected Text gropiusProjectIdField;
+	protected Text solomonUrlField;
+	protected Text deploymentEnvironmentField;
 
 	/**
-	 * Pass in the selection.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public SagaModelWizardSolomonRulesImportPage(String pageId) {
 		super(pageId);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void createControl(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
@@ -65,41 +61,42 @@ public class SagaModelWizardSolomonRulesImportPage extends WizardPage {
 			containerLabel.setLayoutData(data);
 		}
 
-		gropiusUrlField = new Text(composite, SWT.BORDER);
+		solomonUrlField = new Text(composite, SWT.BORDER);
 		{
 			GridData data = new GridData();
 			data.horizontalAlignment = GridData.FILL;
 			data.grabExcessHorizontalSpace = true;
-			gropiusUrlField.setLayoutData(data);
+			solomonUrlField.setLayoutData(data);
+			solomonUrlField.setText(Literals.solomonUrl);
 		}
 
-		gropiusUrlField.addModifyListener(validator);
+		solomonUrlField.addModifyListener(validator);
 
 		Label encodingLabel = new Label(composite, SWT.LEFT);
 		{
-			encodingLabel.setText("Project id : ");
+			encodingLabel.setText("Environment: ");
 
 			GridData data = new GridData();
 			data.horizontalAlignment = GridData.FILL;
 			encodingLabel.setLayoutData(data);
 		}
-		gropiusProjectIdField = new Text(composite, SWT.BORDER);
+		deploymentEnvironmentField = new Text(composite, SWT.BORDER);
 		{
 			GridData data = new GridData();
 			data.horizontalAlignment = GridData.FILL;
 			data.grabExcessHorizontalSpace = true;
-			gropiusProjectIdField.setLayoutData(data);
+			deploymentEnvironmentField.setLayoutData(data);
+			deploymentEnvironmentField.setText(Literals.solomonDeploymentEnvironment);
 		}
 
-		gropiusProjectIdField.addModifyListener(validator);
+		deploymentEnvironmentField.addModifyListener(validator);
 
 		setPageComplete(validatePage());
 		setControl(composite);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected ModifyListener validator = new ModifyListener() {
 		public void modifyText(ModifyEvent e) {
@@ -108,46 +105,42 @@ public class SagaModelWizardSolomonRulesImportPage extends WizardPage {
 	};
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected boolean validatePage() {
-		return getGropiusUrlField() != null && getGropiusProjectIdField() != null;
+		return getSolomonUrlField() != null && getDeploymentEnvironmentField() != null
+				&& !getSolomonUrlField().isBlank() && !getDeploymentEnvironmentField().isBlank();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	@Override
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
 		if (visible) {
-			gropiusProjectIdField.clearSelection();
-			gropiusUrlField.setFocus();
+			deploymentEnvironmentField.clearSelection();
+			solomonUrlField.setFocus();
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public String getGropiusUrlField() {
-		return gropiusUrlField.getText();
+	public String getSolomonUrlField() {
+		return solomonUrlField.getText();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public String getGropiusProjectIdField() {
-		return gropiusProjectIdField.getText();
+	public String getDeploymentEnvironmentField() {
+		return deploymentEnvironmentField.getText();
 	}
 
 	/**
-	 * Returns the label for the specified type name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the label for the specified type name. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 */
 	protected String getLabel(String typeName) {
 		try {

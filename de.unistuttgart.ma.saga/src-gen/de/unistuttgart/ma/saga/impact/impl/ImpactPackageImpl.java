@@ -13,6 +13,8 @@ import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
 import de.unistuttgart.ma.saga.impact.Notification;
 
+import de.unistuttgart.ma.saga.impl.SagaPackageImpl;
+
 import org.eclipse.bpmn2.Bpmn2Package;
 
 import org.eclipse.bpmn2.di.BpmnDiPackage;
@@ -20,6 +22,7 @@ import org.eclipse.bpmn2.di.BpmnDiPackage;
 import org.eclipse.dd.dc.DcPackage;
 
 import org.eclipse.dd.di.DiPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -99,19 +102,24 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 
 		// Initialize simple dependencies
 		GropiusPackage.eINSTANCE.eClass();
-		SagaPackage.eINSTANCE.eClass();
-		Bpmn2Package.eINSTANCE.eClass();
-		DiPackage.eINSTANCE.eClass();
-		BpmnDiPackage.eINSTANCE.eClass();
-		DcPackage.eINSTANCE.eClass();
 		SloPackage.eINSTANCE.eClass();
+		Bpmn2Package.eINSTANCE.eClass();
+		BpmnDiPackage.eINSTANCE.eClass();
+		DiPackage.eINSTANCE.eClass();
+		DcPackage.eINSTANCE.eClass();
 		XMLTypePackage.eINSTANCE.eClass();
+
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(SagaPackage.eNS_URI);
+		SagaPackageImpl theSagaPackage = (SagaPackageImpl)(registeredPackage instanceof SagaPackageImpl ? registeredPackage : SagaPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theImpactPackage.createPackageContents();
+		theSagaPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theImpactPackage.initializePackageContents();
+		theSagaPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theImpactPackage.freeze();
@@ -198,6 +206,15 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getNotification_Alert() {
+		return (EReference)notificationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImpactFactory getImpactFactory() {
 		return (ImpactFactory)getEFactoryInstance();
 	}
@@ -230,6 +247,7 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 		notificationEClass = createEClass(NOTIFICATION);
 		createEReference(notificationEClass, NOTIFICATION__IMPACTS);
 		createEReference(notificationEClass, NOTIFICATION__TOP_LEVEL_IMPACTS);
+		createEReference(notificationEClass, NOTIFICATION__ALERT);
 	}
 
 	/**
@@ -277,8 +295,9 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 		initEOperation(getImpact__GetLocationId(), theXMLTypePackage.getString(), "getLocationId", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(notificationEClass, Notification.class, "Notification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNotification_Impacts(), this.getImpact(), null, "impacts", null, 0, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNotification_TopLevelImpacts(), this.getImpact(), null, "topLevelImpacts", null, 0, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotification_Impacts(), this.getImpact(), null, "impacts", null, 1, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotification_TopLevelImpacts(), this.getImpact(), null, "topLevelImpacts", null, 1, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotification_Alert(), theSloPackage.getAlert(), null, "alert", null, 1, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

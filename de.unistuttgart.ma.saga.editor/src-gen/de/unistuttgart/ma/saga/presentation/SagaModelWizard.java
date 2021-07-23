@@ -70,7 +70,6 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import de.unistuttgart.ma.importer.architecture.GropiusImporter;
 import de.unistuttgart.ma.importer.process.BPMNImporter;
 import de.unistuttgart.ma.importer.slo.SolomonImporter;
-import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
@@ -143,6 +142,21 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected SagaModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	
+	/**
+	 * @generated NOT
+	 */
+	protected SagaModelWizardGropiusImportPage newGropiusImportPage;
+	
+	/**
+	 * @generated NOT
+	 */
+	protected SagaModelWizardBPMNImportPage newBpmnImportPage;
+
+	/**
+	 * @generated NOT
+	 */
+	protected SagaModelWizardSolomonRulesImportPage newSolomonRulesImportPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -213,16 +227,15 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		EClass eClass = (EClass)sagaPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = sagaFactory.create(eClass);
 		
-		BPMNImporter bpmnImporter = new BPMNImporter("/home/maumau/uni/14_21SS/project/repos/ma-sirius/de.unistuttgart.ma.saga.editor/t2Process.bpmn2");
-		((Model) rootObject).getProcesses().add(bpmnImporter.parse());
+		GropiusImporter gropiusImporter = new GropiusImporter(newGropiusImportPage.getGropiusUrlField(), newGropiusImportPage.getGropiusProjectIdField());
+		BPMNImporter bpmnImporter = new BPMNImporter(newBpmnImportPage.getbpmnFilePathField());
+		SolomonImporter solomonImporter = new SolomonImporter(newSolomonRulesImportPage.getSolomonUrlField(), newSolomonRulesImportPage.getDeploymentEnvironmentField());
 		
-		GropiusImporter gropiusImporter = new GropiusImporter("http://localhost:8080/api", "t2-extended");
-		((Model) rootObject).setGropiusProject(gropiusImporter.parse());
+		((de.unistuttgart.ma.saga.System) rootObject).getProcesses().add(bpmnImporter.parse());	
+		((de.unistuttgart.ma.saga.System) rootObject).setArchitecture(gropiusImporter.parse());
+		((de.unistuttgart.ma.saga.System) rootObject).getSloRules().addAll(solomonImporter.parse());
 		
-		SolomonImporter solomonImporter = new SolomonImporter("http://localhost:8082", "/rules/kubernetes");
-		((Model) rootObject).getSloRules().addAll(solomonImporter.parse());
-		
-		((Model) rootObject).setId("testProject");
+		((de.unistuttgart.ma.saga.System) rootObject).setId(newFileCreationPage.getFileName());
 		
 		return rootObject;
 	}
@@ -577,7 +590,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 		@Override
 	public void addPages() {
@@ -626,6 +639,25 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage.setTitle(SagaEditorPlugin.INSTANCE.getString("_UI_SagaModelWizard_label"));
 		initialObjectCreationPage.setDescription(SagaEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
+		
+		// gropius
+		newGropiusImportPage = new SagaModelWizardGropiusImportPage("gropiusPage");
+		newGropiusImportPage.setTitle("Architecture Import");
+		newGropiusImportPage.setDescription("Import Architecture from Gropius");
+		addPage(newGropiusImportPage);
+		
+		// BPMN
+		newBpmnImportPage = new SagaModelWizardBPMNImportPage("bpmnPage");
+		newBpmnImportPage.setTitle("Business Process Import");
+		newBpmnImportPage.setDescription("Import Business Process from File System");
+		addPage(newBpmnImportPage);
+		
+
+		// Solomon
+		newSolomonRulesImportPage = new SagaModelWizardSolomonRulesImportPage("sloPage");
+		newSolomonRulesImportPage.setTitle("SLO rules Import");
+		newSolomonRulesImportPage.setDescription("Import SLO rules from Solomon");
+		addPage(newSolomonRulesImportPage);
 	}
 
 	/**

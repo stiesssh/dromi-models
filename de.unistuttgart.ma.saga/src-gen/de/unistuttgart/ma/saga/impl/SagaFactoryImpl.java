@@ -2,7 +2,10 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
-import de.unistuttgart.ma.saga.*;
+import de.unistuttgart.ma.saga.Saga;
+import de.unistuttgart.ma.saga.SagaFactory;
+import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.SagaStep;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -56,7 +59,7 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SagaPackage.MODEL: return createModel();
+			case SagaPackage.SYSTEM: return createSystem();
 			case SagaPackage.SAGA: return createSaga();
 			case SagaPackage.SAGA_STEP: return createSagaStep();
 			default:
@@ -69,9 +72,9 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Model createModel() {
-		ModelImpl model = new ModelImpl();
-		return model;
+	public de.unistuttgart.ma.saga.System createSystem() {
+		SystemImpl system = new SystemImpl();
+		return system;
 	}
 
 	/**

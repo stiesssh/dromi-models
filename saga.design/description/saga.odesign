@@ -211,9 +211,9 @@
         </nodeMappings>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ActionTest" domainClass="saga::Project" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ActionTest" domainClass="saga::Model" enablePopupBars="true">
       <defaultLayer name="Default">
-        <nodeMappings name="some node" semanticCandidatesExpression="var:self" domainClass="saga::Project">
+        <nodeMappings name="some node" semanticCandidatesExpression="var:self" domainClass="saga::Model">
           <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="fooo" labelPosition="node" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -226,7 +226,7 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="fooocall" action="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='ActionTest']/@defaultLayer/@toolSections.0/@ownedTools[name='toooly']/@initialOperation/@firstModelOperations/@subModelOperations.0">
-                <subModelOperations xsi:type="tool:ExternalJavaAction" name="fooo" icon="/org.apache.batik.bridge/org/apache/batik/bridge/BrokenLink.svg" id="saga.design.javaActions1"/>
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="fooo" icon="/org.apache.batik.bridge/org/apache/batik/bridge/BrokenLink.svg" id="saga.design.helloWorldAction"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -236,10 +236,9 @@
     <ownedJavaExtensions qualifiedClassName="saga.design.Services"/>
     <ownedJavaExtensions qualifiedClassName="saga.design.Services2"/>
     <ownedJavaExtensions qualifiedClassName="de.unistuttgart.ma.saga.presentation.FooView"/>
-    <ownedJavaExtensions qualifiedClassName="saga.design.JavaActions1"/>
   </ownedViewpoints>
   <ownedViewpoints name="newmodelviewpoint" modelFileExtension="saga">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="notificationView" domainClass="saga::Model" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="notificationView" domainClass="saga::System" enablePopupBars="true">
       <validationSet name="validate sagas">
         <ownedRules xsi:type="validation:SemanticValidationRule" name="containment" message="Step is not contained in container... eh what?" targetClass="saga::SagaStep">
           <audits auditExpression="aql:self.eContainer().steps->includes(self)"/>
@@ -281,7 +280,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="create_edge_step_task" label="Connect to Tasks" edgeMappings="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_task']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="create_edge_step_task" label="Connect to Tasks" edgeMappings="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_task'] //@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='container_saga_layer']/@edgeMappings[name='edge_saga_task']">
             <sourceVariable name="source_step"/>
             <targetVariable name="target_task"/>
             <sourceViewVariable name="sourceView"/>
@@ -292,7 +291,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="create_edge_step_face" label="Connect to Interface" edgeMappings="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_interface']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="create_edge_step_face" label="Connect to Interface" edgeMappings="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_interface'] //@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='container_saga_layer']/@edgeMappings[name='edge_saga_interface']">
             <sourceVariable name="source_step"/>
             <targetVariable name="target_iface"/>
             <sourceViewVariable name="sourceView"/>
@@ -337,9 +336,48 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newSemanticContainer">
                 <subModelOperations xsi:type="tool:SetValue" featureName="steps" valueExpression="aql:newSemanticContainer.oclAsType(saga::Saga).steps->including(element)"/>
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="nextStep" valueExpression="aql:element.oclAsType(saga::SagaStep).eInverse()"/>
-                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnect_edge_saga_interface">
+            <source name="source_sagastep"/>
+            <target name="target_task"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element_unmoved"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element_unmoved">
+                <subModelOperations xsi:type="tool:SetValue" featureName="componentInterface" valueExpression="var:target_task"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Actions">
+          <ownedTools xsi:type="tool:ToolDescription" name="toooly">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@toolSections.1/@ownedTools[name='toooly']/@initialOperation/@firstModelOperations/@subModelOperations.0">
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="action_hello_worl" id="saga.design.helloWorldAction"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="post_to_backend">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@toolSections.1/@ownedTools[name='post_to_backend']/@initialOperation/@firstModelOperations/@subModelOperations.0">
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="action_post_to_backend" id="saga.design.postModelAction"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="get_from_backend">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@toolSections.1/@ownedTools[name='get_from_backend']/@initialOperation/@firstModelOperations/@subModelOperations.0">
+                <subModelOperations xsi:type="tool:ExternalJavaAction" name="action_get_from_backend" id="saga.design.getNotificationAction"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -393,14 +431,14 @@
         </edgeMappings>
       </additionalLayers>
       <additionalLayers name="arch_layer" activeByDefault="true">
-        <nodeMappings name="componentNode" semanticCandidatesExpression="aql:self.gropiusProject.components" domainClass="gropius::Component">
+        <nodeMappings name="componentNode" semanticCandidatesExpression="aql:self.architecture.components" domainClass="gropius::Component">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.arch.component">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="IntefaceNode" semanticCandidatesExpression="aql:self.gropiusProject.components.interfaces" domainClass="gropius::ComponentInterface">
+        <nodeMappings name="IntefaceNode" semanticCandidatesExpression="aql:self.architecture.components.interfaces" domainClass="gropius::ComponentInterface">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.event.start">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -424,7 +462,7 @@
           </style>
         </edgeMappings>
       </additionalLayers>
-      <additionalLayers name="saga_layer" activeByDefault="true">
+      <additionalLayers name="saga_layer">
         <nodeMappings name="SagaNode" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga">
           <style xsi:type="style:DotDescription" labelSize="11" labelExpression="feature:id" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -454,7 +492,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaStepNode']" targetMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
+        <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaStepNode']" targetMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
           <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -488,7 +526,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='container_saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_node']" targetMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
+        <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='container_saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_node']" targetMapping="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='newmodelviewpoint']/@ownedRepresentations[name='notificationView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
           <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">

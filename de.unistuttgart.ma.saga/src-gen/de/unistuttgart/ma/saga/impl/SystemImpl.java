@@ -6,12 +6,13 @@ import de.unistuttgart.gropius.Project;
 
 import de.unistuttgart.gropius.slo.SloRule;
 
-import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaPackage;
+
+import de.unistuttgart.ma.saga.impact.Notification;
+
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -26,21 +27,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>System</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.impl.ModelImpl#getSagas <em>Sagas</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impl.ModelImpl#getProcesses <em>Processes</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impl.ModelImpl#getGropiusProject <em>Gropius Project</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impl.ModelImpl#getSloRules <em>Slo Rules</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getSagas <em>Sagas</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getProcesses <em>Processes</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getArchitecture <em>Architecture</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getSloRules <em>Slo Rules</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getNotifications <em>Notifications</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends IdentifiableElementImpl implements Model {
+public class SystemImpl extends IdentifiableElementImpl implements de.unistuttgart.ma.saga.System {
 	/**
 	 * The cached value of the '{@link #getSagas() <em>Sagas</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -62,14 +64,14 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	protected EList<org.eclipse.bpmn2.Process> processes;
 
 	/**
-	 * The cached value of the '{@link #getGropiusProject() <em>Gropius Project</em>}' containment reference.
+	 * The cached value of the '{@link #getArchitecture() <em>Architecture</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGropiusProject()
+	 * @see #getArchitecture()
 	 * @generated
 	 * @ordered
 	 */
-	protected Project gropiusProject;
+	protected Project architecture;
 
 	/**
 	 * The cached value of the '{@link #getSloRules() <em>Slo Rules</em>}' containment reference list.
@@ -82,11 +84,21 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	protected EList<SloRule> sloRules;
 
 	/**
+	 * The cached value of the '{@link #getNotifications() <em>Notifications</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNotifications()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Notification> notifications;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelImpl() {
+	protected SystemImpl() {
 		super();
 	}
 
@@ -97,7 +109,7 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SagaPackage.Literals.MODEL;
+		return SagaPackage.Literals.SYSTEM;
 	}
 
 	/**
@@ -107,7 +119,7 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	 */
 	public EList<Saga> getSagas() {
 		if (sagas == null) {
-			sagas = new EObjectContainmentEList<Saga>(Saga.class, this, SagaPackage.MODEL__SAGAS);
+			sagas = new EObjectContainmentEList<Saga>(Saga.class, this, SagaPackage.SYSTEM__SAGAS);
 		}
 		return sagas;
 	}
@@ -119,7 +131,7 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	 */
 	public EList<org.eclipse.bpmn2.Process> getProcesses() {
 		if (processes == null) {
-			processes = new EObjectContainmentEList<org.eclipse.bpmn2.Process>(org.eclipse.bpmn2.Process.class, this, SagaPackage.MODEL__PROCESSES);
+			processes = new EObjectContainmentEList<org.eclipse.bpmn2.Process>(org.eclipse.bpmn2.Process.class, this, SagaPackage.SYSTEM__PROCESSES);
 		}
 		return processes;
 	}
@@ -129,8 +141,8 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Project getGropiusProject() {
-		return gropiusProject;
+	public Project getArchitecture() {
+		return architecture;
 	}
 
 	/**
@@ -138,11 +150,11 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetGropiusProject(Project newGropiusProject, NotificationChain msgs) {
-		Project oldGropiusProject = gropiusProject;
-		gropiusProject = newGropiusProject;
+	public NotificationChain basicSetArchitecture(Project newArchitecture, NotificationChain msgs) {
+		Project oldArchitecture = architecture;
+		architecture = newArchitecture;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SagaPackage.MODEL__GROPIUS_PROJECT, oldGropiusProject, newGropiusProject);
+			ENotificationImpl notification = new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, SagaPackage.SYSTEM__ARCHITECTURE, oldArchitecture, newArchitecture);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -153,18 +165,18 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGropiusProject(Project newGropiusProject) {
-		if (newGropiusProject != gropiusProject) {
+	public void setArchitecture(Project newArchitecture) {
+		if (newArchitecture != architecture) {
 			NotificationChain msgs = null;
-			if (gropiusProject != null)
-				msgs = ((InternalEObject)gropiusProject).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SagaPackage.MODEL__GROPIUS_PROJECT, null, msgs);
-			if (newGropiusProject != null)
-				msgs = ((InternalEObject)newGropiusProject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SagaPackage.MODEL__GROPIUS_PROJECT, null, msgs);
-			msgs = basicSetGropiusProject(newGropiusProject, msgs);
+			if (architecture != null)
+				msgs = ((InternalEObject)architecture).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SagaPackage.SYSTEM__ARCHITECTURE, null, msgs);
+			if (newArchitecture != null)
+				msgs = ((InternalEObject)newArchitecture).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SagaPackage.SYSTEM__ARCHITECTURE, null, msgs);
+			msgs = basicSetArchitecture(newArchitecture, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SagaPackage.MODEL__GROPIUS_PROJECT, newGropiusProject, newGropiusProject));
+			eNotify(new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, SagaPackage.SYSTEM__ARCHITECTURE, newArchitecture, newArchitecture));
 	}
 
 	/**
@@ -174,9 +186,21 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	 */
 	public EList<SloRule> getSloRules() {
 		if (sloRules == null) {
-			sloRules = new EObjectContainmentEList<SloRule>(SloRule.class, this, SagaPackage.MODEL__SLO_RULES);
+			sloRules = new EObjectContainmentEList<SloRule>(SloRule.class, this, SagaPackage.SYSTEM__SLO_RULES);
 		}
 		return sloRules;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Notification> getNotifications() {
+		if (notifications == null) {
+			notifications = new EObjectContainmentEList<Notification>(Notification.class, this, SagaPackage.SYSTEM__NOTIFICATIONS);
+		}
+		return notifications;
 	}
 
 	/**
@@ -187,14 +211,16 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SagaPackage.MODEL__SAGAS:
+			case SagaPackage.SYSTEM__SAGAS:
 				return ((InternalEList<?>)getSagas()).basicRemove(otherEnd, msgs);
-			case SagaPackage.MODEL__PROCESSES:
+			case SagaPackage.SYSTEM__PROCESSES:
 				return ((InternalEList<?>)getProcesses()).basicRemove(otherEnd, msgs);
-			case SagaPackage.MODEL__GROPIUS_PROJECT:
-				return basicSetGropiusProject(null, msgs);
-			case SagaPackage.MODEL__SLO_RULES:
+			case SagaPackage.SYSTEM__ARCHITECTURE:
+				return basicSetArchitecture(null, msgs);
+			case SagaPackage.SYSTEM__SLO_RULES:
 				return ((InternalEList<?>)getSloRules()).basicRemove(otherEnd, msgs);
+			case SagaPackage.SYSTEM__NOTIFICATIONS:
+				return ((InternalEList<?>)getNotifications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -207,14 +233,16 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SagaPackage.MODEL__SAGAS:
+			case SagaPackage.SYSTEM__SAGAS:
 				return getSagas();
-			case SagaPackage.MODEL__PROCESSES:
+			case SagaPackage.SYSTEM__PROCESSES:
 				return getProcesses();
-			case SagaPackage.MODEL__GROPIUS_PROJECT:
-				return getGropiusProject();
-			case SagaPackage.MODEL__SLO_RULES:
+			case SagaPackage.SYSTEM__ARCHITECTURE:
+				return getArchitecture();
+			case SagaPackage.SYSTEM__SLO_RULES:
 				return getSloRules();
+			case SagaPackage.SYSTEM__NOTIFICATIONS:
+				return getNotifications();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,20 +256,24 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SagaPackage.MODEL__SAGAS:
+			case SagaPackage.SYSTEM__SAGAS:
 				getSagas().clear();
 				getSagas().addAll((Collection<? extends Saga>)newValue);
 				return;
-			case SagaPackage.MODEL__PROCESSES:
+			case SagaPackage.SYSTEM__PROCESSES:
 				getProcesses().clear();
 				getProcesses().addAll((Collection<? extends org.eclipse.bpmn2.Process>)newValue);
 				return;
-			case SagaPackage.MODEL__GROPIUS_PROJECT:
-				setGropiusProject((Project)newValue);
+			case SagaPackage.SYSTEM__ARCHITECTURE:
+				setArchitecture((Project)newValue);
 				return;
-			case SagaPackage.MODEL__SLO_RULES:
+			case SagaPackage.SYSTEM__SLO_RULES:
 				getSloRules().clear();
 				getSloRules().addAll((Collection<? extends SloRule>)newValue);
+				return;
+			case SagaPackage.SYSTEM__NOTIFICATIONS:
+				getNotifications().clear();
+				getNotifications().addAll((Collection<? extends Notification>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -255,17 +287,20 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SagaPackage.MODEL__SAGAS:
+			case SagaPackage.SYSTEM__SAGAS:
 				getSagas().clear();
 				return;
-			case SagaPackage.MODEL__PROCESSES:
+			case SagaPackage.SYSTEM__PROCESSES:
 				getProcesses().clear();
 				return;
-			case SagaPackage.MODEL__GROPIUS_PROJECT:
-				setGropiusProject((Project)null);
+			case SagaPackage.SYSTEM__ARCHITECTURE:
+				setArchitecture((Project)null);
 				return;
-			case SagaPackage.MODEL__SLO_RULES:
+			case SagaPackage.SYSTEM__SLO_RULES:
 				getSloRules().clear();
+				return;
+			case SagaPackage.SYSTEM__NOTIFICATIONS:
+				getNotifications().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -279,16 +314,18 @@ public class ModelImpl extends IdentifiableElementImpl implements Model {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SagaPackage.MODEL__SAGAS:
+			case SagaPackage.SYSTEM__SAGAS:
 				return sagas != null && !sagas.isEmpty();
-			case SagaPackage.MODEL__PROCESSES:
+			case SagaPackage.SYSTEM__PROCESSES:
 				return processes != null && !processes.isEmpty();
-			case SagaPackage.MODEL__GROPIUS_PROJECT:
-				return gropiusProject != null;
-			case SagaPackage.MODEL__SLO_RULES:
+			case SagaPackage.SYSTEM__ARCHITECTURE:
+				return architecture != null;
+			case SagaPackage.SYSTEM__SLO_RULES:
 				return sloRules != null && !sloRules.isEmpty();
+			case SagaPackage.SYSTEM__NOTIFICATIONS:
+				return notifications != null && !notifications.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ModelImpl
+} //SystemImpl

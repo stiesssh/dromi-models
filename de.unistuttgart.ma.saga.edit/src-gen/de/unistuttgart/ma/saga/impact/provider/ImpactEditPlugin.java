@@ -8,6 +8,7 @@ import de.unistuttgart.gropius.slo.provider.SloEditPlugin;
 
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
 
+import org.eclipse.bpmn2.provider.Bpmn20EditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -47,6 +48,7 @@ public final class ImpactEditPlugin extends EMFPlugin {
 		     GropiusEditPlugin.INSTANCE,
 		     SagaEditPlugin.INSTANCE,
 		     SloEditPlugin.INSTANCE,
+		     Bpmn20EditPlugin.INSTANCE,
 		   });
 	}
 

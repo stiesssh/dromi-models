@@ -25,7 +25,7 @@ public class SolomonApiQuerier {
 
 	public Set<SloFlatRule> query(String queryString ) throws IOException, InterruptedException {		
 		
-		URI requestUri = URI.create(apiUri.toString() + "/" + queryString);
+		URI requestUri = URI.create(apiUri.toString() + queryString);
 		
 		HttpRequest request = HttpRequest.newBuilder().GET().uri(requestUri).build();
 		HttpResponse<String> response = httpClient.send(request, BodyHandlers.ofString());

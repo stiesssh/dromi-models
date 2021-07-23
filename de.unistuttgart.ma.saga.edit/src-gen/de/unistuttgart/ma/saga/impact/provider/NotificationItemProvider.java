@@ -3,6 +3,7 @@
 package de.unistuttgart.ma.saga.impact.provider;
 
 
+import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
 
@@ -113,6 +114,7 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ImpactPackage.Literals.NOTIFICATION__IMPACTS);
+			childrenFeatures.add(ImpactPackage.Literals.NOTIFICATION__ALERT);
 		}
 		return childrenFeatures;
 	}
@@ -169,6 +171,7 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 
 		switch (notification.getFeatureID(de.unistuttgart.ma.saga.impact.Notification.class)) {
 			case ImpactPackage.NOTIFICATION__IMPACTS:
+			case ImpactPackage.NOTIFICATION__ALERT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,6 +193,11 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 			(createChildParameter
 				(ImpactPackage.Literals.NOTIFICATION__IMPACTS,
 				 ImpactFactory.eINSTANCE.createImpact()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ImpactPackage.Literals.NOTIFICATION__ALERT,
+				 SloFactory.eINSTANCE.createAlert()));
 	}
 
 	/**

@@ -22,13 +22,13 @@ public interface SagaFactory extends EFactory {
 	SagaFactory eINSTANCE = de.unistuttgart.ma.saga.impl.SagaFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Model</em>'.
+	 * Returns a new object of class '<em>System</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Model</em>'.
+	 * @return a new object of class '<em>System</em>'.
 	 * @generated
 	 */
-	Model createModel();
+	System createSystem();
 
 	/**
 	 * Returns a new object of class '<em>Saga</em>'.

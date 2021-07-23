@@ -69,6 +69,7 @@ public class SagaModelWizardGropiusImportPage extends WizardPage {
 			data.horizontalAlignment = GridData.FILL;
 			data.grabExcessHorizontalSpace = true;
 			gropiusUrlField.setLayoutData(data);
+			gropiusUrlField.setText(Literals.gropiusUrl);
 		}
 
 		gropiusUrlField.addModifyListener(validator);
@@ -87,6 +88,7 @@ public class SagaModelWizardGropiusImportPage extends WizardPage {
 			data.horizontalAlignment = GridData.FILL;
 			data.grabExcessHorizontalSpace = true;
 			gropiusProjectIdField.setLayoutData(data);
+			gropiusProjectIdField.setText(Literals.gropiusProjectName);
 		}
 
 		gropiusProjectIdField.addModifyListener(validator);
@@ -110,7 +112,7 @@ public class SagaModelWizardGropiusImportPage extends WizardPage {
 	 * <!-- end-user-doc -->
 	 */
 	protected boolean validatePage() {
-		return getGropiusUrlField() != null && getGropiusProjectIdField() != null;
+		return getGropiusUrlField() != null && getGropiusProjectIdField() != null && !getGropiusProjectIdField().isBlank() && !getGropiusUrlField().isBlank();
 	}
 
 	/**

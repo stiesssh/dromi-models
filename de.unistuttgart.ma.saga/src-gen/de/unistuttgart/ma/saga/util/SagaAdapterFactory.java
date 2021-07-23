@@ -2,7 +2,10 @@
  */
 package de.unistuttgart.ma.saga.util;
 
-import de.unistuttgart.ma.saga.*;
+import de.unistuttgart.ma.saga.IdentifiableElement;
+import de.unistuttgart.ma.saga.Saga;
+import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.SagaStep;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -68,8 +71,8 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 	protected SagaSwitch<Adapter> modelSwitch =
 		new SagaSwitch<Adapter>() {
 			@Override
-			public Adapter caseModel(Model object) {
-				return createModelAdapter();
+			public Adapter caseSystem(de.unistuttgart.ma.saga.System object) {
+				return createSystemAdapter();
 			}
 			@Override
 			public Adapter caseSaga(Saga object) {
@@ -104,16 +107,16 @@ public class SagaAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.Model <em>Model</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.System <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.Model
+	 * @see de.unistuttgart.ma.saga.System
 	 * @generated
 	 */
-	public Adapter createModelAdapter() {
+	public Adapter createSystemAdapter() {
 		return null;
 	}
 

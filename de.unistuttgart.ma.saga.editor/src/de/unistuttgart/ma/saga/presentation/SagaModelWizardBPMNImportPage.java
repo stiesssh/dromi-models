@@ -27,8 +27,7 @@ public class SagaModelWizardBPMNImportPage extends WizardPage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected Text gropiusUrlField;
-	protected Text gropiusProjectIdField;
+	protected Text bpmnFilePath;
 
 	/**
 	 * Pass in the selection.
@@ -67,33 +66,16 @@ public class SagaModelWizardBPMNImportPage extends WizardPage {
 			containerLabel.setLayoutData(data);
 		}
 
-		gropiusUrlField = new Text(composite, SWT.BORDER);
+		bpmnFilePath = new Text(composite, SWT.BORDER);
 		{
 			GridData data = new GridData();
 			data.horizontalAlignment = GridData.FILL;
 			data.grabExcessHorizontalSpace = true;
-			gropiusUrlField.setLayoutData(data);
+			bpmnFilePath.setLayoutData(data);
+			bpmnFilePath.setText(Literals.bpmnFilePath);
 		}
 
-		gropiusUrlField.addModifyListener(validator);
-
-		Label encodingLabel = new Label(composite, SWT.LEFT);
-		{
-			encodingLabel.setText("Project id : ");
-
-			GridData data = new GridData();
-			data.horizontalAlignment = GridData.FILL;
-			encodingLabel.setLayoutData(data);
-		}
-		gropiusProjectIdField = new Text(composite, SWT.BORDER);
-		{
-			GridData data = new GridData();
-			data.horizontalAlignment = GridData.FILL;
-			data.grabExcessHorizontalSpace = true;
-			gropiusProjectIdField.setLayoutData(data);
-		}
-
-		gropiusProjectIdField.addModifyListener(validator);
+		bpmnFilePath.addModifyListener(validator);
 
 		setPageComplete(validatePage());
 		setControl(composite);
@@ -114,7 +96,7 @@ public class SagaModelWizardBPMNImportPage extends WizardPage {
 	 * <!-- end-user-doc -->
 	 */
 	protected boolean validatePage() {
-		return getGropiusUrlField() != null && getGropiusProjectIdField() != null;
+		return getbpmnFilePathField() != null && !getbpmnFilePathField().isBlank();
 	}
 
 	/**
@@ -125,8 +107,7 @@ public class SagaModelWizardBPMNImportPage extends WizardPage {
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
 		if (visible) {
-			gropiusProjectIdField.clearSelection();
-			gropiusUrlField.setFocus();
+			bpmnFilePath.setFocus();
 		}
 	}
 
@@ -134,16 +115,8 @@ public class SagaModelWizardBPMNImportPage extends WizardPage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public String getGropiusUrlField() {
-		return gropiusUrlField.getText();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public String getGropiusProjectIdField() {
-		return gropiusProjectIdField.getText();
+	public String getbpmnFilePathField() {
+		return bpmnFilePath.getText();
 	}
 
 	/**

@@ -17,18 +17,18 @@ public class SolomonImporter implements SloImporter {
 	private final SolomonApiQuerier querier;
 	
 	// TODO : this is a DeploymentEnvironment (currently either 'aws' or 'kubernetes', vgl. solomon/**/slo-rule.model.ts)
-	private final String queryPathparam; 
+	private final String environmentParameter; 
 
-	public SolomonImporter(String uri, String queryPathparam) {
+	public SolomonImporter(String uri, String environmentParameter) {
 		this.querier = new SolomonApiQuerier(uri);
-		this.queryPathparam = queryPathparam;
+		this.environmentParameter = environmentParameter;
 		this.gropiusmapper = DataMapper.getMapper();
 	}
 	
 	@Override
 	public Set<SloRule> parse() {
 		try {
-			Set<SloFlatRule> slorules = querier.query(queryPathparam); 
+			Set<SloFlatRule> slorules = querier.query(environmentParameter); 
 			return parse(slorules);
 		} catch (IOException | InterruptedException e) {
 			// TODO Auto-generated catch block

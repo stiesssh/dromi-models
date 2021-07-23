@@ -7,10 +7,9 @@ import de.unistuttgart.gropius.GropiusFactory;
 
 import de.unistuttgart.gropius.slo.SloFactory;
 
-import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
-
+import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,19 +24,19 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.Model} object.
+ * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.System} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelItemProvider extends IdentifiableElementItemProvider {
+public class SystemItemProvider extends IdentifiableElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelItemProvider(AdapterFactory adapterFactory) {
+	public SystemItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,10 +67,11 @@ public class ModelItemProvider extends IdentifiableElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SagaPackage.Literals.MODEL__SAGAS);
-			childrenFeatures.add(SagaPackage.Literals.MODEL__PROCESSES);
-			childrenFeatures.add(SagaPackage.Literals.MODEL__GROPIUS_PROJECT);
-			childrenFeatures.add(SagaPackage.Literals.MODEL__SLO_RULES);
+			childrenFeatures.add(SagaPackage.Literals.SYSTEM__SAGAS);
+			childrenFeatures.add(SagaPackage.Literals.SYSTEM__PROCESSES);
+			childrenFeatures.add(SagaPackage.Literals.SYSTEM__ARCHITECTURE);
+			childrenFeatures.add(SagaPackage.Literals.SYSTEM__SLO_RULES);
+			childrenFeatures.add(SagaPackage.Literals.SYSTEM__NOTIFICATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -90,14 +90,14 @@ public class ModelItemProvider extends IdentifiableElementItemProvider {
 	}
 
 	/**
-	 * This returns Model.gif.
+	 * This returns System.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Model"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/System"));
 	}
 
 	/**
@@ -108,10 +108,10 @@ public class ModelItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Model)object).getId();
+		String label = ((de.unistuttgart.ma.saga.System)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Model_type") :
-			getString("_UI_Model_type") + " " + label;
+			getString("_UI_System_type") :
+			getString("_UI_System_type") + " " + label;
 	}
 
 
@@ -126,11 +126,12 @@ public class ModelItemProvider extends IdentifiableElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Model.class)) {
-			case SagaPackage.MODEL__SAGAS:
-			case SagaPackage.MODEL__PROCESSES:
-			case SagaPackage.MODEL__GROPIUS_PROJECT:
-			case SagaPackage.MODEL__SLO_RULES:
+		switch (notification.getFeatureID(de.unistuttgart.ma.saga.System.class)) {
+			case SagaPackage.SYSTEM__SAGAS:
+			case SagaPackage.SYSTEM__PROCESSES:
+			case SagaPackage.SYSTEM__ARCHITECTURE:
+			case SagaPackage.SYSTEM__SLO_RULES:
+			case SagaPackage.SYSTEM__NOTIFICATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,23 +151,28 @@ public class ModelItemProvider extends IdentifiableElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SagaPackage.Literals.MODEL__SAGAS,
+				(SagaPackage.Literals.SYSTEM__SAGAS,
 				 SagaFactory.eINSTANCE.createSaga()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SagaPackage.Literals.MODEL__PROCESSES,
+				(SagaPackage.Literals.SYSTEM__PROCESSES,
 				 Bpmn2Factory.eINSTANCE.createProcess()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SagaPackage.Literals.MODEL__GROPIUS_PROJECT,
+				(SagaPackage.Literals.SYSTEM__ARCHITECTURE,
 				 GropiusFactory.eINSTANCE.createProject()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SagaPackage.Literals.MODEL__SLO_RULES,
+				(SagaPackage.Literals.SYSTEM__SLO_RULES,
 				 SloFactory.eINSTANCE.createSloRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.SYSTEM__NOTIFICATIONS,
+				 ImpactFactory.eINSTANCE.createNotification()));
 	}
 
 }

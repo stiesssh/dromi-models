@@ -94,14 +94,14 @@ public interface SagaPackage extends EPackage {
 	int IDENTIFIABLE_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ModelImpl <em>Model</em>}' class.
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.SystemImpl <em>System</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.ma.saga.impl.ModelImpl
-	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getModel()
+	 * @see de.unistuttgart.ma.saga.impl.SystemImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getSystem()
 	 * @generated
 	 */
-	int MODEL = 0;
+	int SYSTEM = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -110,7 +110,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ID = IDENTIFIABLE_ELEMENT__ID;
+	int SYSTEM__ID = IDENTIFIABLE_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Sagas</b></em>' containment reference list.
@@ -119,7 +119,7 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__SAGAS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 0;
+	int SYSTEM__SAGAS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
@@ -128,16 +128,16 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__PROCESSES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 1;
+	int SYSTEM__PROCESSES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Gropius Project</b></em>' containment reference.
+	 * The feature id for the '<em><b>Architecture</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__GROPIUS_PROJECT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 2;
+	int SYSTEM__ARCHITECTURE = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Slo Rules</b></em>' containment reference list.
@@ -146,25 +146,34 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__SLO_RULES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
+	int SYSTEM__SLO_RULES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Model</em>' class.
+	 * The feature id for the '<em><b>Notifications</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 4;
+	int SYSTEM__NOTIFICATIONS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Model</em>' class.
+	 * The number of structural features of the '<em>System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
+	int SYSTEM_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>System</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_OPERATION_COUNT = IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.SagaImpl <em>Saga</em>}' class.
@@ -278,58 +287,69 @@ public interface SagaPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Model <em>Model</em>}'.
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.System <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Model</em>'.
-	 * @see de.unistuttgart.ma.saga.Model
+	 * @return the meta object for class '<em>System</em>'.
+	 * @see de.unistuttgart.ma.saga.System
 	 * @generated
 	 */
-	EClass getModel();
+	EClass getSystem();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Model#getSagas <em>Sagas</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.System#getSagas <em>Sagas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Sagas</em>'.
-	 * @see de.unistuttgart.ma.saga.Model#getSagas()
-	 * @see #getModel()
+	 * @see de.unistuttgart.ma.saga.System#getSagas()
+	 * @see #getSystem()
 	 * @generated
 	 */
-	EReference getModel_Sagas();
+	EReference getSystem_Sagas();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Model#getProcesses <em>Processes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.System#getProcesses <em>Processes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Processes</em>'.
-	 * @see de.unistuttgart.ma.saga.Model#getProcesses()
-	 * @see #getModel()
+	 * @see de.unistuttgart.ma.saga.System#getProcesses()
+	 * @see #getSystem()
 	 * @generated
 	 */
-	EReference getModel_Processes();
+	EReference getSystem_Processes();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.unistuttgart.ma.saga.Model#getGropiusProject <em>Gropius Project</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.unistuttgart.ma.saga.System#getArchitecture <em>Architecture</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Gropius Project</em>'.
-	 * @see de.unistuttgart.ma.saga.Model#getGropiusProject()
-	 * @see #getModel()
+	 * @return the meta object for the containment reference '<em>Architecture</em>'.
+	 * @see de.unistuttgart.ma.saga.System#getArchitecture()
+	 * @see #getSystem()
 	 * @generated
 	 */
-	EReference getModel_GropiusProject();
+	EReference getSystem_Architecture();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.Model#getSloRules <em>Slo Rules</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.System#getSloRules <em>Slo Rules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Slo Rules</em>'.
-	 * @see de.unistuttgart.ma.saga.Model#getSloRules()
-	 * @see #getModel()
+	 * @see de.unistuttgart.ma.saga.System#getSloRules()
+	 * @see #getSystem()
 	 * @generated
 	 */
-	EReference getModel_SloRules();
+	EReference getSystem_SloRules();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.System#getNotifications <em>Notifications</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Notifications</em>'.
+	 * @see de.unistuttgart.ma.saga.System#getNotifications()
+	 * @see #getSystem()
+	 * @generated
+	 */
+	EReference getSystem_Notifications();
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Saga <em>Saga</em>}'.
@@ -440,14 +460,14 @@ public interface SagaPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ModelImpl <em>Model</em>}' class.
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.SystemImpl <em>System</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.ma.saga.impl.ModelImpl
-		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getModel()
+		 * @see de.unistuttgart.ma.saga.impl.SystemImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getSystem()
 		 * @generated
 		 */
-		EClass MODEL = eINSTANCE.getModel();
+		EClass SYSTEM = eINSTANCE.getSystem();
 
 		/**
 		 * The meta object literal for the '<em><b>Sagas</b></em>' containment reference list feature.
@@ -455,7 +475,7 @@ public interface SagaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__SAGAS = eINSTANCE.getModel_Sagas();
+		EReference SYSTEM__SAGAS = eINSTANCE.getSystem_Sagas();
 
 		/**
 		 * The meta object literal for the '<em><b>Processes</b></em>' containment reference list feature.
@@ -463,15 +483,15 @@ public interface SagaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__PROCESSES = eINSTANCE.getModel_Processes();
+		EReference SYSTEM__PROCESSES = eINSTANCE.getSystem_Processes();
 
 		/**
-		 * The meta object literal for the '<em><b>Gropius Project</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Architecture</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__GROPIUS_PROJECT = eINSTANCE.getModel_GropiusProject();
+		EReference SYSTEM__ARCHITECTURE = eINSTANCE.getSystem_Architecture();
 
 		/**
 		 * The meta object literal for the '<em><b>Slo Rules</b></em>' containment reference list feature.
@@ -479,7 +499,15 @@ public interface SagaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL__SLO_RULES = eINSTANCE.getModel_SloRules();
+		EReference SYSTEM__SLO_RULES = eINSTANCE.getSystem_SloRules();
+
+		/**
+		 * The meta object literal for the '<em><b>Notifications</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYSTEM__NOTIFICATIONS = eINSTANCE.getSystem_Notifications();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.SagaImpl <em>Saga</em>}' class.

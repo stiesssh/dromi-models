@@ -2,6 +2,8 @@
  */
 package de.unistuttgart.ma.saga.impact.impl;
 
+import de.unistuttgart.gropius.slo.Alert;
+
 import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
 import de.unistuttgart.ma.saga.impact.Notification;
@@ -17,8 +19,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getImpacts <em>Impacts</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getTopLevelImpacts <em>Top Level Impacts</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getAlert <em>Alert</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,14 +51,24 @@ public class NotificationImpl extends IdentifiableElementImpl implements Notific
 	protected EList<Impact> impacts;
 
 	/**
-	 * The cached value of the '{@link #getTopLevelImpacts() <em>Top Level Impacts</em>}' reference list.
+	 * The cached value of the '{@link #getTopLevelImpacts() <em>Top Level Impacts</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTopLevelImpacts()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Impact> topLevelImpacts;
+	protected Impact topLevelImpacts;
+
+	/**
+	 * The cached value of the '{@link #getAlert() <em>Alert</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlert()
+	 * @generated
+	 * @ordered
+	 */
+	protected Alert alert;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +106,80 @@ public class NotificationImpl extends IdentifiableElementImpl implements Notific
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Impact> getTopLevelImpacts() {
-		if (topLevelImpacts == null) {
-			topLevelImpacts = new EObjectResolvingEList<Impact>(Impact.class, this, ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS);
+	public Impact getTopLevelImpacts() {
+		if (topLevelImpacts != null && topLevelImpacts.eIsProxy()) {
+			InternalEObject oldTopLevelImpacts = (InternalEObject)topLevelImpacts;
+			topLevelImpacts = (Impact)eResolveProxy(oldTopLevelImpacts);
+			if (topLevelImpacts != oldTopLevelImpacts) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.RESOLVE, ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS, oldTopLevelImpacts, topLevelImpacts));
+			}
 		}
 		return topLevelImpacts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Impact basicGetTopLevelImpacts() {
+		return topLevelImpacts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTopLevelImpacts(Impact newTopLevelImpacts) {
+		Impact oldTopLevelImpacts = topLevelImpacts;
+		topLevelImpacts = newTopLevelImpacts;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS, oldTopLevelImpacts, topLevelImpacts));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Alert getAlert() {
+		return alert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAlert(Alert newAlert, NotificationChain msgs) {
+		Alert oldAlert = alert;
+		alert = newAlert;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, ImpactPackage.NOTIFICATION__ALERT, oldAlert, newAlert);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlert(Alert newAlert) {
+		if (newAlert != alert) {
+			NotificationChain msgs = null;
+			if (alert != null)
+				msgs = ((InternalEObject)alert).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ImpactPackage.NOTIFICATION__ALERT, null, msgs);
+			if (newAlert != null)
+				msgs = ((InternalEObject)newAlert).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ImpactPackage.NOTIFICATION__ALERT, null, msgs);
+			msgs = basicSetAlert(newAlert, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, ImpactPackage.NOTIFICATION__ALERT, newAlert, newAlert));
 	}
 
 	/**
@@ -109,6 +192,8 @@ public class NotificationImpl extends IdentifiableElementImpl implements Notific
 		switch (featureID) {
 			case ImpactPackage.NOTIFICATION__IMPACTS:
 				return ((InternalEList<?>)getImpacts()).basicRemove(otherEnd, msgs);
+			case ImpactPackage.NOTIFICATION__ALERT:
+				return basicSetAlert(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -124,7 +209,10 @@ public class NotificationImpl extends IdentifiableElementImpl implements Notific
 			case ImpactPackage.NOTIFICATION__IMPACTS:
 				return getImpacts();
 			case ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS:
-				return getTopLevelImpacts();
+				if (resolve) return getTopLevelImpacts();
+				return basicGetTopLevelImpacts();
+			case ImpactPackage.NOTIFICATION__ALERT:
+				return getAlert();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -143,8 +231,10 @@ public class NotificationImpl extends IdentifiableElementImpl implements Notific
 				getImpacts().addAll((Collection<? extends Impact>)newValue);
 				return;
 			case ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS:
-				getTopLevelImpacts().clear();
-				getTopLevelImpacts().addAll((Collection<? extends Impact>)newValue);
+				setTopLevelImpacts((Impact)newValue);
+				return;
+			case ImpactPackage.NOTIFICATION__ALERT:
+				setAlert((Alert)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,7 +252,10 @@ public class NotificationImpl extends IdentifiableElementImpl implements Notific
 				getImpacts().clear();
 				return;
 			case ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS:
-				getTopLevelImpacts().clear();
+				setTopLevelImpacts((Impact)null);
+				return;
+			case ImpactPackage.NOTIFICATION__ALERT:
+				setAlert((Alert)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -179,7 +272,9 @@ public class NotificationImpl extends IdentifiableElementImpl implements Notific
 			case ImpactPackage.NOTIFICATION__IMPACTS:
 				return impacts != null && !impacts.isEmpty();
 			case ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS:
-				return topLevelImpacts != null && !topLevelImpacts.isEmpty();
+				return topLevelImpacts != null;
+			case ImpactPackage.NOTIFICATION__ALERT:
+				return alert != null;
 		}
 		return super.eIsSet(featureID);
 	}

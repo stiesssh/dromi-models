@@ -2,7 +2,10 @@
  */
 package de.unistuttgart.ma.saga.util;
 
-import de.unistuttgart.ma.saga.*;
+import de.unistuttgart.ma.saga.IdentifiableElement;
+import de.unistuttgart.ma.saga.Saga;
+import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.SagaStep;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -66,10 +69,10 @@ public class SagaSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SagaPackage.MODEL: {
-				Model model = (Model)theEObject;
-				T result = caseModel(model);
-				if (result == null) result = caseIdentifiableElement(model);
+			case SagaPackage.SYSTEM: {
+				de.unistuttgart.ma.saga.System system = (de.unistuttgart.ma.saga.System)theEObject;
+				T result = caseSystem(system);
+				if (result == null) result = caseIdentifiableElement(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -98,17 +101,17 @@ public class SagaSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>System</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>System</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModel(Model object) {
+	public T caseSystem(de.unistuttgart.ma.saga.System object) {
 		return null;
 	}
 

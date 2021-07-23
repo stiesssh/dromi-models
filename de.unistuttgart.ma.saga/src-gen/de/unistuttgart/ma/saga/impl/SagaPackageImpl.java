@@ -3,19 +3,27 @@
 package de.unistuttgart.ma.saga.impl;
 
 import de.unistuttgart.gropius.GropiusPackage;
+
 import de.unistuttgart.gropius.slo.SloPackage;
+
 import de.unistuttgart.ma.saga.IdentifiableElement;
-import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
 
+import de.unistuttgart.ma.saga.impact.ImpactPackage;
+
+import de.unistuttgart.ma.saga.impact.impl.ImpactPackageImpl;
+
 import org.eclipse.bpmn2.Bpmn2Package;
 
 import org.eclipse.bpmn2.di.BpmnDiPackage;
+
 import org.eclipse.dd.dc.DcPackage;
+
 import org.eclipse.dd.di.DiPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -35,7 +43,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modelEClass = null;
+	private EClass systemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,11 +121,17 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		GropiusPackage.eINSTANCE.eClass();
 		SloPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ImpactPackage.eNS_URI);
+		ImpactPackageImpl theImpactPackage = (ImpactPackageImpl)(registeredPackage instanceof ImpactPackageImpl ? registeredPackage : ImpactPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theSagaPackage.createPackageContents();
+		theImpactPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSagaPackage.initializePackageContents();
+		theImpactPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSagaPackage.freeze();
@@ -132,8 +146,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModel() {
-		return modelEClass;
+	public EClass getSystem() {
+		return systemEClass;
 	}
 
 	/**
@@ -141,8 +155,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Sagas() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(0);
+	public EReference getSystem_Sagas() {
+		return (EReference)systemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -150,8 +164,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Processes() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(1);
+	public EReference getSystem_Processes() {
+		return (EReference)systemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -159,8 +173,8 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_GropiusProject() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(2);
+	public EReference getSystem_Architecture() {
+		return (EReference)systemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -168,8 +182,17 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_SloRules() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(3);
+	public EReference getSystem_SloRules() {
+		return (EReference)systemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSystem_Notifications() {
+		return (EReference)systemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -272,11 +295,12 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__SAGAS);
-		createEReference(modelEClass, MODEL__PROCESSES);
-		createEReference(modelEClass, MODEL__GROPIUS_PROJECT);
-		createEReference(modelEClass, MODEL__SLO_RULES);
+		systemEClass = createEClass(SYSTEM);
+		createEReference(systemEClass, SYSTEM__SAGAS);
+		createEReference(systemEClass, SYSTEM__PROCESSES);
+		createEReference(systemEClass, SYSTEM__ARCHITECTURE);
+		createEReference(systemEClass, SYSTEM__SLO_RULES);
+		createEReference(systemEClass, SYSTEM__NOTIFICATIONS);
 
 		sagaEClass = createEClass(SAGA);
 		createEReference(sagaEClass, SAGA__STEPS);
@@ -317,22 +341,24 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		Bpmn2Package theBpmn2Package = (Bpmn2Package)EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
 		GropiusPackage theGropiusPackage = (GropiusPackage)EPackage.Registry.INSTANCE.getEPackage(GropiusPackage.eNS_URI);
 		SloPackage theSloPackage = (SloPackage)EPackage.Registry.INSTANCE.getEPackage(SloPackage.eNS_URI);
+		ImpactPackage theImpactPackage = (ImpactPackage)EPackage.Registry.INSTANCE.getEPackage(ImpactPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		modelEClass.getESuperTypes().add(this.getIdentifiableElement());
+		systemEClass.getESuperTypes().add(this.getIdentifiableElement());
 		sagaEClass.getESuperTypes().add(this.getIdentifiableElement());
 		sagaStepEClass.getESuperTypes().add(this.getIdentifiableElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModel_Sagas(), this.getSaga(), null, "sagas", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_Processes(), theBpmn2Package.getProcess(), null, "processes", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_GropiusProject(), theGropiusPackage.getProject(), null, "gropiusProject", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_SloRules(), theSloPackage.getSloRule(), null, "sloRules", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(systemEClass, de.unistuttgart.ma.saga.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSystem_Sagas(), this.getSaga(), null, "sagas", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystem_Processes(), theBpmn2Package.getProcess(), null, "processes", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystem_Architecture(), theGropiusPackage.getProject(), null, "architecture", null, 1, 1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystem_SloRules(), theSloPackage.getSloRule(), null, "sloRules", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystem_Notifications(), theImpactPackage.getNotification(), null, "notifications", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sagaEClass, Saga.class, "Saga", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSaga_Steps(), this.getSagaStep(), null, "steps", null, 0, -1, Saga.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

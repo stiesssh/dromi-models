@@ -72,26 +72,26 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Model} instances.
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.System} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelItemProvider modelItemProvider;
+	protected SystemItemProvider systemItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Model}.
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.System}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createModelAdapter() {
-		if (modelItemProvider == null) {
-			modelItemProvider = new ModelItemProvider(this);
+	public Adapter createSystemAdapter() {
+		if (systemItemProvider == null) {
+			systemItemProvider = new SystemItemProvider(this);
 		}
 
-		return modelItemProvider;
+		return systemItemProvider;
 	}
 
 	/**
@@ -239,7 +239,7 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
-		if (modelItemProvider != null) modelItemProvider.dispose();
+		if (systemItemProvider != null) systemItemProvider.dispose();
 		if (sagaItemProvider != null) sagaItemProvider.dispose();
 		if (sagaStepItemProvider != null) sagaStepItemProvider.dispose();
 	}
