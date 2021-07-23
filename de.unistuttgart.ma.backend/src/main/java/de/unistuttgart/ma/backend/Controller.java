@@ -46,13 +46,22 @@ public class Controller {
 	 * Endpoint to save a model, given as XML.
 	 * @param xml
 	 */
-	@PostMapping("/api/model")
-	public void importSiriusSystem(@RequestBody String xml) {
+	@PostMapping("/api/model/{filename}")
+	public void importSiriusSystem(@RequestBody String xml, @PathVariable String filename) {
 		try {
-			importService.parse(xml);
+			importService.parse(xml, filename);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Endpoint to save a model, given as XML.
+	 * @param xml
+	 */
+	@GetMapping("/api/model/{filename}")
+	public String getSystemModelId(@PathVariable String filename) {
+		return importService.getIdForSystemModel(filename);
 	}
 
 	/**
@@ -65,7 +74,7 @@ public class Controller {
 	 * @throws IOException
 	 * @throws MissingSystemModelException
 	 */
-	@GetMapping("/api/notification/{systemid}")
+	@GetMapping("/api/notification/{systemId}")
 	public String getNotification(@PathVariable String systemId) throws IOException, MissingSystemModelException {
 		Notification notification = service.retrieveNotification(systemId);
 

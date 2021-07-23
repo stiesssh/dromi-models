@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<impact:Notification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:impact="http://www.example.org/impact"
-    topLevelImpacts="03a0dc63-42f1-46f9-8f28-d36e17722533.impact#1234">
-  <impacts id="1234" rootCause="03a0dc63-42f1-46f9-8f28-d36e17722533.impact#violation_of_a_rule"/>
-  <alert name="violation_of_a_rule"/>
-</impact:Notification>

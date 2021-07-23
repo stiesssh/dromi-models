@@ -3,11 +3,13 @@ package de.unistuttgart.ma.backend;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import de.unistuttgart.gropius.slo.Alert;
 import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.ma.backend.exceptions.MissingSystemModelException;
 import de.unistuttgart.ma.backend.repository.NotificationRespository;
+import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import de.unistuttgart.ma.saga.impact.Notification;
@@ -17,9 +19,12 @@ import de.unistuttgart.ma.saga.impact.Notification;
  * @author maumau
  *
  */
+@Component
 public class NotificationRetrievalService {
 	
 	private final NotificationRespository repository;
+	
+	@Autowired private SystemRepositoryProxy systemRepo;
 	
 	
 	public NotificationRetrievalService(@Autowired NotificationRespository repository) {
@@ -33,11 +38,11 @@ public class NotificationRetrievalService {
 		
 		// get notification(s) (not yet reported) from repository 
 		
-		return makeTestNotification();
+		return makeTestNotification(systemID);
 	}
 	
 	
-	private Notification makeTestNotification() throws MissingSystemModelException {
+	private Notification makeTestNotification(String systemId) throws MissingSystemModelException {
 
 		Notification notification = ImpactFactory.eINSTANCE.createNotification();
 		notification.setId(UUID.randomUUID().toString());
@@ -53,12 +58,11 @@ public class NotificationRetrievalService {
 		notification.setTopLevelImpacts(impact);
 		notification.setAlert(alert);
 
-//		if (m != null) {
-//			// throw new MissingSystemModelException("system model is not set, can not
-//			// compute impact");
-//			alert.setSloRule(m.getSloRules().get(0));
-//			impact.setLocation(alert.getSloRule().getGropiusComponentInterface().getConsumedBy().get(0));
-//		}
+		de.unistuttgart.ma.saga.System s = systemRepo.findById(systemId);
+		
+		alert.setSloRule(s.getSloRules().get(0));
+		impact.setLocation(alert.getSloRule().getGropiusComponentInterface().getConsumedBy().get(0));
+
 		return notification;
 	}
 }
