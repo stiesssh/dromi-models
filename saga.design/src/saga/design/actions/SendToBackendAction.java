@@ -7,19 +7,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
 /**
@@ -30,14 +23,10 @@ import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
  */
 public class SendToBackendAction implements IExternalJavaAction {
 
-	// endpoint to post model to
-	private static java.net.URI uri = java.net.URI.create("http://localhost:8083/api/model");
-	// path where the model is saved
-	static Path path = Paths.get("/runtime-EclipseApplication/asdfghjkl/My.saga", ""); ///home/maumau/runtime-EclipseApplication/
-	
-	public static void setUri(String uriAsString) {
-		SendToBackendAction.uri = java.net.URI.create(uriAsString);
-	}
+//	// endpoint to post model to
+//	private static java.net.URI uri = java.net.URI.create("http://localhost:8083/api/model");
+//	// path where the model is saved
+//	static Path path = Paths.get("/runtime-EclipseApplication/asdfghjkl/My.saga", ""); ///home/maumau/runtime-EclipseApplication/
 	
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
@@ -53,7 +42,8 @@ public class SendToBackendAction implements IExternalJavaAction {
 				String systemXML;
 				try {
 					systemXML = serialize(system);
-					post(systemXML);
+					URI ressourceUri = system.eResource().getURI();
+					post(systemXML, ressourceUri.segment(ressourceUri.segmentCount() - 1));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -62,7 +52,6 @@ public class SendToBackendAction implements IExternalJavaAction {
 			}
 		}
 		
-		System.out.println("fuck you send oto backend");
 	}
 
 	@Override
@@ -97,9 +86,12 @@ public class SendToBackendAction implements IExternalJavaAction {
 	 * 
 	 * @param xml
 	 */
-	private void post(String xml) {
+	private void post(String xml, String filename) {
 		try {
 			HttpClient httpClient = HttpClient.newBuilder().build();
+			
+			//java.net.URI uri = java.net.URI.create(Literals.backendGetModelIdEndpoint + filename);
+			java.net.URI uri = java.net.URI.create("http://localhost:8083/api/model/" + filename);
 			
 			HttpRequest request = HttpRequest.newBuilder().POST(BodyPublishers.ofString(xml)).uri(uri).build();
 			httpClient.send(request, BodyHandlers.ofString());

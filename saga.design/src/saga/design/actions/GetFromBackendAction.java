@@ -29,13 +29,6 @@ import de.unistuttgart.ma.saga.impact.Notification;
  *
  */
 public class GetFromBackendAction implements IExternalJavaAction {
-	
-	private static java.net.URI uri = java.net.URI.create("http://localhost:8083/api/notification");
-	
-	public static void setUri(String uriAsString) {
-		GetFromBackendAction.uri = java.net.URI.create(uriAsString);
-	}
-	
 
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
@@ -43,15 +36,16 @@ public class GetFromBackendAction implements IExternalJavaAction {
 		if (!selections.stream().anyMatch(o -> o instanceof de.unistuttgart.ma.saga.System)) {
 			throw new IllegalArgumentException(String.format("selection contains not instance of %s", de.unistuttgart.ma.saga.System.class));
 		}
-
-		Notification n = getNotification();
-		if (n == null) {
-			return;
-		}
 		
 		for (EObject eObject : selections) {
 			if (eObject instanceof de.unistuttgart.ma.saga.System) {
 				de.unistuttgart.ma.saga.System system = (de.unistuttgart.ma.saga.System) eObject;
+				
+				Notification n = getNotification(system);
+				if (n == null) {
+					return;
+				}
+				
 				system.getNotifications().add(n);
 			}
 		}
@@ -69,11 +63,13 @@ public class GetFromBackendAction implements IExternalJavaAction {
 	 * 
 	 * @param System
 	 */
-	private Notification getNotification() {
+	private Notification getNotification(de.unistuttgart.ma.saga.System system) {
 		Notification notification = null;
 		try {
 
 			HttpClient httpClient = HttpClient.newBuilder().build();
+			
+			java.net.URI uri = java.net.URI.create("http://localhost:8083/api/notification/" + system.getId());
 
 			HttpRequest request = HttpRequest.newBuilder().GET().uri(uri).build();
 			HttpResponse<String> response = httpClient.send(request, BodyHandlers.ofString());

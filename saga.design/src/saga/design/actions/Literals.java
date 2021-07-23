@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.saga.presentation;
+package saga.design.actions;
 
 /**
  * TODO : delete
