@@ -55,7 +55,7 @@ public class GetFromBackendAction implements IExternalJavaAction {
 	@Override
 	public boolean canExecute(Collection<? extends EObject> selections) {
 		// TODO Auto-generated method stub
-		return true;// selections.stream().anyMatch(o -> o instanceof System);
+		return selections.stream().anyMatch(o -> o instanceof de.unistuttgart.ma.saga.System);
 	}
 
 	/**

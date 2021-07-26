@@ -70,6 +70,24 @@
       </image>
    </extension>
    <extension
+         id="saga.arch.interface_mirrored"
+         name="arch interface mirrored"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/interface_mirrored.svg"
+            label="saga.arch.interface_mirrored">
+      </image>
+   </extension>
+   <extension
+         id="saga.process.lane"
+         name="process lane"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/lane.svg"
+            label="saga.process.lane">
+      </image>
+   </extension>
+   <extension
          id="saga.design.helloWorldAction"
          name="saga.design.helloWorldAction"
          point="org.eclipse.sirius.externalJavaAction">

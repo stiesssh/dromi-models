@@ -21,7 +21,8 @@
         <details key="documentation" value="not in solomon"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sloRule" eType="#//SloRule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sloRule" lowerBound="1"
+        eType="#//SloRule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="solomon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
