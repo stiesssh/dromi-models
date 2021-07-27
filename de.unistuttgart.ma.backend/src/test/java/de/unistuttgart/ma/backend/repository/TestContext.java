@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @Configuration
 //@EnableAutoConfiguration(exclude = {...})
-@EnableMongoRepositories(basePackageClasses = {SystemRepository.class, NotificationRespository.class})
+@EnableMongoRepositories(basePackageClasses = {SystemRepository.class, NotificationRepository.class})
 @Profile("test")
 public class TestContext {
 

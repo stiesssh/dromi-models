@@ -6,4 +6,5 @@ public class SystemItem {
 	@Id
 	String id;
 	String content;
+	String filename;
 }

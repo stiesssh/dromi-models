@@ -20,24 +20,18 @@ import de.unistuttgart.ma.saga.impact.Impact;
  *
  */
 public class QueueItem {
-	public final EObject cause;
+	public final Impact cause;
 	public final EObject location;
 	
-	public QueueItem(EObject cause, EObject location) {
+	public QueueItem(Impact cause, EObject location) {
 		super();
 		this.cause = cause;
 		this.location = location;
 	}
 	
 	// TODO : what about those class cast exceptions??
-	public EObject getCause() {
+	public Impact getCause() {
 		return cause;
-	}
-	public Alert getCauseAsAlert() {
-		return (Alert) cause;
-	}
-	public Impact getCauseAsImpact() {
-		return (Impact) cause;
 	}
 	public ComponentInterface getLocationAsFace() {
 		return (ComponentInterface) location;

@@ -1,5 +1,7 @@
 package de.unistuttgart.ma.backend;
 
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,16 +9,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import de.unistuttgart.ma.backend.repository.NotificationRepositoryProxy;
-import de.unistuttgart.ma.backend.repository.NotificationRespository;
+import de.unistuttgart.ma.backend.repository.NotificationRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 
-@EnableMongoRepositories(basePackageClasses = {SystemRepository.class, NotificationRespository.class})
+@EnableMongoRepositories(basePackageClasses = {SystemRepository.class, NotificationRepository.class})
 @SpringBootApplication
 public class BackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
+	}
+	
+	@Bean
+	public ResourceSet resourceSet() {
+		return new ResourceSetImpl();
 	}
 	
 //	@Autowired NotificationRespository notificationRespo;

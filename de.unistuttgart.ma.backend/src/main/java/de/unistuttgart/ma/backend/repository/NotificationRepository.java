@@ -1,7 +1,6 @@
 package de.unistuttgart.ma.backend.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import de.unistuttgart.ma.saga.impact.Notification;
 
 /**
  * 
@@ -13,5 +12,5 @@ import de.unistuttgart.ma.saga.impact.Notification;
  * @author maumau
  *
  */
-public interface NotificationRespository extends MongoRepository<NotificationItem, String> {
+public interface NotificationRepository extends MongoRepository<NotificationItem, String> {
 }

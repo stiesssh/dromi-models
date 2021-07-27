@@ -1,12 +1,15 @@
 package de.unistuttgart.ma.backend;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +19,10 @@ import org.springframework.test.context.ContextConfiguration;
 
 import de.unistuttgart.ma.backend.exceptions.MissingSystemModelException;
 import de.unistuttgart.ma.backend.importer.SagaImporterService;
-import de.unistuttgart.ma.backend.repository.NotificationRespository;
+import de.unistuttgart.ma.backend.repository.NotificationRepository;
+import de.unistuttgart.ma.backend.repository.NotificationRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.SystemRepository;
+import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.TestContext;
 
 @ContextConfiguration(classes = TestContext.class)
@@ -29,27 +34,59 @@ class SagaImporterTest {
 	SagaImporterService importer;
 	Controller controller;
 	
+	SystemRepositoryProxy repoProxy;
 	@Autowired SystemRepository repository;
-	@Autowired NotificationRespository notficationRepository;
+	
+	NotificationRepositoryProxy notificationRepoProxy;
+	@Autowired NotificationRepository notificationRepo;
+	
+	ResourceSet set;
 
 	@BeforeEach
 	public void setUp() {
-		importer = new SagaImporterService(repository);
-		retrievalService = new NotificationRetrievalService(notficationRepository);
+		set = new ResourceSetImpl();
+		
+		repoProxy = new SystemRepositoryProxy(repository);
+		notificationRepoProxy = new NotificationRepositoryProxy(notificationRepo, set);
+		
+		importer = new SagaImporterService(repoProxy, set);
+		retrievalService = new NotificationRetrievalService(notificationRepo);
 	}
 
 	@Test
-	void parseTest() {
+	void parseEmptySystemTest() throws IOException {
+		String xml = Files.readString(Paths.get("src/test/resources/", "empty.saga"), StandardCharsets.UTF_8);					
+		String filename = "filename.saga";
 		
-		try {
-			String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-			+ "<saga:Model xmi:version=\"2.0\" xmlns:xmi=\"http://www.omg.org/XMI\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:bpmn2=\"http://www.omg.org/spec/BPMN/20100524/MODEL-XMI\" xmlns:saga=\"http://www.example.org/saga\" id=\"testProject\"/>";
-			importer.parse(xml);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		importer.parse(xml, filename);
+		
+		de.unistuttgart.ma.saga.System actual = repoProxy.findById("60fa9cadc736ff6357a89a9b");
+		
+		assertNotNull(actual);
+		assertNotNull(actual.getArchitecture());
+		
+		assertEquals(filename, actual.eResource().getURI().segment(actual.eResource().getURI().segmentCount() -1));
 	}
+	
+	// TODO : not so empty systems :)
+	
+	@Test
+	void parseT2BaseSystemTest() throws IOException {
+		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base.saga"), StandardCharsets.UTF_8);					
+		String filename = "filename.saga";
+		
+		importer.parse(xml, filename);
+		
+		de.unistuttgart.ma.saga.System actual = repoProxy.findById("60fa9cadc736ff6357a89a9b");
+		
+		assertNotNull(actual);
+		assertNotNull(actual.getArchitecture());
+		
+		assertEquals(filename, actual.eResource().getURI().segment(actual.eResource().getURI().segmentCount() -1));
+		
+		// TODO : assert the system :x
+	}
+	
 	
 	@Test
 	void notificationSerializeTest() throws IOException, MissingSystemModelException {

@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import de.unistuttgart.ma.saga.System;
-import de.unistuttgart.ma.backend.repository.NotificationRespository;
+import de.unistuttgart.ma.backend.repository.NotificationRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.SagaPackage;
@@ -30,9 +30,11 @@ import de.unistuttgart.ma.saga.SagaPackage;
 public class SagaImporterService  {
 	
 	private final SystemRepositoryProxy repository;
+	private final ResourceSet set;
 
-	public SagaImporterService(@Autowired SystemRepositoryProxy repository) {
+	public SagaImporterService(@Autowired SystemRepositoryProxy repository, @Autowired ResourceSet set) {
 		this.repository = repository;
+		this.set = set;
 		
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("saga", new EcoreResourceFactoryImpl());
 		SagaPackage packageInstance = SagaPackage.eINSTANCE;		
@@ -40,8 +42,9 @@ public class SagaImporterService  {
 
 	public void parse(String xml, String filename) throws IOException {
 		InputStream targetStream = new ByteArrayInputStream(xml.getBytes());
-		ResourceSet set = new ResourceSetImpl();
+		//ResourceSet set = new ResourceSetImpl();
 				
+		// create with correct file name, such that references also work on front end. 
 		Resource resource = set.createResource(URI.createPlatformResourceURI(filename, false));
 		resource.load(targetStream, null);
 
@@ -52,11 +55,7 @@ public class SagaImporterService  {
 				model = (System) eObject;
 			}
 		}
-		
-		
-		// filename includes file extension
-		//model.eResource().setURI(URI.createPlatformResourceURI(model.getId(), false));
-		
+				
 		repository.save(model);
 	}
 	
