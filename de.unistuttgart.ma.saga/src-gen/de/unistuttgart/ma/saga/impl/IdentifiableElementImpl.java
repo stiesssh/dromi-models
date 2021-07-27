@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.unistuttgart.ma.saga.impl.IdentifiableElementImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.IdentifiableElementImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,6 +46,26 @@ public abstract class IdentifiableElementImpl extends MinimalEObjectImpl.Contain
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,11 +112,34 @@ public abstract class IdentifiableElementImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SagaPackage.IDENTIFIABLE_ELEMENT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SagaPackage.IDENTIFIABLE_ELEMENT__ID:
 				return getId();
+			case SagaPackage.IDENTIFIABLE_ELEMENT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,6 +154,9 @@ public abstract class IdentifiableElementImpl extends MinimalEObjectImpl.Contain
 		switch (featureID) {
 			case SagaPackage.IDENTIFIABLE_ELEMENT__ID:
 				setId((String)newValue);
+				return;
+			case SagaPackage.IDENTIFIABLE_ELEMENT__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,6 +173,9 @@ public abstract class IdentifiableElementImpl extends MinimalEObjectImpl.Contain
 			case SagaPackage.IDENTIFIABLE_ELEMENT__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case SagaPackage.IDENTIFIABLE_ELEMENT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -140,6 +190,8 @@ public abstract class IdentifiableElementImpl extends MinimalEObjectImpl.Contain
 		switch (featureID) {
 			case SagaPackage.IDENTIFIABLE_ELEMENT__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case SagaPackage.IDENTIFIABLE_ELEMENT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -156,6 +208,8 @@ public abstract class IdentifiableElementImpl extends MinimalEObjectImpl.Contain
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

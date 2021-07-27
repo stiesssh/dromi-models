@@ -7,7 +7,7 @@
     <semanticResources>platform:/resource/de.unistuttgart.gropius/model/gropius.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="__RzBwOVAEeuwR8gmB1rh4g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__SDgcOVAEeuwR8gmB1rh4g" name="slo" repPath="#__SBEMOVAEeuwR8gmB1rh4g" changeId="3d7e1c8b-bdeb-424f-97eb-d7629f21a11b">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__SDgcOVAEeuwR8gmB1rh4g" name="slo" repPath="#__SBEMOVAEeuwR8gmB1rh4g" changeId="4cf55d43-3c6b-4551-8871-f4fd8ae70234">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="slo.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -52,10 +52,6 @@
         <children xmi:type="notation:Node" xmi:id="_QkU5gOVBEeuwR8gmB1rh4g" type="2003" element="_QkJ6YOVBEeuwR8gmB1rh4g">
           <children xmi:type="notation:Node" xmi:id="_QkVgkOVBEeuwR8gmB1rh4g" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_QkVgkeVBEeuwR8gmB1rh4g" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_-bpBkOVbEeuwR8gmB1rh4g" type="3010" element="_-bbmMOVbEeuwR8gmB1rh4g">
-              <styles xmi:type="notation:FontStyle" xmi:id="_-bpBkeVbEeuwR8gmB1rh4g" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_-bpBkuVbEeuwR8gmB1rh4g"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_k0FjIOVcEeuwR8gmB1rh4g" type="3010" element="_kz1EcOVcEeuwR8gmB1rh4g">
               <styles xmi:type="notation:FontStyle" xmi:id="_k0FjIeVcEeuwR8gmB1rh4g" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_k0FjIuVcEeuwR8gmB1rh4g"/>
@@ -217,9 +213,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_QkJ6YOVBEeuwR8gmB1rh4g" name="Alert" tooltipText="" outgoingEdges="_U3U9huhnEeuchtKskl-CHg" incomingEdges="_UcJcZuhyEeuk7thvNmHGyA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="slo.ecore#//Alert"/>
-      <semanticElements xmi:type="ecore:EClass" href="slo.ecore#//Alert"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_QkJ6YOVBEeuwR8gmB1rh4g" name="Violation" tooltipText="" outgoingEdges="_U3U9huhnEeuchtKskl-CHg" incomingEdges="_UcJcZuhyEeuk7thvNmHGyA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="slo.ecore#//Violation"/>
+      <semanticElements xmi:type="ecore:EClass" href="slo.ecore#//Violation"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -227,17 +223,9 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_-bbmMOVbEeuwR8gmB1rh4g" name="name : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="slo.ecore#//Alert/name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="slo.ecore#//Alert/name"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_F1FUUOVcEeuwR8gmB1rh4g" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_kz1EcOVcEeuwR8gmB1rh4g" name="value : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="slo.ecore#//Alert/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="slo.ecore#//Alert/value"/>
+        <target xmi:type="ecore:EAttribute" href="slo.ecore#//Violation/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="slo.ecore#//Violation/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_plutNOVcEeuwR8gmB1rh4g" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -245,8 +233,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_U3U9huhnEeuchtKskl-CHg" name="[1..1] sloRule" sourceNode="_QkJ6YOVBEeuwR8gmB1rh4g" targetNode="_OaF2kOVBEeuwR8gmB1rh4g">
-      <target xmi:type="ecore:EReference" href="slo.ecore#//Alert/sloRule"/>
-      <semanticElements xmi:type="ecore:EReference" href="slo.ecore#//Alert/sloRule"/>
+      <target xmi:type="ecore:EReference" href="slo.ecore#//Violation/sloRule"/>
+      <semanticElements xmi:type="ecore:EReference" href="slo.ecore#//Violation/sloRule"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OL5rc-4GEeuiPdRY-R3VkQ" description="_OL5rcO4GEeuiPdRY-R3VkQ" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_OL5rde4GEeuiPdRY-R3VkQ" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -279,9 +267,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_UcJcZuhyEeuk7thvNmHGyA" name="[0..*] alerts" sourceNode="_KhSVwOhyEeuk7thvNmHGyA" targetNode="_QkJ6YOVBEeuwR8gmB1rh4g">
-      <target xmi:type="ecore:EReference" href="slo.ecore#//solomon/alerts"/>
-      <semanticElements xmi:type="ecore:EReference" href="slo.ecore#//solomon/alerts"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_UcJcZuhyEeuk7thvNmHGyA" name="[0..*] violations" sourceNode="_KhSVwOhyEeuk7thvNmHGyA" targetNode="_QkJ6YOVBEeuwR8gmB1rh4g">
+      <target xmi:type="ecore:EReference" href="slo.ecore#//solomon/violations"/>
+      <semanticElements xmi:type="ecore:EReference" href="slo.ecore#//solomon/violations"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_UcKDcOhyEeuk7thvNmHGyA" description="_Np0M8OhyEeuk7thvNmHGyA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_UcKDcuhyEeuk7thvNmHGyA" showIcon="false">
           <customFeatures>labelSize</customFeatures>

@@ -6,7 +6,7 @@ Automatic-Module-Name: de.unistuttgart.ma.saga.editor
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,
  lib/com.google.gson-2.7.0.jar
-Bundle-Activator: de.unistuttgart.ma.saga.presentation.SagaEditorPlugin$Implementation
+Bundle-Activator: de.unistuttgart.ma.saga.impact.presentation.ImpactEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11,

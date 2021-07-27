@@ -2,19 +2,24 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.Project;
 
 import de.unistuttgart.gropius.slo.SloRule;
 
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaPackage;
-
-import de.unistuttgart.ma.saga.impact.Notification;
-
+import de.unistuttgart.ma.saga.SagaStep;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.NoSuchElementException;
+import java.util.Set;
 
+import org.eclipse.bpmn2.FlowElement;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.bpmn2.Process;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -37,7 +42,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getProcesses <em>Processes</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getSloRules <em>Slo Rules</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getNotifications <em>Notifications</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,16 +86,6 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	 * @ordered
 	 */
 	protected EList<SloRule> sloRules;
-
-	/**
-	 * The cached value of the '{@link #getNotifications() <em>Notifications</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNotifications()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Notification> notifications;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,7 +148,7 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 		Project oldArchitecture = architecture;
 		architecture = newArchitecture;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, SagaPackage.SYSTEM__ARCHITECTURE, oldArchitecture, newArchitecture);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SagaPackage.SYSTEM__ARCHITECTURE, oldArchitecture, newArchitecture);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -176,7 +170,7 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, SagaPackage.SYSTEM__ARCHITECTURE, newArchitecture, newArchitecture));
+			eNotify(new ENotificationImpl(this, Notification.SET, SagaPackage.SYSTEM__ARCHITECTURE, newArchitecture, newArchitecture));
 	}
 
 	/**
@@ -196,18 +190,6 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Notification> getNotifications() {
-		if (notifications == null) {
-			notifications = new EObjectContainmentEList<Notification>(Notification.class, this, SagaPackage.SYSTEM__NOTIFICATIONS);
-		}
-		return notifications;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -219,8 +201,6 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				return basicSetArchitecture(null, msgs);
 			case SagaPackage.SYSTEM__SLO_RULES:
 				return ((InternalEList<?>)getSloRules()).basicRemove(otherEnd, msgs);
-			case SagaPackage.SYSTEM__NOTIFICATIONS:
-				return ((InternalEList<?>)getNotifications()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,8 +221,6 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				return getArchitecture();
 			case SagaPackage.SYSTEM__SLO_RULES:
 				return getSloRules();
-			case SagaPackage.SYSTEM__NOTIFICATIONS:
-				return getNotifications();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,10 +249,6 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				getSloRules().clear();
 				getSloRules().addAll((Collection<? extends SloRule>)newValue);
 				return;
-			case SagaPackage.SYSTEM__NOTIFICATIONS:
-				getNotifications().clear();
-				getNotifications().addAll((Collection<? extends Notification>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -299,9 +273,6 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 			case SagaPackage.SYSTEM__SLO_RULES:
 				getSloRules().clear();
 				return;
-			case SagaPackage.SYSTEM__NOTIFICATIONS:
-				getNotifications().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -322,10 +293,79 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				return architecture != null;
 			case SagaPackage.SYSTEM__SLO_RULES:
 				return sloRules != null && !sloRules.isEmpty();
-			case SagaPackage.SYSTEM__NOTIFICATIONS:
-				return notifications != null && !notifications.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public Component getComponentById(String id) {
+		EList<Component> components = this.getArchitecture().getComponents();
+		for (Component component : components) {
+			if (component.getId().equals(id)) {
+				return component;
+			}
+		}
+		throw new NoSuchElementException();
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public ComponentInterface getComponentInterfaceById(String id) {
+		EList<Component> components = this.getArchitecture().getComponents();
+		for (Component component : components) {
+			for (ComponentInterface face : component.getInterfaces()) {
+				if (face.getId().equals(id)) {
+					return face;
+				}
+			}
+		}	
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public Set<SloRule> getSloForNode(de.unistuttgart.gropius.Node node) {
+		EList<SloRule> rules = getSloRules();
+		Set<SloRule> rval = new HashSet<SloRule>(); 
+		for (SloRule sloRule : rules) {
+			if (sloRule.getGropiusComponent().equals(node) || sloRule.getGropiusComponentInterface().equals(node)) {
+				rval.add(sloRule);
+			}
+		}
+		return rval;
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public SagaStep getSagaStepById(String id) {
+		for (Saga  saga : getSagas()) {
+			for (SagaStep step : saga.getSteps()) {
+				if (step.getId().equals(id)) {
+					return step;
+				}
+			}	
+		}
+		throw new NoSuchElementException();
+	}
+	
+	/**
+	 * @generated NOT
+	 */
+	public FlowElement getTaskById(String id) {
+		for (Process process : getProcesses()) {
+			for (FlowElement element : process.getFlowElements()) {
+				if (element.getId().equals(id)) {
+					return element;
+				}
+			}
+		}
+		
+		throw new NoSuchElementException();
 	}
 
 } //SystemImpl

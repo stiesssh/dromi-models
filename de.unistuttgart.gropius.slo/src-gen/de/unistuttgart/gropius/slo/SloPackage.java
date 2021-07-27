@@ -139,23 +139,14 @@ public interface SloPackage extends EPackage {
 	int SLO_RULE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.AlertImpl <em>Alert</em>}' class.
+	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.ViolationImpl <em>Violation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.gropius.slo.impl.AlertImpl
-	 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getAlert()
+	 * @see de.unistuttgart.gropius.slo.impl.ViolationImpl
+	 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getViolation()
 	 * @generated
 	 */
-	int ALERT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALERT__NAME = 0;
+	int VIOLATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -164,7 +155,7 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT__VALUE = 1;
+	int VIOLATION__VALUE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Slo Rule</b></em>' reference.
@@ -173,25 +164,25 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT__SLO_RULE = 2;
+	int VIOLATION__SLO_RULE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Alert</em>' class.
+	 * The number of structural features of the '<em>Violation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT_FEATURE_COUNT = 3;
+	int VIOLATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Alert</em>' class.
+	 * The number of operations of the '<em>Violation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALERT_OPERATION_COUNT = 0;
+	int VIOLATION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.solomonImpl <em>solomon</em>}' class.
@@ -213,13 +204,13 @@ public interface SloPackage extends EPackage {
 	int SOLOMON__RULES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Alerts</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Violations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLOMON__ALERTS = 1;
+	int SOLOMON__VIOLATIONS = 1;
 
 	/**
 	 * The number of structural features of the '<em>solomon</em>' class.
@@ -316,47 +307,36 @@ public interface SloPackage extends EPackage {
 	EReference getSloRule_GropiusComponentInterface();
 
 	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.Alert <em>Alert</em>}'.
+	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.Violation <em>Violation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Alert</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert
+	 * @return the meta object for class '<em>Violation</em>'.
+	 * @see de.unistuttgart.gropius.slo.Violation
 	 * @generated
 	 */
-	EClass getAlert();
+	EClass getViolation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getName()
-	 * @see #getAlert()
-	 * @generated
-	 */
-	EAttribute getAlert_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Alert#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Violation#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getValue()
-	 * @see #getAlert()
+	 * @see de.unistuttgart.gropius.slo.Violation#getValue()
+	 * @see #getViolation()
 	 * @generated
 	 */
-	EAttribute getAlert_Value();
+	EAttribute getViolation_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.slo.Alert#getSloRule <em>Slo Rule</em>}'.
+	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.slo.Violation#getSloRule <em>Slo Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Slo Rule</em>'.
-	 * @see de.unistuttgart.gropius.slo.Alert#getSloRule()
-	 * @see #getAlert()
+	 * @see de.unistuttgart.gropius.slo.Violation#getSloRule()
+	 * @see #getViolation()
 	 * @generated
 	 */
-	EReference getAlert_SloRule();
+	EReference getViolation_SloRule();
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.solomon <em>solomon</em>}'.
@@ -380,15 +360,15 @@ public interface SloPackage extends EPackage {
 	EReference getsolomon_Rules();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.slo.solomon#getAlerts <em>Alerts</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.slo.solomon#getViolations <em>Violations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Alerts</em>'.
-	 * @see de.unistuttgart.gropius.slo.solomon#getAlerts()
+	 * @return the meta object for the containment reference list '<em>Violations</em>'.
+	 * @see de.unistuttgart.gropius.slo.solomon#getViolations()
 	 * @see #getsolomon()
 	 * @generated
 	 */
-	EReference getsolomon_Alerts();
+	EReference getsolomon_Violations();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -472,22 +452,14 @@ public interface SloPackage extends EPackage {
 		EReference SLO_RULE__GROPIUS_COMPONENT_INTERFACE = eINSTANCE.getSloRule_GropiusComponentInterface();
 
 		/**
-		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.AlertImpl <em>Alert</em>}' class.
+		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.ViolationImpl <em>Violation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.gropius.slo.impl.AlertImpl
-		 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getAlert()
+		 * @see de.unistuttgart.gropius.slo.impl.ViolationImpl
+		 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getViolation()
 		 * @generated
 		 */
-		EClass ALERT = eINSTANCE.getAlert();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ALERT__NAME = eINSTANCE.getAlert_Name();
+		EClass VIOLATION = eINSTANCE.getViolation();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -495,7 +467,7 @@ public interface SloPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ALERT__VALUE = eINSTANCE.getAlert_Value();
+		EAttribute VIOLATION__VALUE = eINSTANCE.getViolation_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Slo Rule</b></em>' reference feature.
@@ -503,7 +475,7 @@ public interface SloPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ALERT__SLO_RULE = eINSTANCE.getAlert_SloRule();
+		EReference VIOLATION__SLO_RULE = eINSTANCE.getViolation_SloRule();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.solomonImpl <em>solomon</em>}' class.
@@ -524,12 +496,12 @@ public interface SloPackage extends EPackage {
 		EReference SOLOMON__RULES = eINSTANCE.getsolomon_Rules();
 
 		/**
-		 * The meta object literal for the '<em><b>Alerts</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Violations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SOLOMON__ALERTS = eINSTANCE.getsolomon_Alerts();
+		EReference SOLOMON__VIOLATIONS = eINSTANCE.getsolomon_Violations();
 
 	}
 

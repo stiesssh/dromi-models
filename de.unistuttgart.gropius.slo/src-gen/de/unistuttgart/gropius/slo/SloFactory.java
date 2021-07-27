@@ -31,13 +31,13 @@ public interface SloFactory extends EFactory {
 	SloRule createSloRule();
 
 	/**
-	 * Returns a new object of class '<em>Alert</em>'.
+	 * Returns a new object of class '<em>Violation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Alert</em>'.
+	 * @return a new object of class '<em>Violation</em>'.
 	 * @generated
 	 */
-	Alert createAlert();
+	Violation createViolation();
 
 	/**
 	 * Returns a new object of class '<em>solomon</em>'.

@@ -72,8 +72,8 @@ public class SloAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseAlert(Alert object) {
-			return createAlertAdapter();
+		public Adapter caseViolation(Violation object) {
+			return createViolationAdapter();
 		}
 
 		@Override
@@ -115,16 +115,16 @@ public class SloAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.slo.Alert <em>Alert</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.slo.Violation <em>Violation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.gropius.slo.Alert
+	 * @see de.unistuttgart.gropius.slo.Violation
 	 * @generated
 	 */
-	public Adapter createAlertAdapter() {
+	public Adapter createViolationAdapter() {
 		return null;
 	}
 

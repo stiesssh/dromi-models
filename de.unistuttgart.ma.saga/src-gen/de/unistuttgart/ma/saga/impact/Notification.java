@@ -2,11 +2,8 @@
  */
 package de.unistuttgart.ma.saga.impact;
 
-import de.unistuttgart.gropius.slo.Alert;
-
-import de.unistuttgart.ma.saga.IdentifiableElement;
-
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,70 +14,47 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getImpacts <em>Impacts</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getTopLevelImpacts <em>Top Level Impacts</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getAlert <em>Alert</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getSystem <em>System</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification()
  * @model
  * @generated
  */
-public interface Notification extends IdentifiableElement {
+public interface Notification extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Impacts</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Top Level Impacts</b></em>' containment reference list.
 	 * The list contents are of type {@link de.unistuttgart.ma.saga.impact.Impact}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Impacts</em>' containment reference list.
-	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification_Impacts()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Impact> getImpacts();
-
-	/**
-	 * Returns the value of the '<em><b>Top Level Impacts</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Top Level Impacts</em>' reference.
-	 * @see #setTopLevelImpacts(Impact)
+	 * @return the value of the '<em>Top Level Impacts</em>' containment reference list.
 	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification_TopLevelImpacts()
-	 * @model required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Impact getTopLevelImpacts();
+	EList<Impact> getTopLevelImpacts();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Notification#getTopLevelImpacts <em>Top Level Impacts</em>}' reference.
+	 * Returns the value of the '<em><b>System</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Top Level Impacts</em>' reference.
-	 * @see #getTopLevelImpacts()
+	 * @return the value of the '<em>System</em>' reference.
+	 * @see #setSystem(de.unistuttgart.ma.saga.System)
+	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification_System()
+	 * @model
 	 * @generated
 	 */
-	void setTopLevelImpacts(Impact value);
+	de.unistuttgart.ma.saga.System getSystem();
 
 	/**
-	 * Returns the value of the '<em><b>Alert</b></em>' containment reference.
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Notification#getSystem <em>System</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alert</em>' containment reference.
-	 * @see #setAlert(Alert)
-	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification_Alert()
-	 * @model containment="true" required="true"
+	 * @param value the new value of the '<em>System</em>' reference.
+	 * @see #getSystem()
 	 * @generated
 	 */
-	Alert getAlert();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Notification#getAlert <em>Alert</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alert</em>' containment reference.
-	 * @see #getAlert()
-	 * @generated
-	 */
-	void setAlert(Alert value);
+	void setSystem(de.unistuttgart.ma.saga.System value);
 
 } // Notification

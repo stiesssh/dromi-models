@@ -71,6 +71,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
+import de.unistuttgart.ma.saga.impact.Notification;
 import de.unistuttgart.ma.saga.impact.provider.ImpactEditPlugin;
 
 
@@ -205,11 +206,21 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject createInitialModel() {
 		EClass eClass = (EClass)impactPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = impactFactory.create(eClass);
+		
+		// 0. restict root object to 'notification'
+		// 1. get system model location (for reference) from respective wizard page and load system (?)
+		// 
+		// 2. set system model on notification.
+		//  -- >((Notification) rootObject).setSystem(system);
+		//
+		// 3. request impacts for reffed system from backend. 
+		// -- > add impact to notification
+		
 		return rootObject;
 	}
 

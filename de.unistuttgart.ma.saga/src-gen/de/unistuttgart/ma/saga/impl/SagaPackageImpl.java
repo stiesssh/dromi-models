@@ -191,15 +191,6 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_Notifications() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSaga() {
 		return sagaEClass;
 	}
@@ -272,6 +263,15 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIdentifiableElement_Name() {
+		return (EAttribute)identifiableElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SagaFactory getSagaFactory() {
 		return (SagaFactory)getEFactoryInstance();
 	}
@@ -300,7 +300,6 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		createEReference(systemEClass, SYSTEM__PROCESSES);
 		createEReference(systemEClass, SYSTEM__ARCHITECTURE);
 		createEReference(systemEClass, SYSTEM__SLO_RULES);
-		createEReference(systemEClass, SYSTEM__NOTIFICATIONS);
 
 		sagaEClass = createEClass(SAGA);
 		createEReference(sagaEClass, SAGA__STEPS);
@@ -312,6 +311,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 
 		identifiableElementEClass = createEClass(IDENTIFIABLE_ELEMENT);
 		createEAttribute(identifiableElementEClass, IDENTIFIABLE_ELEMENT__ID);
+		createEAttribute(identifiableElementEClass, IDENTIFIABLE_ELEMENT__NAME);
 	}
 
 	/**
@@ -341,7 +341,6 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		Bpmn2Package theBpmn2Package = (Bpmn2Package)EPackage.Registry.INSTANCE.getEPackage(Bpmn2Package.eNS_URI);
 		GropiusPackage theGropiusPackage = (GropiusPackage)EPackage.Registry.INSTANCE.getEPackage(GropiusPackage.eNS_URI);
 		SloPackage theSloPackage = (SloPackage)EPackage.Registry.INSTANCE.getEPackage(SloPackage.eNS_URI);
-		ImpactPackage theImpactPackage = (ImpactPackage)EPackage.Registry.INSTANCE.getEPackage(ImpactPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -358,7 +357,6 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		initEReference(getSystem_Processes(), theBpmn2Package.getProcess(), null, "processes", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_Architecture(), theGropiusPackage.getProject(), null, "architecture", null, 1, 1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_SloRules(), theSloPackage.getSloRule(), null, "sloRules", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSystem_Notifications(), theImpactPackage.getNotification(), null, "notifications", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sagaEClass, Saga.class, "Saga", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSaga_Steps(), this.getSagaStep(), null, "steps", null, 0, -1, Saga.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -370,6 +368,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 
 		initEClass(identifiableElementEClass, IdentifiableElement.class, "IdentifiableElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentifiableElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, IdentifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIdentifiableElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, IdentifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

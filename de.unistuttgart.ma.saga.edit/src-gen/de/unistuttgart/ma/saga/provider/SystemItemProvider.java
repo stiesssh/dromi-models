@@ -9,7 +9,6 @@ import de.unistuttgart.gropius.slo.SloFactory;
 
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
-import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,7 +18,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -71,7 +69,6 @@ public class SystemItemProvider extends IdentifiableElementItemProvider {
 			childrenFeatures.add(SagaPackage.Literals.SYSTEM__PROCESSES);
 			childrenFeatures.add(SagaPackage.Literals.SYSTEM__ARCHITECTURE);
 			childrenFeatures.add(SagaPackage.Literals.SYSTEM__SLO_RULES);
-			childrenFeatures.add(SagaPackage.Literals.SYSTEM__NOTIFICATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -108,7 +105,7 @@ public class SystemItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((de.unistuttgart.ma.saga.System)object).getId();
+		String label = ((de.unistuttgart.ma.saga.System)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_System_type") :
 			getString("_UI_System_type") + " " + label;
@@ -131,7 +128,6 @@ public class SystemItemProvider extends IdentifiableElementItemProvider {
 			case SagaPackage.SYSTEM__PROCESSES:
 			case SagaPackage.SYSTEM__ARCHITECTURE:
 			case SagaPackage.SYSTEM__SLO_RULES:
-			case SagaPackage.SYSTEM__NOTIFICATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -168,11 +164,6 @@ public class SystemItemProvider extends IdentifiableElementItemProvider {
 			(createChildParameter
 				(SagaPackage.Literals.SYSTEM__SLO_RULES,
 				 SloFactory.eINSTANCE.createSloRule()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SagaPackage.Literals.SYSTEM__NOTIFICATIONS,
-				 ImpactFactory.eINSTANCE.createNotification()));
 	}
 
 }

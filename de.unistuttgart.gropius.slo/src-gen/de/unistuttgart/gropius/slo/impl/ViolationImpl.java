@@ -2,54 +2,33 @@
  */
 package de.unistuttgart.gropius.slo.impl;
 
-import de.unistuttgart.gropius.slo.Alert;
 import de.unistuttgart.gropius.slo.SloPackage;
-
 import de.unistuttgart.gropius.slo.SloRule;
+import de.unistuttgart.gropius.slo.Violation;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Alert</b></em>'.
+ * An implementation of the model object '<em><b>Violation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.gropius.slo.impl.AlertImpl#getName <em>Name</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.impl.AlertImpl#getValue <em>Value</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.impl.AlertImpl#getSloRule <em>Slo Rule</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.impl.ViolationImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.impl.ViolationImpl#getSloRule <em>Slo Rule</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public class ViolationImpl extends MinimalEObjectImpl.Container implements Violation {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -85,7 +64,7 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AlertImpl() {
+	protected ViolationImpl() {
 		super();
 	}
 
@@ -96,28 +75,7 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SloPackage.Literals.ALERT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.ALERT__NAME, oldName, name));
+		return SloPackage.Literals.VIOLATION;
 	}
 
 	/**
@@ -138,7 +96,7 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 		double oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.ALERT__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.VIOLATION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -152,8 +110,8 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 			sloRule = (SloRule) eResolveProxy(oldSloRule);
 			if (sloRule != oldSloRule) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SloPackage.ALERT__SLO_RULE, oldSloRule,
-							sloRule));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SloPackage.VIOLATION__SLO_RULE,
+							oldSloRule, sloRule));
 			}
 		}
 		return sloRule;
@@ -177,7 +135,7 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 		SloRule oldSloRule = sloRule;
 		sloRule = newSloRule;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.ALERT__SLO_RULE, oldSloRule, sloRule));
+			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.VIOLATION__SLO_RULE, oldSloRule, sloRule));
 	}
 
 	/**
@@ -188,11 +146,9 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SloPackage.ALERT__NAME:
-			return getName();
-		case SloPackage.ALERT__VALUE:
+		case SloPackage.VIOLATION__VALUE:
 			return getValue();
-		case SloPackage.ALERT__SLO_RULE:
+		case SloPackage.VIOLATION__SLO_RULE:
 			if (resolve)
 				return getSloRule();
 			return basicGetSloRule();
@@ -208,13 +164,10 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SloPackage.ALERT__NAME:
-			setName((String) newValue);
-			return;
-		case SloPackage.ALERT__VALUE:
+		case SloPackage.VIOLATION__VALUE:
 			setValue((Double) newValue);
 			return;
-		case SloPackage.ALERT__SLO_RULE:
+		case SloPackage.VIOLATION__SLO_RULE:
 			setSloRule((SloRule) newValue);
 			return;
 		}
@@ -229,13 +182,10 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SloPackage.ALERT__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case SloPackage.ALERT__VALUE:
+		case SloPackage.VIOLATION__VALUE:
 			setValue(VALUE_EDEFAULT);
 			return;
-		case SloPackage.ALERT__SLO_RULE:
+		case SloPackage.VIOLATION__SLO_RULE:
 			setSloRule((SloRule) null);
 			return;
 		}
@@ -250,11 +200,9 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SloPackage.ALERT__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case SloPackage.ALERT__VALUE:
+		case SloPackage.VIOLATION__VALUE:
 			return value != VALUE_EDEFAULT;
-		case SloPackage.ALERT__SLO_RULE:
+		case SloPackage.VIOLATION__SLO_RULE:
 			return sloRule != null;
 		}
 		return super.eIsSet(featureID);
@@ -271,12 +219,10 @@ public class AlertImpl extends MinimalEObjectImpl.Container implements Alert {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", value: ");
+		result.append(" (value: ");
 		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
 
-} //AlertImpl
+} //ViolationImpl

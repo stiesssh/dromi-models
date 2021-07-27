@@ -2,8 +2,8 @@
  */
 package de.unistuttgart.gropius.slo.provider;
 
-import de.unistuttgart.gropius.slo.Alert;
 import de.unistuttgart.gropius.slo.SloPackage;
+import de.unistuttgart.gropius.slo.Violation;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,12 +25,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.unistuttgart.gropius.slo.Alert} object.
+ * This is the item provider adapter for a {@link de.unistuttgart.gropius.slo.Violation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AlertItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class ViolationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -37,7 +38,7 @@ public class AlertItemProvider extends ItemProviderAdapter implements IEditingDo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AlertItemProvider(AdapterFactory adapterFactory) {
+	public ViolationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -52,26 +53,10 @@ public class AlertItemProvider extends ItemProviderAdapter implements IEditingDo
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 			addSloRulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_name_feature", "_UI_Alert_type"),
-						SloPackage.Literals.ALERT__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-						null, null));
 	}
 
 	/**
@@ -83,10 +68,11 @@ public class AlertItemProvider extends ItemProviderAdapter implements IEditingDo
 	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_value_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_value_feature", "_UI_Alert_type"),
-						SloPackage.Literals.ALERT__VALUE, true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-						null, null));
+						getResourceLocator(), getString("_UI_Violation_value_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Violation_value_feature",
+								"_UI_Violation_type"),
+						SloPackage.Literals.VIOLATION__VALUE, true, false, false,
+						ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -98,20 +84,21 @@ public class AlertItemProvider extends ItemProviderAdapter implements IEditingDo
 	protected void addSloRulePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Alert_sloRule_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Alert_sloRule_feature", "_UI_Alert_type"),
-						SloPackage.Literals.ALERT__SLO_RULE, true, false, true, null, null, null));
+						getResourceLocator(), getString("_UI_Violation_sloRule_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Violation_sloRule_feature",
+								"_UI_Violation_type"),
+						SloPackage.Literals.VIOLATION__SLO_RULE, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This returns Alert.gif.
+	 * This returns Violation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Alert"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Violation"));
 	}
 
 	/**
@@ -132,9 +119,8 @@ public class AlertItemProvider extends ItemProviderAdapter implements IEditingDo
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Alert) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Alert_type")
-				: getString("_UI_Alert_type") + " " + label;
+		Violation violation = (Violation) object;
+		return getString("_UI_Violation_type") + " " + violation.getValue();
 	}
 
 	/**
@@ -148,9 +134,8 @@ public class AlertItemProvider extends ItemProviderAdapter implements IEditingDo
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Alert.class)) {
-		case SloPackage.ALERT__NAME:
-		case SloPackage.ALERT__VALUE:
+		switch (notification.getFeatureID(Violation.class)) {
+		case SloPackage.VIOLATION__VALUE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

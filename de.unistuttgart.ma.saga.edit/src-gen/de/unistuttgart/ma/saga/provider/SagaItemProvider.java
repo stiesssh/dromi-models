@@ -96,7 +96,7 @@ public class SagaItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Saga)object).getId();
+		String label = ((Saga)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Saga_type") :
 			getString("_UI_Saga_type") + " " + label;

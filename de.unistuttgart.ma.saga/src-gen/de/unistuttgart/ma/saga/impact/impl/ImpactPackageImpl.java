@@ -12,7 +12,6 @@ import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
 import de.unistuttgart.ma.saga.impact.Notification;
-
 import de.unistuttgart.ma.saga.impl.SagaPackageImpl;
 
 import org.eclipse.bpmn2.Bpmn2Package;
@@ -152,7 +151,7 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getImpact_RootCause() {
+	public EReference getImpact_Location() {
 		return (EReference)impactEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -161,7 +160,7 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getImpact_Location() {
+	public EReference getImpact_RootCause() {
 		return (EReference)impactEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -188,7 +187,7 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNotification_Impacts() {
+	public EReference getNotification_TopLevelImpacts() {
 		return (EReference)notificationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -197,17 +196,8 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNotification_TopLevelImpacts() {
+	public EReference getNotification_System() {
 		return (EReference)notificationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNotification_Alert() {
-		return (EReference)notificationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -240,14 +230,13 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 		// Create classes and their features
 		impactEClass = createEClass(IMPACT);
 		createEReference(impactEClass, IMPACT__CAUSE);
-		createEReference(impactEClass, IMPACT__ROOT_CAUSE);
 		createEReference(impactEClass, IMPACT__LOCATION);
+		createEReference(impactEClass, IMPACT__ROOT_CAUSE);
 		createEOperation(impactEClass, IMPACT___GET_LOCATION_ID);
 
 		notificationEClass = createEClass(NOTIFICATION);
-		createEReference(notificationEClass, NOTIFICATION__IMPACTS);
 		createEReference(notificationEClass, NOTIFICATION__TOP_LEVEL_IMPACTS);
-		createEReference(notificationEClass, NOTIFICATION__ALERT);
+		createEReference(notificationEClass, NOTIFICATION__SYSTEM);
 	}
 
 	/**
@@ -274,30 +263,27 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		SagaPackage theSagaPackage = (SagaPackage)EPackage.Registry.INSTANCE.getEPackage(SagaPackage.eNS_URI);
 		SloPackage theSloPackage = (SloPackage)EPackage.Registry.INSTANCE.getEPackage(SloPackage.eNS_URI);
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
+		SagaPackage theSagaPackage = (SagaPackage)EPackage.Registry.INSTANCE.getEPackage(SagaPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		impactEClass.getESuperTypes().add(theSagaPackage.getIdentifiableElement());
-		notificationEClass.getESuperTypes().add(theSagaPackage.getIdentifiableElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(impactEClass, Impact.class, "Impact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getImpact_Cause(), this.getImpact(), null, "cause", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getImpact_RootCause(), theSloPackage.getAlert(), null, "rootCause", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImpact_Cause(), this.getImpact(), null, "cause", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getImpact_Location(), ecorePackage.getEObject(), null, "location", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImpact_RootCause(), theSloPackage.getViolation(), null, "rootCause", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getImpact__GetLocationId(), theXMLTypePackage.getString(), "getLocationId", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(notificationEClass, Notification.class, "Notification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNotification_Impacts(), this.getImpact(), null, "impacts", null, 1, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNotification_TopLevelImpacts(), this.getImpact(), null, "topLevelImpacts", null, 1, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNotification_Alert(), theSloPackage.getAlert(), null, "alert", null, 1, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotification_TopLevelImpacts(), this.getImpact(), null, "topLevelImpacts", null, 0, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotification_System(), theSagaPackage.getSystem(), null, "system", null, 0, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -2,8 +2,6 @@
  */
 package de.unistuttgart.ma.saga.impact;
 
-import de.unistuttgart.ma.saga.SagaPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -69,31 +67,13 @@ public interface ImpactPackage extends EPackage {
 	int IMPACT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Cause</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPACT__ID = SagaPackage.IDENTIFIABLE_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Cause</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPACT__CAUSE = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Root Cause</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IMPACT__ROOT_CAUSE = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 1;
+	int IMPACT__CAUSE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -102,7 +82,16 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPACT__LOCATION = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 2;
+	int IMPACT__LOCATION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Root Cause</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT__ROOT_CAUSE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Impact</em>' class.
@@ -111,7 +100,7 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPACT_FEATURE_COUNT = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
+	int IMPACT_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Location Id</em>' operation.
@@ -120,7 +109,7 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPACT___GET_LOCATION_ID = SagaPackage.IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
+	int IMPACT___GET_LOCATION_ID = 0;
 
 	/**
 	 * The number of operations of the '<em>Impact</em>' class.
@@ -129,7 +118,7 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPACT_OPERATION_COUNT = SagaPackage.IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 1;
+	int IMPACT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl <em>Notification</em>}' class.
@@ -142,40 +131,22 @@ public interface ImpactPackage extends EPackage {
 	int NOTIFICATION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Top Level Impacts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTIFICATION__ID = SagaPackage.IDENTIFIABLE_ELEMENT__ID;
+	int NOTIFICATION__TOP_LEVEL_IMPACTS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Impacts</b></em>' containment reference list.
+	 * The feature id for the '<em><b>System</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTIFICATION__IMPACTS = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Top Level Impacts</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOTIFICATION__TOP_LEVEL_IMPACTS = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Alert</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOTIFICATION__ALERT = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 2;
+	int NOTIFICATION__SYSTEM = 1;
 
 	/**
 	 * The number of structural features of the '<em>Notification</em>' class.
@@ -184,7 +155,7 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOTIFICATION_FEATURE_COUNT = SagaPackage.IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
+	int NOTIFICATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Notification</em>' class.
@@ -193,8 +164,7 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOTIFICATION_OPERATION_COUNT = SagaPackage.IDENTIFIABLE_ELEMENT_OPERATION_COUNT + 0;
-
+	int NOTIFICATION_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.impact.Impact <em>Impact</em>}'.
@@ -207,26 +177,15 @@ public interface ImpactPackage extends EPackage {
 	EClass getImpact();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.impact.Impact#getCause <em>Cause</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.unistuttgart.ma.saga.impact.Impact#getCause <em>Cause</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cause</em>'.
+	 * @return the meta object for the containment reference '<em>Cause</em>'.
 	 * @see de.unistuttgart.ma.saga.impact.Impact#getCause()
 	 * @see #getImpact()
 	 * @generated
 	 */
 	EReference getImpact_Cause();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.impact.Impact#getRootCause <em>Root Cause</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Root Cause</em>'.
-	 * @see de.unistuttgart.ma.saga.impact.Impact#getRootCause()
-	 * @see #getImpact()
-	 * @generated
-	 */
-	EReference getImpact_RootCause();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.impact.Impact#getLocation <em>Location</em>}'.
@@ -238,6 +197,17 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getImpact_Location();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.unistuttgart.ma.saga.impact.Impact#getRootCause <em>Root Cause</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Root Cause</em>'.
+	 * @see de.unistuttgart.ma.saga.impact.Impact#getRootCause()
+	 * @see #getImpact()
+	 * @generated
+	 */
+	EReference getImpact_RootCause();
 
 	/**
 	 * Returns the meta object for the '{@link de.unistuttgart.ma.saga.impact.Impact#getLocationId() <em>Get Location Id</em>}' operation.
@@ -260,21 +230,10 @@ public interface ImpactPackage extends EPackage {
 	EClass getNotification();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.impact.Notification#getImpacts <em>Impacts</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.impact.Notification#getTopLevelImpacts <em>Top Level Impacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Impacts</em>'.
-	 * @see de.unistuttgart.ma.saga.impact.Notification#getImpacts()
-	 * @see #getNotification()
-	 * @generated
-	 */
-	EReference getNotification_Impacts();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.impact.Notification#getTopLevelImpacts <em>Top Level Impacts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Top Level Impacts</em>'.
+	 * @return the meta object for the containment reference list '<em>Top Level Impacts</em>'.
 	 * @see de.unistuttgart.ma.saga.impact.Notification#getTopLevelImpacts()
 	 * @see #getNotification()
 	 * @generated
@@ -282,15 +241,15 @@ public interface ImpactPackage extends EPackage {
 	EReference getNotification_TopLevelImpacts();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.unistuttgart.ma.saga.impact.Notification#getAlert <em>Alert</em>}'.
+	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.impact.Notification#getSystem <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Alert</em>'.
-	 * @see de.unistuttgart.ma.saga.impact.Notification#getAlert()
+	 * @return the meta object for the reference '<em>System</em>'.
+	 * @see de.unistuttgart.ma.saga.impact.Notification#getSystem()
 	 * @see #getNotification()
 	 * @generated
 	 */
-	EReference getNotification_Alert();
+	EReference getNotification_System();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -326,20 +285,12 @@ public interface ImpactPackage extends EPackage {
 		EClass IMPACT = eINSTANCE.getImpact();
 
 		/**
-		 * The meta object literal for the '<em><b>Cause</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Cause</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference IMPACT__CAUSE = eINSTANCE.getImpact_Cause();
-
-		/**
-		 * The meta object literal for the '<em><b>Root Cause</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IMPACT__ROOT_CAUSE = eINSTANCE.getImpact_RootCause();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
@@ -348,6 +299,14 @@ public interface ImpactPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IMPACT__LOCATION = eINSTANCE.getImpact_Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Cause</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMPACT__ROOT_CAUSE = eINSTANCE.getImpact_RootCause();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Location Id</b></em>' operation.
@@ -368,15 +327,7 @@ public interface ImpactPackage extends EPackage {
 		EClass NOTIFICATION = eINSTANCE.getNotification();
 
 		/**
-		 * The meta object literal for the '<em><b>Impacts</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NOTIFICATION__IMPACTS = eINSTANCE.getNotification_Impacts();
-
-		/**
-		 * The meta object literal for the '<em><b>Top Level Impacts</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Top Level Impacts</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -384,12 +335,12 @@ public interface ImpactPackage extends EPackage {
 		EReference NOTIFICATION__TOP_LEVEL_IMPACTS = eINSTANCE.getNotification_TopLevelImpacts();
 
 		/**
-		 * The meta object literal for the '<em><b>Alert</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>System</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NOTIFICATION__ALERT = eINSTANCE.getNotification_Alert();
+		EReference NOTIFICATION__SYSTEM = eINSTANCE.getNotification_System();
 
 	}
 

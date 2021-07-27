@@ -71,7 +71,7 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SloPackage.Literals.SOLOMON__RULES);
-			childrenFeatures.add(SloPackage.Literals.SOLOMON__ALERTS);
+			childrenFeatures.add(SloPackage.Literals.SOLOMON__VIOLATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -134,7 +134,7 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 
 		switch (notification.getFeatureID(solomon.class)) {
 		case SloPackage.SOLOMON__RULES:
-		case SloPackage.SOLOMON__ALERTS:
+		case SloPackage.SOLOMON__VIOLATIONS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -155,8 +155,8 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 		newChildDescriptors
 				.add(createChildParameter(SloPackage.Literals.SOLOMON__RULES, SloFactory.eINSTANCE.createSloRule()));
 
-		newChildDescriptors
-				.add(createChildParameter(SloPackage.Literals.SOLOMON__ALERTS, SloFactory.eINSTANCE.createAlert()));
+		newChildDescriptors.add(
+				createChildParameter(SloPackage.Literals.SOLOMON__VIOLATIONS, SloFactory.eINSTANCE.createViolation()));
 	}
 
 	/**

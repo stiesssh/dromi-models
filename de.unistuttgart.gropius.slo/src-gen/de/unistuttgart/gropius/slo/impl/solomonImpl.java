@@ -2,9 +2,9 @@
  */
 package de.unistuttgart.gropius.slo.impl;
 
-import de.unistuttgart.gropius.slo.Alert;
 import de.unistuttgart.gropius.slo.SloPackage;
 import de.unistuttgart.gropius.slo.SloRule;
+import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.gropius.slo.solomon;
 
 import java.util.Collection;
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link de.unistuttgart.gropius.slo.impl.solomonImpl#getRules <em>Rules</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.impl.solomonImpl#getAlerts <em>Alerts</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.impl.solomonImpl#getViolations <em>Violations</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,14 +47,14 @@ public class solomonImpl extends MinimalEObjectImpl.Container implements solomon
 	protected EList<SloRule> rules;
 
 	/**
-	 * The cached value of the '{@link #getAlerts() <em>Alerts</em>}' containment reference list.
+	 * The cached value of the '{@link #getViolations() <em>Violations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAlerts()
+	 * @see #getViolations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Alert> alerts;
+	protected EList<Violation> violations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +92,11 @@ public class solomonImpl extends MinimalEObjectImpl.Container implements solomon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Alert> getAlerts() {
-		if (alerts == null) {
-			alerts = new EObjectContainmentEList<Alert>(Alert.class, this, SloPackage.SOLOMON__ALERTS);
+	public EList<Violation> getViolations() {
+		if (violations == null) {
+			violations = new EObjectContainmentEList<Violation>(Violation.class, this, SloPackage.SOLOMON__VIOLATIONS);
 		}
-		return alerts;
+		return violations;
 	}
 
 	/**
@@ -109,8 +109,8 @@ public class solomonImpl extends MinimalEObjectImpl.Container implements solomon
 		switch (featureID) {
 		case SloPackage.SOLOMON__RULES:
 			return ((InternalEList<?>) getRules()).basicRemove(otherEnd, msgs);
-		case SloPackage.SOLOMON__ALERTS:
-			return ((InternalEList<?>) getAlerts()).basicRemove(otherEnd, msgs);
+		case SloPackage.SOLOMON__VIOLATIONS:
+			return ((InternalEList<?>) getViolations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -125,8 +125,8 @@ public class solomonImpl extends MinimalEObjectImpl.Container implements solomon
 		switch (featureID) {
 		case SloPackage.SOLOMON__RULES:
 			return getRules();
-		case SloPackage.SOLOMON__ALERTS:
-			return getAlerts();
+		case SloPackage.SOLOMON__VIOLATIONS:
+			return getViolations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -144,9 +144,9 @@ public class solomonImpl extends MinimalEObjectImpl.Container implements solomon
 			getRules().clear();
 			getRules().addAll((Collection<? extends SloRule>) newValue);
 			return;
-		case SloPackage.SOLOMON__ALERTS:
-			getAlerts().clear();
-			getAlerts().addAll((Collection<? extends Alert>) newValue);
+		case SloPackage.SOLOMON__VIOLATIONS:
+			getViolations().clear();
+			getViolations().addAll((Collection<? extends Violation>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -163,8 +163,8 @@ public class solomonImpl extends MinimalEObjectImpl.Container implements solomon
 		case SloPackage.SOLOMON__RULES:
 			getRules().clear();
 			return;
-		case SloPackage.SOLOMON__ALERTS:
-			getAlerts().clear();
+		case SloPackage.SOLOMON__VIOLATIONS:
+			getViolations().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -180,8 +180,8 @@ public class solomonImpl extends MinimalEObjectImpl.Container implements solomon
 		switch (featureID) {
 		case SloPackage.SOLOMON__RULES:
 			return rules != null && !rules.isEmpty();
-		case SloPackage.SOLOMON__ALERTS:
-			return alerts != null && !alerts.isEmpty();
+		case SloPackage.SOLOMON__VIOLATIONS:
+			return violations != null && !violations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -57,8 +57,8 @@ public class SloFactoryImpl extends EFactoryImpl implements SloFactory {
 		switch (eClass.getClassifierID()) {
 		case SloPackage.SLO_RULE:
 			return createSloRule();
-		case SloPackage.ALERT:
-			return createAlert();
+		case SloPackage.VIOLATION:
+			return createViolation();
 		case SloPackage.SOLOMON:
 			return createsolomon();
 		default:
@@ -81,9 +81,9 @@ public class SloFactoryImpl extends EFactoryImpl implements SloFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Alert createAlert() {
-		AlertImpl alert = new AlertImpl();
-		return alert;
+	public Violation createViolation() {
+		ViolationImpl violation = new ViolationImpl();
+		return violation;
 	}
 
 	/**

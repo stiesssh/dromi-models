@@ -242,8 +242,12 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		
 		try {
 			((de.unistuttgart.ma.saga.System) rootObject).setId(backendImporter.getId());
-		} catch (IOException | InterruptedException e) {
-			// TODO Auto-generated catch block
+			// TODO : better system name :x 
+			((de.unistuttgart.ma.saga.System) rootObject).setName(newFileCreationPage.getFileName());
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null; 
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 			return null; 
 		}

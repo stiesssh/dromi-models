@@ -135,7 +135,7 @@ public class SagaStepItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SagaStep)object).getId();
+		String label = ((SagaStep)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SagaStep_type") :
 			getString("_UI_SagaStep_type") + " " + label;

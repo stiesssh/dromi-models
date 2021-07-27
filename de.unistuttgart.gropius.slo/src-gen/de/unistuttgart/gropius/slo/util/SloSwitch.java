@@ -73,9 +73,9 @@ public class SloSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case SloPackage.ALERT: {
-			Alert alert = (Alert) theEObject;
-			T result = caseAlert(alert);
+		case SloPackage.VIOLATION: {
+			Violation violation = (Violation) theEObject;
+			T result = caseViolation(violation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -108,17 +108,17 @@ public class SloSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Alert</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Violation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Alert</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Violation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAlert(Alert object) {
+	public T caseViolation(Violation object) {
 		return null;
 	}
 

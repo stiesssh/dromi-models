@@ -2,12 +2,14 @@
  */
 package de.unistuttgart.ma.saga;
 
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.Project;
 
 import de.unistuttgart.gropius.slo.SloRule;
+import java.util.Set;
 
-import de.unistuttgart.ma.saga.impact.Notification;
-
+import org.eclipse.bpmn2.FlowElement;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -23,7 +25,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.unistuttgart.ma.saga.System#getProcesses <em>Processes</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.System#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.System#getSloRules <em>Slo Rules</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.System#getNotifications <em>Notifications</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.SagaPackage#getSystem()
@@ -90,15 +91,29 @@ public interface System extends IdentifiableElement {
 	EList<SloRule> getSloRules();
 
 	/**
-	 * Returns the value of the '<em><b>Notifications</b></em>' containment reference list.
-	 * The list contents are of type {@link de.unistuttgart.ma.saga.impact.Notification}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Notifications</em>' containment reference list.
-	 * @see de.unistuttgart.ma.saga.SagaPackage#getSystem_Notifications()
-	 * @model containment="true"
-	 * @generated
+	 * @generated NOT
 	 */
-	EList<Notification> getNotifications();
+	public Set<SloRule> getSloForNode(de.unistuttgart.gropius.Node node);
+	
+	/**
+	 * @generated NOT
+	 */
+	public ComponentInterface getComponentInterfaceById(String id);
+	
+	/**
+	 * @generated NOT
+	 */
+	public Component getComponentById(String id);
+	
+	/**
+	 * @generated NOT
+	 */
+	public SagaStep getSagaStepById(String id);
+	
+	/**
+	 * @generated NOT
+	 */
+	public FlowElement getTaskById(String id);
+
 
 } // System

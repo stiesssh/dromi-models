@@ -2,10 +2,7 @@
  */
 package de.unistuttgart.ma.saga.impact;
 
-import de.unistuttgart.gropius.slo.Alert;
-
-import de.unistuttgart.ma.saga.IdentifiableElement;
-
+import de.unistuttgart.gropius.slo.Violation;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,58 +15,36 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Impact#getCause <em>Cause</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impact.Impact#getRootCause <em>Root Cause</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Impact#getLocation <em>Location</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.Impact#getRootCause <em>Root Cause</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getImpact()
  * @model
  * @generated
  */
-public interface Impact extends IdentifiableElement {
+public interface Impact extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Cause</b></em>' reference.
+	 * Returns the value of the '<em><b>Cause</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cause</em>' reference.
+	 * @return the value of the '<em>Cause</em>' containment reference.
 	 * @see #setCause(Impact)
 	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getImpact_Cause()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Impact getCause();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Impact#getCause <em>Cause</em>}' reference.
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Impact#getCause <em>Cause</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cause</em>' reference.
+	 * @param value the new value of the '<em>Cause</em>' containment reference.
 	 * @see #getCause()
 	 * @generated
 	 */
 	void setCause(Impact value);
-
-	/**
-	 * Returns the value of the '<em><b>Root Cause</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Cause</em>' reference.
-	 * @see #setRootCause(Alert)
-	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getImpact_RootCause()
-	 * @model
-	 * @generated
-	 */
-	Alert getRootCause();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Impact#getRootCause <em>Root Cause</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root Cause</em>' reference.
-	 * @see #getRootCause()
-	 * @generated
-	 */
-	void setRootCause(Alert value);
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' reference.
@@ -92,6 +67,28 @@ public interface Impact extends IdentifiableElement {
 	 * @generated
 	 */
 	void setLocation(EObject value);
+
+	/**
+	 * Returns the value of the '<em><b>Root Cause</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root Cause</em>' containment reference.
+	 * @see #setRootCause(Violation)
+	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getImpact_RootCause()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Violation getRootCause();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Impact#getRootCause <em>Root Cause</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Root Cause</em>' containment reference.
+	 * @see #getRootCause()
+	 * @generated
+	 */
+	void setRootCause(Violation value);
 
 	/**
 	 * <!-- begin-user-doc -->

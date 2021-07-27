@@ -76,13 +76,22 @@ public interface SagaPackage extends EPackage {
 	int IDENTIFIABLE_ELEMENT__ID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IDENTIFIABLE_ELEMENT__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Identifiable Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IDENTIFIABLE_ELEMENT_FEATURE_COUNT = 1;
+	int IDENTIFIABLE_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Identifiable Element</em>' class.
@@ -111,6 +120,15 @@ public interface SagaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYSTEM__ID = IDENTIFIABLE_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__NAME = IDENTIFIABLE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sagas</b></em>' containment reference list.
@@ -149,22 +167,13 @@ public interface SagaPackage extends EPackage {
 	int SYSTEM__SLO_RULES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Notifications</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__NOTIFICATIONS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 5;
+	int SYSTEM_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>System</em>' class.
@@ -193,6 +202,15 @@ public interface SagaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SAGA__ID = IDENTIFIABLE_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGA__NAME = IDENTIFIABLE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -239,6 +257,15 @@ public interface SagaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SAGA_STEP__ID = IDENTIFIABLE_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SAGA_STEP__NAME = IDENTIFIABLE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Task</b></em>' reference.
@@ -341,17 +368,6 @@ public interface SagaPackage extends EPackage {
 	EReference getSystem_SloRules();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.System#getNotifications <em>Notifications</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Notifications</em>'.
-	 * @see de.unistuttgart.ma.saga.System#getNotifications()
-	 * @see #getSystem()
-	 * @generated
-	 */
-	EReference getSystem_Notifications();
-
-	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Saga <em>Saga</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -437,6 +453,17 @@ public interface SagaPackage extends EPackage {
 	EAttribute getIdentifiableElement_Id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.ma.saga.IdentifiableElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.unistuttgart.ma.saga.IdentifiableElement#getName()
+	 * @see #getIdentifiableElement()
+	 * @generated
+	 */
+	EAttribute getIdentifiableElement_Name();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -500,14 +527,6 @@ public interface SagaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYSTEM__SLO_RULES = eINSTANCE.getSystem_SloRules();
-
-		/**
-		 * The meta object literal for the '<em><b>Notifications</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYSTEM__NOTIFICATIONS = eINSTANCE.getSystem_Notifications();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.SagaImpl <em>Saga</em>}' class.
@@ -578,6 +597,14 @@ public interface SagaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IDENTIFIABLE_ELEMENT__ID = eINSTANCE.getIdentifiableElement_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IDENTIFIABLE_ELEMENT__NAME = eINSTANCE.getIdentifiableElement_Name();
 
 	}
 

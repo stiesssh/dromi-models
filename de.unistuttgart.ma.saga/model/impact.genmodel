@@ -11,15 +11,14 @@
   <genPackages prefix="Impact" basePackage="de.unistuttgart.ma.saga" disposableProviderFactory="true"
       ecorePackage="impact.ecore#/">
     <genClasses ecoreClass="impact.ecore#//Impact">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/cause"/>
-      <genFeatures notify="false" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/rootCause"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/cause"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/location"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/rootCause"/>
       <genOperations ecoreOperation="impact.ecore#//Impact/getLocationId"/>
     </genClasses>
     <genClasses ecoreClass="impact.ecore#//Notification">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/impacts"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/topLevelImpacts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/alert"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/topLevelImpacts"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/system"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

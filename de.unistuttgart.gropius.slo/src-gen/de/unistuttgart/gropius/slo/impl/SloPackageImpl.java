@@ -3,11 +3,11 @@
 package de.unistuttgart.gropius.slo.impl;
 
 import de.unistuttgart.gropius.GropiusPackage;
-import de.unistuttgart.gropius.slo.Alert;
 import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloPackage;
 import de.unistuttgart.gropius.slo.SloRule;
 
+import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.gropius.slo.solomon;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -35,7 +35,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass alertEClass = null;
+	private EClass violationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,8 +179,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAlert() {
-		return alertEClass;
+	public EClass getViolation() {
+		return violationEClass;
 	}
 
 	/**
@@ -188,8 +188,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAlert_Name() {
-		return (EAttribute) alertEClass.getEStructuralFeatures().get(0);
+	public EAttribute getViolation_Value() {
+		return (EAttribute) violationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -197,17 +197,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAlert_Value() {
-		return (EAttribute) alertEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAlert_SloRule() {
-		return (EReference) alertEClass.getEStructuralFeatures().get(2);
+	public EReference getViolation_SloRule() {
+		return (EReference) violationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -233,7 +224,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getsolomon_Alerts() {
+	public EReference getsolomon_Violations() {
 		return (EReference) solomonEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -274,14 +265,13 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT);
 		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT_INTERFACE);
 
-		alertEClass = createEClass(ALERT);
-		createEAttribute(alertEClass, ALERT__NAME);
-		createEAttribute(alertEClass, ALERT__VALUE);
-		createEReference(alertEClass, ALERT__SLO_RULE);
+		violationEClass = createEClass(VIOLATION);
+		createEAttribute(violationEClass, VIOLATION__VALUE);
+		createEReference(violationEClass, VIOLATION__SLO_RULE);
 
 		solomonEClass = createEClass(SOLOMON);
 		createEReference(solomonEClass, SOLOMON__RULES);
-		createEReference(solomonEClass, SOLOMON__ALERTS);
+		createEReference(solomonEClass, SOLOMON__VIOLATIONS);
 	}
 
 	/**
@@ -336,22 +326,21 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 				"gropiusComponentInterface", null, 1, 1, SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(alertEClass, Alert.class, "Alert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAlert_Name(), ecorePackage.getEString(), "name", null, 0, 1, Alert.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAlert_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Alert.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAlert_SloRule(), this.getSloRule(), null, "sloRule", null, 0, 1, Alert.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEClass(violationEClass, Violation.class, "Violation", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getViolation_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Violation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getViolation_SloRule(), this.getSloRule(), null, "sloRule", null, 1, 1, Violation.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(solomonEClass, solomon.class, "solomon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getsolomon_Rules(), this.getSloRule(), null, "rules", null, 0, -1, solomon.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getsolomon_Alerts(), this.getAlert(), null, "alerts", null, 0, -1, solomon.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getsolomon_Violations(), this.getViolation(), null, "violations", null, 0, -1, solomon.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -3,11 +3,8 @@
 package de.unistuttgart.ma.saga.impact.provider;
 
 
-import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
-
-import de.unistuttgart.ma.saga.provider.IdentifiableElementItemProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -20,7 +17,13 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -29,7 +32,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotificationItemProvider extends IdentifiableElementItemProvider {
+public class NotificationItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -51,48 +61,25 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addImpactsPropertyDescriptor(object);
-			addTopLevelImpactsPropertyDescriptor(object);
+			addSystemPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Impacts feature.
+	 * This adds a property descriptor for the System feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addImpactsPropertyDescriptor(Object object) {
+	protected void addSystemPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Notification_impacts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Notification_impacts_feature", "_UI_Notification_type"),
-				 ImpactPackage.Literals.NOTIFICATION__IMPACTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Top Level Impacts feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTopLevelImpactsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Notification_topLevelImpacts_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Notification_topLevelImpacts_feature", "_UI_Notification_type"),
-				 ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS,
+				 getString("_UI_Notification_system_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Notification_system_feature", "_UI_Notification_type"),
+				 ImpactPackage.Literals.NOTIFICATION__SYSTEM,
 				 true,
 				 false,
 				 true,
@@ -113,8 +100,7 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ImpactPackage.Literals.NOTIFICATION__IMPACTS);
-			childrenFeatures.add(ImpactPackage.Literals.NOTIFICATION__ALERT);
+			childrenFeatures.add(ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS);
 		}
 		return childrenFeatures;
 	}
@@ -151,10 +137,7 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((de.unistuttgart.ma.saga.impact.Notification)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Notification_type") :
-			getString("_UI_Notification_type") + " " + label;
+		return getString("_UI_Notification_type");
 	}
 
 
@@ -170,8 +153,7 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(de.unistuttgart.ma.saga.impact.Notification.class)) {
-			case ImpactPackage.NOTIFICATION__IMPACTS:
-			case ImpactPackage.NOTIFICATION__ALERT:
+			case ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -191,13 +173,8 @@ public class NotificationItemProvider extends IdentifiableElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ImpactPackage.Literals.NOTIFICATION__IMPACTS,
+				(ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS,
 				 ImpactFactory.eINSTANCE.createImpact()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ImpactPackage.Literals.NOTIFICATION__ALERT,
-				 SloFactory.eINSTANCE.createAlert()));
 	}
 
 	/**

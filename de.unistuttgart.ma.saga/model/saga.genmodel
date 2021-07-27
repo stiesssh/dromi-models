@@ -14,7 +14,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//System/processes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//System/architecture"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//System/sloRules"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//System/notifications"/>
     </genClasses>
     <genClasses ecoreClass="saga.ecore#//Saga">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference saga.ecore#//Saga/steps"/>
@@ -26,6 +25,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="saga.ecore#//IdentifiableElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute saga.ecore#//IdentifiableElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute saga.ecore#//IdentifiableElement/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

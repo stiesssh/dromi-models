@@ -13,9 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="gropiusComponentInterface"
         ordered="false" lowerBound="1" eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//ComponentInterface"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Alert">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Violation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="not in solomon"/>
@@ -27,7 +25,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="solomon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//SloRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="alerts" upperBound="-1"
-        eType="#//Alert" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="violations" upperBound="-1"
+        eType="#//Violation" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

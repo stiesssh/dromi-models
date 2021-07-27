@@ -2,8 +2,6 @@
  */
 package de.unistuttgart.ma.saga.impact.util;
 
-import de.unistuttgart.ma.saga.IdentifiableElement;
-
 import de.unistuttgart.ma.saga.impact.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -71,14 +69,12 @@ public class ImpactSwitch<T> extends Switch<T> {
 			case ImpactPackage.IMPACT: {
 				Impact impact = (Impact)theEObject;
 				T result = caseImpact(impact);
-				if (result == null) result = caseIdentifiableElement(impact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ImpactPackage.NOTIFICATION: {
 				Notification notification = (Notification)theEObject;
 				T result = caseNotification(notification);
-				if (result == null) result = caseIdentifiableElement(notification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,21 +109,6 @@ public class ImpactSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNotification(Notification object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Identifiable Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIdentifiableElement(IdentifiableElement object) {
 		return null;
 	}
 
