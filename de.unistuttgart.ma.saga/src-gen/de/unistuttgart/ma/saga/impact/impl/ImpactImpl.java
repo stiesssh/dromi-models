@@ -214,20 +214,23 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * 
+	 * rely on getLocation() to make sure, that proxies get resolved first.  
+	 * 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getLocationId() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		if (location instanceof Node) {
-			return ((Node) location).getId();
+		if (getLocation() instanceof Node) {
+			return ((Node) getLocation()).getId();
 		}
-		if (location instanceof IdentifiableElement) {
-			return ((IdentifiableElement) location).getId();
+		if (getLocation() instanceof IdentifiableElement) {
+			return ((IdentifiableElement) getLocation()).getId();
 		}
-		if (location instanceof BaseElement) {
-			return ((BaseElement) location).getId();
+		if (getLocation() instanceof BaseElement) {
+			return ((BaseElement) getLocation()).getId();
 		}
 		throw new UnsupportedOperationException();
 	}
