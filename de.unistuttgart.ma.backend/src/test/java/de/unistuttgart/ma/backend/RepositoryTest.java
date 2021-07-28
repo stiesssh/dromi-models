@@ -1,22 +1,15 @@
-package de.unistuttgart.ma.backend.repository;
+package de.unistuttgart.ma.backend;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,9 +20,6 @@ import de.unistuttgart.gropius.Project;
 import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.gropius.slo.Violation;
-import de.unistuttgart.ma.backend.Controller;
-import de.unistuttgart.ma.backend.NotificationCreationService;
-import de.unistuttgart.ma.backend.importer.SagaImporterService;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.System;
 import de.unistuttgart.ma.saga.impact.Impact;
@@ -48,50 +38,7 @@ import de.unistuttgart.ma.saga.impact.ImpactFactory;
 @ContextConfiguration(classes = TestContext.class)
 @DataMongoTest
 @ActiveProfiles("test")
-public class RepositoryTest {
-	
-	NotificationCreationService service;
-	
-	SagaImporterService importer;
-	Controller controller;
-	
-	SystemRepositoryProxy systemRepoProxy;
-	@Autowired SystemRepository systemRepo;
-	
-	ImpactRepositoryProxy notificationRepoProxy;
-	@Autowired ImpactRepository notificationRepo;
-	
-	de.unistuttgart.ma.saga.System system; 
-	String systemId = "60fa9cadc736ff6357a89a9b";
-	
-	ResourceSet set;
-
-	@BeforeEach
-	public void setUp() {
-		set = new ResourceSetImpl();
-		systemRepoProxy = new SystemRepositoryProxy(systemRepo, set);
-		notificationRepoProxy = new ImpactRepositoryProxy(notificationRepo,set);
-		
-		importer = new SagaImporterService(systemRepoProxy,set);
-		
-		systemRepo.deleteAll();
-		notificationRepo.deleteAll();
-	}
-	
-	/**
-	 * load the t2 store
-	 * 
-	 * @throws IOException
-	 */
-	public void loadSystem() throws IOException  {
-		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base.saga"), StandardCharsets.UTF_8);					
-		String filename = "filename.saga";
-		importer.parse(xml, filename);
-		
-		system = systemRepoProxy.findById(systemId);
-				
-		assertEquals(1, systemRepo.count());
-	}
+public class RepositoryTest extends FooTest {
 	
 	@Test
 	public void impactRepoProxyTest() throws IOException {
@@ -122,8 +69,8 @@ public class RepositoryTest {
 		Impact actual = impacts.iterator().next();
 		
 		assertNotNull(actual);
-		assertEquals(impact.getLocation(), actual.getLocation());
 		assertEquals(impact.getLocationId(), actual.getLocationId());
+		assertEquals(impact.getLocation(), actual.getLocation());
 		assertEquals(impact.getRootCause().getSloRule(), actual.getRootCause().getSloRule());
 	}
 	

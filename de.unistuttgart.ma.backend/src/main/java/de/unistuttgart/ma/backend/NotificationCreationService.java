@@ -33,11 +33,11 @@ import de.unistuttgart.ma.saga.impact.Notification;
 public class NotificationCreationService {
 	
 	private final ImpactRepositoryProxy notificationRepoProxy;
-	private final SystemRepositoryProxy systemRepo;
+	private final SystemRepositoryProxy systemRepoProxy;
 	
-	public NotificationCreationService(@Autowired ImpactRepositoryProxy notificationRepoProxy, @Autowired SystemRepositoryProxy systemRepo) {
+	public NotificationCreationService(@Autowired ImpactRepositoryProxy notificationRepoProxy, @Autowired SystemRepositoryProxy systemRepoProxy) {
 		this.notificationRepoProxy = notificationRepoProxy;
-		this.systemRepo = systemRepo;
+		this.systemRepoProxy = systemRepoProxy;
 	}
 
 	
@@ -45,10 +45,11 @@ public class NotificationCreationService {
 		
 		String architectureId = violation.getSloRule().getGropiusProject().getId();
 		
-		System system = systemRepo.findByArchitectureId(architectureId);
+		System system = systemRepoProxy.findByArchitectureId(architectureId);
 		
 		
 		//Notification notification = ImpactFactory.eINSTANCE.createNotification();
+		
 		
 		// set system...
 		// slo -> gropius project -> which system uses that project? -> add to those notifications.
