@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="impact" nsURI="http://www.example.org/impact" nsPrefix="impact">
-  <eClassifiers xsi:type="ecore:EClass" name="Impact">
+  <eClassifiers xsi:type="ecore:EClass" name="IntermediateImpact" eSuperTypes="#//Impact">
     <eOperations name="getLocationId" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cause" eType="#//Impact"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rootCause" eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//Violation"
-        containment="true"/>
+    <eOperations name="getLocationName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="impact" lowerBound="1"
+        eType="#//Impact" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Notification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="topLevelImpacts" upperBound="-1"
         eType="#//Impact" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="ecore:EClass saga.ecore#//System"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Impact" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Violation" eSuperTypes="#//Impact">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="not in solomon"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sloRule" lowerBound="1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"/>
   </eClassifiers>
 </ecore:EPackage>

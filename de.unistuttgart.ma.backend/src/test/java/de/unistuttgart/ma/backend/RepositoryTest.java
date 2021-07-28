@@ -96,7 +96,7 @@ public class RepositoryTest extends FooTest {
 	
 
 	@Test
-	public void emptySystemRepoProxyTest() {
+	public void emptySystemRepoProxyTest() throws IOException {
 		// prepare system with resource
 		System emptySystem = SagaFactory.eINSTANCE.createSystem();
 		String filename = "foo.saga";

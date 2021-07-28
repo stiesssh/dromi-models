@@ -148,52 +148,6 @@ public interface SloPackage extends EPackage {
 	int SLO_RULE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.ViolationImpl <em>Violation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.unistuttgart.gropius.slo.impl.ViolationImpl
-	 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getViolation()
-	 * @generated
-	 */
-	int VIOLATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIOLATION__VALUE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Slo Rule</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIOLATION__SLO_RULE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Violation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIOLATION_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Violation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIOLATION_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link de.unistuttgart.gropius.slo.impl.solomonImpl <em>solomon</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -201,7 +155,7 @@ public interface SloPackage extends EPackage {
 	 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getsolomon()
 	 * @generated
 	 */
-	int SOLOMON = 2;
+	int SOLOMON = 1;
 
 	/**
 	 * The feature id for the '<em><b>Rules</b></em>' containment reference list.
@@ -213,22 +167,13 @@ public interface SloPackage extends EPackage {
 	int SOLOMON__RULES = 0;
 
 	/**
-	 * The feature id for the '<em><b>Violations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLOMON__VIOLATIONS = 1;
-
-	/**
 	 * The number of structural features of the '<em>solomon</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLOMON_FEATURE_COUNT = 2;
+	int SOLOMON_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>solomon</em>' class.
@@ -327,38 +272,6 @@ public interface SloPackage extends EPackage {
 	EAttribute getSloRule_Id();
 
 	/**
-	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.Violation <em>Violation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Violation</em>'.
-	 * @see de.unistuttgart.gropius.slo.Violation
-	 * @generated
-	 */
-	EClass getViolation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.Violation#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see de.unistuttgart.gropius.slo.Violation#getValue()
-	 * @see #getViolation()
-	 * @generated
-	 */
-	EAttribute getViolation_Value();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.unistuttgart.gropius.slo.Violation#getSloRule <em>Slo Rule</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Slo Rule</em>'.
-	 * @see de.unistuttgart.gropius.slo.Violation#getSloRule()
-	 * @see #getViolation()
-	 * @generated
-	 */
-	EReference getViolation_SloRule();
-
-	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.solomon <em>solomon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,17 +291,6 @@ public interface SloPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getsolomon_Rules();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.gropius.slo.solomon#getViolations <em>Violations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Violations</em>'.
-	 * @see de.unistuttgart.gropius.slo.solomon#getViolations()
-	 * @see #getsolomon()
-	 * @generated
-	 */
-	EReference getsolomon_Violations();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -480,32 +382,6 @@ public interface SloPackage extends EPackage {
 		EAttribute SLO_RULE__ID = eINSTANCE.getSloRule_Id();
 
 		/**
-		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.ViolationImpl <em>Violation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.unistuttgart.gropius.slo.impl.ViolationImpl
-		 * @see de.unistuttgart.gropius.slo.impl.SloPackageImpl#getViolation()
-		 * @generated
-		 */
-		EClass VIOLATION = eINSTANCE.getViolation();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VIOLATION__VALUE = eINSTANCE.getViolation_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Slo Rule</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VIOLATION__SLO_RULE = eINSTANCE.getViolation_SloRule();
-
-		/**
 		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.solomonImpl <em>solomon</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -522,14 +398,6 @@ public interface SloPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SOLOMON__RULES = eINSTANCE.getsolomon_Rules();
-
-		/**
-		 * The meta object literal for the '<em><b>Violations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOLOMON__VIOLATIONS = eINSTANCE.getsolomon_Violations();
 
 	}
 

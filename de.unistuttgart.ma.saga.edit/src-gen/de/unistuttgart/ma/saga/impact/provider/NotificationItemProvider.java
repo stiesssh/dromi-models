@@ -174,7 +174,12 @@ public class NotificationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS,
-				 ImpactFactory.eINSTANCE.createImpact()));
+				 ImpactFactory.eINSTANCE.createIntermediateImpact()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS,
+				 ImpactFactory.eINSTANCE.createViolation()));
 	}
 
 	/**

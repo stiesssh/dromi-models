@@ -22,13 +22,13 @@ public interface ImpactFactory extends EFactory {
 	ImpactFactory eINSTANCE = de.unistuttgart.ma.saga.impact.impl.ImpactFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Impact</em>'.
+	 * Returns a new object of class '<em>Intermediate Impact</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Impact</em>'.
+	 * @return a new object of class '<em>Intermediate Impact</em>'.
 	 * @generated
 	 */
-	Impact createImpact();
+	IntermediateImpact createIntermediateImpact();
 
 	/**
 	 * Returns a new object of class '<em>Notification</em>'.
@@ -38,6 +38,15 @@ public interface ImpactFactory extends EFactory {
 	 * @generated
 	 */
 	Notification createNotification();
+
+	/**
+	 * Returns a new object of class '<em>Violation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Violation</em>'.
+	 * @generated
+	 */
+	Violation createViolation();
 
 	/**
 	 * Returns the package supported by this factory.

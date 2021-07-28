@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.unistuttgart.gropius.slo.solomon#getRules <em>Rules</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.solomon#getViolations <em>Violations</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.gropius.slo.SloPackage#getsolomon()
@@ -35,17 +34,5 @@ public interface solomon extends EObject {
 	 * @generated
 	 */
 	EList<SloRule> getRules();
-
-	/**
-	 * Returns the value of the '<em><b>Violations</b></em>' containment reference list.
-	 * The list contents are of type {@link de.unistuttgart.gropius.slo.Violation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Violations</em>' containment reference list.
-	 * @see de.unistuttgart.gropius.slo.SloPackage#getsolomon_Violations()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Violation> getViolations();
 
 } // solomon

@@ -72,11 +72,6 @@ public class SloAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseViolation(Violation object) {
-			return createViolationAdapter();
-		}
-
-		@Override
 		public Adapter casesolomon(solomon object) {
 			return createsolomonAdapter();
 		}
@@ -111,20 +106,6 @@ public class SloAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSloRuleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.gropius.slo.Violation <em>Violation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.gropius.slo.Violation
-	 * @generated
-	 */
-	public Adapter createViolationAdapter() {
 		return null;
 	}
 

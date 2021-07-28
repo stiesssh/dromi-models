@@ -68,12 +68,20 @@ public class ImpactAdapterFactory extends AdapterFactoryImpl {
 	protected ImpactSwitch<Adapter> modelSwitch =
 		new ImpactSwitch<Adapter>() {
 			@Override
-			public Adapter caseImpact(Impact object) {
-				return createImpactAdapter();
+			public Adapter caseIntermediateImpact(IntermediateImpact object) {
+				return createIntermediateImpactAdapter();
 			}
 			@Override
 			public Adapter caseNotification(Notification object) {
 				return createNotificationAdapter();
+			}
+			@Override
+			public Adapter caseImpact(Impact object) {
+				return createImpactAdapter();
+			}
+			@Override
+			public Adapter caseViolation(Violation object) {
+				return createViolationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -96,6 +104,20 @@ public class ImpactAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.impact.IntermediateImpact <em>Intermediate Impact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.impact.IntermediateImpact
+	 * @generated
+	 */
+	public Adapter createIntermediateImpactAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.impact.Impact <em>Impact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -106,6 +128,20 @@ public class ImpactAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createImpactAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.impact.Violation <em>Violation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.saga.impact.Violation
+	 * @generated
+	 */
+	public Adapter createViolationAdapter() {
 		return null;
 	}
 

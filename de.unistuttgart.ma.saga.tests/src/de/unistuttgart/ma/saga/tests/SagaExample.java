@@ -2,7 +2,6 @@
  */
 package de.unistuttgart.ma.saga.tests;
 
-import de.unistuttgart.ma.saga.Model;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 
@@ -60,7 +59,7 @@ public class SagaExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.saga"));
-				Model root = SagaFactory.eINSTANCE.createModel();
+				de.unistuttgart.ma.saga.System root = SagaFactory.eINSTANCE.createSystem();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

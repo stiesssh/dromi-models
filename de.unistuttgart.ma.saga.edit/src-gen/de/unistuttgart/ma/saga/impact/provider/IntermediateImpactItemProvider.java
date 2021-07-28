@@ -1,10 +1,11 @@
 /**
  */
-package de.unistuttgart.gropius.slo.provider;
+package de.unistuttgart.ma.saga.impact.provider;
 
-import de.unistuttgart.gropius.slo.SloFactory;
-import de.unistuttgart.gropius.slo.SloPackage;
-import de.unistuttgart.gropius.slo.solomon;
+
+import de.unistuttgart.ma.saga.impact.ImpactFactory;
+import de.unistuttgart.ma.saga.impact.ImpactPackage;
+import de.unistuttgart.ma.saga.impact.IntermediateImpact;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,34 +13,26 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.unistuttgart.gropius.slo.solomon} object.
+ * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.impact.IntermediateImpact} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class solomonItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class IntermediateImpactItemProvider extends ImpactItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public solomonItemProvider(AdapterFactory adapterFactory) {
+	public IntermediateImpactItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -54,8 +47,31 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLocationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Location feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLocationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IntermediateImpact_location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IntermediateImpact_location_feature", "_UI_IntermediateImpact_type"),
+				 ImpactPackage.Literals.INTERMEDIATE_IMPACT__LOCATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -70,7 +86,7 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SloPackage.Literals.SOLOMON__RULES);
+			childrenFeatures.add(ImpactPackage.Literals.INTERMEDIATE_IMPACT__IMPACT);
 		}
 		return childrenFeatures;
 	}
@@ -89,24 +105,14 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 	}
 
 	/**
-	 * This returns solomon.gif.
+	 * This returns IntermediateImpact.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/solomon"));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected boolean shouldComposeCreationImage() {
-		return true;
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IntermediateImpact"));
 	}
 
 	/**
@@ -117,8 +123,9 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_solomon_type");
+		return getString("_UI_IntermediateImpact_type");
 	}
+
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -131,10 +138,10 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(solomon.class)) {
-		case SloPackage.SOLOMON__RULES:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+		switch (notification.getFeatureID(IntermediateImpact.class)) {
+			case ImpactPackage.INTERMEDIATE_IMPACT__IMPACT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -150,19 +157,15 @@ public class solomonItemProvider extends ItemProviderAdapter implements IEditing
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors
-				.add(createChildParameter(SloPackage.Literals.SOLOMON__RULES, SloFactory.eINSTANCE.createSloRule()));
-	}
+		newChildDescriptors.add
+			(createChildParameter
+				(ImpactPackage.Literals.INTERMEDIATE_IMPACT__IMPACT,
+				 ImpactFactory.eINSTANCE.createIntermediateImpact()));
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SloEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(ImpactPackage.Literals.INTERMEDIATE_IMPACT__IMPACT,
+				 ImpactFactory.eINSTANCE.createViolation()));
 	}
 
 }

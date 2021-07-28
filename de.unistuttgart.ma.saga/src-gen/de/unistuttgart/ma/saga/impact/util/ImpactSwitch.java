@@ -66,9 +66,10 @@ public class ImpactSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ImpactPackage.IMPACT: {
-				Impact impact = (Impact)theEObject;
-				T result = caseImpact(impact);
+			case ImpactPackage.INTERMEDIATE_IMPACT: {
+				IntermediateImpact intermediateImpact = (IntermediateImpact)theEObject;
+				T result = caseIntermediateImpact(intermediateImpact);
+				if (result == null) result = caseImpact(intermediateImpact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -78,8 +79,36 @@ public class ImpactSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ImpactPackage.IMPACT: {
+				Impact impact = (Impact)theEObject;
+				T result = caseImpact(impact);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ImpactPackage.VIOLATION: {
+				Violation violation = (Violation)theEObject;
+				T result = caseViolation(violation);
+				if (result == null) result = caseImpact(violation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Intermediate Impact</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Intermediate Impact</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntermediateImpact(IntermediateImpact object) {
+		return null;
 	}
 
 	/**
@@ -94,6 +123,21 @@ public class ImpactSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseImpact(Impact object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Violation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Violation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseViolation(Violation object) {
 		return null;
 	}
 

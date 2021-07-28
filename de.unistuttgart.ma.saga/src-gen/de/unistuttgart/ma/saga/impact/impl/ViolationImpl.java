@@ -1,10 +1,11 @@
 /**
  */
-package de.unistuttgart.gropius.slo.impl;
+package de.unistuttgart.ma.saga.impact.impl;
 
-import de.unistuttgart.gropius.slo.SloPackage;
 import de.unistuttgart.gropius.slo.SloRule;
-import de.unistuttgart.gropius.slo.Violation;
+
+import de.unistuttgart.ma.saga.impact.ImpactPackage;
+import de.unistuttgart.ma.saga.impact.Violation;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -12,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,13 +22,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.gropius.slo.impl.ViolationImpl#getValue <em>Value</em>}</li>
- *   <li>{@link de.unistuttgart.gropius.slo.impl.ViolationImpl#getSloRule <em>Slo Rule</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ViolationImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ViolationImpl#getSloRule <em>Slo Rule</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ViolationImpl extends MinimalEObjectImpl.Container implements Violation {
+public class ViolationImpl extends ImpactImpl implements Violation {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,7 +75,7 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SloPackage.Literals.VIOLATION;
+		return ImpactPackage.Literals.VIOLATION;
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 		double oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.VIOLATION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.VIOLATION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -106,12 +106,11 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	 */
 	public SloRule getSloRule() {
 		if (sloRule != null && sloRule.eIsProxy()) {
-			InternalEObject oldSloRule = (InternalEObject) sloRule;
-			sloRule = (SloRule) eResolveProxy(oldSloRule);
+			InternalEObject oldSloRule = (InternalEObject)sloRule;
+			sloRule = (SloRule)eResolveProxy(oldSloRule);
 			if (sloRule != oldSloRule) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SloPackage.VIOLATION__SLO_RULE,
-							oldSloRule, sloRule));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ImpactPackage.VIOLATION__SLO_RULE, oldSloRule, sloRule));
 			}
 		}
 		return sloRule;
@@ -135,7 +134,7 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 		SloRule oldSloRule = sloRule;
 		sloRule = newSloRule;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.VIOLATION__SLO_RULE, oldSloRule, sloRule));
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.VIOLATION__SLO_RULE, oldSloRule, sloRule));
 	}
 
 	/**
@@ -146,12 +145,11 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SloPackage.VIOLATION__VALUE:
-			return getValue();
-		case SloPackage.VIOLATION__SLO_RULE:
-			if (resolve)
-				return getSloRule();
-			return basicGetSloRule();
+			case ImpactPackage.VIOLATION__VALUE:
+				return getValue();
+			case ImpactPackage.VIOLATION__SLO_RULE:
+				if (resolve) return getSloRule();
+				return basicGetSloRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,12 +162,12 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SloPackage.VIOLATION__VALUE:
-			setValue((Double) newValue);
-			return;
-		case SloPackage.VIOLATION__SLO_RULE:
-			setSloRule((SloRule) newValue);
-			return;
+			case ImpactPackage.VIOLATION__VALUE:
+				setValue((Double)newValue);
+				return;
+			case ImpactPackage.VIOLATION__SLO_RULE:
+				setSloRule((SloRule)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -182,12 +180,12 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SloPackage.VIOLATION__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
-		case SloPackage.VIOLATION__SLO_RULE:
-			setSloRule((SloRule) null);
-			return;
+			case ImpactPackage.VIOLATION__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
+			case ImpactPackage.VIOLATION__SLO_RULE:
+				setSloRule((SloRule)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -200,10 +198,10 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SloPackage.VIOLATION__VALUE:
-			return value != VALUE_EDEFAULT;
-		case SloPackage.VIOLATION__SLO_RULE:
-			return sloRule != null;
+			case ImpactPackage.VIOLATION__VALUE:
+				return value != VALUE_EDEFAULT;
+			case ImpactPackage.VIOLATION__SLO_RULE:
+				return sloRule != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,8 +213,7 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: ");

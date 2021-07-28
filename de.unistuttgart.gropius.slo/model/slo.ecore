@@ -14,19 +14,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Violation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="not in solomon"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sloRule" lowerBound="1"
-        eType="#//SloRule"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="solomon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//SloRule" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="violations" upperBound="-1"
-        eType="#//Violation" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

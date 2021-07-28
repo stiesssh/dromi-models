@@ -5,6 +5,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -21,74 +23,90 @@ import de.unistuttgart.ma.saga.System;
 
 /**
  * 
+ * 
+ * 
  * @author maumau
  *
  */
 @Component
 public class SystemRepositoryProxy {
-	
+
 	private final SystemRepository repository;
 	private final ResourceSet set;
-	
+
 	public SystemRepositoryProxy(@Autowired SystemRepository repository, @Autowired ResourceSet set) {
 		this.repository = repository;
 		this.set = set;
-		
+
 		this.loadedSystems = new HashMap<>();
 		this.projectId2SystemId = new HashMap<>();
-		this.SystemId2ResourceUri = new HashMap<>();
-		
-		// load maps from data base. 
+		this.systemId2ResourceUri = new HashMap<>();
+
+		// load maps from data base.
 	}
-	
+
+	// TODO DELETE
+	public void testInit() throws IOException {
+		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base.saga"), StandardCharsets.UTF_8);
+		// URI uri = URI.createFileURI("fiii/Myqwer.saga");
+		URI uri = URI.createFileURI("asdfghjkl/My.saga");
+		String filename = uri.path();
+		String id = "60fa9cadc736ff6357a89a9b";
+
+		SystemItem item = new SystemItem(id, xml, filename);
+
+		repository.save(item);
+
+		systemId2ResourceUri.put(item.getId(), item.getFilename());
+		projectId2SystemId.put("5e8cc17ed645a00c", id);
+	}
+
 	// systemItemid -> system
 	private final Map<String, de.unistuttgart.ma.saga.System> loadedSystems;
-	
+
 	// TODO : 1 : n mapping
 	private final Map<String, String> projectId2SystemId;
-	
+
 	// systemID -> FileName
-	private final Map<String, String> SystemId2ResourceUri;
-	
+	private final Map<String, String> systemId2ResourceUri;
+
 	/**
+	 * save a system to the repository.
 	 * 
-	 * @param system
+	 * systems are serialised to xml and that xml is saved in the database.
+	 * 
+	 * @param system the system to be saved
+	 * @throws IOException if the model could not be saved
 	 */
-	public void save(de.unistuttgart.ma.saga.System system) {
+	public void save(de.unistuttgart.ma.saga.System system) throws IOException {
 		if (!repository.existsById(system.getId())) {
-			// throw new IllegalArgumentException("system no know. cant save unregistered system");
-			String filename = system.eResource().getURI().segment(system.eResource().getURI().segmentCount() - 1);
-			SystemItem item = new SystemItem(system.getId(), null, filename);
+			SystemItem item = new SystemItem(system.getId(), null, system.eResource().getURI().lastSegment());
 			repository.save(item);
-			
-			SystemId2ResourceUri.put(item.getId(), item.getFilename());
+
+			systemId2ResourceUri.put(item.getId(), item.getFilename());
 		}
+
 		SystemItem item = repository.findById(system.getId()).get();
-		
-		try {
-			repository.save(new SystemItem(item.getId(), serializeSystem(system), item.getFilename()));
-			
-			projectId2SystemId.put(system.getArchitecture().getId(), system.getId());
-		} catch (IOException e) {
-			// TODO throw i.e. 'could not save model' 
-			e.printStackTrace();
-			return;
-		}
+
+		repository.save(new SystemItem(item.getId(), serializeSystem(system), item.getFilename()));
+		projectId2SystemId.put(system.getArchitecture().getId(), system.getId());
 	}
-	
+
 	/**
+	 * Find the System that imports the architecture with the given project id. 
 	 * 
-	 * @param projectId
-	 * @return
+	 * @param projectId id of a gropius project. 
+	 * @return system that import the gropius architecture with the given projectId
 	 */
 	public System findByArchitectureId(String projectId) {
 		return findById(projectId2SystemId.get(projectId));
 	}
-	
+
 	/**
+	 * Find the System with the given id.
 	 * 
-	 * @param id
-	 * @return
+	 * @param id id of the system to be retrieved
+	 * @return the system with the given id
 	 */
 	public System findById(String id) {
 		if (loadedSystems.containsKey(id)) {
@@ -101,57 +119,57 @@ public class SystemRepositoryProxy {
 				loadedSystems.put(item.getId(), system);
 				return system;
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		throw new NoSuchElementException(String.format("Missing System for id %s", id));	
+		throw new NoSuchElementException(String.format("Missing System for id %s", id));
 	}
-	
+
 	/**
+	 * reserve an entry in the database for the model. 
 	 * 
-	 * @param filename
-	 * @return
+	 * @param fileuri uri of the file at the frontend. 
+	 * @return an id
 	 */
-	public String getIdForFilename(String filename) {
-		SystemItem item = new SystemItem(null, null, filename);
+	public String getIdForFilename(String fileuri) {
+		SystemItem item = new SystemItem(null, null, fileuri);
 		return repository.save(item).getId();
 	}
-	
+
 	/**
-	 * Serialise system to ecore xml. 
+	 * Serialise system to ecore xml.
 	 * 
-	 * @param system 
+	 * @param system
 	 * @return ecore xml representation of impact.
 	 * @throws IOException
 	 */
 	protected String serializeSystem(System system) throws IOException {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("saga", new EcoreResourceFactoryImpl());
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		
+
 		Resource res = system.eResource();
 		res.save(outputStream, null);
-		
+
 		return outputStream.toString(StandardCharsets.UTF_8);
 	}
-	
+
 	/**
-	 * Deserialise system from ecore xml. 
+	 * Deserialise system from ecore xml.
 	 * 
-	 * @param impact 
+	 * @param impact
 	 * @return ecore xml representation of impact.
 	 * @throws IOException
 	 */
 	protected System deserializeSystem(String xml, String filename) throws IOException {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("saga", new EcoreResourceFactoryImpl());
 		InputStream targetStream = new ByteArrayInputStream(xml.getBytes());
-				
+
 		Resource resource = set.getResource(URI.createPlatformResourceURI(filename, false), false);
 		if (resource == null) {
 			resource = set.createResource(URI.createPlatformResourceURI(filename, false));
 		}
 		resource.load(targetStream, null);
-		
+
 		for (EObject eObject : resource.getContents()) {
 			if (eObject instanceof System) {
 				return (System) eObject;

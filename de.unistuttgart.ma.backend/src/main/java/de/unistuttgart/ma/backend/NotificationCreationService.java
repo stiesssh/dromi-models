@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
-import java.util.UUID;
 
 import org.eclipse.emf.common.util.EList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.ma.backend.computationUtility.QueueItem;
-import de.unistuttgart.ma.backend.repository.ImpactRepository;
 import de.unistuttgart.ma.backend.repository.ImpactRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.Saga;
@@ -21,10 +19,9 @@ import de.unistuttgart.ma.saga.SagaStep;
 import de.unistuttgart.ma.saga.System;
 import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
-import de.unistuttgart.ma.saga.impact.Notification;
 
 /**
- * calculates impact after receiving and alert
+ * calculates impact after receiving alert about and violation
  * 
  * @author maumau
  *
@@ -41,15 +38,17 @@ public class NotificationCreationService {
 	}
 
 	
+	/**
+	 * 
+	 * Compute the impact of a violation and store it in the repository
+	 * 
+	 * @param violation reported violation
+	 */
 	public void calculateImpacts(Violation violation) {
 		
 		String architectureId = violation.getSloRule().getGropiusProject().getId();
 		
 		System system = systemRepoProxy.findByArchitectureId(architectureId);
-		
-		
-		//Notification notification = ImpactFactory.eINSTANCE.createNotification();
-		
 		
 		// set system...
 		// slo -> gropius project -> which system uses that project? -> add to those notifications.
@@ -133,43 +132,38 @@ public class NotificationCreationService {
 	 * 
 	 * Create the initial Items for the Queue.
 	 *
-	 * Violations may happen at any ThingWithSlo, there fore the violation's
-	 * location might be a Component as well as an Interface. However the impact
-	 * computation operates on SmallerThings. As such in case of a violation at a
+	 * Violations may happen at a Component as well as an Interface. However the impact
+	 * computation operates on Interfaces. As such in case of a violation at a
 	 * component, the initial items are that components provided interfaces. With
-	 * 'causedby' being the initial violation. In case the violation happens at an
+	 * 'cause' being the initial violation. In case the violation happens at an
 	 * interface, the initial violations are the provided interfaces of the
 	 * consuming components, or else i would 'loose' the actual violation.
 	 * 
 	 * (because queueItem = previous impact x (small) location, but if location is
 	 * location of actual violation, then previous impact is null and everything
 	 * breaks...)
-	 * 
-	 * TODO : what happens if violations happen even higher up, like saga or
-	 * process?
-	 * 
-	 * @param alert
+	 * 	
+	 * @param violation
 	 * @return
 	 */
-	private Set<QueueItem> makeInitialItems(Violation alert) {
+	private Set<QueueItem> makeInitialItems(Violation violation) {
 
 		Set<QueueItem> initialItems = new HashSet<>();
 		Set<Component> firstImpact = new HashSet<>();
 
-		// TODO this is wrong!! - why though?
-		if (alert.getSloRule().getGropiusComponentInterface() != null) {
-			// interface is violator
-			firstImpact.addAll(alert.getSloRule().getGropiusComponentInterface().getConsumedBy());
-			
-		} else if (alert.getSloRule().getGropiusComponent() != null) {
-			// get interfaces, they are all violators
-			EList<ComponentInterface> faces = alert.getSloRule().getGropiusComponent().getInterfaces();
+		// "finer grain" (interface is set)
+		if (violation.getSloRule().getGropiusComponentInterface() != null) {
+			firstImpact.addAll(violation.getSloRule().getGropiusComponentInterface().getConsumedBy());
+
+		// "coarser grain" (interface not set, violation aggregated at component)
+		} else if (violation.getSloRule().getGropiusComponent() != null) {
+			EList<ComponentInterface> faces = violation.getSloRule().getGropiusComponent().getInterfaces();
 			for (ComponentInterface componentInterface : faces) {
 				firstImpact.addAll(componentInterface.getConsumedBy());
 			}
 			
 		} else {
-			throw new IllegalArgumentException("TODO - no matching location for alert");
+			throw new IllegalArgumentException("the given violation does not is missing a location");
 		}
 		
 

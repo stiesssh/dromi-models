@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -20,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import de.unistuttgart.ma.saga.impact.Impact;
+import de.unistuttgart.ma.saga.impact.ImpactFactory;
 
 /**
  * Save IMPACTS!!! 
@@ -127,6 +130,9 @@ public class ImpactRepositoryProxy {
 	 * @return
 	 */
 	public Set<Impact> findBySystemId(String systemId) {
+		if (!systemId2ImpactIds.containsKey(systemId)) {
+			throw new NoSuchElementException(String.format("No impacts for system with id %s", systemId));
+		}
 		Set<String> noteIds = systemId2ImpactIds.get(systemId);
 		
 		Set<Impact> impacts = new HashSet<Impact>();

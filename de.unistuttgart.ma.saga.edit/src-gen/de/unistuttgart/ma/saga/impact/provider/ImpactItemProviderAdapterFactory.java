@@ -72,26 +72,26 @@ public class ImpactItemProviderAdapterFactory extends ImpactAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.impact.Impact} instances.
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.impact.IntermediateImpact} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ImpactItemProvider impactItemProvider;
+	protected IntermediateImpactItemProvider intermediateImpactItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.impact.Impact}.
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.impact.IntermediateImpact}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createImpactAdapter() {
-		if (impactItemProvider == null) {
-			impactItemProvider = new ImpactItemProvider(this);
+	public Adapter createIntermediateImpactAdapter() {
+		if (intermediateImpactItemProvider == null) {
+			intermediateImpactItemProvider = new IntermediateImpactItemProvider(this);
 		}
 
-		return impactItemProvider;
+		return intermediateImpactItemProvider;
 	}
 
 	/**
@@ -115,6 +115,29 @@ public class ImpactItemProviderAdapterFactory extends ImpactAdapterFactory imple
 		}
 
 		return notificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.impact.Violation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViolationItemProvider violationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.impact.Violation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViolationAdapter() {
+		if (violationItemProvider == null) {
+			violationItemProvider = new ViolationItemProvider(this);
+		}
+
+		return violationItemProvider;
 	}
 
 	/**
@@ -216,8 +239,9 @@ public class ImpactItemProviderAdapterFactory extends ImpactAdapterFactory imple
 	 * @generated
 	 */
 	public void dispose() {
-		if (impactItemProvider != null) impactItemProvider.dispose();
+		if (intermediateImpactItemProvider != null) intermediateImpactItemProvider.dispose();
 		if (notificationItemProvider != null) notificationItemProvider.dispose();
+		if (violationItemProvider != null) violationItemProvider.dispose();
 	}
 
 }

@@ -43,6 +43,7 @@ public class SolomonImporter implements SloImporter {
 			
 			SloRule rule = SloFactory.eINSTANCE.createSloRule(); 
 			
+			rule.setId(flatRule.getId());
 			rule.setName(flatRule.getName());
 			rule.setPeriod(0);		//TODO
 			rule.setThreshold(0);	//TODO

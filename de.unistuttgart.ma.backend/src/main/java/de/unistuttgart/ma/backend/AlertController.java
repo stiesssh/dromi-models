@@ -6,12 +6,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.unistuttgart.gropius.slo.SloFactory;
+import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.gropius.slo.Violation;
+import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.backend.rest.Alert;
+import de.unistuttgart.ma.saga.System;
 
 /**
  * 
- * This Controller is for the Solomon to post alerts to.  
+ * Controller that receives an alert, posted by a SLO monitoring tool.  
  * 
  * @author maumau
  *
@@ -20,19 +23,29 @@ import de.unistuttgart.ma.backend.rest.Alert;
 public class AlertController {
 	
 	private final NotificationCreationService service;
+	private final SystemRepositoryProxy systemRepoProxy; 
 
-	public AlertController(@Autowired NotificationCreationService service) {
+	public AlertController(@Autowired NotificationCreationService service, @Autowired SystemRepositoryProxy systemRepoProxy) {
 		this.service = service;
+		this.systemRepoProxy = systemRepoProxy;
 	}
 
 	/**
 	 * 
-	 * @param xml
+	 * 
+	 * @param alert the alert
 	 */
 	@PostMapping("/api/alert")
-	public void importSiriusSystem(@RequestBody Alert alert) {
+	public void receiveAlert(@RequestBody Alert alert) {
+		String sloId = alert.getSloId();
+		String archId = alert.getGropiusProjectId();
+		
+		System system = systemRepoProxy.findByArchitectureId(archId);
+		SloRule rule = system.getSloRules().stream().filter(s -> s.getName().equals(sloId)).findFirst().get();
+		
 		Violation v = SloFactory.eINSTANCE.createViolation();
-		// TODO : parse Alert to Violation
+		v.setSloRule(rule);
+		// TODO : set value @ violation according to alert
 		service.calculateImpacts(v);
 	}
 
@@ -44,3 +57,4 @@ public class AlertController {
 //	}
 
 }
+

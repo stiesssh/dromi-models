@@ -3,6 +3,7 @@
 package de.unistuttgart.ma.saga.impact.presentation;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -69,12 +70,14 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
+import de.unistuttgart.ma.importer.backend.BackendImporter;
+import de.unistuttgart.ma.saga.System;
+import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
 import de.unistuttgart.ma.saga.impact.Notification;
 import de.unistuttgart.ma.saga.impact.provider.ImpactEditPlugin;
-
-
+import de.unistuttgart.ma.saga.presentation.ImpactModelWizardBackendConfigurationPage;
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -142,6 +145,11 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected ImpactModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	
+	/**
+	 * @generated NOT
+	 */
+	protected ImpactModelWizardBackendConfigurationPage impactImportPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -206,29 +214,70 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 	 * Create a new model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	protected EObject createInitialModel() {
 		EClass eClass = (EClass)impactPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = impactFactory.create(eClass);
+		return rootObject;
+	}
+
+	/**
+	 * Create a new model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected EObject createInitialModel(System system) {
+		//EClass eClass = (EClass)impactPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		//EObject rootObject = impactFactory.create(eClass);
+		Notification rootObject = impactFactory.createNotification();
+		rootObject.setSystem(system);
 		
-		// 0. restict root object to 'notification'
-		// 1. get system model location (for reference) from respective wizard page and load system (?)
-		// 
-		// 2. set system model on notification.
-		//  -- >((Notification) rootObject).setSystem(system);
-		//
 		// 3. request impacts for reffed system from backend. 
 		// -- > add impact to notification
+		BackendImporter importer = new BackendImporter(impactImportPage.getBackendUrlField());
+		try {
+			//Impact impact = importer.getImpacts(system.getId());
+			List<Impact> impact = importer.getImpacts(system.getId());
+			rootObject.getTopLevelImpacts().addAll(impact);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return rootObject;
+	}
+	
+	protected System getReferencedSystemModel(ResourceSet set) {
+		String systemModelFile = impactImportPage.getSystemUriField();
+		//IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(...)
+		
+		URI systemUri = URI.createPlatformResourceURI(systemModelFile, true);
+		//URI systemUri = URI.createFileURI(systemModelFile);
+		Resource res = set.createResource(systemUri);
+		try {
+			res.load(null);
+			for (EObject eObject : res.getContents()) {
+				if (eObject instanceof System) {
+					return (System) eObject;
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return null;
 	}
 
 	/**
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean performFinish() {
@@ -256,9 +305,11 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 							//
 							Resource resource = resourceSet.createResource(fileURI);
 
+							System sytemObject = getReferencedSystemModel(resourceSet);
+							
 							// Add the initial model object to the contents.
 							//
-							EObject rootObject = createInitialModel();
+							EObject rootObject = createInitialModel(sytemObject);
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
@@ -369,6 +420,13 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public class ImpactModelWizardInitialObjectCreationPage extends WizardPage {
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		//protected Combo initialObjectField;
+
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -534,6 +592,22 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+//		public String getInitialObjectName() {
+//			String label = initialObjectField.getText();
+//
+//			for (String name : getInitialObjectNames()) {
+//				if (getLabel(name).equals(label)) {
+//					return name;
+//				}
+//			}
+//			return null;
+//		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
 		public String getEncoding() {
 			return encodingField.getText();
 		}
@@ -574,7 +648,7 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 	 * The framework calls this to create the contents of the wizard.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 		@Override
 	public void addPages() {
@@ -623,6 +697,12 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 		initialObjectCreationPage.setTitle(ImpactEditorPlugin.INSTANCE.getString("_UI_ImpactModelWizard_label"));
 		initialObjectCreationPage.setDescription(ImpactEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
+		
+
+		impactImportPage = new ImpactModelWizardBackendConfigurationPage("impactImportPage");
+		impactImportPage.setTitle("Get Impacts");
+		impactImportPage.setDescription("Get Impacts for Display");
+		addPage(impactImportPage);
 	}
 
 	/**
@@ -636,3 +716,4 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 	}
 
 }
+

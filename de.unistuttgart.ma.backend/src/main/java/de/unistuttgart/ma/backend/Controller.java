@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -60,8 +62,8 @@ public class Controller {
 	 * Endpoint to save a model, given as XML.
 	 * @param xml
 	 */
-	@GetMapping("/api/model/{filename}")
-	public String getSystemModelId(@PathVariable String filename) {
+	@PostMapping("/api/model")
+	public String getSystemModelId(@RequestBody String filename) {
 		return importService.getIdForSystemModel(filename);
 	}
 
@@ -76,10 +78,10 @@ public class Controller {
 	 * @throws MissingSystemModelException
 	 */
 	@GetMapping("/api/notification/{systemId}")
-	public Set<String> getNotification(@PathVariable String systemId) throws IOException, MissingSystemModelException {
-		return service.retrieveImpactXMLs(systemId);
+	public String getNotification(@PathVariable String systemId) throws IOException, MissingSystemModelException {
+		//return service.retrieveImpactXMLs(systemId);
+		return service.retrieveNotification(systemId);
 	}
-	
 
 	@GetMapping("/")
 	public String index() {

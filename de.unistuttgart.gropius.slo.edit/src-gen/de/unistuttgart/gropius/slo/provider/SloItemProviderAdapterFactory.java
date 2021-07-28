@@ -96,29 +96,6 @@ public class SloItemProviderAdapterFactory extends SloAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.gropius.slo.Violation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ViolationItemProvider violationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.gropius.slo.Violation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createViolationAdapter() {
-		if (violationItemProvider == null) {
-			violationItemProvider = new ViolationItemProvider(this);
-		}
-
-		return violationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.unistuttgart.gropius.slo.solomon} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,8 +219,6 @@ public class SloItemProviderAdapterFactory extends SloAdapterFactory
 	public void dispose() {
 		if (sloRuleItemProvider != null)
 			sloRuleItemProvider.dispose();
-		if (violationItemProvider != null)
-			violationItemProvider.dispose();
 		if (solomonItemProvider != null)
 			solomonItemProvider.dispose();
 	}

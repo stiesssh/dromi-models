@@ -230,7 +230,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	protected EObject createInitialModel() {
+	protected EObject createInitialModel(URI fileURI) {
 		EClass eClass = (EClass)sagaPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = sagaFactory.create(eClass);
 		
@@ -238,10 +238,14 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		BPMNImporter bpmnImporter = new BPMNImporter(bpmnImportPage.getbpmnFilePathField());
 		SolomonImporter solomonImporter = new SolomonImporter(solomonRulesImportPage.getSolomonUrlField(), solomonRulesImportPage.getDeploymentEnvironmentField());
 		
-		BackendImporter backendImporter = new BackendImporter(backendImportPage.getBackendUrlField(), newFileCreationPage.getFileName());
+		
+		
+		BackendImporter backendImporter = new BackendImporter(backendImportPage.getBackendUrlField());
+		
+		
 		
 		try {
-			((de.unistuttgart.ma.saga.System) rootObject).setId(backendImporter.getId());
+			((de.unistuttgart.ma.saga.System) rootObject).setId(backendImporter.getId(fileURI));
 			// TODO : better system name :x 
 			((de.unistuttgart.ma.saga.System) rootObject).setName(newFileCreationPage.getFileName());
 		} catch (IOException e) {
@@ -263,7 +267,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * Do the work after everything is specified.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean performFinish() {
@@ -293,7 +297,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 
 							// Add the initial model object to the contents.
 							//
-							EObject rootObject = createInitialModel();
+							EObject rootObject = createInitialModel(fileURI);
 							if (rootObject != null) {
 								resource.getContents().add(rootObject);
 							}
