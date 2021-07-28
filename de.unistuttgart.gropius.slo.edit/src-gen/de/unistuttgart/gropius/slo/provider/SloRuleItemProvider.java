@@ -58,6 +58,7 @@ public class SloRuleItemProvider extends ItemProviderAdapter implements IEditing
 			addGropiusProjectPropertyDescriptor(object);
 			addGropiusComponentPropertyDescriptor(object);
 			addGropiusComponentInterfacePropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -156,6 +157,21 @@ public class SloRuleItemProvider extends ItemProviderAdapter implements IEditing
 	}
 
 	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SloRule_id_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SloRule_id_feature", "_UI_SloRule_type"),
+						SloPackage.Literals.SLO_RULE__ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns SloRule.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +220,7 @@ public class SloRuleItemProvider extends ItemProviderAdapter implements IEditing
 		case SloPackage.SLO_RULE__NAME:
 		case SloPackage.SLO_RULE__PERIOD:
 		case SloPackage.SLO_RULE__THRESHOLD:
+		case SloPackage.SLO_RULE__ID:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

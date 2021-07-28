@@ -18,6 +18,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slo.ecore#//SloRule/gropiusProject"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slo.ecore#//SloRule/gropiusComponent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slo.ecore#//SloRule/gropiusComponentInterface"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute slo.ecore#//SloRule/id"/>
     </genClasses>
     <genClasses ecoreClass="slo.ecore#//Violation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute slo.ecore#//Violation/value"/>

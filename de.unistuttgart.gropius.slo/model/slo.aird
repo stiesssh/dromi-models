@@ -7,7 +7,7 @@
     <semanticResources>platform:/resource/de.unistuttgart.gropius/model/gropius.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="__RzBwOVAEeuwR8gmB1rh4g">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__SDgcOVAEeuwR8gmB1rh4g" name="slo" repPath="#__SBEMOVAEeuwR8gmB1rh4g" changeId="4cf55d43-3c6b-4551-8871-f4fd8ae70234">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="__SDgcOVAEeuwR8gmB1rh4g" name="slo" repPath="#__SBEMOVAEeuwR8gmB1rh4g" changeId="98466abe-ad70-489c-be32-75e7748457bf">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="slo.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -30,6 +30,10 @@
             <children xmi:type="notation:Node" xmi:id="_tW5uMOVbEeuwR8gmB1rh4g" type="3010" element="_tWp2kOVbEeuwR8gmB1rh4g">
               <styles xmi:type="notation:FontStyle" xmi:id="_tW5uMeVbEeuwR8gmB1rh4g" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_tW5uMuVbEeuwR8gmB1rh4g"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_whD6oO-vEeuaC-FO8rm_Zw" type="3010" element="_wgoc0O-vEeuaC-FO8rm_Zw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_whD6oe-vEeuaC-FO8rm_Zw" fontColor="2697711" fontName="Noto Sans" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_whD6ou-vEeuaC-FO8rm_Zw"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_U3eugOhnEeuchtKskl-CHg" type="3010" element="_U3NowehnEeuchtKskl-CHg">
               <styles xmi:type="notation:FontStyle" xmi:id="_U3eugehnEeuchtKskl-CHg" fontName="Noto Sans" fontHeight="8" bold="true"/>
@@ -124,12 +128,6 @@
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="__SK1MOVAEeuwR8gmB1rh4g" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="__SK1MeVAEeuwR8gmB1rh4g">
-        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_U3LMgOhnEeuchtKskl-CHg" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
-          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <labelFormat>bold</labelFormat>
-          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-        </computedStyleDescriptions>
         <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_U3O24OhnEeuchtKskl-CHg" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
           <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <labelFormat>bold</labelFormat>
@@ -160,15 +158,15 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_OaF2kOVBEeuwR8gmB1rh4g" name="SloRule" tooltipText="" incomingEdges="_U3U9huhnEeuchtKskl-CHg _Npy-1uhyEeuk7thvNmHGyA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="slo.ecore#//SloRule"/>
       <semanticElements xmi:type="ecore:EClass" href="slo.ecore#//SloRule"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_eiyckeX-Eeuhl-KrkIVxFg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_1zh50O-vEeuaC-FO8rm_Zw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_dU8tgOVbEeuwR8gmB1rh4g" name="name : EString" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="slo.ecore#//SloRule/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="slo.ecore#//SloRule/name"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_U3LzkehnEeuchtKskl-CHg" labelAlignment="LEFT" description="_U3LMgOhnEeuchtKskl-CHg">
-          <labelFormat>bold</labelFormat>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_yCIEwe-vEeuaC-FO8rm_Zw" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
@@ -184,6 +182,14 @@
         <target xmi:type="ecore:EAttribute" href="slo.ecore#//SloRule/threshold"/>
         <semanticElements xmi:type="ecore:EAttribute" href="slo.ecore#//SloRule/threshold"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_vI2M8eVbEeuwR8gmB1rh4g" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_wgoc0O-vEeuaC-FO8rm_Zw" name="id : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="slo.ecore#//SloRule/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="slo.ecore#//SloRule/id"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_4_zoke-vEeuaC-FO8rm_Zw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

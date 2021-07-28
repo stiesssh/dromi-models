@@ -121,13 +121,22 @@ public interface SloPackage extends EPackage {
 	int SLO_RULE__GROPIUS_COMPONENT_INTERFACE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLO_RULE__ID = 6;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE_FEATURE_COUNT = 6;
+	int SLO_RULE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Rule</em>' class.
@@ -307,6 +316,17 @@ public interface SloPackage extends EPackage {
 	EReference getSloRule_GropiusComponentInterface();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see de.unistuttgart.gropius.slo.SloRule#getId()
+	 * @see #getSloRule()
+	 * @generated
+	 */
+	EAttribute getSloRule_Id();
+
+	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.Violation <em>Violation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -450,6 +470,14 @@ public interface SloPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SLO_RULE__GROPIUS_COMPONENT_INTERFACE = eINSTANCE.getSloRule_GropiusComponentInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLO_RULE__ID = eINSTANCE.getSloRule_Id();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.ViolationImpl <em>Violation</em>}' class.

@@ -179,6 +179,15 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSloRule_Id() {
+		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getViolation() {
 		return violationEClass;
 	}
@@ -264,6 +273,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_PROJECT);
 		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT);
 		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT_INTERFACE);
+		createEAttribute(sloRuleEClass, SLO_RULE__ID);
 
 		violationEClass = createEClass(VIOLATION);
 		createEAttribute(violationEClass, VIOLATION__VALUE);
@@ -310,8 +320,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sloRuleEClass, SloRule.class, "SloRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSloRule_Name(), ecorePackage.getEString(), "name", null, 1, 1, SloRule.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSloRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, SloRule.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSloRule_Period(), ecorePackage.getEDouble(), "period", null, 0, 1, SloRule.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSloRule_Threshold(), ecorePackage.getEDouble(), "threshold", null, 0, 1, SloRule.class,
@@ -325,6 +335,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		initEReference(getSloRule_GropiusComponentInterface(), theGropiusPackage.getComponentInterface(), null,
 				"gropiusComponentInterface", null, 1, 1, SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getSloRule_Id(), ecorePackage.getEString(), "id", null, 0, 1, SloRule.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(violationEClass, Violation.class, "Violation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

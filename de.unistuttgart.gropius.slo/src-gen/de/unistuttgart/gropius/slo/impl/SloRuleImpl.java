@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getGropiusProject <em>Gropius Project</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getGropiusComponent <em>Gropius Component</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getGropiusComponentInterface <em>Gropius Component Interface</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -124,6 +125,26 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 	 * @ordered
 	 */
 	protected ComponentInterface gropiusComponentInterface;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -334,6 +355,27 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.SLO_RULE__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -355,6 +397,8 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 			if (resolve)
 				return getGropiusComponentInterface();
 			return basicGetGropiusComponentInterface();
+		case SloPackage.SLO_RULE__ID:
+			return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -384,6 +428,9 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 			return;
 		case SloPackage.SLO_RULE__GROPIUS_COMPONENT_INTERFACE:
 			setGropiusComponentInterface((ComponentInterface) newValue);
+			return;
+		case SloPackage.SLO_RULE__ID:
+			setId((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -415,6 +462,9 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 		case SloPackage.SLO_RULE__GROPIUS_COMPONENT_INTERFACE:
 			setGropiusComponentInterface((ComponentInterface) null);
 			return;
+		case SloPackage.SLO_RULE__ID:
+			setId(ID_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -439,6 +489,8 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 			return gropiusComponent != null;
 		case SloPackage.SLO_RULE__GROPIUS_COMPONENT_INTERFACE:
 			return gropiusComponentInterface != null;
+		case SloPackage.SLO_RULE__ID:
+			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -460,6 +512,8 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 		result.append(period);
 		result.append(", threshold: ");
 		result.append(threshold);
+		result.append(", id: ");
+		result.append(id);
 		result.append(')');
 		return result.toString();
 	}

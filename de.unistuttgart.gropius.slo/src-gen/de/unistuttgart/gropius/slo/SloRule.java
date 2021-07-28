@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusProject <em>Gropius Project</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponent <em>Gropius Component</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterface <em>Gropius Component Interface</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule()
@@ -36,7 +37,7 @@ public interface SloRule extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_Name()
-	 * @model id="true" required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();
@@ -160,5 +161,27 @@ public interface SloRule extends EObject {
 	 * @generated
 	 */
 	void setGropiusComponentInterface(ComponentInterface value);
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_Id()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
 
 } // SloRule
