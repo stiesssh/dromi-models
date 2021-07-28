@@ -3,6 +3,7 @@ package de.unistuttgart.ma.backend;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -75,22 +76,8 @@ public class Controller {
 	 * @throws MissingSystemModelException
 	 */
 	@GetMapping("/api/notification/{systemId}")
-	public String getNotification(@PathVariable String systemId) throws IOException, MissingSystemModelException {
-		Notification notification = service.retrieveNotification(systemId);
-
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("impact", new EcoreResourceFactoryImpl());
-		ResourceSet set = new ResourceSetImpl();
-
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
-		URI uri = URI.createPlatformResourceURI("foo.impact", false); // unmapped. also must be without hierarchy, or else
-																	// the references wont work
-		Resource res = set.createResource(uri);
-		res.getContents().add(notification);
-		res.save(outputStream, null);
-		
-		String xmlStream = outputStream.toString(StandardCharsets.UTF_8);
-		return xmlStream;
+	public Set<String> getNotification(@PathVariable String systemId) throws IOException, MissingSystemModelException {
+		return service.retrieveImpactXMLs(systemId);
 	}
 	
 

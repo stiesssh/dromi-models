@@ -10,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,8 @@ import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.ma.backend.importer.SagaImporterService;
-import de.unistuttgart.ma.backend.repository.NotificationRepository;
-import de.unistuttgart.ma.backend.repository.NotificationRepositoryProxy;
+import de.unistuttgart.ma.backend.repository.ImpactRepository;
+import de.unistuttgart.ma.backend.repository.ImpactRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.SystemRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.impact.Impact;
@@ -42,20 +44,23 @@ public class ImpactComputationTest {
 	SystemRepositoryProxy systemRepoProxy;
 	@Autowired SystemRepository systemRepo;
 	
-	NotificationRepositoryProxy notificationRepoProxy;
-	@Autowired NotificationRepository notificationRepo;
+	ImpactRepositoryProxy notificationRepoProxy;
+	@Autowired ImpactRepository notificationRepo;
 	
 	de.unistuttgart.ma.saga.System system; 
 	
 	
 	private final String systemId = "60fa9cadc736ff6357a89a9b";
+	
+	ResourceSet set;
 
 	@BeforeEach
 	public void setUp() throws IOException {
-		systemRepoProxy = new SystemRepositoryProxy(systemRepo);
-		notificationRepoProxy = new NotificationRepositoryProxy(notificationRepo);
+		set = new ResourceSetImpl();
+		systemRepoProxy = new SystemRepositoryProxy(systemRepo, set);
+		notificationRepoProxy = new ImpactRepositoryProxy(notificationRepo, set);
 		
-		importer = new SagaImporterService(systemRepoProxy);
+		importer = new SagaImporterService(systemRepoProxy, set);
 		
 		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base.saga"), StandardCharsets.UTF_8);					
 		String filename = "filename.saga";
@@ -63,7 +68,7 @@ public class ImpactComputationTest {
 		
 		system = systemRepoProxy.findById(systemId);
 		
-		service = new NotificationCreationService(notificationRepo, systemRepoProxy);
+		service = new NotificationCreationService(notificationRepoProxy, systemRepoProxy);
 	}
 
 	@Test
@@ -77,16 +82,13 @@ public class ImpactComputationTest {
 		
 		service.calculateImpacts(alert);
 		
-		Set<Notification> actuals = notificationRepoProxy.findBySystemId(systemId);
+		// TODO : changes because we are not capsulated into a notification anymore
+		Set<Impact> actuals = notificationRepoProxy.findBySystemId(systemId);
 		assertNotNull(actuals);
 		assertEquals(1, actuals.size());
 		
-		Notification actual = actuals.iterator().next();
+		Impact actual = actuals.iterator().next();
 		assertNotNull(actual);
-		
-		
-		assertNotNull(actual.getTopLevelImpacts());
-		assertEquals(2, actual.getTopLevelImpacts().size());
 	}
 
 }

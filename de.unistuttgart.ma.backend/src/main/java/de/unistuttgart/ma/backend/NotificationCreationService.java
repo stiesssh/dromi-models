@@ -13,7 +13,8 @@ import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.ma.backend.computationUtility.QueueItem;
-import de.unistuttgart.ma.backend.repository.NotificationRepository;
+import de.unistuttgart.ma.backend.repository.ImpactRepository;
+import de.unistuttgart.ma.backend.repository.ImpactRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaStep;
@@ -31,11 +32,11 @@ import de.unistuttgart.ma.saga.impact.Notification;
 @org.springframework.stereotype.Component
 public class NotificationCreationService {
 	
-	private final NotificationRepository notificationRepo;
+	private final ImpactRepositoryProxy notificationRepoProxy;
 	private final SystemRepositoryProxy systemRepo;
 	
-	public NotificationCreationService(@Autowired NotificationRepository notificationRepo, @Autowired SystemRepositoryProxy systemRepo) {
-		this.notificationRepo = notificationRepo;
+	public NotificationCreationService(@Autowired ImpactRepositoryProxy notificationRepoProxy, @Autowired SystemRepositoryProxy systemRepo) {
+		this.notificationRepoProxy = notificationRepoProxy;
 		this.systemRepo = systemRepo;
 	}
 
@@ -47,7 +48,7 @@ public class NotificationCreationService {
 		System system = systemRepo.findByArchitectureId(architectureId);
 		
 		
-		Notification notification = ImpactFactory.eINSTANCE.createNotification();
+		//Notification notification = ImpactFactory.eINSTANCE.createNotification();
 		
 		// set system...
 		// slo -> gropius project -> which system uses that project? -> add to those notifications.
@@ -107,14 +108,9 @@ public class NotificationCreationService {
 				topLevelImpact.setCause(causedImpact);
 				
 				
-				notification.getTopLevelImpacts().add(topLevelImpact);
+				notificationRepoProxy.save(topLevelImpact, system.getId());
 			//}
-		}
-		
-		// TODO : save the calculated impacts (as notification) to the db.
-		// --> get system by gropius id. or go by gropius id only?? 
-	
-	
+		}	
 	}
 	
 	protected Set<SagaStep> getNextLevel(ComponentInterface face, System system) {

@@ -8,17 +8,13 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import de.unistuttgart.ma.saga.System;
-import de.unistuttgart.ma.backend.repository.NotificationRepository;
-import de.unistuttgart.ma.backend.repository.SystemRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.SagaPackage;
+import de.unistuttgart.ma.saga.System;
 
 /**
  * responsible for parsing input to a system instance and save that instance to the repository 
@@ -42,10 +38,12 @@ public class SagaImporterService  {
 
 	public void parse(String xml, String filename) throws IOException {
 		InputStream targetStream = new ByteArrayInputStream(xml.getBytes());
-		//ResourceSet set = new ResourceSetImpl();
 				
 		// create with correct file name, such that references also work on front end. 
-		Resource resource = set.createResource(URI.createPlatformResourceURI(filename, false));
+		Resource resource = set.getResource(URI.createPlatformResourceURI(filename, false), false);
+		if (resource == null) {
+			resource = set.createResource(URI.createPlatformResourceURI(filename, false));
+		}
 		resource.load(targetStream, null);
 
 		System model = null;

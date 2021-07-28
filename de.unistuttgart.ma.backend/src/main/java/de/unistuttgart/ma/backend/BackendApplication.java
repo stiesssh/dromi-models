@@ -8,12 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import de.unistuttgart.ma.backend.repository.NotificationRepositoryProxy;
-import de.unistuttgart.ma.backend.repository.NotificationRepository;
+import de.unistuttgart.ma.backend.repository.ImpactRepositoryProxy;
+import de.unistuttgart.ma.backend.repository.ImpactRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepository;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 
-@EnableMongoRepositories(basePackageClasses = {SystemRepository.class, NotificationRepository.class})
+@EnableMongoRepositories(basePackageClasses = {SystemRepository.class, ImpactRepository.class})
 @SpringBootApplication
 public class BackendApplication {
 

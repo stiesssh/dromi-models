@@ -12,5 +12,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @author maumau
  *
  */
-public interface NotificationRepository extends MongoRepository<NotificationItem, String> {
+public interface ImpactRepository extends MongoRepository<ImpactItem, String> {
 }

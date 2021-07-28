@@ -22,6 +22,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
 import de.unistuttgart.gropius.ComponentInterface;
+import de.unistuttgart.gropius.GropiusFactory;
+import de.unistuttgart.gropius.Project;
 import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.gropius.slo.Violation;
@@ -56,8 +58,8 @@ public class RepositoryTest {
 	SystemRepositoryProxy systemRepoProxy;
 	@Autowired SystemRepository systemRepo;
 	
-	NotificationRepositoryProxy notificationRepoProxy;
-	@Autowired NotificationRepository notificationRepo;
+	ImpactRepositoryProxy notificationRepoProxy;
+	@Autowired ImpactRepository notificationRepo;
 	
 	de.unistuttgart.ma.saga.System system; 
 	String systemId = "60fa9cadc736ff6357a89a9b";
@@ -68,11 +70,12 @@ public class RepositoryTest {
 	public void setUp() {
 		set = new ResourceSetImpl();
 		systemRepoProxy = new SystemRepositoryProxy(systemRepo, set);
-		notificationRepoProxy = new NotificationRepositoryProxy(notificationRepo,set);
+		notificationRepoProxy = new ImpactRepositoryProxy(notificationRepo,set);
 		
 		importer = new SagaImporterService(systemRepoProxy,set);
 		
-		service = new NotificationCreationService(notificationRepo, systemRepoProxy);
+		systemRepo.deleteAll();
+		notificationRepo.deleteAll();
 	}
 	
 	/**
@@ -86,7 +89,7 @@ public class RepositoryTest {
 		importer.parse(xml, filename);
 		
 		system = systemRepoProxy.findById(systemId);
-		
+				
 		assertEquals(1, systemRepo.count());
 	}
 	
@@ -119,8 +122,8 @@ public class RepositoryTest {
 		Impact actual = impacts.iterator().next();
 		
 		assertNotNull(actual);
-		assertEquals(impact.getLocationId(), actual.getLocationId());
 		assertEquals(impact.getLocation(), actual.getLocation());
+		assertEquals(impact.getLocationId(), actual.getLocationId());
 		assertEquals(impact.getRootCause().getSloRule(), actual.getRootCause().getSloRule());
 	}
 	
@@ -151,6 +154,10 @@ public class RepositoryTest {
 		System emptySystem = SagaFactory.eINSTANCE.createSystem();
 		String filename = "foo.saga";
 		String id = systemRepoProxy.getIdForFilename(filename);
+		
+		Project arch = GropiusFactory.eINSTANCE.createProject();
+		arch.setId("someId");
+		emptySystem.setArchitecture(arch);
 		
 		Resource resource = set.createResource(URI.createPlatformResourceURI(filename, false));
 		resource.getContents().add(emptySystem);		

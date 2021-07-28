@@ -3,33 +3,35 @@ package de.unistuttgart.ma.backend.repository;
 import org.springframework.data.annotation.Id;
 
 /**
- * Item to be saved in the System DataBase.
+ * Item to be saved in the Impact DataBase.
  * 
- * Content is the actual system, serialised into ecore xml format. 
+ * Content is the actual impact, serialised into ecore xml format. 
  * 
  * @author maumau
  *
  */
-public class SystemItem {
+public class ImpactItem {
 	@Id
 	private final String id;
+	private final String systemId;
 	private final String content;
-	private final String filename;
 	
-	public SystemItem(String id, String content, String filename) {
+	public ImpactItem(String id, String systemId, String content) {
 		super();
 		this.id = id;
+		this.systemId = systemId;
 		this.content = content;
-		this.filename = filename;
 	}
 
 	public String getId() {
 		return id;
 	}
+
+	public String getSystemId() {
+		return systemId;
+	}
+
 	public String getContent() {
 		return content;
-	}
-	public String getFilename() {
-		return filename;
 	}
 }

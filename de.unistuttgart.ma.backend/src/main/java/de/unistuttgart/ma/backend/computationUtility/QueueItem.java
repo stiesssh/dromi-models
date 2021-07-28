@@ -4,7 +4,6 @@ import org.eclipse.bpmn2.Task;
 import org.eclipse.emf.ecore.EObject;
 
 import de.unistuttgart.gropius.ComponentInterface;
-import de.unistuttgart.gropius.slo.Alert;
 import de.unistuttgart.ma.saga.SagaStep;
 import de.unistuttgart.ma.saga.impact.Impact;
 

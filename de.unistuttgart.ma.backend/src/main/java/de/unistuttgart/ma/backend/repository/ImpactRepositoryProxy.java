@@ -15,14 +15,11 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import de.unistuttgart.ma.saga.System;
 import de.unistuttgart.ma.saga.impact.Impact;
-import de.unistuttgart.ma.saga.impact.Notification;
 
 /**
  * Save IMPACTS!!! 
@@ -30,12 +27,12 @@ import de.unistuttgart.ma.saga.impact.Notification;
  *
  */
 @Component
-public class NotificationRepositoryProxy {
+public class ImpactRepositoryProxy {
 	
-	private final NotificationRepository repository;
+	private final ImpactRepository repository;
 	private final ResourceSet set; 
 	
-	public NotificationRepositoryProxy(@Autowired NotificationRepository repository, @Autowired ResourceSet set) {
+	public ImpactRepositoryProxy(@Autowired ImpactRepository repository, @Autowired ResourceSet set) {
 		this.repository = repository;
 		this.set = set;
 		
@@ -57,19 +54,11 @@ public class NotificationRepositoryProxy {
 	 * @throws IOException 
 	 */
 	public void save(Impact impact, String systemId) {
-		// serialize impact with any(?) ressource.
-		// save xml to repository.
-	
 		try {
-			String xml = serializeImpact(impact);
+			ImpactItem item = new ImpactItem(null, systemId, serializeImpact(impact));
 			
-			NotificationItem item = new NotificationItem();
-			item.content = xml;
-			item.systemId = systemId;
-			
-			String impactId = repository.save(item).id;
+			String impactId = repository.save(item).getId();
 
-			
 			// updated system -> impact mapping
 			Set<String> impactIds;
 			if (systemId2ImpactIds.containsKey(systemId)) {
@@ -134,11 +123,11 @@ public class NotificationRepositoryProxy {
 	
 	/**
 	 * 
-	 * @param SystemId
+	 * @param systemId
 	 * @return
 	 */
-	public Set<Impact> findBySystemId(String SystemId) {
-		Set<String> noteIds = systemId2ImpactIds.get(SystemId);
+	public Set<Impact> findBySystemId(String systemId) {
+		Set<String> noteIds = systemId2ImpactIds.get(systemId);
 		
 		Set<Impact> impacts = new HashSet<Impact>();
 		
@@ -147,6 +136,36 @@ public class NotificationRepositoryProxy {
 		}
 		
 		return impacts;	
+	}
+	
+	
+	/**
+	 * 
+	 * @param systemId
+	 * @return
+	 */
+	public Set<String> findXMLBySystemId(String systemId) {
+		Set<String> noteIds = systemId2ImpactIds.get(systemId);
+		
+		Set<String> impacts = new HashSet<>();
+		
+		for (String noteId : noteIds) {
+			impacts.add(findXMLById(noteId));
+		}
+		return impacts;	
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public String findXMLById(String id) {
+		if (repository.existsById(id)) {
+			ImpactItem item = repository.findById(id).get();
+			return item.getContent();
+		}
+		throw new NoSuchElementException(String.format("Missing Impact for id %s", id));	
 	}
 	
 	/**
@@ -159,11 +178,11 @@ public class NotificationRepositoryProxy {
 			return loadedImpacts.get(id);
 		}
 		if (repository.existsById(id)) {
-			NotificationItem item = repository.findById(id).get();
+			ImpactItem item = repository.findById(id).get();
 			
 			try {
-				Impact impact = deserializeImpact(item.content);
-				loadedImpacts.put(item.systemId, impact);
+				Impact impact = deserializeImpact(item.getContent());
+				loadedImpacts.put(item.getSystemId(), impact);
 				return impact;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -172,6 +191,4 @@ public class NotificationRepositoryProxy {
 		}
 		throw new NoSuchElementException(String.format("Missing Impact for id %s", id));	
 	}
-	
-
 }

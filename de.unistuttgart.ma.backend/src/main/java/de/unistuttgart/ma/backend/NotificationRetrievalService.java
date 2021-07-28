@@ -1,5 +1,6 @@
 package de.unistuttgart.ma.backend;
 
+import java.util.Set;
 import java.util.UUID;
 
 import org.eclipse.bpmn2.FlowElement;
@@ -12,7 +13,8 @@ import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.ma.backend.exceptions.MissingSystemModelException;
-import de.unistuttgart.ma.backend.repository.NotificationRepository;
+import de.unistuttgart.ma.backend.repository.ImpactRepository;
+import de.unistuttgart.ma.backend.repository.ImpactRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.SagaStep;
 import de.unistuttgart.ma.saga.impact.Impact;
@@ -28,22 +30,28 @@ import de.unistuttgart.ma.saga.impact.Notification;
 @Component
 public class NotificationRetrievalService {
 
-	private final NotificationRepository repository;
+	private final ImpactRepositoryProxy repository;
 
-	@Autowired
-	private SystemRepositoryProxy systemRepo;
+	
+	private final SystemRepositoryProxy systemRepo;
 
-	public NotificationRetrievalService(@Autowired NotificationRepository repository) {
+	public NotificationRetrievalService(@Autowired ImpactRepositoryProxy repository, @Autowired SystemRepositoryProxy systemRepo) {
 		this.repository = repository;
+		this.systemRepo = systemRepo;
 	}
 
-	public Notification retrieveNotification(String systemID) throws MissingSystemModelException {
+	public Set<String> retrieveImpactXMLs(String systemId) {
+		return repository.findXMLBySystemId(systemId);
+		
+	}
+	
+	public Notification retrieveNotification(String systemId) throws MissingSystemModelException {
 
 		// get system from repository --> throw missing system
 
 		// get notification(s) (not yet reported) from repository
 
-		return makeTestNotification(systemID);
+		return makeTestNotification(systemId);
 	}
 
 	public Notification makeTestNotification(String systemId) throws MissingSystemModelException {

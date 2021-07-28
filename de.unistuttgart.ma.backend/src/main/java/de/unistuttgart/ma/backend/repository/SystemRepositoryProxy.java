@@ -8,7 +8,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
-import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -19,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import de.unistuttgart.ma.saga.System;
-import de.unistuttgart.ma.saga.impact.Impact;
 
 /**
  * 
@@ -47,7 +45,7 @@ public class SystemRepositoryProxy {
 	private final Map<String, de.unistuttgart.ma.saga.System> loadedSystems;
 	
 	// TODO : 1 : n mapping
-	private final Map<String, Set<String>> projectId2SystemId;
+	private final Map<String, String> projectId2SystemId;
 	
 	// systemID -> FileName
 	private final Map<String, String> SystemId2ResourceUri;
@@ -59,24 +57,32 @@ public class SystemRepositoryProxy {
 	public void save(de.unistuttgart.ma.saga.System system) {
 		if (!repository.existsById(system.getId())) {
 			// throw new IllegalArgumentException("system no know. cant save unregistered system");
-			SystemItem item = new SystemItem();
-			item.filename = system.eResource().getURI().segment(system.eResource().getURI().segmentCount() - 1);
-			item.id = system.getId();
+			String filename = system.eResource().getURI().segment(system.eResource().getURI().segmentCount() - 1);
+			SystemItem item = new SystemItem(system.getId(), null, filename);
 			repository.save(item);
 			
-			SystemId2ResourceUri.put(item.id, item.filename);
+			SystemId2ResourceUri.put(item.getId(), item.getFilename());
 		}
 		SystemItem item = repository.findById(system.getId()).get();
 		
 		try {
-			item.content = serializeSystem(system);
+			repository.save(new SystemItem(item.getId(), serializeSystem(system), item.getFilename()));
 			
-			repository.save(item);
+			projectId2SystemId.put(system.getArchitecture().getId(), system.getId());
 		} catch (IOException e) {
 			// TODO throw i.e. 'could not save model' 
 			e.printStackTrace();
 			return;
 		}
+	}
+	
+	/**
+	 * 
+	 * @param projectId
+	 * @return
+	 */
+	public System findByArchitectureId(String projectId) {
+		return findById(projectId2SystemId.get(projectId));
 	}
 	
 	/**
@@ -91,8 +97,8 @@ public class SystemRepositoryProxy {
 		if (repository.existsById(id)) {
 			SystemItem item = repository.findById(id).get();
 			try {
-				System system = deserializeSystem(item.content, item.filename);
-				loadedSystems.put(item.id, system);
+				System system = deserializeSystem(item.getContent(), item.getFilename());
+				loadedSystems.put(item.getId(), system);
 				return system;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -108,9 +114,8 @@ public class SystemRepositoryProxy {
 	 * @return
 	 */
 	public String getIdForFilename(String filename) {
-		SystemItem item = new SystemItem();
-		item.filename = filename;
-		return repository.save(item).id;
+		SystemItem item = new SystemItem(null, null, filename);
+		return repository.save(item).getId();
 	}
 	
 	/**
@@ -141,7 +146,10 @@ public class SystemRepositoryProxy {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("saga", new EcoreResourceFactoryImpl());
 		InputStream targetStream = new ByteArrayInputStream(xml.getBytes());
 				
-		Resource resource = set.createResource(URI.createPlatformResourceURI(filename, false));
+		Resource resource = set.getResource(URI.createPlatformResourceURI(filename, false), false);
+		if (resource == null) {
+			resource = set.createResource(URI.createPlatformResourceURI(filename, false));
+		}
 		resource.load(targetStream, null);
 		
 		for (EObject eObject : resource.getContents()) {
