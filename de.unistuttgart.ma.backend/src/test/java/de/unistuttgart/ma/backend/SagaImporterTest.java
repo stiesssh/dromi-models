@@ -17,7 +17,7 @@ import org.springframework.test.context.ContextConfiguration;
 @ContextConfiguration(classes = TestContext.class)
 @DataMongoTest
 @ActiveProfiles("test")
-class SagaImporterTest extends FooTest {
+class SagaImporterTest extends TestWithRepo {
 
 	@Test
 	void parseEmptySystemTest() throws IOException {

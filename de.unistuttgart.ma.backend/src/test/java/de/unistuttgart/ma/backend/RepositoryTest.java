@@ -35,7 +35,7 @@ import de.unistuttgart.ma.saga.impact.Violation;
 @ContextConfiguration(classes = TestContext.class)
 @DataMongoTest
 @ActiveProfiles("test")
-public class RepositoryTest extends FooTest {
+public class RepositoryTest extends TestWithRepo {
 	
 	@Test
 	public void impactRepoProxyTest() throws IOException {

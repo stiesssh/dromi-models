@@ -29,7 +29,7 @@ import de.unistuttgart.ma.saga.impact.Violation;
 @ContextConfiguration(classes = TestContext.class)
 @DataMongoTest
 @ActiveProfiles("test")
-public abstract class FooTest {
+public abstract class TestWithRepo {
 	
 	NotificationCreationService computationService;
 	NotificationRetrievalService retrievalService;

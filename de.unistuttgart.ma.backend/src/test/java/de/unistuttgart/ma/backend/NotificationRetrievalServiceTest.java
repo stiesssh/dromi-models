@@ -17,7 +17,7 @@ import de.unistuttgart.ma.backend.exceptions.MissingSystemModelException;
 import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.Notification;
 
-public class NotificationRetrievalServiceTest extends FooTest {
+public class NotificationRetrievalServiceTest extends TestWithRepo {
 	
 	@Test
 	public void retrieveSingelImpactTest() throws MissingSystemModelException, IOException {

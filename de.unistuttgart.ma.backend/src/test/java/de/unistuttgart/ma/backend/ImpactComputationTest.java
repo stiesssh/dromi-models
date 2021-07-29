@@ -20,7 +20,7 @@ import de.unistuttgart.ma.saga.impact.Violation;
 @ContextConfiguration(classes = TestContext.class)
 @DataMongoTest
 @ActiveProfiles("test")
-public class ImpactComputationTest extends FooTest{
+public class ImpactComputationTest extends TestWithRepo{
 
 	@Test
 	void computeNotificationTest() throws IOException {
