@@ -28,7 +28,7 @@ public interface Node extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(String)
 	 * @see de.unistuttgart.gropius.GropiusPackage#getNode_Id()
-	 * @model dataType="de.unistuttgart.gropius.ID"
+	 * @model id="true" dataType="de.unistuttgart.gropius.ID"
 	 * @generated
 	 */
 	String getId();

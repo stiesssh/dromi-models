@@ -6,7 +6,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="IssueTimelineItemType"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Priority"/>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="#//ID"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="#//ID" iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comment" abstract="true" interface="true"
       eSuperTypes="#//Node">
