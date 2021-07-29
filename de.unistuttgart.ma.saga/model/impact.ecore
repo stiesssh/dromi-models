@@ -7,6 +7,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="ecore:EClass saga.ecore#//System"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="impacts" upperBound="-1"
         eType="#//Impact" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Impact">
     <eOperations name="getLocationName" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
@@ -14,6 +16,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cause" eType="#//Impact"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Violation" eSuperTypes="#//Impact">
     <eStructuralFeatures xsi:type="ecore:EReference" name="violatedRule" eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"/>

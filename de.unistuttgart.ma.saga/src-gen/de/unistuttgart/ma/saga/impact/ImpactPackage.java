@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.saga.impact;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -104,13 +105,22 @@ public interface ImpactPackage extends EPackage {
 	int NOTIFICATION__IMPACTS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTIFICATION__ID = 3;
+
+	/**
 	 * The number of structural features of the '<em>Notification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTIFICATION_FEATURE_COUNT = 3;
+	int NOTIFICATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Notification</em>' class.
@@ -140,13 +150,22 @@ public interface ImpactPackage extends EPackage {
 	int IMPACT__CAUSE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPACT__ID = 2;
+
+	/**
 	 * The number of structural features of the '<em>Impact</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPACT_FEATURE_COUNT = 2;
+	int IMPACT_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Get Location Name</em>' operation.
@@ -202,6 +221,15 @@ public interface ImpactPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIOLATION__CAUSE = IMPACT__CAUSE;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__ID = IMPACT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Violated Rule</b></em>' reference.
@@ -279,6 +307,17 @@ public interface ImpactPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getImpact_Cause();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.ma.saga.impact.Impact#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see de.unistuttgart.ma.saga.impact.Impact#getId()
+	 * @see #getImpact()
+	 * @generated
+	 */
+	EAttribute getImpact_Id();
 
 	/**
 	 * Returns the meta object for the '{@link de.unistuttgart.ma.saga.impact.Impact#getLocationName() <em>Get Location Name</em>}' operation.
@@ -365,6 +404,17 @@ public interface ImpactPackage extends EPackage {
 	EReference getNotification_Impacts();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.ma.saga.impact.Notification#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see de.unistuttgart.ma.saga.impact.Notification#getId()
+	 * @see #getNotification()
+	 * @generated
+	 */
+	EAttribute getNotification_Id();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,6 +462,14 @@ public interface ImpactPackage extends EPackage {
 		 * @generated
 		 */
 		EReference IMPACT__CAUSE = eINSTANCE.getImpact_Cause();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPACT__ID = eINSTANCE.getImpact_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Location Name</b></em>' operation.
@@ -480,6 +538,14 @@ public interface ImpactPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NOTIFICATION__IMPACTS = eINSTANCE.getNotification_Impacts();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTIFICATION__ID = eINSTANCE.getNotification_Id();
 
 	}
 

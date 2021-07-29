@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getTopLevelImpacts <em>Top Level Impacts</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getSystem <em>System</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getImpacts <em>Impacts</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification()
@@ -69,5 +70,27 @@ public interface Notification extends EObject {
 	 * @generated
 	 */
 	EList<Impact> getImpacts();
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification_Id()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Notification#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
 
 } // Notification

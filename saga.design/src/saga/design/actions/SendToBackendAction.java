@@ -22,11 +22,6 @@ import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
  *
  */
 public class SendToBackendAction implements IExternalJavaAction {
-
-//	// endpoint to post model to
-//	private static java.net.URI uri = java.net.URI.create("http://localhost:8083/api/model");
-//	// path where the model is saved
-//	static Path path = Paths.get("/runtime-EclipseApplication/asdfghjkl/My.saga", ""); ///home/maumau/runtime-EclipseApplication/
 	
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
@@ -43,7 +38,7 @@ public class SendToBackendAction implements IExternalJavaAction {
 				try {
 					systemXML = serialize(system);
 					URI ressourceUri = system.eResource().getURI();
-					post(systemXML, ressourceUri.segment(ressourceUri.segmentCount() - 1));
+					post(systemXML, ressourceUri.path());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

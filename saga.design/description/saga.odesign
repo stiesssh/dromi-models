@@ -1,244 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="saga" version="12.0.0.2017041100">
-  <ownedViewpoints name="sagaViewpoint" modelFileExtension="saga">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="totalDiagram" domainClass="saga::Project" enablePopupBars="true">
-      <metamodel href="http://www.example.org/saga#/"/>
-      <layout xsi:type="description_1:CompositeLayout" padding="100" direction="LeftToRight"/>
-      <defaultLayer name="Default">
-        <nodeMappings name="component" domainClass="saga::Component">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="componentInterface" domainClass="saga::ComponentInterface">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="providedEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='totalDiagram']/@defaultLayer/@nodeMappings[name='component']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='totalDiagram']/@defaultLayer/@nodeMappings[name='componentInterface']" targetFinderExpression="feature:interfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </defaultLayer>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="sagaDiagram" domainClass="saga::Project" enablePopupBars="true">
-      <defaultLayer name="Default"/>
-      <additionalLayers name="componentLayer">
-        <nodeMappings name="component" domainClass="saga::Component">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="componentInterface" domainClass="saga::ComponentInterface">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="providedEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='sagaDiagram']/@additionalLayers[name='componentLayer']/@nodeMappings[name='component']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='sagaDiagram']/@additionalLayers[name='componentLayer']/@nodeMappings[name='componentInterface']" targetFinderExpression="feature:interfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </additionalLayers>
-      <additionalLayers name="sagaLayer">
-        <nodeMappings name="Saga" domainClass="saga::Saga">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="3">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="sagaStepNode" domainClass="saga::SagaStep">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="3">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="stepEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='sagaDiagram']/@additionalLayers[name='sagaLayer']/@nodeMappings[name='Saga']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='sagaDiagram']/@additionalLayers[name='sagaLayer']/@nodeMappings[name='sagaStepNode']" targetFinderExpression="feature:steps">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="NextLevelEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='sagaDiagram']/@additionalLayers[name='componentLayer']/@nodeMappings[name='componentInterface']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='sagaDiagram']/@additionalLayers[name='sagaLayer']/@nodeMappings[name='sagaStepNode']" targetFinderExpression="feature:nextLevelElements">
-          <style lineStyle="dash" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="traceView" domainClass="saga::Project" preconditionExpression="service:" enablePopupBars="true">
-      <filters xsi:type="filter:CompositeFilterDescription" name="testfilter">
-        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']" semanticConditionExpression="aql:not self.steps->isEmpty()"/>
-      </filters>
-      <layout xsi:type="description_1:CustomLayoutConfiguration" id="AlgoFromFoo2-id" label="AlgoFromFoo2-label" description="AlgoFromFoo2-description"/>
-      <defaultLayer name="Default"/>
-      <additionalLayers name="sagaLayer">
-        <edgeMappings name="stepEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:steps">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings name="sagaContainer" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga">
-          <subNodeMappings name="sagaStepNode" semanticCandidatesExpression="feature:steps" domainClass="saga::SagaStep">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="3">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-          </style>
-          <conditionnalStyles predicateExpression="aql:self.steps->isEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
-            </style>
-          </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:not self.steps->isEmpty()">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
-            </style>
-          </conditionnalStyles>
-        </containerMappings>
-      </additionalLayers>
-      <additionalLayers name="componentLayer">
-        <edgeMappings name="providedEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='componentLayer']/@containerMappings[name='projectContainer']/@subNodeMappings[name='component']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='componentLayer']/@containerMappings[name='projectContainer']/@subNodeMappings[name='componentInterface']" targetFinderExpression="feature:interfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings name="projectContainer" semanticCandidatesExpression="var:self" domainClass="saga::Project">
-          <subNodeMappings name="component" semanticCandidatesExpression="feature:components" domainClass="saga::Component">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
-            </style>
-          </subNodeMappings>
-          <subNodeMappings name="componentInterface" domainClass="saga::ComponentInterface">
-            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="15" height="5">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-          </style>
-        </containerMappings>
-      </additionalLayers>
-      <additionalLayers name="edgelayer">
-        <edgeMappings name="NextLevelEdge" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='componentLayer']/@containerMappings[name='projectContainer']/@subNodeMappings[name='componentInterface']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetFinderExpression="feature:nextLevelElements">
-          <style lineStyle="dash" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="NextLevelEdge2" sourceMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='sagaLayer']/@containerMappings[name='sagaContainer']/@subNodeMappings[name='sagaStepNode']" targetMapping="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='traceView']/@additionalLayers[name='processLayer']/@containerMappings[name='processContainer']/@subNodeMappings[name='activity']" targetFinderExpression="feature:nextLevelElements">
-          <style lineStyle="dash" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </additionalLayers>
-      <additionalLayers name="processLayer" activeByDefault="true">
-        <containerMappings name="processContainer" semanticCandidatesExpression="feature:processes" domainClass="saga::Process">
-          <subNodeMappings name="activity" domainClass="saga::Activity">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/saga.design/icons/rounded.gif">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-          </style>
-        </containerMappings>
-      </additionalLayers>
-      <additionalLayers name="svgLayer">
-        <nodeMappings name="custom " semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.event.svg">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-      </additionalLayers>
-    </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ActionTest" domainClass="saga::Model" enablePopupBars="true">
-      <defaultLayer name="Default">
-        <nodeMappings name="some node" semanticCandidatesExpression="var:self" domainClass="saga::Model">
-          <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="fooo" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <toolSections name="Tool">
-          <ownedTools xsi:type="tool:ToolDescription" name="toooly">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="fooocall" action="//@ownedViewpoints[name='sagaViewpoint']/@ownedRepresentations[name='ActionTest']/@defaultLayer/@toolSections.0/@ownedTools[name='toooly']/@initialOperation/@firstModelOperations/@subModelOperations.0">
-                <subModelOperations xsi:type="tool:ExternalJavaAction" name="fooo" icon="/org.apache.batik.bridge/org/apache/batik/bridge/BrokenLink.svg" id="saga.design.helloWorldAction"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-        </toolSections>
-      </defaultLayer>
-    </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="saga.design.Services"/>
-    <ownedJavaExtensions qualifiedClassName="saga.design.Services2"/>
-    <ownedJavaExtensions qualifiedClassName="de.unistuttgart.ma.saga.presentation.FooView"/>
-  </ownedViewpoints>
-  <ownedViewpoints name="treeView" modelFileExtension="saga">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TotalView" domainClass="saga::System" enablePopupBars="true">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="saga" version="12.0.0.2017041100">
+  <ownedViewpoints name="totalView" modelFileExtension="saga">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="system_view" label="System View" initialisation="true" domainClass="saga::System" enablePopupBars="true">
       <validationSet name="validate sagas">
         <ownedRules xsi:type="validation:SemanticValidationRule" name="containment" message="Step is not contained in container... eh what?" targetClass="saga::SagaStep">
           <audits auditExpression="aql:self.eContainer().steps->includes(self)"/>
@@ -258,253 +21,135 @@
       </layout>
       <defaultLayer name="Default">
         <toolSections name="create_saga_tools" label="Saga Tools">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="create_saga" label="create new Saga" nodeMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create_saga" label="create new Saga">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="saga::Saga" referenceName="sagas">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="aql:'saga'+container.sagas->filter(saga::Saga)->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="saga::Saga" referenceName="sagas">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'saga'+container.sagas->filter(saga::Saga)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="create_step" label="create new SagaStep" nodeMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaStepNode']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create_step" label="create new SagaStep">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.sagas->last()">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="saga::SagaStep" referenceName="steps">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="id" valueExpression="aql:'step'+container.eAllContents()->size()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.sagas->last()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="saga::SagaStep" referenceName="steps">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'step'+container.eAllContents()->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="create_edge_step_task" label="Connect to Tasks" edgeMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_task'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@edgeMappings[name='edge_saga_task']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="create_edge_step_task" label="Connect to Tasks" edgeMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_task']">
             <sourceVariable name="source_step"/>
             <targetVariable name="target_task"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source_step">
-                <subModelOperations xsi:type="tool:SetValue" featureName="task" valueExpression="var:target_task"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source_step">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="task" valueExpression="var:target_task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="create_edge_step_face" label="Connect to Interface" edgeMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_interface'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@edgeMappings[name='edge_saga_interface']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="create_edge_step_face" label="Connect to Interface" edgeMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_interface']">
             <sourceVariable name="source_step"/>
             <targetVariable name="target_iface"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source_step">
-                <subModelOperations xsi:type="tool:SetValue" featureName="componentInterface" valueExpression="var:target_iface"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source_step">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="componentInterface" valueExpression="var:target_iface"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="create_edge_step_step" label="Connect to next Step" edgeMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@edgeMappings[name='edge_step_step']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="create_edge_step_step" label="Connect to next Step" edgeMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_step_step']">
             <sourceVariable name="source_step"/>
             <targetVariable name="target_task"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source_step">
-                <subModelOperations xsi:type="tool:SetValue" featureName="nextStep" valueExpression="var:target_task"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source_step">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="nextStep" valueExpression="var:target_task"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnect_edge_saga_task">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="reconnect_edge_saga_task">
             <source name="source_sagastep"/>
             <target name="target_task"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element_unmoved"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element_unmoved">
-                <subModelOperations xsi:type="tool:SetValue" featureName="task" valueExpression="var:target_task"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element_unmoved">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="task" valueExpression="var:target_task"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnect_edge_saga_steps">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="reconnect_edge_saga_steps">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="steps" valueExpression="aql:self.steps->including(element)"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="steps" valueExpression="aql:self.steps->including(element)"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ContainerDropDescription" name="reconnect_container_saga_steps" mappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_node']">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="reconnect_container_saga_steps" mappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
             <element name="element"/>
             <newViewContainer name="newContainerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:newSemanticContainer">
-                <subModelOperations xsi:type="tool:SetValue" featureName="steps" valueExpression="aql:newSemanticContainer.oclAsType(saga::Saga).steps->including(element)"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSemanticContainer">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="steps" valueExpression="aql:newSemanticContainer.oclAsType(saga::Saga).steps->including(element)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="reconnect_edge_saga_interface">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="reconnect_edge_saga_interface">
             <source name="source_sagastep"/>
             <target name="target_task"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element_unmoved"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element_unmoved">
-                <subModelOperations xsi:type="tool:SetValue" featureName="componentInterface" valueExpression="var:target_task"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element_unmoved">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="componentInterface" valueExpression="var:target_task"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
         <toolSections name="Actions">
-          <ownedTools xsi:type="tool:ToolDescription" name="tool_hello_world" label="Hello World ">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="tool_hello_world" label="Hello World ">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.1/@ownedTools[name='tool_hello_world']/@initialOperation/@firstModelOperations/@subModelOperations.0">
-                <subModelOperations xsi:type="tool:ExternalJavaAction" name="action_hello_worl" id="saga.design.helloWorldAction"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.1/@ownedTools[name='tool_hello_world']/@initialOperation/@firstModelOperations/@subModelOperations.0">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="action_hello_worl" id="saga.design.helloWorldAction"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="tool_post_to_backend" label="Post to Backend">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="tool_post_to_backend" label="Post to Backend">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.1/@ownedTools[name='tool_post_to_backend']/@initialOperation/@firstModelOperations/@subModelOperations.0">
-                <subModelOperations xsi:type="tool:ExternalJavaAction" name="action_post_to_backend" id="saga.design.postModelAction"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="tool_get_from_backend" label="Get from Backend">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.1/@ownedTools[name='tool_get_from_backend']/@initialOperation/@firstModelOperations/@subModelOperations.0">
-                <subModelOperations xsi:type="tool:ExternalJavaAction" name="action_get_from_backend" id="saga.design.getNotificationAction"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaActionCall" name="action call" action="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.1/@ownedTools[name='tool_post_to_backend']/@initialOperation/@firstModelOperations/@subModelOperations.0">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="action_post_to_backend" id="saga.design.postModelAction"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>
-      <additionalLayers name="process_layer" activeByDefault="true">
-        <nodeMappings name="task_node" semanticCandidatesExpression="aql:self.processes.flowElements" domainClass="bpmn2::Task">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.task">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="event_start_node" semanticCandidatesExpression="aql:self.processes.flowElements" domainClass="bpmn2::StartEvent">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.event.start">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="event_end_node" semanticCandidatesExpression="aql:self.processes.flowElements" domainClass="bpmn2::EndEvent">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="" hideLabelByDefault="true" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.event.end">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="edge_flow" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='event_end_node']" targetFinderExpression="aql:self.outgoing.targetRef">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="edge_compensation" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="edge_compensation_2" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef.outgoing.targetRef">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </additionalLayers>
-      <additionalLayers name="arch_layer">
-        <nodeMappings name="componentNode" semanticCandidatesExpression="aql:self.architecture.components" domainClass="gropius::Component">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.arch.component">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="IntefaceNode" semanticCandidatesExpression="aql:self.architecture.components.interfaces" domainClass="gropius::ComponentInterface">
-          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="2" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.event.start">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="edge_provides" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='componentNode']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:interfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="edge_consumes" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='componentNode']" targetFinderExpression="feature:consumedBy">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </additionalLayers>
-      <additionalLayers name="saga_layer">
-        <nodeMappings name="SagaNode" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga">
-          <style xsi:type="style:DotDescription" labelSize="11" labelExpression="feature:id" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings name="SagaStepNode" semanticCandidatesExpression="aql:self.sagas.steps" domainClass="saga::SagaStep">
-          <style xsi:type="style:DotDescription" labelSize="12" labelExpression="feature:id" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-          </style>
-        </nodeMappings>
-        <edgeMappings name="edge_saga_task" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaStepNode']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node']" targetFinderExpression="feature:task" reconnections="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
-          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaStepNode']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
-          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="inverse saga edge" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaStepNode']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='saga_layer']/@nodeMappings[name='SagaNode']" targetFinderExpression="aql:self.eContainer()" reconnections="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_steps']">
+      <additionalLayers name="saga_layer" label="Saga Layer" activeByDefault="true">
+        <edgeMappings name="inverse saga edge" targetFinderExpression="aql:self.eContainer()" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_steps']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -512,33 +157,23 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-      </additionalLayers>
-      <additionalLayers name="container_saga_layer" activeByDefault="true">
-        <edgeMappings name="inverse saga edge" targetFinderExpression="aql:self.eContainer()" reconnections="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_steps']">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="edge_saga_task" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='process_layer']/@nodeMappings[name='task_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="feature:task" reconnections="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
-          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="edge_saga_task" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="feature:task" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
+          <style lineStyle="dash_dot" targetArrow="NoDecoration" sizeComputationExpression="2" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer']/@nodeMappings[name='IntefaceNode'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer_inverse']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
-          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
+        <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
+          <style lineStyle="dash_dot" targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_step_step" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='container_saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_node']" targetFinderExpression="feature:nextStep">
+        <edgeMappings name="edge_step_step" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']" targetFinderExpression="feature:nextStep">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -546,8 +181,8 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="saga_container" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga" dropDescriptions="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_container_saga_steps']">
-          <subNodeMappings name="saga_node" semanticCandidatesExpression="feature:steps" domainClass="saga::SagaStep">
+        <containerMappings name="saga_container" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga" dropDescriptions="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_container_saga_steps']">
+          <subNodeMappings name="saga_step_node" label="Saga Step Node" semanticCandidatesExpression="feature:steps" domainClass="saga::SagaStep">
             <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:id" labelPosition="node" resizeKind="NSEW" width="10" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -560,22 +195,22 @@
           </style>
         </containerMappings>
       </additionalLayers>
-      <additionalLayers name="arch_layer_inverse" activeByDefault="true" optional="false">
-        <nodeMappings name="componentNode" semanticCandidatesExpression="aql:self.architecture.components" domainClass="gropius::Component">
+      <additionalLayers name="arch_layer" label="Service Layer" activeByDefault="true" optional="false">
+        <nodeMappings name="component_node" label="Component Node" semanticCandidatesExpression="aql:self.architecture.components" domainClass="gropius::Component">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.arch.component">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="IntefaceNode" semanticCandidatesExpression="aql:self.architecture.components.interfaces" domainClass="gropius::ComponentInterface">
+        <nodeMappings name="interface_node" label="Interface Node" semanticCandidatesExpression="aql:self.architecture.components.interfaces" domainClass="gropius::ComponentInterface">
           <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" sizeComputationExpression="2" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.arch.interface_mirrored">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <edgeMappings name="edge_provides" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer_inverse']/@nodeMappings[name='IntefaceNode']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer_inverse']/@nodeMappings[name='componentNode']" targetFinderExpression="feature:component">
+        <edgeMappings name="edge_provides" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']" targetFinderExpression="feature:component">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -583,7 +218,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_consumes" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer_inverse']/@nodeMappings[name='componentNode']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='arch_layer_inverse']/@nodeMappings[name='IntefaceNode']" targetFinderExpression="feature:consumedInterfaces">
+        <edgeMappings name="edge_consumes" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']" targetFinderExpression="feature:consumedInterfaces">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -592,8 +227,8 @@
           </style>
         </edgeMappings>
       </additionalLayers>
-      <additionalLayers name="lane_process_layer" activeByDefault="true" optional="false">
-        <edgeMappings name="edge_flow" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.outgoing.targetRef">
+      <additionalLayers name="process_layer" label="Process Layer" activeByDefault="true" optional="false">
+        <edgeMappings name="edge_flow" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.outgoing.targetRef">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -601,7 +236,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_compensation" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef">
+        <edgeMappings name="edge_compensation" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -609,7 +244,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_compensation_2" sourceMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@additionalLayers[name='lane_process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef.outgoing.targetRef">
+        <edgeMappings name="edge_compensation_2" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef.outgoing.targetRef">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -617,7 +252,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="lane_container" semanticCandidatesExpression="feature:processes" domainClass="bpmn2::Process" dropDescriptions="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='TotalView']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_container_saga_steps']">
+        <containerMappings name="lane_container" semanticCandidatesExpression="feature:processes" domainClass="bpmn2::Process" dropDescriptions="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_container_saga_steps']">
           <subNodeMappings name="task_node" semanticCandidatesExpression="aql:self.flowElements" domainClass="bpmn2::Task">
             <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.task">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -646,30 +281,126 @@
         </containerMappings>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:TreeDescription" name="tree_view" domainClass="saga::System">
-      <subItemMappings name="tree" domainClass="impact::Notification" semanticCandidatesExpression="feature:notifications">
-        <defaultStyle labelSize="10" labelExpression="feature:id">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="system_by_impact" label="Impact View" initialisation="true" domainClass="impact::Impact" preconditionExpression="aql:self.eContainer().topLevelImpacts->includes(self)" enablePopupBars="true">
+      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level."/>
+      <defaultLayer name="default_layer"/>
+      <additionalLayers name="impact_process_layer" activeByDefault="true">
+        <edgeMappings name="impact_edge_flow" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_start_normal']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_end_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="aql:self.outgoing.targetRef">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="impact_edge_compensation" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_start_normal']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_end_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="impact_edge_compensation_2" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_start_normal']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_end_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef.outgoing.targetRef">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="import_process_lane" semanticCandidatesExpression="aql:self.eContainer().system.processes" domainClass="bpmn2::Process" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']">
+          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_task_chain"/>
+          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_task_normal" semanticCandidatesExpression="feature:flowElements" domainClass="bpmn2::Task" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']"/>
+          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_event_start_normal" semanticCandidatesExpression="feature:flowElements" domainClass="bpmn2::StartEvent" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']"/>
+          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_event_end_normal" semanticCandidatesExpression="feature:flowElements" domainClass="bpmn2::EndEvent" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node']"/>
+        </containerMappings>
+      </additionalLayers>
+      <additionalLayers name="impact_saga_layer" activeByDefault="true">
+        <edgeMappings name="impact_edge_saga_task" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="feature:task" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
+          <style lineStyle="dash_dot" targetArrow="NoDecoration" sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="impact_edge_saga_interface" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_not']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
+          <style lineStyle="dash_dot" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="impact_edge_step_step" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetFinderExpression="feature:nextStep">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="import_saga" semanticCandidatesExpression="aql:self.eContainer().system.sagas" domainClass="saga::Saga" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']">
+          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_saga_step_node" semanticCandidatesExpression="feature:steps" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']"/>
+        </containerMappings>
+      </additionalLayers>
+      <additionalLayers name="impact_arch_layer" activeByDefault="true">
+        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_interface_chain" semanticCandidatesExpression="service:getImpactedElements()" domainClass="gropius::ComponentInterface" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']">
+          <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_interface_not" semanticCandidatesExpression="service:getNotImpactedElements()" domainClass="gropius::ComponentInterface" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']"/>
+        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_component_chain" semanticCandidatesExpression="service:getImpactedElements()" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']">
+          <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_component_not" semanticCandidatesExpression="service:getNotImpactedElements()" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']"/>
+        <edgeMappings name="edger_provides_import" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_not']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_not']" targetFinderExpression="feature:component">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="edger_consumes_import" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_not']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_not']" targetFinderExpression="feature:consumedInterfaces">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="saga.design.SystemByImpactService"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="treeView" modelFileExtension="impact">
+    <ownedRepresentations xsi:type="description_2:TreeDescription" name="tree_view" domainClass="impact::Notification">
+      <subItemMappings name="tree" domainClass="impact::Impact" semanticCandidatesExpression="feature:topLevelImpacts">
+        <defaultStyle labelSize="10" labelExpression="aql:'impact on ' + self.getLocationName() + ' (' + self.getLocationId() + ')'">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
-        <subItemMappings name="item_top_level_impact" domainClass="impact::Impact" semanticCandidatesExpression="feature:topLevelImpacts">
-          <defaultStyle labelSize="10" labelExpression="aql:'Top Level Impact : ' + self.id">
+        <subItemMappings name="details_location" domainClass="EObject" semanticCandidatesExpression="feature:location">
+          <defaultStyle labelSize="10" labelExpression="aql:'Location : ' + self.id">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
-          <subItemMappings name="details_location" domainClass="EObject" semanticCandidatesExpression="feature:location">
-            <defaultStyle labelSize="10" labelExpression="aql:'Location : ' + self.id">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </defaultStyle>
-          </subItemMappings>
         </subItemMappings>
-        <subItemMappings name="item_root_cause" domainClass="slo::Alert" semanticCandidatesExpression="aql:self.alert">
-          <defaultStyle labelSize="10" labelExpression="aql:'Violation : ' + 'threshold of ' + self.sloRule.threshold + ' not met for ' + self.sloRule.period + '.'">
+        <subItemMappings name="item_root_cause" domainClass="impact::Violation" semanticCandidatesExpression="service:getRootCause()">
+          <defaultStyle labelSize="10" labelExpression="aql:'Root Cause : Violation of SLO Rule ' + self.violatedRule.name +'. Threshold of ' + self.violatedRule.threshold + ' not met for ' + self.violatedRule.period + '.'">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
-          <subItemMappings name="item_violated_slo" domainClass="slo::SloRule" semanticCandidatesExpression="aql:self.sloRule">
+          <subItemMappings name="item_violated_slo" domainClass="slo::SloRule" semanticCandidatesExpression="aql:self.violatedRule">
             <defaultStyle labelSize="10" labelExpression="aql:'Violated SLO : ' + self.name">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -682,43 +413,38 @@
             </subItemMappings>
           </subItemMappings>
         </subItemMappings>
-        <subItemMappings name="details" domainClass="impact::Notification" semanticCandidatesExpression="aql:self">
+        <subItemMappings name="details" domainClass="impact::Impact" semanticCandidatesExpression="aql:self">
           <defaultStyle labelSize="10" labelExpression="Path :">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
-          <subItemMappings name="details_top_level" domainClass="impact::Impact" semanticCandidatesExpression="feature:topLevelImpacts">
-            <defaultStyle labelSize="10">
+          <subItemMappings name="details_intermediate" domainClass="impact::Impact" semanticCandidatesExpression="feature:cause" reusedTreeItemMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='tree_view']/@subItemMappings[name='tree']/@subItemMappings[name='details']/@subItemMappings[name='details_intermediate']">
+            <defaultStyle labelSize="10" labelExpression="aql:'impact on ' + self.getLocationName() + ' (' + self.getLocationId() + ')'">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
-            <subItemMappings name="details_location" domainClass="EObject" semanticCandidatesExpression="feature:location">
-              <defaultStyle labelSize="10" labelExpression="aql:'Location : ' + self.id">
+            <subItemMappings name="details_root_cause" domainClass="slo::Violation" semanticCandidatesExpression="feature:rootCause" reusedTreeItemMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='tree_view']/@subItemMappings[name='tree']/@subItemMappings[name='item_root_cause']/@subItemMappings[name='item_violated_slo']">
+              <defaultStyle labelSize="10" labelExpression="aql:'Root Cause ' + self.name">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </defaultStyle>
             </subItemMappings>
-            <subItemMappings name="details_intermediate" domainClass="impact::Impact" semanticCandidatesExpression="feature:cause" reusedTreeItemMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='tree_view']/@subItemMappings[name='tree']/@subItemMappings[name='details']/@subItemMappings[name='details_top_level']/@subItemMappings[name='details_intermediate']">
-              <defaultStyle labelSize="10" labelExpression="feature:id">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              </defaultStyle>
-              <subItemMappings name="details_location" domainClass="EObject" semanticCandidatesExpression="feature:location">
-                <defaultStyle labelSize="10" labelExpression="aql:'Location : ' +self.id">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                </defaultStyle>
-              </subItemMappings>
-              <subItemMappings name="details_root_cause" domainClass="slo::Alert" semanticCandidatesExpression="feature:rootCause" reusedTreeItemMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='tree_view']/@subItemMappings[name='tree']/@subItemMappings[name='item_root_cause']/@subItemMappings[name='item_violated_slo']">
-                <defaultStyle labelSize="10" labelExpression="aql:'Root Cause ' + self.name">
-                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                </defaultStyle>
-              </subItemMappings>
-            </subItemMappings>
+          </subItemMappings>
+        </subItemMappings>
+        <subItemMappings name="related upstream" domainClass="impact::Impact" semanticCandidatesExpression="service:getCausingImpacts()">
+          <defaultStyle labelExpression="aql:'related upstream'">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+          <subItemMappings name="related" domainClass="slo::Violation" semanticCandidatesExpression="aql:">
+            <defaultStyle>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </defaultStyle>
           </subItemMappings>
         </subItemMappings>
       </subItemMappings>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="saga.design.TreeService"/>
   </ownedViewpoints>
 </description:Group>

@@ -61,7 +61,7 @@ public class BackendImporter{
 	 * @throws InterruptedException 
 	 * @throws IOException 
 	 */
-	public List<Impact> getImpacts(String systemId) throws IOException, InterruptedException {
+	public Notification getNotification(String systemId) throws IOException, InterruptedException {
 		URI requestUri = URI.create(hostUri + Literals.backendGetNotificationEndpoint + systemId);
 
 		HttpRequest request = HttpRequest.newBuilder().GET().uri(requestUri).build();
@@ -74,7 +74,7 @@ public class BackendImporter{
 		String body = response.body();
 		// loop ... 
 		//return parseImpact(body);
-		return parseNotification(body).getTopLevelImpacts();
+		return parseNotification(body);
 	}
 	
 	/**

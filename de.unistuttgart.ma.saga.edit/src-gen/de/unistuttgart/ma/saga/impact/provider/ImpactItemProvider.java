@@ -3,6 +3,7 @@
 package de.unistuttgart.ma.saga.impact.provider;
 
 
+import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
 
 import java.util.Collection;
@@ -20,7 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.impact.Impact} object.
@@ -59,6 +62,7 @@ public class ImpactItemProvider
 
 			addLocationPropertyDescriptor(object);
 			addCausePropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,6 +112,28 @@ public class ImpactItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Impact_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Impact_id_feature", "_UI_Impact_type"),
+				 ImpactPackage.Literals.IMPACT__ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Impact.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,7 +152,10 @@ public class ImpactItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Impact_type");
+		String label = ((Impact)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Impact_type") :
+			getString("_UI_Impact_type") + " " + label;
 	}
 
 
@@ -140,6 +169,12 @@ public class ImpactItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Impact.class)) {
+			case ImpactPackage.IMPACT__ID:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

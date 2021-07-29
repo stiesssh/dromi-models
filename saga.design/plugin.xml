@@ -105,13 +105,4 @@
             id="saga.design.postModelAction">
       </javaActions>
    </extension>
-   <extension
-         id="saga.design.getNotificationAction"
-         name="saga.design.getNotificationAction"
-         point="org.eclipse.sirius.externalJavaAction">
-      <javaActions
-            actionClass="saga.design.actions.GetFromBackendAction"
-            id="saga.design.getNotificationAction">
-      </javaActions>
-   </extension>
 </plugin>

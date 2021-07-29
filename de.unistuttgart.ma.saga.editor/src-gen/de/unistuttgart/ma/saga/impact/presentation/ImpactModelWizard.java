@@ -239,8 +239,9 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 		BackendImporter importer = new BackendImporter(impactImportPage.getBackendUrlField());
 		try {
 			//Impact impact = importer.getImpacts(system.getId());
-			List<Impact> impact = importer.getImpacts(system.getId());
-			rootObject.getTopLevelImpacts().addAll(impact);
+			Notification imported = importer.getNotification(system.getId());
+			rootObject.getImpacts().addAll(imported.getImpacts());
+			rootObject.getTopLevelImpacts().addAll(imported.getTopLevelImpacts());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

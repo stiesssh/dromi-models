@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getCause <em>Cause</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +51,25 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 	 * @ordered
 	 */
 	protected Impact cause;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,6 +169,27 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.IMPACT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String getLocationName() {
@@ -201,6 +242,8 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 			case ImpactPackage.IMPACT__CAUSE:
 				if (resolve) return getCause();
 				return basicGetCause();
+			case ImpactPackage.IMPACT__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +261,9 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 				return;
 			case ImpactPackage.IMPACT__CAUSE:
 				setCause((Impact)newValue);
+				return;
+			case ImpactPackage.IMPACT__ID:
+				setId((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,6 +283,9 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 			case ImpactPackage.IMPACT__CAUSE:
 				setCause((Impact)null);
 				return;
+			case ImpactPackage.IMPACT__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,6 +302,8 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 				return location != null;
 			case ImpactPackage.IMPACT__CAUSE:
 				return cause != null;
+			case ImpactPackage.IMPACT__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,5 +322,21 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 				return getLocationId();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 } //ImpactImpl

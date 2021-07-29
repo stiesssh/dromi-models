@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Impact#getLocation <em>Location</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Impact#getCause <em>Cause</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.Impact#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getImpact()
@@ -66,6 +67,28 @@ public interface Impact extends EObject {
 	 * @generated
 	 */
 	void setCause(Impact value);
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getImpact_Id()
+	 * @model id="true"
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Impact#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getTopLevelImpacts <em>Top Level Impacts</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getSystem <em>System</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getImpacts <em>Impacts</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +67,26 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 	 * @ordered
 	 */
 	protected EList<Impact> impacts;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,6 +174,27 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, org.eclipse.emf.common.notify.Notification.SET, ImpactPackage.NOTIFICATION__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -177,6 +219,8 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 				return basicGetSystem();
 			case ImpactPackage.NOTIFICATION__IMPACTS:
 				return getImpacts();
+			case ImpactPackage.NOTIFICATION__ID:
+				return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,6 +245,9 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 				getImpacts().clear();
 				getImpacts().addAll((Collection<? extends Impact>)newValue);
 				return;
+			case ImpactPackage.NOTIFICATION__ID:
+				setId((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -222,6 +269,9 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 			case ImpactPackage.NOTIFICATION__IMPACTS:
 				getImpacts().clear();
 				return;
+			case ImpactPackage.NOTIFICATION__ID:
+				setId(ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -240,8 +290,26 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 				return system != null;
 			case ImpactPackage.NOTIFICATION__IMPACTS:
 				return impacts != null && !impacts.isEmpty();
+			case ImpactPackage.NOTIFICATION__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(')');
+		return result.toString();
 	}
 
 } //NotificationImpl

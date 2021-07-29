@@ -24,6 +24,7 @@ import org.eclipse.dd.dc.DcPackage;
 
 import org.eclipse.dd.di.DiPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -178,6 +179,15 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNotification_Id() {
+		return (EAttribute)notificationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImpact() {
 		return impactEClass;
 	}
@@ -198,6 +208,15 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 */
 	public EReference getImpact_Cause() {
 		return (EReference)impactEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImpact_Id() {
+		return (EAttribute)impactEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -268,10 +287,12 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 		createEReference(notificationEClass, NOTIFICATION__TOP_LEVEL_IMPACTS);
 		createEReference(notificationEClass, NOTIFICATION__SYSTEM);
 		createEReference(notificationEClass, NOTIFICATION__IMPACTS);
+		createEAttribute(notificationEClass, NOTIFICATION__ID);
 
 		impactEClass = createEClass(IMPACT);
 		createEReference(impactEClass, IMPACT__LOCATION);
 		createEReference(impactEClass, IMPACT__CAUSE);
+		createEAttribute(impactEClass, IMPACT__ID);
 		createEOperation(impactEClass, IMPACT___GET_LOCATION_NAME);
 		createEOperation(impactEClass, IMPACT___GET_LOCATION_ID);
 
@@ -319,10 +340,12 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 		initEReference(getNotification_TopLevelImpacts(), this.getImpact(), null, "topLevelImpacts", null, 0, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNotification_System(), theSagaPackage.getSystem(), null, "system", null, 0, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNotification_Impacts(), this.getImpact(), null, "impacts", null, 0, -1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNotification_Id(), ecorePackage.getEString(), "id", null, 0, 1, Notification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(impactEClass, Impact.class, "Impact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImpact_Location(), ecorePackage.getEObject(), null, "location", null, 1, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getImpact_Cause(), this.getImpact(), null, "cause", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImpact_Id(), ecorePackage.getEString(), "id", null, 0, 1, Impact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getImpact__GetLocationName(), theXMLTypePackage.getString(), "getLocationName", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -5,6 +5,7 @@ package de.unistuttgart.ma.saga.impact.provider;
 
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
 
+import de.unistuttgart.ma.saga.impact.Violation;
 import java.util.Collection;
 import java.util.List;
 
@@ -88,7 +89,10 @@ public class ViolationItemProvider extends ImpactItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Violation_type");
+		String label = ((Violation)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Violation_type") :
+			getString("_UI_Violation_type") + " " + label;
 	}
 
 
