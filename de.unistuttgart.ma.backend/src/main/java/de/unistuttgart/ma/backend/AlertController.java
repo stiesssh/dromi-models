@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloRule;
-import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.backend.rest.Alert;
 import de.unistuttgart.ma.saga.System;
+import de.unistuttgart.ma.saga.impact.ImpactFactory;
+import de.unistuttgart.ma.saga.impact.Violation;
 
 /**
  * 
@@ -43,8 +43,8 @@ public class AlertController {
 		System system = systemRepoProxy.findByArchitectureId(archId);
 		SloRule rule = system.getSloRules().stream().filter(s -> s.getName().equals(sloId)).findFirst().get();
 		
-		Violation v = SloFactory.eINSTANCE.createViolation();
-		v.setSloRule(rule);
+		Violation v = ImpactFactory.eINSTANCE.createViolation();
+		v.setViolatedRule(rule);
 		// TODO : set value @ violation according to alert
 		service.calculateImpacts(v);
 	}

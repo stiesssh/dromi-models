@@ -3,6 +3,7 @@ package de.unistuttgart.ma.backend;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.IOException;
 import java.util.Set;
@@ -14,16 +15,12 @@ import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
-import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.GropiusFactory;
 import de.unistuttgart.gropius.Project;
-import de.unistuttgart.gropius.slo.SloFactory;
-import de.unistuttgart.gropius.slo.SloRule;
-import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.System;
 import de.unistuttgart.ma.saga.impact.Impact;
-import de.unistuttgart.ma.saga.impact.ImpactFactory;
+import de.unistuttgart.ma.saga.impact.Violation;
 
 /**
  * Apparently,  the MongoMapper can not handle the complex sturcture of Notifcation and System 
@@ -43,17 +40,8 @@ public class RepositoryTest extends FooTest {
 	@Test
 	public void impactRepoProxyTest() throws IOException {
 		loadSystem();
-		// create 
-		ComponentInterface creditInstituteFace = system.getComponentInterfaceById("5e8cf780c585a029");
-		ComponentInterface paymentFace = system.getComponentInterfaceById("5e8cf760d345a028");
-		SloRule rule = system.getSloForNode(creditInstituteFace).iterator().next();
 
-		Violation violation = SloFactory.eINSTANCE.createViolation();
-		violation.setSloRule(rule);
-
-		Impact impact = ImpactFactory.eINSTANCE.createImpact();
-		impact.setLocation(paymentFace);
-		impact.setRootCause(violation);
+		Impact impact = createImpactChain();
 
 		// save
 		notificationRepoProxy.save(impact, systemId);		
@@ -71,7 +59,8 @@ public class RepositoryTest extends FooTest {
 		assertNotNull(actual);
 		assertEquals(impact.getLocationId(), actual.getLocationId());
 		assertEquals(impact.getLocation(), actual.getLocation());
-		assertEquals(impact.getRootCause().getSloRule(), actual.getRootCause().getSloRule());
+		assertTrue(actual.getCause()instanceof Violation);
+		assertEquals(((Violation) impact.getCause()).getViolatedRule(), ((Violation) actual.getCause()).getViolatedRule());
 	}
 	
 	@Test

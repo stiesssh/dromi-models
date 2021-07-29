@@ -12,9 +12,10 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
 import de.unistuttgart.gropius.ComponentInterface;
-import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.ma.saga.impact.Impact;
+import de.unistuttgart.ma.saga.impact.ImpactFactory;
+import de.unistuttgart.ma.saga.impact.Violation;
 
 @ContextConfiguration(classes = TestContext.class)
 @DataMongoTest
@@ -29,10 +30,10 @@ public class ImpactComputationTest extends FooTest{
 		SloRule rule = system.getSloForNode(creditInstituteFace).iterator().next();
 
 		
-		de.unistuttgart.gropius.slo.Violation violation = SloFactory.eINSTANCE.createViolation();
-		violation.setSloRule(rule);
+		Violation violation = ImpactFactory.eINSTANCE.createViolation();
+		violation.setViolatedRule(rule);
 		
-		computationSerrvice.calculateImpacts(violation);
+		computationService.calculateImpacts(violation);
 		
 		Set<Impact> actuals = notificationRepoProxy.findBySystemId(systemId);
 		assertNotNull(actuals);

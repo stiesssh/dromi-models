@@ -37,14 +37,14 @@ public class SagaImporterService  {
 	}
 
 	public void parse(String xml, String filename) throws IOException {
-		InputStream targetStream = new ByteArrayInputStream(xml.getBytes());
+		InputStream inputStream = new ByteArrayInputStream(xml.getBytes());
 				
 		// create with correct file name, such that references also work on front end. 
 		Resource resource = set.getResource(URI.createPlatformResourceURI(filename, false), false);
 		if (resource == null) {
 			resource = set.createResource(URI.createPlatformResourceURI(filename, false));
 		}
-		resource.load(targetStream, null);
+		resource.load(inputStream, null);
 
 		System model = null;
 		

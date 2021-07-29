@@ -23,6 +23,7 @@ import org.springframework.stereotype.Component;
 
 import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
+import de.unistuttgart.ma.saga.impact.Notification;
 
 /**
  * Save IMPACTS!!! 
@@ -88,12 +89,20 @@ public class ImpactRepositoryProxy {
 	protected String serializeImpact(Impact impact) throws IOException {
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("impact", new EcoreResourceFactoryImpl());
 
+		Notification container = ImpactFactory.eINSTANCE.createNotification();
+		container.getTopLevelImpacts().add(impact);
+		Impact current = impact;
+		while (current != null) {
+			container.getImpacts().add(current);
+			current = current.getCause();
+		}
+		
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-		URI uri = URI.createPlatformResourceURI("foo.impact", false); // unmapped,  
-																	
+		URI uri = URI.createPlatformResourceURI("foo.impact", false); // unmapped,  							
+		
 		Resource res = set.createResource(uri);
-		res.getContents().add(impact);
+		res.getContents().add(container);
 		res.save(outputStream, null);
 		
 		return outputStream.toString(StandardCharsets.UTF_8);
@@ -116,8 +125,8 @@ public class ImpactRepositoryProxy {
 		resource.load(targetStream, null);
 		
 		for (EObject eObject : resource.getContents()) {
-			if (eObject instanceof Impact) {
-				return (Impact) eObject;
+			if (eObject instanceof Notification) {
+				return ((Notification) eObject).getTopLevelImpacts().get(0);
 			}
 		}
 
@@ -138,6 +147,7 @@ public class ImpactRepositoryProxy {
 		Set<Impact> impacts = new HashSet<Impact>();
 		
 		for (String noteId : noteIds) {
+			// TODO add all...
 			impacts.add(findById(noteId));
 		}
 		

@@ -9,13 +9,12 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import de.unistuttgart.gropius.ComponentInterface;
-import de.unistuttgart.gropius.slo.SloFactory;
 import de.unistuttgart.gropius.slo.SloRule;
-import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.ma.backend.repository.ImpactRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
 import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
+import de.unistuttgart.ma.saga.impact.Violation;
 
 @Component
 @Profile("test")
@@ -39,22 +38,24 @@ public class TestSetup {
 		SloRule rule = system.getSloForNode(creditInstituteFace).iterator().next();
 
 		{
-			Violation violation = SloFactory.eINSTANCE.createViolation();
-			violation.setSloRule(rule);
+			Violation violation = ImpactFactory.eINSTANCE.createViolation();
+			violation.setViolatedRule(rule);
+			violation.setLocation(rule.getGropiusComponentInterface());
 
 			Impact impact = ImpactFactory.eINSTANCE.createImpact();
 			impact.setLocation(paymentFace);
-			impact.setRootCause(violation);
+			impact.setCause(violation);
 
 			impactRepoProxy.save(impact, systemId);
 		}
 		{
-			Violation violation = SloFactory.eINSTANCE.createViolation();
-			violation.setSloRule(rule);
+			Violation violation = ImpactFactory.eINSTANCE.createViolation();
+			violation.setViolatedRule(rule);
+			violation.setLocation(rule.getGropiusComponentInterface());
 
 			Impact impact = ImpactFactory.eINSTANCE.createImpact();
 			impact.setLocation(paymentFace);
-			impact.setRootCause(violation);
+			impact.setCause(violation);
 
 			impactRepoProxy.save(impact, systemId);
 		}

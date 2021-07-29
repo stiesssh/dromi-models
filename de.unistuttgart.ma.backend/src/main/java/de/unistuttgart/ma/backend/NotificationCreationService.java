@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
-import de.unistuttgart.gropius.slo.Violation;
 import de.unistuttgart.ma.backend.computationUtility.QueueItem;
 import de.unistuttgart.ma.backend.repository.ImpactRepositoryProxy;
 import de.unistuttgart.ma.backend.repository.SystemRepositoryProxy;
@@ -19,6 +18,7 @@ import de.unistuttgart.ma.saga.SagaStep;
 import de.unistuttgart.ma.saga.System;
 import de.unistuttgart.ma.saga.impact.Impact;
 import de.unistuttgart.ma.saga.impact.ImpactFactory;
+import de.unistuttgart.ma.saga.impact.Violation;
 
 /**
  * calculates impact after receiving alert about and violation
@@ -46,7 +46,7 @@ public class NotificationCreationService {
 	 */
 	public void calculateImpacts(Violation violation) {
 		
-		String architectureId = violation.getSloRule().getGropiusProject().getId();
+		String architectureId = violation.getViolatedRule().getGropiusProject().getId();
 		
 		System system = systemRepoProxy.findByArchitectureId(architectureId);
 		
@@ -152,12 +152,12 @@ public class NotificationCreationService {
 		Set<Component> firstImpact = new HashSet<>();
 
 		// "finer grain" (interface is set)
-		if (violation.getSloRule().getGropiusComponentInterface() != null) {
-			firstImpact.addAll(violation.getSloRule().getGropiusComponentInterface().getConsumedBy());
+		if (violation.getViolatedRule().getGropiusComponentInterface() != null) {
+			firstImpact.addAll(violation.getViolatedRule().getGropiusComponentInterface().getConsumedBy());
 
 		// "coarser grain" (interface not set, violation aggregated at component)
-		} else if (violation.getSloRule().getGropiusComponent() != null) {
-			EList<ComponentInterface> faces = violation.getSloRule().getGropiusComponent().getInterfaces();
+		} else if (violation.getViolatedRule().getGropiusComponent() != null) {
+			EList<ComponentInterface> faces = violation.getViolatedRule().getGropiusComponent().getInterfaces();
 			for (ComponentInterface componentInterface : faces) {
 				firstImpact.addAll(componentInterface.getConsumedBy());
 			}
@@ -169,7 +169,7 @@ public class NotificationCreationService {
 
 		for (Component c : firstImpact) {
 			for (ComponentInterface face : c.getInterfaces()) {
-				initialItems.add(new QueueItem(null, face));
+				initialItems.add(new QueueItem(violation, face));
 			}
 		}
 
