@@ -61,9 +61,32 @@ public class NotificationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTopLevelImpactsPropertyDescriptor(object);
 			addSystemPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Top Level Impacts feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTopLevelImpactsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Notification_topLevelImpacts_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Notification_topLevelImpacts_feature", "_UI_Notification_type"),
+				 ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

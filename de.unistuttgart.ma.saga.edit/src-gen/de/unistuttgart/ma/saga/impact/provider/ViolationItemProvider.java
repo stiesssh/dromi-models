@@ -4,6 +4,7 @@ package de.unistuttgart.ma.saga.impact.provider;
 
 
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
+
 import java.util.Collection;
 import java.util.List;
 
