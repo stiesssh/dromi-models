@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getTopLevelImpacts <em>Top Level Impacts</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getSystem <em>System</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.Notification#getImpacts <em>Impacts</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification()
@@ -24,13 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Notification extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Top Level Impacts</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Top Level Impacts</b></em>' reference list.
 	 * The list contents are of type {@link de.unistuttgart.ma.saga.impact.Impact}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Top Level Impacts</em>' containment reference list.
+	 * @return the value of the '<em>Top Level Impacts</em>' reference list.
 	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification_TopLevelImpacts()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Impact> getTopLevelImpacts();
@@ -56,5 +57,17 @@ public interface Notification extends EObject {
 	 * @generated
 	 */
 	void setSystem(de.unistuttgart.ma.saga.System value);
+
+	/**
+	 * Returns the value of the '<em><b>Impacts</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.ma.saga.impact.Impact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Impacts</em>' containment reference list.
+	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getNotification_Impacts()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Impact> getImpacts();
 
 } // Notification

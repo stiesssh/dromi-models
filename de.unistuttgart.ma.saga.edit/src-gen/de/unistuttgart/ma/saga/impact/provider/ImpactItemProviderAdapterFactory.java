@@ -72,29 +72,6 @@ public class ImpactItemProviderAdapterFactory extends ImpactAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.impact.IntermediateImpact} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IntermediateImpactItemProvider intermediateImpactItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.impact.IntermediateImpact}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIntermediateImpactAdapter() {
-		if (intermediateImpactItemProvider == null) {
-			intermediateImpactItemProvider = new IntermediateImpactItemProvider(this);
-		}
-
-		return intermediateImpactItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.impact.Notification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,6 +92,29 @@ public class ImpactItemProviderAdapterFactory extends ImpactAdapterFactory imple
 		}
 
 		return notificationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.impact.Impact} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImpactItemProvider impactItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.impact.Impact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImpactAdapter() {
+		if (impactItemProvider == null) {
+			impactItemProvider = new ImpactItemProvider(this);
+		}
+
+		return impactItemProvider;
 	}
 
 	/**
@@ -239,8 +239,8 @@ public class ImpactItemProviderAdapterFactory extends ImpactAdapterFactory imple
 	 * @generated
 	 */
 	public void dispose() {
-		if (intermediateImpactItemProvider != null) intermediateImpactItemProvider.dispose();
 		if (notificationItemProvider != null) notificationItemProvider.dispose();
+		if (impactItemProvider != null) impactItemProvider.dispose();
 		if (violationItemProvider != null) violationItemProvider.dispose();
 	}
 

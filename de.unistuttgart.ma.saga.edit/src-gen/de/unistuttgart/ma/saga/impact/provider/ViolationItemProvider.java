@@ -4,8 +4,6 @@ package de.unistuttgart.ma.saga.impact.provider;
 
 
 import de.unistuttgart.ma.saga.impact.ImpactPackage;
-import de.unistuttgart.ma.saga.impact.Violation;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -14,8 +12,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.unistuttgart.ma.saga.impact.Violation} object.
@@ -45,48 +41,25 @@ public class ViolationItemProvider extends ImpactItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
-			addSloRulePropertyDescriptor(object);
+			addViolatedRulePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
+	 * This adds a property descriptor for the Violated Rule feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValuePropertyDescriptor(Object object) {
+	protected void addViolatedRulePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Violation_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Violation_value_feature", "_UI_Violation_type"),
-				 ImpactPackage.Literals.VIOLATION__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Slo Rule feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSloRulePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Violation_sloRule_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Violation_sloRule_feature", "_UI_Violation_type"),
-				 ImpactPackage.Literals.VIOLATION__SLO_RULE,
+				 getString("_UI_Violation_violatedRule_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Violation_violatedRule_feature", "_UI_Violation_type"),
+				 ImpactPackage.Literals.VIOLATION__VIOLATED_RULE,
 				 true,
 				 false,
 				 true,
@@ -114,8 +87,7 @@ public class ViolationItemProvider extends ImpactItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Violation violation = (Violation)object;
-		return getString("_UI_Violation_type") + " " + violation.getValue();
+		return getString("_UI_Violation_type");
 	}
 
 
@@ -129,12 +101,6 @@ public class ViolationItemProvider extends ImpactItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Violation.class)) {
-			case ImpactPackage.VIOLATION__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

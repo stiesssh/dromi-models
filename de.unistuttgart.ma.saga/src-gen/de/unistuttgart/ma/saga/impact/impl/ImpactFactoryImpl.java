@@ -56,8 +56,8 @@ public class ImpactFactoryImpl extends EFactoryImpl implements ImpactFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ImpactPackage.INTERMEDIATE_IMPACT: return createIntermediateImpact();
 			case ImpactPackage.NOTIFICATION: return createNotification();
+			case ImpactPackage.IMPACT: return createImpact();
 			case ImpactPackage.VIOLATION: return createViolation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -69,9 +69,9 @@ public class ImpactFactoryImpl extends EFactoryImpl implements ImpactFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntermediateImpact createIntermediateImpact() {
-		IntermediateImpactImpl intermediateImpact = new IntermediateImpactImpl();
-		return intermediateImpact;
+	public Notification createNotification() {
+		NotificationImpl notification = new NotificationImpl();
+		return notification;
 	}
 
 	/**
@@ -79,9 +79,9 @@ public class ImpactFactoryImpl extends EFactoryImpl implements ImpactFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Notification createNotification() {
-		NotificationImpl notification = new NotificationImpl();
-		return notification;
+	public Impact createImpact() {
+		ImpactImpl impact = new ImpactImpl();
+		return impact;
 	}
 
 	/**

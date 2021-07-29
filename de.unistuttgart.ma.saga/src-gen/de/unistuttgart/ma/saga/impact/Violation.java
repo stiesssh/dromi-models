@@ -13,8 +13,7 @@ import de.unistuttgart.gropius.slo.SloRule;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.impact.Violation#getValue <em>Value</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impact.Violation#getSloRule <em>Slo Rule</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.Violation#getViolatedRule <em>Violated Rule</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getViolation()
@@ -23,50 +22,25 @@ import de.unistuttgart.gropius.slo.SloRule;
  */
 public interface Violation extends Impact {
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>Violated Rule</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * not in solomon
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(double)
-	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getViolation_Value()
+	 * @return the value of the '<em>Violated Rule</em>' reference.
+	 * @see #setViolatedRule(SloRule)
+	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getViolation_ViolatedRule()
 	 * @model
 	 * @generated
 	 */
-	double getValue();
+	SloRule getViolatedRule();
 
 	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Violation#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Violation#getViolatedRule <em>Violated Rule</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>Violated Rule</em>' reference.
+	 * @see #getViolatedRule()
 	 * @generated
 	 */
-	void setValue(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Slo Rule</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Slo Rule</em>' reference.
-	 * @see #setSloRule(SloRule)
-	 * @see de.unistuttgart.ma.saga.impact.ImpactPackage#getViolation_SloRule()
-	 * @model required="true"
-	 * @generated
-	 */
-	SloRule getSloRule();
-
-	/**
-	 * Sets the value of the '{@link de.unistuttgart.ma.saga.impact.Violation#getSloRule <em>Slo Rule</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Slo Rule</em>' reference.
-	 * @see #getSloRule()
-	 * @generated
-	 */
-	void setSloRule(SloRule value);
+	void setViolatedRule(SloRule value);
 
 } // Violation

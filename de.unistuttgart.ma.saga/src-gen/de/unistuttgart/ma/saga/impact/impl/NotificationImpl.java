@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -30,13 +31,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getTopLevelImpacts <em>Top Level Impacts</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getSystem <em>System</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impact.impl.NotificationImpl#getImpacts <em>Impacts</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NotificationImpl extends MinimalEObjectImpl.Container implements Notification {
 	/**
-	 * The cached value of the '{@link #getTopLevelImpacts() <em>Top Level Impacts</em>}' containment reference list.
+	 * The cached value of the '{@link #getTopLevelImpacts() <em>Top Level Impacts</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTopLevelImpacts()
@@ -54,6 +56,16 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 	 * @ordered
 	 */
 	protected de.unistuttgart.ma.saga.System system;
+
+	/**
+	 * The cached value of the '{@link #getImpacts() <em>Impacts</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImpacts()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Impact> impacts;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,7 +93,7 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 	 */
 	public EList<Impact> getTopLevelImpacts() {
 		if (topLevelImpacts == null) {
-			topLevelImpacts = new EObjectContainmentEList<Impact>(Impact.class, this, ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS);
+			topLevelImpacts = new EObjectResolvingEList<Impact>(Impact.class, this, ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS);
 		}
 		return topLevelImpacts;
 	}
@@ -129,11 +141,23 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Impact> getImpacts() {
+		if (impacts == null) {
+			impacts = new EObjectContainmentEList<Impact>(Impact.class, this, ImpactPackage.NOTIFICATION__IMPACTS);
+		}
+		return impacts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS:
-				return ((InternalEList<?>)getTopLevelImpacts()).basicRemove(otherEnd, msgs);
+			case ImpactPackage.NOTIFICATION__IMPACTS:
+				return ((InternalEList<?>)getImpacts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -151,6 +175,8 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 			case ImpactPackage.NOTIFICATION__SYSTEM:
 				if (resolve) return getSystem();
 				return basicGetSystem();
+			case ImpactPackage.NOTIFICATION__IMPACTS:
+				return getImpacts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,6 +197,10 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 			case ImpactPackage.NOTIFICATION__SYSTEM:
 				setSystem((de.unistuttgart.ma.saga.System)newValue);
 				return;
+			case ImpactPackage.NOTIFICATION__IMPACTS:
+				getImpacts().clear();
+				getImpacts().addAll((Collection<? extends Impact>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -189,6 +219,9 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 			case ImpactPackage.NOTIFICATION__SYSTEM:
 				setSystem((de.unistuttgart.ma.saga.System)null);
 				return;
+			case ImpactPackage.NOTIFICATION__IMPACTS:
+				getImpacts().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -205,6 +238,8 @@ public class NotificationImpl extends MinimalEObjectImpl.Container implements No
 				return topLevelImpacts != null && !topLevelImpacts.isEmpty();
 			case ImpactPackage.NOTIFICATION__SYSTEM:
 				return system != null;
+			case ImpactPackage.NOTIFICATION__IMPACTS:
+				return impacts != null && !impacts.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

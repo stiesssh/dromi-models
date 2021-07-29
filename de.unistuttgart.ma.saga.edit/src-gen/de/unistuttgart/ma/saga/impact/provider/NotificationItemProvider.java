@@ -100,7 +100,7 @@ public class NotificationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS);
+			childrenFeatures.add(ImpactPackage.Literals.NOTIFICATION__IMPACTS);
 		}
 		return childrenFeatures;
 	}
@@ -153,7 +153,7 @@ public class NotificationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(de.unistuttgart.ma.saga.impact.Notification.class)) {
-			case ImpactPackage.NOTIFICATION__TOP_LEVEL_IMPACTS:
+			case ImpactPackage.NOTIFICATION__IMPACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -173,12 +173,12 @@ public class NotificationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS,
-				 ImpactFactory.eINSTANCE.createIntermediateImpact()));
+				(ImpactPackage.Literals.NOTIFICATION__IMPACTS,
+				 ImpactFactory.eINSTANCE.createImpact()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ImpactPackage.Literals.NOTIFICATION__TOP_LEVEL_IMPACTS,
+				(ImpactPackage.Literals.NOTIFICATION__IMPACTS,
 				 ImpactFactory.eINSTANCE.createViolation()));
 	}
 
