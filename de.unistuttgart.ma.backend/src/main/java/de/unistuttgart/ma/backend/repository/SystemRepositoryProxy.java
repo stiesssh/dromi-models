@@ -84,8 +84,11 @@ public class SystemRepositoryProxy {
 		}
 		if (system.getId() == null) {
 			String id = getIdForSystem(system);
-
 			system.setId(id);
+		}
+		if (!repository.existsById(system.getId())) {
+			SystemItem item = repository.save(new SystemItem(system.getId(), null, system.getName()));
+			systemId2ResourceUri.put(item.getId(), item.getFilename());
 		}
 			
 		SystemItem item = repository.findById(system.getId()).get();

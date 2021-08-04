@@ -56,7 +56,7 @@ public abstract class TestWithRepo {
 		notificationRepoProxy = new ImpactRepositoryProxy(notificationRepo, set);
 		
 		importService = new SagaImporterService(systemRepoProxy, set);
-		retrievalService = new NotificationRetrievalService(notificationRepoProxy, systemRepoProxy, set);
+		retrievalService = new NotificationRetrievalService(notificationRepoProxy, set);
 		computationService = new NotificationCreationService(notificationRepoProxy, systemRepoProxy);
 		
 		systemRepo.deleteAll();
@@ -71,9 +71,8 @@ public abstract class TestWithRepo {
 	 */
 	public void loadSystem() throws IOException  {
 		long size = systemRepo.count();
-		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base.saga"), StandardCharsets.UTF_8);					
-		String filename = "filename.saga";
-		importService.parse(xml, filename);
+		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base_saga.saga"), StandardCharsets.UTF_8);					
+		importService.parse(xml);
 		
 		system = systemRepoProxy.findById(systemId);
 				

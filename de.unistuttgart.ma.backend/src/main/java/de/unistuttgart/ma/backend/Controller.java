@@ -37,7 +37,7 @@ public class Controller {
 	}
 
 	/**
-	 * Endpoint to update saved a model.
+	 * Endpoint to update a saved model.
 	 * 
 	 * @param xml updated model as XML
 	 */
@@ -59,14 +59,6 @@ public class Controller {
 		}
 		throw new CouldNotSaveSystemModelException("import failed");
 	}
-	
-//	/**
-//	 * @param xml 
-//	 */
-//	@PostMapping("/api/model")
-//	public String getSystemModelId(@RequestBody String filename) {
-//		return importService.getIdForSystemModel(filename);
-//	}
 
 	/**
 	 * 
@@ -80,7 +72,6 @@ public class Controller {
 	 */
 	@GetMapping("/api/notification/{systemId}")
 	public String getNotification(@PathVariable String systemId) throws IOException, MissingSystemModelException {
-		//return service.retrieveImpactXMLs(systemId);
 		return service.retrieveNotification(systemId);
 	}
 

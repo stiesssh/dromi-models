@@ -25,10 +25,10 @@ class SagaImporterTest extends TestWithRepoAndMockServers {
 
 	@Test
 	void parseEmptySystemTest() throws IOException {
-		String xml = Files.readString(Paths.get("src/test/resources/", "empty.saga"), StandardCharsets.UTF_8);
-		String filename = "filename.saga";
+		String filename = "empty.saga";
+		String xml = Files.readString(Paths.get("src/test/resources/", filename), StandardCharsets.UTF_8);
 
-		importService.parse(xml, filename);
+		importService.parse(xml);
 		assertEquals(1, systemRepo.count());
 
 		de.unistuttgart.ma.saga.System actual = systemRepoProxy.findById("60fa9cadc736ff6357a89a9b");
@@ -39,14 +39,13 @@ class SagaImporterTest extends TestWithRepoAndMockServers {
 		assertEquals(filename, actual.eResource().getURI().segment(actual.eResource().getURI().segmentCount() - 1));
 	}
 
-	// TODO : not so empty systems :)
-
 	@Test
 	void parseT2BaseSystemTest() throws IOException {
-		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base.saga"), StandardCharsets.UTF_8);
-		String filename = "filename.saga";
+		loadSystem();
+		String xml = Files.readString(Paths.get("src/test/resources/", "t2_base_saga.saga"), StandardCharsets.UTF_8);
+		String filename = "t2-base.saga";
 
-		importService.parse(xml, filename);
+		importService.parse(xml);
 		assertEquals(1, systemRepo.count());
 
 		de.unistuttgart.ma.saga.System actual = systemRepoProxy.findById("60fa9cadc736ff6357a89a9b");
