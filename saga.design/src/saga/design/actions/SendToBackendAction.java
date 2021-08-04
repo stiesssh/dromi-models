@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpRequest.BodyPublishers;
+import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
@@ -50,7 +51,8 @@ public class SendToBackendAction implements IExternalJavaAction {
 				try {
 					systemXML = serialize(system);
 					URI ressourceUri = system.eResource().getURI();
-					post(systemXML, ressourceUri.path());
+					//post(systemXML, ressourceUri.path());
+					post(systemXML, ressourceUri.lastSegment());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -105,7 +107,11 @@ public class SendToBackendAction implements IExternalJavaAction {
 			java.net.URI uri = java.net.URI.create(url + filename);
 
 			HttpRequest request = HttpRequest.newBuilder().POST(BodyPublishers.ofString(xml)).uri(uri).build();
-			httpClient.send(request, BodyHandlers.ofString());
+			HttpResponse<String> response = httpClient.send(request, BodyHandlers.ofString());
+			
+			if (response.statusCode() != 200) {
+				throw new IOException("Reuqest failed with " + response.statusCode() + ". Body:\n" + response.body());
+			}
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

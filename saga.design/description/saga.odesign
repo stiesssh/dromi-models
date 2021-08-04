@@ -21,18 +21,7 @@
       </layout>
       <defaultLayer name="Default">
         <toolSections name="create_saga_tools" label="Saga Tools">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create_saga" label="create new Saga">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="saga::Saga" referenceName="sagas">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'saga'+container.sagas->filter(saga::Saga)->size()"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="create_step" label="create new SagaStep">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="create_step" label="create new SagaStep" nodeMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -125,6 +114,17 @@
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" label="create new Saga" containerMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="saga::Saga" referenceName="sagas">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'saga'+container.sagas->filter(saga::Saga)->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Actions">
@@ -256,23 +256,23 @@
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
               </style>
               <conditionnalStyles predicateExpression="aql:not self.eContents()->select(c | c.oclIsTypeOf(bpmn2::CompensateEventDefinition))->isEmpty()">
-                <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.process.event.boundary.compensate">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <forbiddenSides>WEST</forbiddenSides>
                   <forbiddenSides>EAST</forbiddenSides>
                   <forbiddenSides>NORTH</forbiddenSides>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="aql:not self.eContents()->select(c | c.oclIsTypeOf(bpmn2::ErrorEventDefinition))->isEmpty()">
-                <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.process.event.boundary.throw">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <forbiddenSides>WEST</forbiddenSides>
                   <forbiddenSides>EAST</forbiddenSides>
                   <forbiddenSides>NORTH</forbiddenSides>
-                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
             </borderedNodeMappings>
@@ -297,10 +297,10 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="event_intermediate_throw_node" semanticCandidatesExpression="aql:self.flowElements" domainClass="bpmn2::IntermediateThrowEvent">
-            <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.process.event.intermediate.compensate">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" labelAlignment="LEFT" workspacePath="/saga.design/images/lane.svg">
