@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.slo;
+package de.unistuttgart.ma.backend.importer.slo;
 /**
  * 
  * based on (yesterdays version of) : 

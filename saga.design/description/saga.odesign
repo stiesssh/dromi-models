@@ -236,15 +236,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="edge_compensation" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="edge_compensation_2" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef.outgoing.targetRef">
+        <edgeMappings name="edge_compensation" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']/@borderedNodeMappings[name='boundary_event_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_intermediate_throw_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_intermediate_throw_node']" targetFinderExpression="aql:self.outgoing.targetRef">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -254,6 +246,36 @@
         </edgeMappings>
         <containerMappings name="lane_container" semanticCandidatesExpression="feature:processes" domainClass="bpmn2::Process" dropDescriptions="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_container_saga_steps']">
           <subNodeMappings name="task_node" semanticCandidatesExpression="aql:self.flowElements" domainClass="bpmn2::Task">
+            <borderedNodeMappings name="boundary_event_node" semanticCandidatesExpression="feature:boundaryEventRefs" domainClass="bpmn2::BoundaryEvent">
+              <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <forbiddenSides>WEST</forbiddenSides>
+                <forbiddenSides>EAST</forbiddenSides>
+                <forbiddenSides>NORTH</forbiddenSides>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+              </style>
+              <conditionnalStyles predicateExpression="aql:not self.eContents()->select(c | c.oclIsTypeOf(bpmn2::CompensateEventDefinition))->isEmpty()">
+                <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <forbiddenSides>WEST</forbiddenSides>
+                  <forbiddenSides>EAST</forbiddenSides>
+                  <forbiddenSides>NORTH</forbiddenSides>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="aql:not self.eContents()->select(c | c.oclIsTypeOf(bpmn2::ErrorEventDefinition))->isEmpty()">
+                <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <forbiddenSides>WEST</forbiddenSides>
+                  <forbiddenSides>EAST</forbiddenSides>
+                  <forbiddenSides>NORTH</forbiddenSides>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+                </style>
+              </conditionnalStyles>
+            </borderedNodeMappings>
             <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.task">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -272,6 +294,13 @@
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="event_intermediate_throw_node" semanticCandidatesExpression="aql:self.flowElements" domainClass="bpmn2::IntermediateThrowEvent">
+            <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="aql:''" labelAlignment="LEFT" workspacePath="/saga.design/images/lane.svg">

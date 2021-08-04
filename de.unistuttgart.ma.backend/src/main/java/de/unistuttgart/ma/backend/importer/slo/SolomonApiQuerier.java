@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.slo;
+package de.unistuttgart.ma.backend.importer.slo;
 
 import java.io.IOException;
 import java.net.URI;

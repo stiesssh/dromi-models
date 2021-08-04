@@ -78,18 +78,34 @@ public class SystemRepositoryProxy {
 	 * @param system the system to be saved
 	 * @throws IOException if the model could not be saved
 	 */
-	public void save(de.unistuttgart.ma.saga.System system) throws IOException {
-		if (!repository.existsById(system.getId())) {
-			SystemItem item = new SystemItem(system.getId(), null, system.eResource().getURI().lastSegment());
-			repository.save(item);
-
-			systemId2ResourceUri.put(item.getId(), item.getFilename());
+	public String save(de.unistuttgart.ma.saga.System system) throws IOException {
+		if (system.eResource() == null) {
+			throw new IllegalArgumentException("system is not contained in any reource.");
 		}
+		if (system.getId() == null) {
+			String id = getIdForSystem(system);
 
+			system.setId(id);
+		}
+			
 		SystemItem item = repository.findById(system.getId()).get();
 
 		repository.save(new SystemItem(item.getId(), serializeSystem(system), item.getFilename()));
 		projectId2SystemId.put(system.getArchitecture().getId(), system.getId());
+		
+		return item.getId();
+	}
+	
+	/**
+	 * 
+	 * @param system system with unset id
+	 * @return
+	 * @throws IOException
+	 */
+	public String getIdForSystem(System system) throws IOException {
+		SystemItem item = repository.save(new SystemItem(null, null, system.getName()));
+		systemId2ResourceUri.put(item.getId(), item.getFilename());
+		return item.getId();	
 	}
 
 	/**
@@ -121,6 +137,20 @@ public class SystemRepositoryProxy {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+		throw new NoSuchElementException(String.format("Missing System for id %s", id));
+	}
+	
+	/**
+	 * Find the System with the given id.
+	 * 
+	 * @param id id of the system to be retrieved
+	 * @return the system with the given id as xml
+	 */
+	public String findXMLById(String id) {
+		if (repository.existsById(id)) {
+			SystemItem item = repository.findById(id).get();
+			return item.getContent();
 		}
 		throw new NoSuchElementException(String.format("Missing System for id %s", id));
 	}

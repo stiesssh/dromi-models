@@ -1,17 +1,7 @@
 package de.unistuttgart.ma.backend;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Set;
 
-import javax.annotation.PostConstruct;
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.unistuttgart.ma.backend.exceptions.CouldNotSaveSystemModelException;
 import de.unistuttgart.ma.backend.exceptions.MissingSystemModelException;
 import de.unistuttgart.ma.backend.importer.SagaImporterService;
-import de.unistuttgart.ma.saga.impact.Notification;
+import de.unistuttgart.ma.backend.rest.ImportRequest;
 
 /**
  * This controller provides the endpoints to be called by the sirius front end.
@@ -46,11 +37,12 @@ public class Controller {
 	}
 
 	/**
-	 * Endpoint to save a model, given as XML.
-	 * @param xml
+	 * Endpoint to update saved a model.
+	 * 
+	 * @param xml updated model as XML
 	 */
 	@PostMapping("/api/model/{filename}")
-	public void importSiriusSystem(@RequestBody String xml, @PathVariable String filename) {
+	public void updateModel(@RequestBody String xml, @PathVariable String filename) {
 		try {
 			importService.parse(xml, filename);
 		} catch (IOException e) {
@@ -58,14 +50,23 @@ public class Controller {
 		}
 	}
 	
-	/**
-	 * Endpoint to save a model, given as XML.
-	 * @param xml
-	 */
-	@PostMapping("/api/model")
-	public String getSystemModelId(@RequestBody String filename) {
-		return importService.getIdForSystemModel(filename);
+	@PostMapping("/api/foo")
+	public String createModel(@RequestBody ImportRequest request) throws CouldNotSaveSystemModelException {
+		try {
+			return importService.createModel(request);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		throw new CouldNotSaveSystemModelException("import failed");
 	}
+	
+//	/**
+//	 * @param xml 
+//	 */
+//	@PostMapping("/api/model")
+//	public String getSystemModelId(@RequestBody String filename) {
+//		return importService.getIdForSystemModel(filename);
+//	}
 
 	/**
 	 * 
@@ -88,6 +89,12 @@ public class Controller {
 		return "Greetings :)";
 	}
 
+	@ExceptionHandler(CouldNotSaveSystemModelException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	public ResponseEntity<String> couldNotSaveSystemModelException(CouldNotSaveSystemModelException exception) {
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(exception.getMessage());
+	}
+	
 	@ExceptionHandler(MissingSystemModelException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ResponseEntity<String> missingSystemModelException(MissingSystemModelException exception) {

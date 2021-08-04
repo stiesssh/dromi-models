@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.process;
+package de.unistuttgart.ma.backend.importer.process;
 
 import java.util.Iterator;
 import java.util.List;

@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.architecture;
+package de.unistuttgart.ma.backend.importer.architecture;
 
 import java.lang.reflect.Type;
 

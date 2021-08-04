@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.slo;
+package de.unistuttgart.ma.backend.importer.slo;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import java.util.Set;
 import com.shopify.graphql.support.ID;
 
 import de.unistuttgart.gropius.slo.SloRule;
-import de.unistuttgart.ma.importer.architecture.DataMapper;
+import de.unistuttgart.ma.backend.importer.architecture.DataMapper;
 import de.unistuttgart.gropius.slo.SloFactory;
 
 public class SolomonImporter implements SloImporter {

@@ -105,4 +105,31 @@
             id="saga.design.postModelAction">
       </javaActions>
    </extension>
+   <extension
+         id="saga.process.event.boundary.compensate"
+         name="boundary event compensate"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/event_boundary_compensate.svg"
+            label="saga.process.event.boundary.compensate">
+      </image>
+   </extension>
+   <extension
+         id="saga.process.event.boundary.throw"
+         name="boundary event throw"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/event_boundary_throw.svg"
+            label="saga.process.event.boundary.throw">
+      </image>
+   </extension>
+   <extension
+         id="saga.process.event.intermediate.compensate"
+         name="intermediate compensate event"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/event_intermediate_compensate.svg"
+            label="saga.process.event.intermediate.compensate">
+      </image>
+   </extension>
 </plugin>

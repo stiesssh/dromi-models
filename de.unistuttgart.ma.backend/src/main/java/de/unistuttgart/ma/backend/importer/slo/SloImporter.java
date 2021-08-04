@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.slo;
+package de.unistuttgart.ma.backend.importer.slo;
 
 import java.util.Set;
 import de.unistuttgart.gropius.slo.SloRule;

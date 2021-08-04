@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.architecture;
+package de.unistuttgart.ma.backend.importer.architecture;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +10,6 @@ import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.GropiusFactory;
 import de.unistuttgart.gropius.Project;
-import de.unistuttgart.ma.saga.SagaFactory;
 
 public class DataMapper {
 	

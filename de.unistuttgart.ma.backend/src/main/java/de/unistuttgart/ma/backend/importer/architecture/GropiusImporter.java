@@ -1,17 +1,12 @@
-package de.unistuttgart.ma.importer.architecture;
+package de.unistuttgart.ma.backend.importer.architecture;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-
-import org.eclipse.emf.ecore.EObject;
 
 import de.foo.generated.Query;
 import de.foo.generated.QueryQuery;
 import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.Project;
-import de.unistuttgart.ma.saga.SagaFactory;
 
 /**
  * 
@@ -22,22 +17,22 @@ import de.unistuttgart.ma.saga.SagaFactory;
  * @author maumau
  *
  */
-public class GropiusImporter {// implements ArchitectureImporter {
+public class GropiusImporter implements ArchitectureImporter {
 
 	private final GropiusApiQuerier manager;
-	private final String projectId;
+	private final String projectName;
 
 	private final DataMapper mapper;
 
-	public GropiusImporter(String uri, String projectId) {
+	public GropiusImporter(String uri, String projectName) {
 		super();
 		this.manager = new GropiusApiQuerier(uri);
-		this.projectId = projectId;
+		this.projectName = projectName;
 		this.mapper = DataMapper.getMapper();
 	}
 
 	public Project parse() {
-		QueryQuery queryQuery = GropiusApiQueries.getSingleProjectQuery(projectId);
+		QueryQuery queryQuery = GropiusApiQueries.getSingleProjectQuery(projectName);
 		System.out.println(queryQuery.toString());
 		try {
 			Query query = manager.query(queryQuery);
