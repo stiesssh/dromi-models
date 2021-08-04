@@ -229,19 +229,14 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel(System system) {
-		//EClass eClass = (EClass)impactPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		//EObject rootObject = impactFactory.create(eClass);
 		Notification rootObject = impactFactory.createNotification();
 		rootObject.setSystem(system);
 		
-		// 3. request impacts for reffed system from backend. 
-		// -- > add impact to notification
 		BackendImporter importer = new BackendImporter(impactImportPage.getBackendUrlField());
 		try {
-			//Impact impact = importer.getImpacts(system.getId());
-			Notification imported = importer.getNotification(system.getId());
-			rootObject.getImpacts().addAll(imported.getImpacts());
-			rootObject.getTopLevelImpacts().addAll(imported.getTopLevelImpacts());
+			Notification note = importer.getNotification(system.getId());
+			note.setSystem(system);
+			return note;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -258,7 +253,6 @@ public class ImpactModelWizard extends Wizard implements INewWizard {
 		//IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(...)
 		
 		URI systemUri = URI.createPlatformResourceURI(systemModelFile, true);
-		//URI systemUri = URI.createFileURI(systemModelFile);
 		Resource res = set.createResource(systemUri);
 		try {
 			res.load(null);

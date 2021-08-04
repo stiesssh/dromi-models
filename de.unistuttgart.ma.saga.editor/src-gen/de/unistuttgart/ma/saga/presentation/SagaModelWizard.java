@@ -143,21 +143,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated NOT
 	 */
-	protected SagaModelWizardBackendConfigurationPage backendImportPage;
-	/**
-	 * @generated NOT
-	 */
-	protected SagaModelWizardGropiusImportPage gropiusImportPage;
-
-	/**
-	 * @generated NOT
-	 */
-	protected SagaModelWizardBPMNImportPage bpmnImportPage;
-
-	/**
-	 * @generated NOT
-	 */
-	protected SagaModelWizardSolomonRulesImportPage solomonRulesImportPage;
+	protected SagaModelWizardConfigPage configPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default
@@ -228,12 +214,12 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		EClass eClass = (EClass) sagaPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = sagaFactory.create(eClass);
 
-		ImportRequest request = new ImportRequest(solomonRulesImportPage.getSolomonUrlField(),
-				gropiusImportPage.getGropiusUrlField(), bpmnImportPage.getbpmnFilePathField(),
-				gropiusImportPage.getGropiusProjectIdField(), solomonRulesImportPage.getDeploymentEnvironmentField(),
+		ImportRequest request = new ImportRequest(configPage.getSolomonUrlField(),
+				configPage.getGropiusUrlField(), configPage.getBpmnFilePathField(),
+				configPage.getGropiusProjectNameField(), configPage.getDeploymentEnvironmentField(),
 				newFileCreationPage.getFileName());
 
-		BackendImporter backendImporter = new BackendImporter(backendImportPage.getBackendUrlField());
+		BackendImporter backendImporter = new BackendImporter(configPage.getBackendUrlField());
 
 		try {
 			return backendImporter.getSystem(request);
@@ -641,29 +627,11 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 				.setDescription(SagaEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 
-		// gropius
-		gropiusImportPage = new SagaModelWizardGropiusImportPage("gropiusPage");
-		gropiusImportPage.setTitle("Architecture Import");
-		gropiusImportPage.setDescription("Import Architecture from Gropius");
-		addPage(gropiusImportPage);
-
-		// BPMN
-		bpmnImportPage = new SagaModelWizardBPMNImportPage("bpmnPage");
-		bpmnImportPage.setTitle("Business Process Import");
-		bpmnImportPage.setDescription("Import Business Process from File System");
-		addPage(bpmnImportPage);
-
-		// Solomon
-		solomonRulesImportPage = new SagaModelWizardSolomonRulesImportPage("sloPage");
-		solomonRulesImportPage.setTitle("SLO rules Import");
-		solomonRulesImportPage.setDescription("Import SLO rules from Solomon");
-		addPage(solomonRulesImportPage);
-
-		// Backend
-		backendImportPage = new SagaModelWizardBackendConfigurationPage("backendPage");
-		backendImportPage.setTitle("Configure Backend");
-		backendImportPage.setDescription("Configure Connection to backend");
-		addPage(backendImportPage);
+		// COnfig
+		configPage = new SagaModelWizardConfigPage("configPage");
+		configPage.setTitle("Configure Imports and Backend Connection");
+		configPage.setDescription("");
+		addPage(configPage);
 	}
 
 	/**
