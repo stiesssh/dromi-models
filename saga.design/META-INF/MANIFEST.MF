@@ -23,7 +23,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.sirius.ui.properties;bundle-version="6.4.2",
  de.unistuttgart.ma.saga;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-Vendor: %providerName
 Automatic-Module-Name: saga.design
 Import-Package: de.unistuttgart.ma.saga.presentation,

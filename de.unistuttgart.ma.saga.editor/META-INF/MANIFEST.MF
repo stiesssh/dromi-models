@@ -11,8 +11,7 @@ Bundle-ClassPath: .,
 Bundle-Activator: de.unistuttgart.ma.saga.impact.presentation.ImpactEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11,
- J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: de.unistuttgart.ma.saga.presentation,
  de.unistuttgart.ma.saga.impact.presentation
 Require-Bundle: org.eclipse.core.runtime,
