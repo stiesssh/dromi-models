@@ -22,7 +22,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="saga.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_6G7VwOhpEeuchtKskl-CHg" name="impact" repPath="#_6G0BAOhpEeuchtKskl-CHg" changeId="3865cd97-bd7c-4593-89b6-dfd59a844aae">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_6G7VwOhpEeuchtKskl-CHg" name="impact" repPath="#_6G0BAOhpEeuchtKskl-CHg" changeId="03c5857e-cca3-4fd3-bb85-117b8f7a5520">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="impact.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -2683,7 +2683,7 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_5CX2gPCCEeuK1sdk85bgnw" type="4001" element="_5CB4QPCCEeuK1sdk85bgnw" source="_ZgjAYPAzEeuIHfdeXN_HdQ" target="_5CFioPCCEeuK1sdk85bgnw">
           <children xmi:type="notation:Node" xmi:id="_5CX2hPCCEeuK1sdk85bgnw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5CX2hfCCEeuK1sdk85bgnw" x="-55" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5CX2hfCCEeuK1sdk85bgnw" x="-2" y="-11"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_5CYdkPCCEeuK1sdk85bgnw" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5CYdkfCCEeuK1sdk85bgnw" y="10"/>
