@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    graphql_java_gen (0.2.0)
+      graphql_schema (~> 0.1.1)
+    graphql_schema (0.1.8)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  graphql_java_gen
+
+BUNDLED WITH
+   2.2.20
