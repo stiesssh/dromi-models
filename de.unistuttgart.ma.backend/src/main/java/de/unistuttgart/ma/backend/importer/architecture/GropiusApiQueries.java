@@ -4,26 +4,26 @@ import java.util.List;
 
 import com.shopify.graphql.support.ID;
 
-import de.foo.generated.ComponentInterfacePageQuery;
-import de.foo.generated.ComponentInterfacePageQueryDefinition;
-import de.foo.generated.ComponentInterfaceQuery;
-import de.foo.generated.ComponentInterfaceQueryDefinition;
-import de.foo.generated.ComponentPageQuery;
-import de.foo.generated.ComponentPageQueryDefinition;
-import de.foo.generated.ComponentQuery;
-import de.foo.generated.ComponentQueryDefinition;
-import de.foo.generated.Operations;
-import de.foo.generated.ProjectFilter;
-import de.foo.generated.ProjectPageQuery;
-import de.foo.generated.ProjectPageQueryDefinition;
-import de.foo.generated.ProjectQuery;
-import de.foo.generated.ProjectQueryDefinition;
-import de.foo.generated.QueryQuery;
-import de.foo.generated.QueryQueryDefinition;
-import de.foo.generated.UserQuery;
-import de.foo.generated.UserQueryDefinition;
-import de.foo.generated.QueryQuery.ProjectsArguments;
-import de.foo.generated.QueryQuery.ProjectsArgumentsDefinition;
+import de.unistuttgart.gropius.api.ComponentInterfacePageQuery;
+import de.unistuttgart.gropius.api.ComponentInterfacePageQueryDefinition;
+import de.unistuttgart.gropius.api.ComponentInterfaceQuery;
+import de.unistuttgart.gropius.api.ComponentInterfaceQueryDefinition;
+import de.unistuttgart.gropius.api.ComponentPageQuery;
+import de.unistuttgart.gropius.api.ComponentPageQueryDefinition;
+import de.unistuttgart.gropius.api.ComponentQuery;
+import de.unistuttgart.gropius.api.ComponentQueryDefinition;
+import de.unistuttgart.gropius.api.Operations;
+import de.unistuttgart.gropius.api.ProjectFilter;
+import de.unistuttgart.gropius.api.ProjectPageQuery;
+import de.unistuttgart.gropius.api.ProjectPageQueryDefinition;
+import de.unistuttgart.gropius.api.ProjectQuery;
+import de.unistuttgart.gropius.api.ProjectQueryDefinition;
+import de.unistuttgart.gropius.api.QueryQuery;
+import de.unistuttgart.gropius.api.QueryQueryDefinition;
+import de.unistuttgart.gropius.api.UserQuery;
+import de.unistuttgart.gropius.api.UserQueryDefinition;
+import de.unistuttgart.gropius.api.QueryQuery.ProjectsArguments;
+import de.unistuttgart.gropius.api.QueryQuery.ProjectsArgumentsDefinition;
 
 public class GropiusApiQueries {
 

@@ -1,7 +1,6 @@
 package de.unistuttgart.ma.backend.importer.process;
 
 import java.util.Iterator;
-import java.util.List;
 
 import org.eclipse.bpmn2.Process;
 import org.eclipse.bpmn2.util.Bpmn2ResourceFactoryImpl;

@@ -8,7 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import com.shopify.graphql.support.SchemaViolationError;
 
-import de.foo.generated.Query;
+import de.unistuttgart.gropius.api.Query;
 
 public class QueryDeserializer implements JsonDeserializer<Query>{
 	@Override

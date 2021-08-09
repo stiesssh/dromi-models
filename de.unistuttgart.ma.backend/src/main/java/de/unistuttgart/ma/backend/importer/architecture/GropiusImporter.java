@@ -2,8 +2,8 @@ package de.unistuttgart.ma.backend.importer.architecture;
 
 import java.io.IOException;
 
-import de.foo.generated.Query;
-import de.foo.generated.QueryQuery;
+import de.unistuttgart.gropius.api.Query;
+import de.unistuttgart.gropius.api.QueryQuery;
 import de.unistuttgart.gropius.Component;
 import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.Project;
@@ -51,23 +51,23 @@ public class GropiusImporter implements ArchitectureImporter {
 		}
 
 		// add the projects
-		de.foo.generated.Project gropiusProject = response.getProjects().getNodes().get(0);
+		de.unistuttgart.gropius.api.Project gropiusProject = response.getProjects().getNodes().get(0);
 
 		Project project = mapper.getEcoreProject(gropiusProject);
 
 		// parse all components with provided interfaces
-		for (de.foo.generated.Component gropiusComponent : gropiusProject.getComponents().getNodes()) {
+		for (de.unistuttgart.gropius.api.Component gropiusComponent : gropiusProject.getComponents().getNodes()) {
 
 			Component component = mapper.getEcoreComponent(gropiusComponent);
 			project.getComponents().add(component);
 
 			// provided
-			for (de.foo.generated.ComponentInterface gropiusInterface : gropiusComponent.getInterfaces().getNodes()) {
+			for (de.unistuttgart.gropius.api.ComponentInterface gropiusInterface : gropiusComponent.getInterfaces().getNodes()) {
 				ComponentInterface face = mapper.getEcoreInterface(gropiusInterface);
 				component.getInterfaces().add(face);
 			}
 			// consumed
-			for (de.foo.generated.ComponentInterface gropiusInterface : gropiusComponent.getConsumedInterfaces()
+			for (de.unistuttgart.gropius.api.ComponentInterface gropiusInterface : gropiusComponent.getConsumedInterfaces()
 					.getNodes()) {
 				ComponentInterface face = mapper.getEcoreInterface(gropiusInterface);
 				component.getConsumedInterfaces().add(face);

@@ -44,7 +44,7 @@ public class Controller {
 	@PostMapping("/api/model/{filename}")
 	public void updateModel(@RequestBody String xml, @PathVariable String filename) {
 		try {
-			importService.parse(xml, filename);
+			importService.parse(xml);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

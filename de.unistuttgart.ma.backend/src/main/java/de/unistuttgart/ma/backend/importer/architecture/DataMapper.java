@@ -40,7 +40,7 @@ public class DataMapper {
 	 * @param component
 	 * @return
 	 */
-	public Component getEcoreComponent(de.foo.generated.Component component) {
+	public Component getEcoreComponent(de.unistuttgart.gropius.api.Component component) {
 		ID id = component.getId();
 		if(componentMap.containsKey(id)) {
 			return componentMap.get(id);
@@ -59,7 +59,7 @@ public class DataMapper {
 	 * @param compInterface
 	 * @return
 	 */
-	public ComponentInterface getEcoreInterface(de.foo.generated.ComponentInterface compInterface) {
+	public ComponentInterface getEcoreInterface(de.unistuttgart.gropius.api.ComponentInterface compInterface) {
 		ID id = compInterface.getId();
 		if(interfaceMap.containsKey(id)) {
 			return interfaceMap.get(id);
@@ -79,7 +79,7 @@ public class DataMapper {
 	 * @param component
 	 * @return
 	 */
-	public Project getEcoreProject (de.foo.generated.Project project) {
+	public Project getEcoreProject (de.unistuttgart.gropius.api.Project project) {
 		ID id = project.getId();
 		if(projectMap.containsKey(id)) {
 			return projectMap.get(id);

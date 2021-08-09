@@ -11,8 +11,8 @@ import java.net.http.HttpResponse.BodyHandlers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import de.foo.generated.Query;
-import de.foo.generated.QueryQuery;
+import de.unistuttgart.gropius.api.Query;
+import de.unistuttgart.gropius.api.QueryQuery;
 
 public class GropiusApiQuerier {
 	private URI apiUri;
