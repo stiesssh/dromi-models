@@ -39,7 +39,7 @@ public interface System extends IdentifiableElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sagas</em>' containment reference list.
 	 * @see de.unistuttgart.ma.saga.SagaPackage#getSystem_Sagas()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Saga> getSagas();
@@ -51,7 +51,7 @@ public interface System extends IdentifiableElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Processes</em>' containment reference list.
 	 * @see de.unistuttgart.ma.saga.SagaPackage#getSystem_Processes()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<org.eclipse.bpmn2.Process> getProcesses();

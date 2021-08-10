@@ -8,7 +8,7 @@ Bundle-ClassPath: .,
  lib/jackson-databind-2.12.4.jar,
  lib/jackson-core-2.12.4.jar,
  lib/jackson-annotations-2.12.4.jar
-Bundle-Activator: de.unistuttgart.ma.saga.impact.presentation.ImpactEditorPlugin$Implementation
+Bundle-Activator: de.unistuttgart.ma.saga.presentation.SagaEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11

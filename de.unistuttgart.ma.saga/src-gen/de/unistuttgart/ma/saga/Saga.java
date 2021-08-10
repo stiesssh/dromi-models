@@ -28,7 +28,7 @@ public interface Saga extends IdentifiableElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Steps</em>' containment reference list.
 	 * @see de.unistuttgart.ma.saga.SagaPackage#getSaga_Steps()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SagaStep> getSteps();

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.unistuttgart.ma.impact/src-gen" modelPluginID="de.unistuttgart.ma.impact"
+    modelName="Impact" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../de.unistuttgart.gropius/model/gropius.genmodel#//gropius ../../de.unistuttgart.gropius.slo/model/slo.genmodel#//slo"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>impact.ecore</foreignModel>
+  <genPackages prefix="Impact" basePackage="de.unistuttgart.ma" disposableProviderFactory="true"
+      ecorePackage="impact.ecore#/">
+    <genClasses ecoreClass="impact.ecore#//Notification">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/topLevelImpact"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute impact.ecore#//Notification/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Notification/rootCause"/>
+    </genClasses>
+    <genClasses ecoreClass="impact.ecore#//Impact">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/location"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Impact/cause"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute impact.ecore#//Impact/id"/>
+    </genClasses>
+    <genClasses ecoreClass="impact.ecore#//Violation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Violation/violatedRule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute impact.ecore#//Violation/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute impact.ecore#//Violation/threshold"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Violation/issue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

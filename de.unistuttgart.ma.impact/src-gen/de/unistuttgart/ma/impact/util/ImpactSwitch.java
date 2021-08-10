@@ -1,8 +1,8 @@
 /**
  */
-package de.unistuttgart.ma.saga.impact.util;
+package de.unistuttgart.ma.impact.util;
 
-import de.unistuttgart.ma.saga.impact.*;
+import de.unistuttgart.ma.impact.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see de.unistuttgart.ma.saga.impact.ImpactPackage
+ * @see de.unistuttgart.ma.impact.ImpactPackage
  * @generated
  */
 public class ImpactSwitch<T> extends Switch<T> {
@@ -81,12 +81,26 @@ public class ImpactSwitch<T> extends Switch<T> {
 			case ImpactPackage.VIOLATION: {
 				Violation violation = (Violation)theEObject;
 				T result = caseViolation(violation);
-				if (result == null) result = caseImpact(violation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Notification</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Notification</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNotification(Notification object) {
+		return null;
 	}
 
 	/**
@@ -116,21 +130,6 @@ public class ImpactSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseViolation(Violation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Notification</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Notification</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNotification(Notification object) {
 		return null;
 	}
 

@@ -25,6 +25,8 @@
     </genClasses>
     <genClasses ecoreClass="impact.ecore#//Violation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference impact.ecore#//Violation/violatedRule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute impact.ecore#//Violation/period"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute impact.ecore#//Violation/threshold"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

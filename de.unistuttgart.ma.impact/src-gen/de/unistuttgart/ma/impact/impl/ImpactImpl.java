@@ -1,19 +1,14 @@
 /**
  */
-package de.unistuttgart.ma.saga.impact.impl;
+package de.unistuttgart.ma.impact.impl;
 
-import de.unistuttgart.gropius.IssueLocation;
-import de.unistuttgart.ma.saga.IdentifiableElement;
-import de.unistuttgart.ma.saga.impact.Impact;
-import de.unistuttgart.ma.saga.impact.ImpactPackage;
-import java.lang.reflect.InvocationTargetException;
-
-import org.eclipse.bpmn2.FlowElement;
+import de.unistuttgart.ma.impact.Impact;
+import de.unistuttgart.ma.impact.ImpactPackage;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -25,9 +20,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getCause <em>Cause</em>}</li>
- *   <li>{@link de.unistuttgart.ma.saga.impact.impl.ImpactImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.impact.impl.ImpactImpl#getLocation <em>Location</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.impact.impl.ImpactImpl#getCause <em>Cause</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.impact.impl.ImpactImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +37,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 	 * @ordered
 	 */
 	protected EObject location;
+
 	/**
 	 * The cached value of the '{@link #getCause() <em>Cause</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -61,6 +57,7 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -190,47 +187,6 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public String getLocationName() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (getLocation() instanceof IssueLocation) {
-			return ((IssueLocation) getLocation()).getName();
-		}
-		if (getLocation() instanceof IdentifiableElement) {
-			return ((IdentifiableElement) getLocation()).getName();
-		}
-		if (getLocation() instanceof FlowElement) {
-			return ((FlowElement) getLocation()).getName();
-		}
-		throw new UnsupportedOperationException();
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public String getLocationId() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (getLocation() instanceof IssueLocation) {
-			return ((IssueLocation) getLocation()).getId();
-		}
-		if (getLocation() instanceof IdentifiableElement) {
-			return ((IdentifiableElement) getLocation()).getId();
-		}
-		if (getLocation() instanceof FlowElement) {
-			return ((FlowElement) getLocation()).getId();
-		}
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -314,22 +270,6 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ImpactPackage.IMPACT___GET_LOCATION_NAME:
-				return getLocationName();
-			case ImpactPackage.IMPACT___GET_LOCATION_ID:
-				return getLocationId();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
@@ -339,4 +279,5 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 		result.append(')');
 		return result.toString();
 	}
+
 } //ImpactImpl

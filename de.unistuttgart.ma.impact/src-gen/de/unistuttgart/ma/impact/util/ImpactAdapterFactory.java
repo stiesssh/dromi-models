@@ -1,8 +1,8 @@
 /**
  */
-package de.unistuttgart.ma.saga.impact.util;
+package de.unistuttgart.ma.impact.util;
 
-import de.unistuttgart.ma.saga.impact.*;
+import de.unistuttgart.ma.impact.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see de.unistuttgart.ma.saga.impact.ImpactPackage
+ * @see de.unistuttgart.ma.impact.ImpactPackage
  * @generated
  */
 public class ImpactAdapterFactory extends AdapterFactoryImpl {
@@ -100,13 +100,27 @@ public class ImpactAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.impact.Impact <em>Impact</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.impact.Notification <em>Notification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.impact.Impact
+	 * @see de.unistuttgart.ma.impact.Notification
+	 * @generated
+	 */
+	public Adapter createNotificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.impact.Impact <em>Impact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.unistuttgart.ma.impact.Impact
 	 * @generated
 	 */
 	public Adapter createImpactAdapter() {
@@ -114,30 +128,16 @@ public class ImpactAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.impact.Violation <em>Violation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.impact.Violation <em>Violation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.impact.Violation
+	 * @see de.unistuttgart.ma.impact.Violation
 	 * @generated
 	 */
 	public Adapter createViolationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.unistuttgart.ma.saga.impact.Notification <em>Notification</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.unistuttgart.ma.saga.impact.Notification
-	 * @generated
-	 */
-	public Adapter createNotificationAdapter() {
 		return null;
 	}
 

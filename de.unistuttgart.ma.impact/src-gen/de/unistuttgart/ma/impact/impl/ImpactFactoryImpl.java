@@ -1,8 +1,8 @@
 /**
  */
-package de.unistuttgart.ma.saga.impact.impl;
+package de.unistuttgart.ma.impact.impl;
 
-import de.unistuttgart.ma.saga.impact.*;
+import de.unistuttgart.ma.impact.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
