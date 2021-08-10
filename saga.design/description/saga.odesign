@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="saga" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="saga" version="12.0.0.2017041100">
   <ownedViewpoints name="totalView" modelFileExtension="saga">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="system_view" label="System View" initialisation="true" domainClass="saga::System" enablePopupBars="true">
       <validationSet name="validate sagas">
@@ -410,70 +410,5 @@
       </additionalLayers>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="saga.design.SystemByImpactService"/>
-  </ownedViewpoints>
-  <ownedViewpoints name="treeView" modelFileExtension="impact">
-    <ownedRepresentations xsi:type="description_2:TreeDescription" name="tree_view" domainClass="impact::Notification">
-      <subItemMappings name="tree" domainClass="impact::Impact" semanticCandidatesExpression="feature:topLevelImpacts">
-        <defaultStyle labelSize="10" labelExpression="aql:'impact on ' + self.getLocationName() + ' (' + self.getLocationId() + ')'">
-          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-        </defaultStyle>
-        <subItemMappings name="details_location" domainClass="EObject" semanticCandidatesExpression="feature:location">
-          <defaultStyle labelSize="10" labelExpression="aql:'Location : ' + self.id">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </defaultStyle>
-        </subItemMappings>
-        <subItemMappings name="item_root_cause" domainClass="impact::Violation" semanticCandidatesExpression="service:getRootCause()">
-          <defaultStyle labelSize="10" labelExpression="aql:'Root Cause : Violation of SLO Rule ' + self.violatedRule.name +'. Threshold of ' + self.violatedRule.threshold + ' not met for ' + self.violatedRule.period + '.'">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </defaultStyle>
-          <subItemMappings name="item_violated_slo" domainClass="slo::SloRule" semanticCandidatesExpression="aql:self.violatedRule">
-            <defaultStyle labelSize="10" labelExpression="aql:'Violated SLO : ' + self.name">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </defaultStyle>
-            <subItemMappings name="root_cause_location" domainClass="EObject" semanticCandidatesExpression="feature:gropiusComponentInterface">
-              <defaultStyle labelSize="10">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              </defaultStyle>
-            </subItemMappings>
-          </subItemMappings>
-        </subItemMappings>
-        <subItemMappings name="details" domainClass="impact::Impact" semanticCandidatesExpression="aql:self">
-          <defaultStyle labelSize="10" labelExpression="Path :">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </defaultStyle>
-          <subItemMappings name="details_intermediate" domainClass="impact::Impact" semanticCandidatesExpression="feature:cause" reusedTreeItemMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='tree_view']/@subItemMappings[name='tree']/@subItemMappings[name='details']/@subItemMappings[name='details_intermediate']">
-            <defaultStyle labelSize="10" labelExpression="aql:'impact on ' + self.getLocationName() + ' (' + self.getLocationId() + ')'">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </defaultStyle>
-            <subItemMappings name="details_root_cause" domainClass="slo::Violation" semanticCandidatesExpression="feature:rootCause" reusedTreeItemMappings="//@ownedViewpoints[name='treeView']/@ownedRepresentations[name='tree_view']/@subItemMappings[name='tree']/@subItemMappings[name='item_root_cause']/@subItemMappings[name='item_violated_slo']">
-              <defaultStyle labelSize="10" labelExpression="aql:'Root Cause ' + self.name">
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              </defaultStyle>
-            </subItemMappings>
-          </subItemMappings>
-        </subItemMappings>
-        <subItemMappings name="related upstream" domainClass="impact::Impact" semanticCandidatesExpression="service:getCausingImpacts()">
-          <defaultStyle labelExpression="aql:'related upstream'">
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-          </defaultStyle>
-          <subItemMappings name="related" domainClass="slo::Violation" semanticCandidatesExpression="aql:">
-            <defaultStyle>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </defaultStyle>
-          </subItemMappings>
-        </subItemMappings>
-      </subItemMappings>
-    </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="saga.design.TreeService"/>
   </ownedViewpoints>
 </description:Group>
