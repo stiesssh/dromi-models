@@ -300,6 +300,7 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	/**
 	 * @generated NOT
 	 */
+	@Override
 	public Component getComponentById(String id) {
 		EList<Component> components = this.getArchitecture().getComponents();
 		for (Component component : components) {
@@ -313,6 +314,7 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	/**
 	 * @generated NOT
 	 */
+	@Override
 	public ComponentInterface getComponentInterfaceById(String id) {
 		EList<Component> components = this.getArchitecture().getComponents();
 		for (Component component : components) {
@@ -342,6 +344,7 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	/**
 	 * @generated NOT
 	 */
+	@Override
 	public SagaStep getSagaStepById(String id) {
 		for (Saga  saga : getSagas()) {
 			for (SagaStep step : saga.getSteps()) {
@@ -356,6 +359,7 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	/**
 	 * @generated NOT
 	 */
+	@Override
 	public FlowElement getTaskById(String id) {
 		for (Process process : getProcesses()) {
 			for (FlowElement element : process.getFlowElements()) {

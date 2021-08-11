@@ -2,10 +2,18 @@
  */
 package de.unistuttgart.ma.saga;
 
+import de.unistuttgart.gropius.Component;
+import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.Project;
 
 import de.unistuttgart.gropius.slo.SloRule;
 
+import java.util.HashSet;
+import java.util.NoSuchElementException;
+import java.util.Set;
+
+import org.eclipse.bpmn2.FlowElement;
+import org.eclipse.bpmn2.Process;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -85,5 +93,31 @@ public interface System extends IdentifiableElement {
 	 * @generated
 	 */
 	EList<SloRule> getSloRules();
+	
+	
+	/**
+	 * @generated NOT
+	 */
+	public Component getComponentById(String id);
+
+	/**
+	 * @generated NOT
+	 */
+	public ComponentInterface getComponentInterfaceById(String id);
+	
+	/**
+	 * @generated NOT
+	 */
+	public Set<SloRule> getSloForNode(de.unistuttgart.gropius.Node node);
+	
+	/**
+	 * @generated NOT
+	 */
+	public SagaStep getSagaStepById(String id);
+	
+	/**
+	 * @generated NOT
+	 */
+	public FlowElement getTaskById(String id);
 
 } // System
