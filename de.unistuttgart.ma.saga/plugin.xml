@@ -16,12 +16,5 @@
 
 null
 null
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated impact -->
-      <package
-            uri="http://www.example.org/impact"
-            class="de.unistuttgart.ma.saga.impact.ImpactPackage"
-            genModel="model/impact.genmodel"/>
-   </extension>
 
 </plugin>

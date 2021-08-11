@@ -115,7 +115,7 @@
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" label="create new Saga" containerMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="create_new_saga" label="create new Saga" containerMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -310,105 +310,5 @@
         </containerMappings>
       </additionalLayers>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="system_by_impact" label="Impact View" initialisation="true" domainClass="impact::Impact" preconditionExpression="aql:self.eContainer().topLevelImpacts->includes(self)" enablePopupBars="true">
-      <layout xsi:type="description_1:CustomLayoutConfiguration" id="org.eclipse.elk.layered" label="ELK Layered" description="Layer-based algorithm provided by the Eclipse Layout Kernel. Arranges as many edges as possible into one direction by placing nodes into subsequent layers. This implementation supports different routing styles (straight, orthogonal, splines); if orthogonal routing is selected, arbitrary port constraints are respected, thus enabling the layout of block diagrams such as actor-oriented models or circuit schematics. Furthermore, full layout of compound graphs with cross-hierarchy edges is supported when the respective option is activated on the top level."/>
-      <defaultLayer name="default_layer"/>
-      <additionalLayers name="impact_process_layer" activeByDefault="true">
-        <edgeMappings name="impact_edge_flow" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_start_normal']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_end_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="aql:self.outgoing.targetRef">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="impact_edge_compensation" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_start_normal']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_end_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="impact_edge_compensation_2" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_start_normal']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_event_end_normal'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="aql:self.boundaryEventRefs.outgoing.targetRef.outgoing.targetRef">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings xsi:type="description_1:ContainerMappingImport" name="import_process_lane" semanticCandidatesExpression="aql:self.eContainer().system.processes" domainClass="bpmn2::Process" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']">
-          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_task_chain"/>
-          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_task_normal" semanticCandidatesExpression="feature:flowElements" domainClass="bpmn2::Task" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']"/>
-          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_event_start_normal" semanticCandidatesExpression="feature:flowElements" domainClass="bpmn2::StartEvent" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_start_node']"/>
-          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_event_end_normal" semanticCandidatesExpression="feature:flowElements" domainClass="bpmn2::EndEvent" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='event_end_node']"/>
-        </containerMappings>
-      </additionalLayers>
-      <additionalLayers name="impact_saga_layer" activeByDefault="true">
-        <edgeMappings name="impact_edge_saga_task" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_process_layer']/@containerMappings[name='import_process_lane']/@subNodeMappings[name='import_task_normal']" targetFinderExpression="feature:task" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
-          <style lineStyle="dash_dot" targetArrow="NoDecoration" sizeComputationExpression="2" endsCentering="Both">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="impact_edge_saga_interface" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_not']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
-          <style lineStyle="dash_dot" targetArrow="NoDecoration" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="impact_edge_step_step" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_saga_layer']/@containerMappings[name='import_saga']/@subNodeMappings[name='import_saga_step_node']" targetFinderExpression="feature:nextStep">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <containerMappings xsi:type="description_1:ContainerMappingImport" name="import_saga" semanticCandidatesExpression="aql:self.eContainer().system.sagas" domainClass="saga::Saga" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']">
-          <subNodeMappings xsi:type="description_1:NodeMappingImport" name="import_saga_step_node" semanticCandidatesExpression="feature:steps" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']"/>
-        </containerMappings>
-      </additionalLayers>
-      <additionalLayers name="impact_arch_layer" activeByDefault="true">
-        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_interface_chain" semanticCandidatesExpression="service:getImpactedElements()" domainClass="gropius::ComponentInterface" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']">
-          <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_interface_not" semanticCandidatesExpression="service:getNotImpactedElements()" domainClass="gropius::ComponentInterface" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']"/>
-        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_component_chain" semanticCandidatesExpression="service:getImpactedElements()" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']">
-          <style xsi:type="style:DotDescription" labelSize="12" labelPosition="node" resizeKind="NSEW">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
-          </style>
-        </nodeMappings>
-        <nodeMappings xsi:type="description_1:NodeMappingImport" name="import_component_not" semanticCandidatesExpression="service:getNotImpactedElements()" importedMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']"/>
-        <edgeMappings name="edger_provides_import" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_not']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_not']" targetFinderExpression="feature:component">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-        <edgeMappings name="edger_consumes_import" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_component_not']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_chain'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_by_impact']/@additionalLayers[name='impact_arch_layer']/@nodeMappings[name='import_interface_not']" targetFinderExpression="feature:consumedInterfaces">
-          <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
-      </additionalLayers>
-    </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="saga.design.SystemByImpactService"/>
   </ownedViewpoints>
 </description:Group>

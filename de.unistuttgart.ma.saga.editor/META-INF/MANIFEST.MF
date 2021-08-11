@@ -12,8 +12,7 @@ Bundle-Activator: de.unistuttgart.ma.saga.presentation.SagaEditorPlugin$Implemen
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: de.unistuttgart.ma.saga.presentation,
- de.unistuttgart.ma.saga.impact.presentation
+Export-Package: de.unistuttgart.ma.saga.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  de.unistuttgart.ma.saga.edit;visibility:=reexport,

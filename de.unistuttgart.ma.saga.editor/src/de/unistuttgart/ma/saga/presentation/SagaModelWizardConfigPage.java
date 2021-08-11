@@ -12,7 +12,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import de.unistuttgart.ma.saga.presentation.SagaEditorPlugin;
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
 
 
