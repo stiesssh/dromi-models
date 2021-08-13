@@ -201,26 +201,13 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Create a new model.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EObject createInitialModel() {
-		EClass eClass = (EClass)sagaPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = sagaFactory.create(eClass);
-		return rootObject;
-	}
-
-	/**
 	 * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws InterruptedException 
+	 * @throws IOException 
 	 * 
 	 * @generated NOT
 	 */
-	protected EObject createInitialModel(URI fileURI) {
-		EClass eClass = (EClass) sagaPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = sagaFactory.create(eClass);
-
+	protected EObject createInitialModel(URI fileURI) throws IOException, InterruptedException {
 		ImportRequest request = new ImportRequest(configPage.getSolomonUrlField(),
 				configPage.getGropiusUrlField(), configPage.getBpmnFilePathField(),
 				configPage.getGropiusProjectNameField(), configPage.getDeploymentEnvironmentField(),
@@ -228,15 +215,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 
 		BackendImporter backendImporter = new BackendImporter(configPage.getBackendUrlField());
 
-		try {
-			return backendImporter.getSystem(request);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		return rootObject;
+		return backendImporter.getSystem(request);
 	}
 
 	/**
@@ -373,15 +352,9 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * This is the page where the type of object to create is selected. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public class SagaModelWizardInitialObjectCreationPage extends WizardPage {
-		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected Combo initialObjectField;
-
 		/**
 		 * @generated <!-- begin-user-doc --> <!-- end-user-doc -->
 		 */
@@ -429,23 +402,6 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 				containerLabel.setLayoutData(data);
 			}
 
-			initialObjectField = new Combo(composite, SWT.BORDER);
-			{
-				GridData data = new GridData();
-				data.horizontalAlignment = GridData.FILL;
-				data.grabExcessHorizontalSpace = true;
-				initialObjectField.setLayoutData(data);
-			}
-
-			for (String objectName : getInitialObjectNames()) {
-				initialObjectField.add(getLabel(objectName));
-			}
-
-			if (initialObjectField.getItemCount() == 1) {
-				initialObjectField.select(0);
-			}
-			initialObjectField.addModifyListener(validator);
-
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
 				encodingLabel.setText(SagaEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
@@ -488,7 +444,7 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		protected boolean validatePage() {
-			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
+			return getEncodings().contains(encodingField.getText());
 		}
 
 		/**
@@ -498,31 +454,6 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 		@Override
 		public void setVisible(boolean visible) {
 			super.setVisible(visible);
-			if (visible) {
-				if (initialObjectField.getItemCount() == 1) {
-					initialObjectField.clearSelection();
-					encodingField.setFocus();
-				}
-				else {
-					encodingField.clearSelection();
-					initialObjectField.setFocus();
-				}
-			}
-		}
-
-		/**
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
-		public String getInitialObjectName() {
-			String label = initialObjectField.getText();
-
-			for (String name : getInitialObjectNames()) {
-				if (getLabel(name).equals(label)) {
-					return name;
-				}
-			}
-			return null;
 		}
 
 		/**

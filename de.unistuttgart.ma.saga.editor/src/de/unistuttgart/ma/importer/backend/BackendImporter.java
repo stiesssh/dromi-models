@@ -38,7 +38,7 @@ public class BackendImporter {
 	 * @throws IOException
 	 */
 	public System getSystem(ImportRequest importRequest) throws IOException, InterruptedException {
-		URI requestUri = URI.create(hostUri + Literals.backendGetModelEndpoint);
+		URI requestUri = URI.create(hostUri + Literals.backendPostModelEndpoint);
 
 		ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 

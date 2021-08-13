@@ -20,7 +20,6 @@ public class Literals {
 	// <folder in workspace>/<filename>.saga
 	
 	public static final String backendPostModelEndpoint = "api/model/";// {systemid}
-	public static final String backendGetModelEndpoint = "api/foo";// {systemid}
 	public static final String backendGetNotificationEndpoint = "api/notification/"; // {systemid}
 
 }
