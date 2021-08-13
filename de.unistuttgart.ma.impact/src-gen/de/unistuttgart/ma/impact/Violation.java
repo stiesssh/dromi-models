@@ -6,6 +6,7 @@ import de.unistuttgart.gropius.Issue;
 
 import de.unistuttgart.gropius.slo.SloRule;
 
+import java.time.LocalDateTime;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.unistuttgart.ma.impact.Violation#getPeriod <em>Period</em>}</li>
  *   <li>{@link de.unistuttgart.ma.impact.Violation#getThreshold <em>Threshold</em>}</li>
  *   <li>{@link de.unistuttgart.ma.impact.Violation#getIssue <em>Issue</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.impact.Violation#getStartTime <em>Start Time</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.impact.ImpactPackage#getViolation()
@@ -57,7 +59,7 @@ public interface Violation extends EObject {
 	 * @return the value of the '<em>Period</em>' attribute.
 	 * @see #setPeriod(double)
 	 * @see de.unistuttgart.ma.impact.ImpactPackage#getViolation_Period()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getPeriod();
@@ -79,7 +81,7 @@ public interface Violation extends EObject {
 	 * @return the value of the '<em>Threshold</em>' attribute.
 	 * @see #setThreshold(double)
 	 * @see de.unistuttgart.ma.impact.ImpactPackage#getViolation_Threshold()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getThreshold();
@@ -115,5 +117,27 @@ public interface Violation extends EObject {
 	 * @generated
 	 */
 	void setIssue(Issue value);
+
+	/**
+	 * Returns the value of the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start Time</em>' attribute.
+	 * @see #setStartTime(LocalDateTime)
+	 * @see de.unistuttgart.ma.impact.ImpactPackage#getViolation_StartTime()
+	 * @model dataType="de.unistuttgart.ma.impact.Date" required="true"
+	 * @generated
+	 */
+	LocalDateTime getStartTime();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.ma.impact.Violation#getStartTime <em>Start Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Time</em>' attribute.
+	 * @see #getStartTime()
+	 * @generated
+	 */
+	void setStartTime(LocalDateTime value);
 
 } // Violation

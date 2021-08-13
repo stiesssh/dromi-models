@@ -23,6 +23,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponent <em>Gropius Component</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getGropiusComponentInterface <em>Gropius Component Interface</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getId <em>Id</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getStatisticsOption <em>Statistics Option</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getComparisonOperator <em>Comparison Operator</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.SloRule#getPresetOption <em>Preset Option</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule()
@@ -183,5 +186,71 @@ public interface SloRule extends EObject {
 	 * @generated
 	 */
 	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Statistics Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Statistics Option</em>' attribute.
+	 * @see #setStatisticsOption(String)
+	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_StatisticsOption()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @generated
+	 */
+	String getStatisticsOption();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getStatisticsOption <em>Statistics Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Statistics Option</em>' attribute.
+	 * @see #getStatisticsOption()
+	 * @generated
+	 */
+	void setStatisticsOption(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Comparison Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comparison Operator</em>' attribute.
+	 * @see #setComparisonOperator(String)
+	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_ComparisonOperator()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @generated
+	 */
+	String getComparisonOperator();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getComparisonOperator <em>Comparison Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comparison Operator</em>' attribute.
+	 * @see #getComparisonOperator()
+	 * @generated
+	 */
+	void setComparisonOperator(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Preset Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Preset Option</em>' attribute.
+	 * @see #setPresetOption(String)
+	 * @see de.unistuttgart.gropius.slo.SloPackage#getSloRule_PresetOption()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+	 * @generated
+	 */
+	String getPresetOption();
+
+	/**
+	 * Sets the value of the '{@link de.unistuttgart.gropius.slo.SloRule#getPresetOption <em>Preset Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Preset Option</em>' attribute.
+	 * @see #getPresetOption()
+	 * @generated
+	 */
+	void setPresetOption(String value);
 
 } // SloRule

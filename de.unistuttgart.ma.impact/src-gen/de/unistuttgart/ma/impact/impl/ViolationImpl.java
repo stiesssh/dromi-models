@@ -9,6 +9,7 @@ import de.unistuttgart.gropius.slo.SloRule;
 import de.unistuttgart.ma.impact.ImpactPackage;
 import de.unistuttgart.ma.impact.Violation;
 
+import java.time.LocalDateTime;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.unistuttgart.ma.impact.impl.ViolationImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link de.unistuttgart.ma.impact.impl.ViolationImpl#getThreshold <em>Threshold</em>}</li>
  *   <li>{@link de.unistuttgart.ma.impact.impl.ViolationImpl#getIssue <em>Issue</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.impact.impl.ViolationImpl#getStartTime <em>Start Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,6 +95,26 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	 * @ordered
 	 */
 	protected Issue issue;
+
+	/**
+	 * The default value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LocalDateTime START_TIME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected LocalDateTime startTime = START_TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,6 +258,27 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LocalDateTime getStartTime() {
+		return startTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStartTime(LocalDateTime newStartTime) {
+		LocalDateTime oldStartTime = startTime;
+		startTime = newStartTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ImpactPackage.VIOLATION__START_TIME, oldStartTime, startTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -249,6 +292,8 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 			case ImpactPackage.VIOLATION__ISSUE:
 				if (resolve) return getIssue();
 				return basicGetIssue();
+			case ImpactPackage.VIOLATION__START_TIME:
+				return getStartTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,6 +317,9 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 				return;
 			case ImpactPackage.VIOLATION__ISSUE:
 				setIssue((Issue)newValue);
+				return;
+			case ImpactPackage.VIOLATION__START_TIME:
+				setStartTime((LocalDateTime)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -297,6 +345,9 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 			case ImpactPackage.VIOLATION__ISSUE:
 				setIssue((Issue)null);
 				return;
+			case ImpactPackage.VIOLATION__START_TIME:
+				setStartTime(START_TIME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -317,6 +368,8 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 				return threshold != THRESHOLD_EDEFAULT;
 			case ImpactPackage.VIOLATION__ISSUE:
 				return issue != null;
+			case ImpactPackage.VIOLATION__START_TIME:
+				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -335,6 +388,8 @@ public class ViolationImpl extends MinimalEObjectImpl.Container implements Viola
 		result.append(period);
 		result.append(", threshold: ");
 		result.append(threshold);
+		result.append(", startTime: ");
+		result.append(startTime);
 		result.append(')');
 		return result.toString();
 	}

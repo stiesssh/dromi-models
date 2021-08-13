@@ -4,6 +4,7 @@ package de.unistuttgart.ma.impact;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -213,13 +214,22 @@ public interface ImpactPackage extends EPackage {
 	int VIOLATION__ISSUE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIOLATION__START_TIME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Violation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIOLATION_FEATURE_COUNT = 4;
+	int VIOLATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Violation</em>' class.
@@ -229,6 +239,17 @@ public interface ImpactPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIOLATION_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '<em>Date</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.time.LocalDateTime
+	 * @see de.unistuttgart.ma.impact.impl.ImpactPackageImpl#getDate()
+	 * @generated
+	 */
+	int DATE = 3;
 
 
 	/**
@@ -372,6 +393,28 @@ public interface ImpactPackage extends EPackage {
 	EReference getViolation_Issue();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.ma.impact.Violation#getStartTime <em>Start Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Time</em>'.
+	 * @see de.unistuttgart.ma.impact.Violation#getStartTime()
+	 * @see #getViolation()
+	 * @generated
+	 */
+	EAttribute getViolation_StartTime();
+
+	/**
+	 * Returns the meta object for data type '{@link java.time.LocalDateTime <em>Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Date</em>'.
+	 * @see java.time.LocalDateTime
+	 * @model instanceClass="java.time.LocalDateTime"
+	 * @generated
+	 */
+	EDataType getDate();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -503,6 +546,24 @@ public interface ImpactPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIOLATION__ISSUE = eINSTANCE.getViolation_Issue();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIOLATION__START_TIME = eINSTANCE.getViolation_StartTime();
+
+		/**
+		 * The meta object literal for the '<em>Date</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.time.LocalDateTime
+		 * @see de.unistuttgart.ma.impact.impl.ImpactPackageImpl#getDate()
+		 * @generated
+		 */
+		EDataType DATE = eINSTANCE.getDate();
 
 	}
 

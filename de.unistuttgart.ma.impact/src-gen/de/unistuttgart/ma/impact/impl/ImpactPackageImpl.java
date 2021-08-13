@@ -12,8 +12,10 @@ import de.unistuttgart.ma.impact.ImpactPackage;
 import de.unistuttgart.ma.impact.Notification;
 import de.unistuttgart.ma.impact.Violation;
 
+import java.time.LocalDateTime;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -46,6 +48,13 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * @generated
 	 */
 	private EClass violationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType dateEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -234,6 +243,24 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getViolation_StartTime() {
+		return (EAttribute)violationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getDate() {
+		return dateEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ImpactFactory getImpactFactory() {
 		return (ImpactFactory)getEFactoryInstance();
 	}
@@ -272,6 +299,10 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 		createEAttribute(violationEClass, VIOLATION__PERIOD);
 		createEAttribute(violationEClass, VIOLATION__THRESHOLD);
 		createEReference(violationEClass, VIOLATION__ISSUE);
+		createEAttribute(violationEClass, VIOLATION__START_TIME);
+
+		// Create data types
+		dateEDataType = createEDataType(DATE);
 	}
 
 	/**
@@ -320,9 +351,13 @@ public class ImpactPackageImpl extends EPackageImpl implements ImpactPackage {
 
 		initEClass(violationEClass, Violation.class, "Violation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getViolation_ViolatedRule(), theSloPackage.getSloRule(), null, "violatedRule", null, 1, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getViolation_Period(), ecorePackage.getEDouble(), "period", null, 0, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getViolation_Threshold(), ecorePackage.getEDouble(), "threshold", null, 0, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViolation_Period(), ecorePackage.getEDouble(), "period", null, 1, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViolation_Threshold(), ecorePackage.getEDouble(), "threshold", null, 1, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViolation_Issue(), theGropiusPackage.getIssue(), null, "issue", null, 1, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViolation_StartTime(), this.getDate(), "startTime", null, 1, 1, Violation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(dateEDataType, LocalDateTime.class, "Date", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
