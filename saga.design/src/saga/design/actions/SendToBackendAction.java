@@ -52,7 +52,7 @@ public class SendToBackendAction implements IExternalJavaAction {
 					systemXML = serialize(system);
 					URI ressourceUri = system.eResource().getURI();
 					//post(systemXML, ressourceUri.path());
-					post(systemXML, ressourceUri.lastSegment());
+					post(systemXML, system.getId());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
