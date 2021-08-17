@@ -7,7 +7,7 @@ package de.unistuttgart.ma.saga.presentation;
  */
 public class Literals {
 	public static final String gropiusUrl = "http://localhost:8080/api/";
-	public static final String gropiusProjectName = "t2-extended";
+	public static final String gropiusProjectName = "t2-project";
 	
 	public static final String solomonUrl = "http://localhost:8082/rules/";
 	public static final String solomonDeploymentEnvironment= "kubernetes";

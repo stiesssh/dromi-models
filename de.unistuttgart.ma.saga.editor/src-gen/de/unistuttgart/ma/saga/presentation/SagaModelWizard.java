@@ -3,6 +3,9 @@
 package de.unistuttgart.ma.saga.presentation;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -208,10 +211,14 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	protected EObject createInitialModel(URI fileURI) throws IOException, InterruptedException {
+		
+		String path = configPage.getBpmnFilePathField(); 
+		String bpmn = new String(Files.readAllBytes(Paths.get(path)), StandardCharsets.UTF_8);
+		
 		ImportRequest request = new ImportRequest(configPage.getSolomonUrlField(),
-				configPage.getGropiusUrlField(), configPage.getBpmnFilePathField(),
+				configPage.getGropiusUrlField(),
 				configPage.getGropiusProjectNameField(), configPage.getDeploymentEnvironmentField(),
-				newFileCreationPage.getFileName());
+				newFileCreationPage.getFileName(), bpmn);
 
 		BackendImporter backendImporter = new BackendImporter(configPage.getBackendUrlField());
 
