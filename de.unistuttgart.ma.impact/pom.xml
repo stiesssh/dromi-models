@@ -10,6 +10,15 @@
 	<name>impact</name>
 	<description>impact domain model</description>
 
+	<repositories>
+        <!-- for bpmn2 -->
+        <repository>
+            <id>jboss-public-repository-group</id>  
+            <name>JBoss Public Repository Group</name>  
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>  
+        </repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
@@ -23,6 +32,23 @@
 			<artifactId>slo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>de.unistuttgart.ma</groupId>
+			<artifactId>saga</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>de.unistuttgart.gropius</groupId>
+			<artifactId>gropius</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse/org.eclipse.bpmn2 -->
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>org.eclipse.bpmn2</artifactId>
+            <version>0.8.2-jboss</version>
+        </dependency>
+
 	</dependencies>
 
 	<build>

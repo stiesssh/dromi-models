@@ -310,6 +310,20 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 		}
 		throw new NoSuchElementException();
 	}
+	
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	public SloRule getSloById(String id) {
+		EList<SloRule> rules = this.getSloRules();
+		for (SloRule rule : rules) {
+			if (rule.getId().equals(id)) {
+				return rule;
+			}
+		}
+		throw new NoSuchElementException();
+	}
 
 	/**
 	 * @generated NOT

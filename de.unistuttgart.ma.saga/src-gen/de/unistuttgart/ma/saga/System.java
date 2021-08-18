@@ -99,6 +99,11 @@ public interface System extends IdentifiableElement {
 	 * @generated NOT
 	 */
 	public Component getComponentById(String id);
+	
+	/**
+	 * @generated NOT
+	 */
+	public SloRule getSloById(String id);
 
 	/**
 	 * @generated NOT

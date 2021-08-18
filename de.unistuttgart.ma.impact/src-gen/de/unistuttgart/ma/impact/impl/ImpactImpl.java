@@ -2,8 +2,14 @@
  */
 package de.unistuttgart.ma.impact.impl;
 
+import de.unistuttgart.gropius.ComponentInterface;
+import de.unistuttgart.gropius.Node;
 import de.unistuttgart.ma.impact.Impact;
 import de.unistuttgart.ma.impact.ImpactPackage;
+import de.unistuttgart.ma.saga.IdentifiableElement;
+import de.unistuttgart.ma.saga.SagaStep;
+
+import org.eclipse.bpmn2.FlowElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -278,6 +284,23 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 		result.append(id);
 		result.append(')');
 		return result.toString();
+	}
+	
+	/**
+	 * 
+	 * @generated NOT
+	 */
+	public String getLocationId() {
+		if (getLocation() instanceof Node) {
+			return ((Node) getLocation()).getId();
+		}
+		if (getLocation() instanceof IdentifiableElement) {
+			return ((IdentifiableElement) getLocation()).getId();
+		}
+		if (getLocation() instanceof FlowElement) {
+			return ((FlowElement) getLocation()).getId();
+		}
+		throw new UnsupportedOperationException();
 	}
 
 } //ImpactImpl
