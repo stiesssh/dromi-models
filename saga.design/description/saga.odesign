@@ -183,13 +183,13 @@
         </edgeMappings>
         <containerMappings name="saga_container" semanticCandidatesExpression="feature:sagas" domainClass="saga::Saga" dropDescriptions="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_container_saga_steps']">
           <subNodeMappings name="saga_step_node" label="Saga Step Node" semanticCandidatesExpression="feature:steps" domainClass="saga::SagaStep">
-            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="feature:id" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelPosition="node" resizeKind="NSEW" width="10" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="feature:id" sizeComputationExpression="30" workspacePath="/saga.design/images/saga.svg">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" sizeComputationExpression="30" workspacePath="/saga.design/images/saga.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
