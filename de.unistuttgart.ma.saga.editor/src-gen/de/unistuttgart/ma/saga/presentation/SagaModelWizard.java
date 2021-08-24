@@ -70,8 +70,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
-import de.unistuttgart.ma.importer.backend.BackendImporter;
-import de.unistuttgart.ma.importer.backend.ImportRequest;
+
+import de.unistuttgart.ma.importer.BackendImporter;
+import de.unistuttgart.ma.importer.ImportRequest;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.provider.SagaEditPlugin;

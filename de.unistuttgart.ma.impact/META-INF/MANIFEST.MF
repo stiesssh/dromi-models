@@ -14,5 +14,6 @@ Export-Package: de.unistuttgart.ma.impact,
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  de.unistuttgart.gropius;visibility:=reexport,
  de.unistuttgart.gropius.slo;visibility:=reexport,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ de.unistuttgart.ma.saga;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy

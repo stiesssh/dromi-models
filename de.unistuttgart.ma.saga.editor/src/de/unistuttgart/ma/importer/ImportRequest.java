@@ -1,4 +1,4 @@
-package de.unistuttgart.ma.importer.backend;
+package de.unistuttgart.ma.importer;
 
 /**
  * 

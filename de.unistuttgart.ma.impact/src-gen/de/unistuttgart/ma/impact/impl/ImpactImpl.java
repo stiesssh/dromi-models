@@ -2,12 +2,10 @@
  */
 package de.unistuttgart.ma.impact.impl;
 
-import de.unistuttgart.gropius.ComponentInterface;
 import de.unistuttgart.gropius.Node;
 import de.unistuttgart.ma.impact.Impact;
 import de.unistuttgart.ma.impact.ImpactPackage;
 import de.unistuttgart.ma.saga.IdentifiableElement;
-import de.unistuttgart.ma.saga.SagaStep;
 
 import org.eclipse.bpmn2.FlowElement;
 import org.eclipse.emf.common.notify.Notification;
