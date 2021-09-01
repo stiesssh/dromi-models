@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.impact.impl;
 
+import de.unistuttgart.gropius.IssueLocation;
 import de.unistuttgart.gropius.Node;
 import de.unistuttgart.ma.impact.Impact;
 import de.unistuttgart.ma.impact.ImpactPackage;
@@ -286,8 +287,11 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 	
 	/**
 	 * 
+	 * @return
+	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public String getLocationId() {
 		if (getLocation() instanceof Node) {
 			return ((Node) getLocation()).getId();
@@ -299,6 +303,91 @@ public class ImpactImpl extends MinimalEObjectImpl.Container implements Impact {
 			return ((FlowElement) getLocation()).getId();
 		}
 		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getLocationContainerId() {
+		EObject container = this.getLocation().eContainer(); 
+		if (container instanceof IssueLocation) {
+			return ((IssueLocation) container).getId();
+		}
+		if (container instanceof IdentifiableElement) {
+			return ((IdentifiableElement) container).getId();
+		}
+		if (container instanceof org.eclipse.bpmn2.Process) {
+			return ((org.eclipse.bpmn2.Process) container).getId();
+		}
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getLocationName() {
+		if (this.getLocation() instanceof IssueLocation) {
+			return ((IssueLocation) this.getLocation()).getName();
+		}
+		if (this.getLocation() instanceof IdentifiableElement) {
+			return ((IdentifiableElement) this.getLocation()).getName();
+		}
+		if (this.getLocation() instanceof FlowElement) {
+			return ((FlowElement) this.getLocation()).getName();
+		}
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getLocationContainerName() {
+		EObject container = this.getLocation().eContainer(); 
+		if (container instanceof IssueLocation) {
+			return ((IssueLocation) container).getName();
+		}
+		if (container instanceof IdentifiableElement) {
+			return ((IdentifiableElement) container).getName();
+		}
+		if (container instanceof org.eclipse.bpmn2.Process) {
+			return ((org.eclipse.bpmn2.Process) container).getName();
+		}
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @return
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getLocationContainerType() {
+		EObject container = this.getLocation().eContainer(); 
+		return container.getClass().getInterfaces()[0].getSimpleName();
+	}
+
+	/**
+	 * 
+	 * @return
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public String getLocationType() {
+		return this.getLocation().getClass().getInterfaces()[0].getSimpleName();
 	}
 
 } //ImpactImpl

@@ -90,9 +90,33 @@ public interface Impact extends EObject {
 	void setId(String value);
 	
 	/**
-	 * 
 	 * @generated NOT
 	 */
 	public String getLocationId();
+	
+	/**
+	 * @generated NOT
+	 */
+	public String getLocationName();
+	
+	/**
+	 * @generated NOT
+	 */
+	public String getLocationType();
+	
+	/**
+	 * @generated NOT
+	 */
+	public String getLocationContainerId();
+	
+	/**
+	 * @generated NOT
+	 */
+	public String getLocationContainerName();
+	
+	/**
+	 * @generated NOT
+	 */
+	public String getLocationContainerType();
 
 } // Impact
