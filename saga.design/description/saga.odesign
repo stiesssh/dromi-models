@@ -309,6 +309,23 @@
           </style>
         </containerMappings>
       </additionalLayers>
+      <additionalLayers name="slo_layer" label="Slo Layer" activeByDefault="true">
+        <nodeMappings name="slo_node" label="Slo Node" semanticCandidatesExpression="aql:self.sloRules" domainClass="slo::SloRule">
+          <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" resizeKind="NSEW" shape="providedShape" providedShapeID="saga.design.saga.slo.single">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="slo_to_location_edge" label="Slo to Location Edge" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='slo_layer']/@nodeMappings[name='slo_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='component_node']" targetFinderExpression="aql:if self.gropiusComponentInterface->notEmpty() then self.gropiusComponentInterface else self.gropiusComponent endif">
+          <style lineStyle="dot" targetArrow="NoDecoration">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
     </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
