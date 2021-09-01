@@ -133,15 +133,6 @@
       </image>
    </extension>
    <extension
-         id="saga.slo.multi"
-         name="multiple slos"
-         point="org.eclipse.sirius.diagram.customBundledImageShape">
-      <image
-            imagePath="/saga.design/images/slo_multi.svg"
-            label="saga.slo.multi">
-      </image>
-   </extension>
-   <extension
          id="saga.slo.single"
          name="single slo"
          point="org.eclipse.sirius.diagram.customBundledImageShape">
