@@ -21,6 +21,18 @@
       </layout>
       <defaultLayer name="Default">
         <toolSections name="create_saga_tools" label="Saga Tools">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="create_new_saga" label="create new Saga" containerMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="saga::Saga" referenceName="sagas">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'saga'+container.sagas->filter(saga::Saga)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'saga '+container.sagas->filter(saga::Saga)->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:NodeCreationDescription" name="create_step" label="create new SagaStep" nodeMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -28,6 +40,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.sagas->last()">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="saga::SagaStep" referenceName="steps">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'step'+container.eAllContents()->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'step '+container.eAllContents()->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -114,17 +127,6 @@
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="create_new_saga" label="create new Saga" containerMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="saga::Saga" referenceName="sagas">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="id" valueExpression="aql:'saga'+container.sagas->filter(saga::Saga)->size()"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Actions">
