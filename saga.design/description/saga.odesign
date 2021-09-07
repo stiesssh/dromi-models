@@ -45,7 +45,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="create_edge_step_task" label="Connect to Tasks" edgeMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_task']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="create_edge_step_task" label="Connect to Task" edgeMappings="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@edgeMappings[name='edge_saga_task']">
             <sourceVariable name="source_step"/>
             <targetVariable name="target_task"/>
             <sourceViewVariable name="sourceView"/>
