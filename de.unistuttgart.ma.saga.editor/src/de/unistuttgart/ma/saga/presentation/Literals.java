@@ -9,7 +9,7 @@ public class Literals {
 	public static final String gropiusUrl = "http://localhost:8080/api/";
 	public static final String gropiusProjectName = "t2-project";
 	
-	public static final String solomonUrl = "http://localhost:8082/rules/";
+	public static final String solomonUrl = "http://localhost:6400/solomon/slos/";
 	public static final String solomonDeploymentEnvironment= "kubernetes";
 	
 	public static final String bpmnFilePath = "/home/maumau/uni/14_21SS/project/repos/ma-final/de.unistuttgart.ma.backend/src/test/resources/t2Process.bpmn2";
