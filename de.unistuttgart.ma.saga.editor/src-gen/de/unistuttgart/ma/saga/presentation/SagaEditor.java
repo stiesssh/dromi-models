@@ -159,7 +159,6 @@ import de.unistuttgart.ma.saga.provider.SagaItemProviderAdapterFactory;
 
 import de.unistuttgart.gropius.provider.GropiusItemProviderAdapterFactory;
 import de.unistuttgart.gropius.slo.provider.SloItemProviderAdapterFactory;
-import de.unistuttgart.ma.saga.impact.provider.ImpactItemProviderAdapterFactory;
 import org.eclipse.bpmn2.di.provider.BpmnDiItemProviderAdapterFactory;
 
 import org.eclipse.bpmn2.provider.Bpmn2ItemProviderAdapterFactory;
@@ -717,7 +716,6 @@ public class SagaEditor
 		adapterFactory.addAdapterFactory(new DiItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DcItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GropiusItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ImpactItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SloItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 

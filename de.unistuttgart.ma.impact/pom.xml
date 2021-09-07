@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.unistuttgart.ma</groupId>
+	<artifactId>impact</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>impact</name>
+	<description>impact domain model</description>
+
+	<repositories>
+        <!-- for bpmn2 -->
+        <repository>
+            <id>jboss-public-repository-group</id>  
+            <name>JBoss Public Repository Group</name>  
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>  
+        </repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>2.24.0</version>
+		</dependency>
+
+        <!-- local -->
+		<dependency>
+			<groupId>de.unistuttgart.gropius.slo</groupId>
+			<artifactId>slo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>de.unistuttgart.ma</groupId>
+			<artifactId>saga</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>de.unistuttgart.gropius</groupId>
+			<artifactId>gropius</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse/org.eclipse.bpmn2 -->
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>org.eclipse.bpmn2</artifactId>
+            <version>0.8.2-jboss</version>
+        </dependency>
+
+	</dependencies>
+
+	<build>
+    <sourceDirectory>src-gen</sourceDirectory>
+		<plugins>
+		<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.0</version>
+    <configuration>
+        <release>11</release>
+    </configuration>
+		</plugin>
+		</plugins>
+	</build>
+
+</project>

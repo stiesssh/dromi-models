@@ -19,6 +19,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slo.ecore#//SloRule/gropiusComponent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference slo.ecore#//SloRule/gropiusComponentInterface"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute slo.ecore#//SloRule/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute slo.ecore#//SloRule/statisticsOption"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute slo.ecore#//SloRule/comparisonOperator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute slo.ecore#//SloRule/presetOption"/>
     </genClasses>
     <genClasses ecoreClass="slo.ecore#//solomon">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference slo.ecore#//solomon/rules"/>

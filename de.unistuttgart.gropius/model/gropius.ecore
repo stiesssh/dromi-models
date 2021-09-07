@@ -59,9 +59,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="issueComments" upperBound="-1"
         eType="#//Comment"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linksToIssues" upperBound="-1"
-        eType="#//Issue"/>
+        eType="#//Issue" eOpposite="#//Issue/linkedByIssues"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkedByIssues" upperBound="-1"
-        eType="#//Issue"/>
+        eType="#//Issue" eOpposite="#//Issue/linksToIssues"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignees" upperBound="-1"
         eType="#//User" eOpposite="#//User/assignedToIssues"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
@@ -73,7 +73,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="timeline" upperBound="-1"
         eType="#//IssueTimelineItem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
-        eType="#//IssueLocation"/>
+        eType="#//IssueLocation" eOpposite="#//IssueLocation/issueOnLocation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItem" abstract="true" interface="true"
       eSuperTypes="#//Node">
@@ -86,7 +86,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="issueOnLocation" upperBound="-1"
-        eType="#//Issue"/>
+        eType="#//Issue" eOpposite="#//Issue/location"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Label" eSuperTypes="#//Node">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

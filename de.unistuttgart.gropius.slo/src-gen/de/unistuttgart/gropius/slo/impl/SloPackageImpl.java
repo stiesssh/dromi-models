@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,6 +88,7 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 
 		// Initialize simple dependencies
 		GropiusPackage.eINSTANCE.eClass();
+		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSloPackage.createPackageContents();
@@ -179,6 +181,33 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSloRule_StatisticsOption() {
+		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSloRule_ComparisonOperator() {
+		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSloRule_PresetOption() {
+		return (EAttribute) sloRuleEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getsolomon() {
 		return solomonEClass;
 	}
@@ -229,6 +258,9 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT);
 		createEReference(sloRuleEClass, SLO_RULE__GROPIUS_COMPONENT_INTERFACE);
 		createEAttribute(sloRuleEClass, SLO_RULE__ID);
+		createEAttribute(sloRuleEClass, SLO_RULE__STATISTICS_OPTION);
+		createEAttribute(sloRuleEClass, SLO_RULE__COMPARISON_OPERATOR);
+		createEAttribute(sloRuleEClass, SLO_RULE__PRESET_OPTION);
 
 		solomonEClass = createEClass(SOLOMON);
 		createEReference(solomonEClass, SOLOMON__RULES);
@@ -261,6 +293,8 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 		// Obtain other dependent packages
 		GropiusPackage theGropiusPackage = (GropiusPackage) EPackage.Registry.INSTANCE
 				.getEPackage(GropiusPackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE
+				.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -287,6 +321,15 @@ public class SloPackageImpl extends EPackageImpl implements SloPackage {
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getSloRule_Id(), ecorePackage.getEString(), "id", null, 0, 1, SloRule.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSloRule_StatisticsOption(), theXMLTypePackage.getString(), "statisticsOption", null, 1, 1,
+				SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSloRule_ComparisonOperator(), theXMLTypePackage.getString(), "comparisonOperator", null, 1, 1,
+				SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSloRule_PresetOption(), theXMLTypePackage.getString(), "presetOption", null, 1, 1,
+				SloRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(solomonEClass, solomon.class, "solomon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getsolomon_Rules(), this.getSloRule(), null, "rules", null, 0, -1, solomon.class, !IS_TRANSIENT,

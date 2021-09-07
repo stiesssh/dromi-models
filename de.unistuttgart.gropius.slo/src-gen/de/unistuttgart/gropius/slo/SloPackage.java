@@ -130,13 +130,40 @@ public interface SloPackage extends EPackage {
 	int SLO_RULE__ID = 6;
 
 	/**
+	 * The feature id for the '<em><b>Statistics Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLO_RULE__STATISTICS_OPTION = 7;
+
+	/**
+	 * The feature id for the '<em><b>Comparison Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLO_RULE__COMPARISON_OPERATOR = 8;
+
+	/**
+	 * The feature id for the '<em><b>Preset Option</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLO_RULE__PRESET_OPTION = 9;
+
+	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLO_RULE_FEATURE_COUNT = 7;
+	int SLO_RULE_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Rule</em>' class.
@@ -272,6 +299,39 @@ public interface SloPackage extends EPackage {
 	EAttribute getSloRule_Id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getStatisticsOption <em>Statistics Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Statistics Option</em>'.
+	 * @see de.unistuttgart.gropius.slo.SloRule#getStatisticsOption()
+	 * @see #getSloRule()
+	 * @generated
+	 */
+	EAttribute getSloRule_StatisticsOption();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getComparisonOperator <em>Comparison Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comparison Operator</em>'.
+	 * @see de.unistuttgart.gropius.slo.SloRule#getComparisonOperator()
+	 * @see #getSloRule()
+	 * @generated
+	 */
+	EAttribute getSloRule_ComparisonOperator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.unistuttgart.gropius.slo.SloRule#getPresetOption <em>Preset Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Preset Option</em>'.
+	 * @see de.unistuttgart.gropius.slo.SloRule#getPresetOption()
+	 * @see #getSloRule()
+	 * @generated
+	 */
+	EAttribute getSloRule_PresetOption();
+
+	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.gropius.slo.solomon <em>solomon</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -380,6 +440,30 @@ public interface SloPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SLO_RULE__ID = eINSTANCE.getSloRule_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Statistics Option</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLO_RULE__STATISTICS_OPTION = eINSTANCE.getSloRule_StatisticsOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Comparison Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLO_RULE__COMPARISON_OPERATOR = eINSTANCE.getSloRule_ComparisonOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Preset Option</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLO_RULE__PRESET_OPTION = eINSTANCE.getSloRule_PresetOption();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.gropius.slo.impl.solomonImpl <em>solomon</em>}' class.

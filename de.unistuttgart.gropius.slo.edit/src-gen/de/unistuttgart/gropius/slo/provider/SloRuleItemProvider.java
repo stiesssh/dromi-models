@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -59,6 +60,9 @@ public class SloRuleItemProvider extends ItemProviderAdapter implements IEditing
 			addGropiusComponentPropertyDescriptor(object);
 			addGropiusComponentInterfacePropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
+			addStatisticsOptionPropertyDescriptor(object);
+			addComparisonOperatorPropertyDescriptor(object);
+			addPresetOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -172,6 +176,54 @@ public class SloRuleItemProvider extends ItemProviderAdapter implements IEditing
 	}
 
 	/**
+	 * This adds a property descriptor for the Statistics Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatisticsOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SloRule_statisticsOption_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SloRule_statisticsOption_feature",
+								"_UI_SloRule_type"),
+						SloPackage.Literals.SLO_RULE__STATISTICS_OPTION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Comparison Operator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addComparisonOperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SloRule_comparisonOperator_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SloRule_comparisonOperator_feature",
+								"_UI_SloRule_type"),
+						SloPackage.Literals.SLO_RULE__COMPARISON_OPERATOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Preset Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPresetOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_SloRule_presetOption_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_SloRule_presetOption_feature",
+								"_UI_SloRule_type"),
+						SloPackage.Literals.SLO_RULE__PRESET_OPTION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns SloRule.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +273,9 @@ public class SloRuleItemProvider extends ItemProviderAdapter implements IEditing
 		case SloPackage.SLO_RULE__PERIOD:
 		case SloPackage.SLO_RULE__THRESHOLD:
 		case SloPackage.SLO_RULE__ID:
+		case SloPackage.SLO_RULE__STATISTICS_OPTION:
+		case SloPackage.SLO_RULE__COMPARISON_OPERATOR:
+		case SloPackage.SLO_RULE__PRESET_OPTION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

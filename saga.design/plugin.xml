@@ -132,4 +132,13 @@
             label="saga.process.event.intermediate.compensate">
       </image>
    </extension>
+   <extension
+         id="saga.slo.single"
+         name="single slo"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/slo.svg"
+            label="saga.slo.single">
+      </image>
+   </extension>
 </plugin>

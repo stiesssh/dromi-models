@@ -5,12 +5,11 @@ Bundle-SymbolicName: de.unistuttgart.ma.saga.edit;singleton:=true
 Automatic-Module-Name: de.unistuttgart.ma.saga.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.unistuttgart.ma.saga.impact.provider.ImpactEditPlugin$Implementation
+Bundle-Activator: de.unistuttgart.ma.saga.provider.SagaEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: de.unistuttgart.ma.saga.provider,
- de.unistuttgart.ma.saga.impact.provider
+Export-Package: de.unistuttgart.ma.saga.provider
 Require-Bundle: org.eclipse.core.runtime,
  de.unistuttgart.ma.saga;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,

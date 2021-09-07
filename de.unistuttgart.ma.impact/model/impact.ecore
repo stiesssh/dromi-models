@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="impact" nsURI="http://www.example.org/impact" nsPrefix="impact">
+  <eClassifiers xsi:type="ecore:EClass" name="Notification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topLevelImpact" ordered="false"
+        lowerBound="1" eType="#//Impact"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootCause" lowerBound="1"
+        eType="#//Violation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Impact">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cause" eType="#//Impact"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Violation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="violatedRule" lowerBound="1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" lowerBound="1" eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startTime" lowerBound="1"
+        eType="#//Date"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Date" instanceClassName="java.time.LocalDateTime"/>
+</ecore:EPackage>

@@ -31,6 +31,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getGropiusComponent <em>Gropius Component</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getGropiusComponentInterface <em>Gropius Component Interface</em>}</li>
  *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getId <em>Id</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getStatisticsOption <em>Statistics Option</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getComparisonOperator <em>Comparison Operator</em>}</li>
+ *   <li>{@link de.unistuttgart.gropius.slo.impl.SloRuleImpl#getPresetOption <em>Preset Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -145,6 +148,66 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 	 * @ordered
 	 */
 	protected String id = ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStatisticsOption() <em>Statistics Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatisticsOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATISTICS_OPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStatisticsOption() <em>Statistics Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatisticsOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected String statisticsOption = STATISTICS_OPTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getComparisonOperator() <em>Comparison Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparisonOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMPARISON_OPERATOR_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getComparisonOperator() <em>Comparison Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparisonOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comparisonOperator = COMPARISON_OPERATOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPresetOption() <em>Preset Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPresetOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PRESET_OPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPresetOption() <em>Preset Option</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPresetOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected String presetOption = PRESET_OPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -376,6 +439,72 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getStatisticsOption() {
+		return statisticsOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatisticsOption(String newStatisticsOption) {
+		String oldStatisticsOption = statisticsOption;
+		statisticsOption = newStatisticsOption;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.SLO_RULE__STATISTICS_OPTION,
+					oldStatisticsOption, statisticsOption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getComparisonOperator() {
+		return comparisonOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComparisonOperator(String newComparisonOperator) {
+		String oldComparisonOperator = comparisonOperator;
+		comparisonOperator = newComparisonOperator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.SLO_RULE__COMPARISON_OPERATOR,
+					oldComparisonOperator, comparisonOperator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPresetOption() {
+		return presetOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPresetOption(String newPresetOption) {
+		String oldPresetOption = presetOption;
+		presetOption = newPresetOption;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SloPackage.SLO_RULE__PRESET_OPTION, oldPresetOption,
+					presetOption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -399,6 +528,12 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 			return basicGetGropiusComponentInterface();
 		case SloPackage.SLO_RULE__ID:
 			return getId();
+		case SloPackage.SLO_RULE__STATISTICS_OPTION:
+			return getStatisticsOption();
+		case SloPackage.SLO_RULE__COMPARISON_OPERATOR:
+			return getComparisonOperator();
+		case SloPackage.SLO_RULE__PRESET_OPTION:
+			return getPresetOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -431,6 +566,15 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 			return;
 		case SloPackage.SLO_RULE__ID:
 			setId((String) newValue);
+			return;
+		case SloPackage.SLO_RULE__STATISTICS_OPTION:
+			setStatisticsOption((String) newValue);
+			return;
+		case SloPackage.SLO_RULE__COMPARISON_OPERATOR:
+			setComparisonOperator((String) newValue);
+			return;
+		case SloPackage.SLO_RULE__PRESET_OPTION:
+			setPresetOption((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -465,6 +609,15 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 		case SloPackage.SLO_RULE__ID:
 			setId(ID_EDEFAULT);
 			return;
+		case SloPackage.SLO_RULE__STATISTICS_OPTION:
+			setStatisticsOption(STATISTICS_OPTION_EDEFAULT);
+			return;
+		case SloPackage.SLO_RULE__COMPARISON_OPERATOR:
+			setComparisonOperator(COMPARISON_OPERATOR_EDEFAULT);
+			return;
+		case SloPackage.SLO_RULE__PRESET_OPTION:
+			setPresetOption(PRESET_OPTION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -491,6 +644,14 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 			return gropiusComponentInterface != null;
 		case SloPackage.SLO_RULE__ID:
 			return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+		case SloPackage.SLO_RULE__STATISTICS_OPTION:
+			return STATISTICS_OPTION_EDEFAULT == null ? statisticsOption != null
+					: !STATISTICS_OPTION_EDEFAULT.equals(statisticsOption);
+		case SloPackage.SLO_RULE__COMPARISON_OPERATOR:
+			return COMPARISON_OPERATOR_EDEFAULT == null ? comparisonOperator != null
+					: !COMPARISON_OPERATOR_EDEFAULT.equals(comparisonOperator);
+		case SloPackage.SLO_RULE__PRESET_OPTION:
+			return PRESET_OPTION_EDEFAULT == null ? presetOption != null : !PRESET_OPTION_EDEFAULT.equals(presetOption);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -514,6 +675,12 @@ public class SloRuleImpl extends MinimalEObjectImpl.Container implements SloRule
 		result.append(threshold);
 		result.append(", id: ");
 		result.append(id);
+		result.append(", statisticsOption: ");
+		result.append(statisticsOption);
+		result.append(", comparisonOperator: ");
+		result.append(comparisonOperator);
+		result.append(", presetOption: ");
+		result.append(presetOption);
 		result.append(')');
 		return result.toString();
 	}
