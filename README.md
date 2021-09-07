@@ -60,7 +60,9 @@ Tool / Plugin                                     | version
 
 To work properly the editor need some services to run in the background. 
 They are listed below. 
-With out them, the creation of model will throw some errors and you will end up with and entirely empty model. 
+At least the thesis' backend must be up to create models. 
+All others are optional. 
+With out them, the import of existing  model will fail and you will end up with and entirely empty model. 
 Which is also okay, as you can still add any kind of elements manually, but it is not what we *want*.
 
 The versions, are those with which the editor has been tested up to now. 
@@ -80,5 +82,41 @@ Tool                     | version (commit)         | purpose
 
 ## Usage (Editor Tutorial) 
 
+Upon starting the Runtime Eclipse (the *actual* editor), you first need to create a new model.
+1. Create a project to put the model into : *File* ->  *New* -> *Modelling Project* 
+2. Create the model : 
+    * *File* -> *New* -> *Other...* 
+    * search for and select *Saga Model* and click *Next >*
+    * choose previously created project and click *Next >*
+    * do nothing and click *Next >*
+    * enter the required values and click *Finish*
+3. Open the right view:
+    * open the representation file (`*.aird`). If it is missing, create one. 
+    * enable the `System View` in the representation section.
+    * and create a new view, either by double clicking or by clicking the *New...*
+    * choose the newly created model and click *Finish*
+    * give the model a name of your choice and confirm. 
+
+You should now see something akin to this (the model in the editor pane is most likely a different one):
 
 ![editor-slo](./documentation/editor-ov.png)
+
+On the left of the picture are the *Model Explorer* view and the *Outline* view, on the bottom are the *Properties* view and others. 
+Nothing new there. 
+
+In the middle is the editor pane, which is defined by the `saga.design` plugin. 
+Its most important elements are the graphical representation of the model and the tool bar on the right. 
+
+### The Tools :
+* `create new Saga` : add a new Saga to the model. 
+* `create new SagaStep` : add a new Step to the most recently Created Saga. You can not add any steps when there are not yet any Sagas.
+* `Connect to Task` : connect a SagaStep to a Task.
+* `Connect to Interface` : connect a SagaStep to an Interface.
+* `Connect to next Step` : set reference to the SagaStep, that comes after this SagaStep. 
+* `Post to Backend` : after editing the model to your liking, you use this to post it to the thesis' backend. The Editor prompts you once again for the location of the thesis' backend. Most sadly it does so via command line :(
+
+### Other Points of Interaction: 
+* all elements may be moved, either alone or in groups. 
+* tasks and steps can not leave their container (process / saga) but can be moved therein.
+* edges that originate at steps can be reconnected by dragging the opposite end to another task / interface / step.
+* Slo rules and Sagas can be hidden or shown by (de) selecting their layer under *Layers* (fourth icon from the left in the icon bar at the upper edge of the editor pane)
