@@ -60,31 +60,5 @@
       </view>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated impact -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="de.unistuttgart.ma.saga.impact.presentation.ImpactModelWizardID"
-            name="%_UI_ImpactModelWizard_label"
-            class="de.unistuttgart.ma.saga.impact.presentation.ImpactModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ImpactModelFile.gif">
-         <description>%_UI_ImpactModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated impact -->
-      <editor
-            id="de.unistuttgart.ma.saga.impact.presentation.ImpactEditorID"
-            name="%_UI_ImpactEditor_label"
-            icon="icons/full/obj16/ImpactModelFile.gif"
-            extensions="impact"
-            class="de.unistuttgart.ma.saga.impact.presentation.ImpactEditor"
-            contributorClass="de.unistuttgart.ma.saga.impact.presentation.ImpactActionBarContributor">
-      </editor>
-   </extension>
 </plugin>
