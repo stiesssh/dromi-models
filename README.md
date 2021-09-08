@@ -25,7 +25,6 @@ There are also folders with other things :
 folder                      | content
 ----------------------------|----------
 [de.unistuttgart.ma.impact](./de.unistuttgart.ma.impact)        | ecore model for impacts. only used to generated classes for the back end (no editor and stuff), that is why it is not listed above. 
-[de.unistuttgart.gropius.api](./de.unistuttgart.gropius.api)    | generated classes to talk to the gropius API.
 [saga.design](./saga.design)    | design of the editor. 
 
 
@@ -69,7 +68,7 @@ The versions, are those with which the editor has been tested up to now.
 
 Tool                     | version (commit)         | purpose
 -------------------------|----------------------|-----------
-[Thesis’ backend](https://github.com/stiesssh/de.unistuttgart.ma.backend) | f87dc5ccf7875461eb9e8769331fb09c58f54b04 | Does all the importing work.
+[Thesis’ backend](https://github.com/stiesssh/ma-backend) | f87dc5ccf7875461eb9e8769331fb09c58f54b04 | Does all the importing work.
 [Gropius backend](https://github.com/ccims/ccims-backend-gql) | 123381d602a53241d270256b471874578cd621be | Cross-component issue management tool. For us, it provides the architecture. If there is not yet any architecture you must add one yourself. When adding a new architecture, it might be recommendable to also run the [Gropius frontend](https://github.com/ccims/ccims-frontend).
 [Solomon](https://github.com/ccims/solomon) | d1861e603a122b23c959511a35a5c6668deadb7f | sla management tool. for us, it provides the slo rules. If there are not yet any Slo rules, you must add them yourself. When adding new Slo rules, it might be recommendable to also run the front end. Otherwise, the back end is sufficient.
 
