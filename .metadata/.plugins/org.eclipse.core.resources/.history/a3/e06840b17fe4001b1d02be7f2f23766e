@@ -1,7 +1,0 @@
-package saga.design;
-
-import org.eclipse.sirius.diagram.ui.tools.api.layout.provider.DefaultLayoutProvider;
-
-public class MyLayoutProvider extends DefaultLayoutProvider{
-
-}

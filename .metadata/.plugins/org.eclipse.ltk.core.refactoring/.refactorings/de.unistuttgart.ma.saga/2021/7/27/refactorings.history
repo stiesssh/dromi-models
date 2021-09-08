@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring accessors="true" comment="Delete element from project &apos;de.unistuttgart.ma.saga&apos;&#x0A;- Original project: &apos;de.unistuttgart.ma.saga&apos;&#x0A;- Original element: &apos;de.unistuttgart.ma.saga.impl.ChainStartImpl.java&apos;" description="Delete element" element1="/src-gen&lt;de.unistuttgart.ma.saga.impl{ChainStartImpl.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1625738290584" subPackages="false" version="1.0"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move 0 packages to &apos;de.unistuttgart.ma.saga.editor/src&apos;&#x0A;- Destination element: &apos;de.unistuttgart.ma.saga.editor/src&apos;&#x0A;- Update references to refactored element" description="Move packages" destination="=de.unistuttgart.ma.saga.editor/src" flags="589830" fragments="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1625732875047" version="1.0"/>
-</session>
