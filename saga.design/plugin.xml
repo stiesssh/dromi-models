@@ -88,15 +88,6 @@
       </image>
    </extension>
    <extension
-         id="saga.design.helloWorldAction"
-         name="saga.design.helloWorldAction"
-         point="org.eclipse.sirius.externalJavaAction">
-      <javaActions
-            actionClass="saga.design.actions.JavaActions1"
-            id="saga.design.helloWorldAction">
-      </javaActions>
-   </extension>
-   <extension
          id="saga.design.postModelAction"
          name="saga.design.postModelAction"
          point="org.eclipse.sirius.externalJavaAction">

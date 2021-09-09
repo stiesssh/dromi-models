@@ -35,30 +35,6 @@
       </editor>
    </extension>
 
-   <extension
-         point="org.eclipse.help.contexts">
-      <contexts
-            file="contexts.xml">
-      </contexts>
-      <contexts
-            file="contexts.xml">
-      </contexts>
-   </extension>
-   <extension
-         point="org.eclipse.ui.views">
-      <category
-            id="de.unistuttgart.ma.saga"
-            name="Sample Category">
-      </category>
-      <view
-            category="de.unistuttgart.ma.saga"
-            class="de.unistuttgart.ma.saga.presentation.FooView"
-            icon="icons/sample.png"
-            id="de.unistuttgart.ma.saga.presentation.FooView"
-            inject="true"
-            name="Foo View">
-      </view>
-   </extension>
 
 
 </plugin>

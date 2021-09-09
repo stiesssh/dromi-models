@@ -401,15 +401,6 @@ public class SagaModelWizard extends Wizard implements INewWizard {
 				composite.setLayoutData(data);
 			}
 
-			Label containerLabel = new Label(composite, SWT.LEFT);
-			{
-				containerLabel.setText(SagaEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
-
-				GridData data = new GridData();
-				data.horizontalAlignment = GridData.FILL;
-				containerLabel.setLayoutData(data);
-			}
-
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
 				encodingLabel.setText(SagaEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));

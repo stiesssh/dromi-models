@@ -13,15 +13,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
 /**
  * Responsible for sending the selected System to the backend.
- * 
- * @author maumau
  *
  */
 public class SendToBackendAction implements IExternalJavaAction {
@@ -31,7 +28,7 @@ public class SendToBackendAction implements IExternalJavaAction {
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 
-		// TODO remove this hack and figure out for real, why every click triggers tweo
+		// TODO remove this hack and figure out for real, why every click triggers two
 		// executions.
 		beenThereDoneThat = !beenThereDoneThat;
 		if (beenThereDoneThat) {
@@ -50,17 +47,12 @@ public class SendToBackendAction implements IExternalJavaAction {
 				String systemXML;
 				try {
 					systemXML = serialize(system);
-					URI ressourceUri = system.eResource().getURI();
-					//post(systemXML, ressourceUri.path());
 					post(systemXML, system.getId());
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 			}
 		}
-
 	}
 
 	@Override
@@ -114,13 +106,9 @@ public class SendToBackendAction implements IExternalJavaAction {
 			}
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
-
 }

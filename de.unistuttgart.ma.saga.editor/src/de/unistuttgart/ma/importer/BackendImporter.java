@@ -21,6 +21,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.unistuttgart.ma.saga.System;
 import de.unistuttgart.ma.saga.presentation.Literals;
 
+/**
+ * The {@code BackendImporter} handles communication with the back end.
+ */
 public class BackendImporter {
 
 	private String hostUri;
@@ -32,10 +35,15 @@ public class BackendImporter {
 	}
 
 	/**
+	 * Get a model of the system from the backend.
 	 * 
-	 * @return
-	 * @throws InterruptedException
+	 * The back end does the importing of architecture, process and slo rules and
+	 * returns the merged model to this editor.
+	 * 
+	 * @param importRequest Request with all the information for the backend.
+	 * @return model of the system
 	 * @throws IOException
+	 * @throws InterruptedException
 	 */
 	public System getSystem(ImportRequest importRequest) throws IOException, InterruptedException {
 		URI requestUri = URI.create(hostUri + Literals.backendPostModelEndpoint);
@@ -58,13 +66,14 @@ public class BackendImporter {
 	}
 
 	/**
+	 * Deserialize a {@link System} from its xml representation.
 	 * 
-	 * @param xml
-	 * @return
+	 * @param xml xml representation of the system
+	 * @return model of the system
 	 */
 	public System parseSystem(String xml) {
 		InputStream targetStream = new ByteArrayInputStream(xml.getBytes());
-		// selbes set wie system, um proxies zu resolven.
+
 		ResourceSet set = new ResourceSetImpl();
 		Resource resource = set
 				.getResource(org.eclipse.emf.common.util.URI.createPlatformResourceURI("foo.saga", false), false);
@@ -80,10 +89,8 @@ public class BackendImporter {
 				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return null;
 	}
 }

@@ -16,10 +16,7 @@ import de.unistuttgart.ma.saga.provider.SagaEditPlugin;
 
 
 /**
- * This is the page where the type of object to create is selected.
- * 
- * Optional, in case you already have some BPMN lying around. 
- *  
+ * Additional WizardPage for the Saga Creation Wizard.
  */
 public class SagaModelWizardConfigPage extends WizardPage {
 

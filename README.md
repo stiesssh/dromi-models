@@ -92,7 +92,7 @@ Upon starting the Runtime Eclipse (the *actual* editor), you first need to creat
     * enter the required values and click *Finish*
 3. Open the correct view:
     * open the representation file (`*.aird`). If it is missing, create one. 
-    * enable the `System View` in the *representation* section.
+    * enable the `totalView` in the *representation* section.
     * create a new view, either by double clicking or by clicking the *New...* button
     * choose the model you just created and click *Finish*
     * give the model a name of your choice and confirm. 
@@ -108,8 +108,8 @@ In the middle is the editor pane, which is defined by the `saga.design` plugin.
 Its most important elements are the graphical representation of the model and the tool bar on the right. 
 
 ### The Graphical Representation (Syntax) :
-* Processes are displayed in BPMN (c.f. upper third of the editor pane).
-* The Architecture is displayed like a UML Component Diagram (c.f. bottom third of the editor pane).
+* Processes are displayed similar to BPMN (c.f. upper third of the editor pane).
+* The Architecture is displayed similar to UML Component Diagrams (c.f. bottom third of the editor pane).
 * The Saga is displayed as an Oval. 
 * The SagaSteps are displayed as rectangles within the oval of their saga. 
 
