@@ -23,9 +23,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//IssueLocation #//Node">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//User"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ims" eType="#//IMS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ims" eType="#//IMS" eOpposite="#//IMS/component"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="issues" upperBound="-1"
-        eType="#//Issue"/>
+        eType="#//Issue" eOpposite="#//Issue/pinnedOn"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
         eType="#//Project"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
@@ -37,7 +37,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IMS" eSuperTypes="#//Node">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="imsType" eType="#//IMSType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"
+        eOpposite="#//Component/ims"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentInterface" eSuperTypes="#//IssueLocation #//Node">
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
@@ -69,15 +70,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="participants" upperBound="-1"
         eType="#//User" eOpposite="#//User/participantOfIssue"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pinnedOn" upperBound="-1"
-        eType="#//Component"/>
+        eType="#//Component" eOpposite="#//Component/issues"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="timeline" upperBound="-1"
-        eType="#//IssueTimelineItem"/>
+        eType="#//IssueTimelineItem" eOpposite="#//IssueTimelineItem/issue"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
         eType="#//IssueLocation" eOpposite="#//IssueLocation/issueOnLocation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IssueTimelineItem" abstract="true" interface="true"
       eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issue" eType="#//Issue"
+        eOpposite="#//Issue/timeline"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="createdBy" eType="#//User"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="#//Date"/>
   </eClassifiers>
