@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="de.unistuttgart.ma.saga.feature">
+      <category name="ma.saga"/>
+   </feature>
+   <category-def name="ma.saga" label="Saga Editor">
+      <description>
+         Editor for Master Thesis
+      </description>
+   </category-def>
+</site>
