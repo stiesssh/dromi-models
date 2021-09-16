@@ -27,3 +27,4 @@ hs_err_pid*
 
 **/de.unistuttgart.ma.saga.tests/*
 **/target/*
+!plugin/**/*.jar
