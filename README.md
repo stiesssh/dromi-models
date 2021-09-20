@@ -26,7 +26,8 @@ folder                      | content
 ----------------------------|----------
 [de.unistuttgart.ma.impact](./de.unistuttgart.ma.impact)        | Ecore model for impacts. only used to generated classes for the back end (no edit or editor code). 
 [saga.design](./saga.design)    | Design of the editor. It is a plugin, created with Sirius.
-
+[de.unistuttgart.ma.saga.feature](./de.unistuttgart.ma.saga.feature)    | Feature to export the editor.
+[plugin](./plugin)  | Exported Editor plugin, intended for installation into an existing Eclipse. 
 
 ## Model Dependencies 
 
@@ -72,15 +73,28 @@ Tool                     | version (commit)         | purpose
 [Gropius backend](https://github.com/ccims/ccims-backend-gql) | 123381d602a53241d270256b471874578cd621be | Cross-component issue management tool. For us, it provides the architecture. If there is not yet any architecture you must add one yourself. When adding a new architecture, it might be recommendable to also run the [Gropius frontend](https://github.com/ccims/ccims-frontend).
 [Solomon](https://github.com/ccims/solomon) | d1861e603a122b23c959511a35a5c6668deadb7f | sla management tool. for us, it provides the slo rules. If there are not yet any Slo rules, you must add them yourself. When adding new Slo rules, it might be recommendable to also run the front end. Otherwise, the back end is sufficient.
 
+## Install Editor as Plugin
+1. Get some tool, that's able to handle EMF stuff, e.g. any of these:
+    * Obeo Designer: https://www.obeodesigner.com/en/download
+    * Eclipse Modeling Tools : https://www.eclipse.org/downloads/packages/release/2021-09/r/eclipse-modeling-tools
 
-## Usage (Import & Run)
+2. Make sure to have *Sirius ELK Integration (Experimental)* installed. Its part of Sirius. Sirius update pages are somewhere around here : https://download.eclipse.org/sirius/updates/releases/
+    * Obeo Designer: does already include Sirius, but not ELK, as it is still experimental.
+    * Eclipse Modeling Tools : does not include Sirius. Maybe you must install more sirius stuff than just the ELK integration. 
+
+    The Editor also works without ELK, but it looks pretty shitty. The ELK is used for the layouting of the diagrams. Without it the diagram elements are all mixed up.
+
+3. Install the Thesis' Editor.
+    * Go to *Help* -> *Install new Software* and add the folder [plugin](./plugin) as local update site.
+    * Choose *Saga Editor* add agree through all the agreement things. 
+
+## Import Editor for Development
 1. Get some tool, that's able to handle EMF stuff. 
 2. Get the project of the BPMN2 ecore model (including the `.edit`) an import it. (In case it has some errors, it is likely that they won't matter....)
-2. Import everything from this repository, at best as *existing Project*
-3. Choose `Run as Eclipse Application`
-4. A Runtime Eclipse will open and you can use the model editor. 
+2. Import model and editor projects from this repository, at best as *existing Project*
+ 
 
-## Usage (Of the Thesis' Editor) 
+## Usage of the Thesis' Editor
 
 Upon starting the Runtime Eclipse (the *actual* editor), you first need to create a new model.
 1. Create a project to put the model into : *File* ->  *New* -> *Modelling Project* 
