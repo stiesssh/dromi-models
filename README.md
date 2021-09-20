@@ -78,15 +78,17 @@ Tool                     | version (commit)         | purpose
     * Obeo Designer: https://www.obeodesigner.com/en/download
     * Eclipse Modeling Tools : https://www.eclipse.org/downloads/packages/release/2021-09/r/eclipse-modeling-tools
 
-2. Make sure to have *Sirius ELK Integration (Experimental)* installed. Its part of Sirius. Sirius update pages are somewhere around here : https://download.eclipse.org/sirius/updates/releases/
-    * Obeo Designer: does already include Sirius, but not ELK, as it is still experimental.
-    * Eclipse Modeling Tools : does not include Sirius. Maybe you must install more sirius stuff than just the ELK integration. 
 
-    The Editor also works without ELK, but it looks pretty shitty. The ELK is used for the layouting of the diagrams. Without it the diagram elements are all mixed up.
-
-3. Install the Thesis' Editor.
+2. Install the Thesis' Editor.
     * Go to *Help* -> *Install new Software* and add the folder [plugin](./plugin) as local update site.
     * Choose *Saga Editor* add agree through all the agreement things. 
+
+    The Editor should work by now, but the layouting of the diagram elements will be pretty shitty (default is vertically, such that you must read you everything from top to bottom).
+
+3. For better layouting, make sure to have *Sirius ELK Integration (Experimental)* installed. Its part of Sirius. Sirius update pages are somewhere around here : https://download.eclipse.org/sirius/updates/releases/
+
+    
+
 
 ## Import Editor for Development
 1. Get some tool, that's able to handle EMF stuff. 
