@@ -50,11 +50,11 @@ The latter depends on the former and both depend on all the models.
 ## Requirements I - Development
 The models and editor where designed with the tools / eclipse plugins listed below. Also Java 11. 
 
-Tool / Plugin                                     | version
---------------------------------------------------|------------
-[Obeo Designer](https://www.obeodesigner.com/)    | `11.5`
-[Eclipse Sirius](https://www.eclipse.org/sirius/) | `6.5.1`
-[Sirius ELK Integration (Experimental)]()         | `6.5.1`
+Tool / Plugin                                                           | version
+------------------------------------------------------------------------|------------
+[Obeo Designer](https://www.obeodesigner.com/)                          | `11.5`
+[Eclipse Sirius](https://www.eclipse.org/sirius/)                       | `6.5.1`
+[Sirius ELK Integration (Experimental)](https://www.eclipse.org/elk/)   | `6.5.1`
 
 ## Requirements II - Usage
 
