@@ -53,7 +53,7 @@ The models and editor where designed with the tools / eclipse plugins listed bel
 Tool / Plugin                                                           | version
 ------------------------------------------------------------------------|------------
 [Obeo Designer](https://www.obeodesigner.com/)                          | `11.5`
-[Eclipse Sirius incl. Sirius ELK Integration (Experimental)] (https://www.eclipse.org/sirius/)                       | `6.5.1`
+[Eclipse Sirius incl. Sirius ELK Integration (Experimental)](https://www.eclipse.org/sirius/)                       | `6.5.1`
 
 ## Requirements II - Usage
 
