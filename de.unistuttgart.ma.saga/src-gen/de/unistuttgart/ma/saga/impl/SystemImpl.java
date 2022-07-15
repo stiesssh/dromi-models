@@ -8,6 +8,7 @@ import de.unistuttgart.gropius.Project;
 
 import de.unistuttgart.gropius.slo.SloRule;
 
+import de.unistuttgart.ma.saga.Connector;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaPackage;
 import de.unistuttgart.ma.saga.SagaStep;
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getProcesses <em>Processes</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getSloRules <em>Slo Rules</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.impl.SystemImpl#getConnectors <em>Connectors</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +88,16 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	 * @ordered
 	 */
 	protected EList<SloRule> sloRules;
+
+	/**
+	 * The cached value of the '{@link #getConnectors() <em>Connectors</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Connector> connectors;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -190,6 +202,18 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Connector> getConnectors() {
+		if (connectors == null) {
+			connectors = new EObjectContainmentEList<Connector>(Connector.class, this, SagaPackage.SYSTEM__CONNECTORS);
+		}
+		return connectors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -201,6 +225,8 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				return basicSetArchitecture(null, msgs);
 			case SagaPackage.SYSTEM__SLO_RULES:
 				return ((InternalEList<?>)getSloRules()).basicRemove(otherEnd, msgs);
+			case SagaPackage.SYSTEM__CONNECTORS:
+				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -221,6 +247,8 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				return getArchitecture();
 			case SagaPackage.SYSTEM__SLO_RULES:
 				return getSloRules();
+			case SagaPackage.SYSTEM__CONNECTORS:
+				return getConnectors();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,6 +277,10 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				getSloRules().clear();
 				getSloRules().addAll((Collection<? extends SloRule>)newValue);
 				return;
+			case SagaPackage.SYSTEM__CONNECTORS:
+				getConnectors().clear();
+				getConnectors().addAll((Collection<? extends Connector>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -273,6 +305,9 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 			case SagaPackage.SYSTEM__SLO_RULES:
 				getSloRules().clear();
 				return;
+			case SagaPackage.SYSTEM__CONNECTORS:
+				getConnectors().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,6 +328,8 @@ public class SystemImpl extends IdentifiableElementImpl implements de.unistuttga
 				return architecture != null;
 			case SagaPackage.SYSTEM__SLO_RULES:
 				return sloRules != null && !sloRules.isEmpty();
+			case SagaPackage.SYSTEM__CONNECTORS:
+				return connectors != null && !connectors.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

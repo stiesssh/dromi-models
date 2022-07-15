@@ -8,12 +8,9 @@ import de.unistuttgart.gropius.Project;
 
 import de.unistuttgart.gropius.slo.SloRule;
 
-import java.util.HashSet;
-import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.eclipse.bpmn2.FlowElement;
-import org.eclipse.bpmn2.Process;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -29,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.unistuttgart.ma.saga.System#getProcesses <em>Processes</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.System#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link de.unistuttgart.ma.saga.System#getSloRules <em>Slo Rules</em>}</li>
+ *   <li>{@link de.unistuttgart.ma.saga.System#getConnectors <em>Connectors</em>}</li>
  * </ul>
  *
  * @see de.unistuttgart.ma.saga.SagaPackage#getSystem()
@@ -95,6 +93,18 @@ public interface System extends IdentifiableElement {
 	EList<SloRule> getSloRules();
 	
 	
+	/**
+	 * Returns the value of the '<em><b>Connectors</b></em>' containment reference list.
+	 * The list contents are of type {@link de.unistuttgart.ma.saga.Connector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connectors</em>' containment reference list.
+	 * @see de.unistuttgart.ma.saga.SagaPackage#getSystem_Connectors()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Connector> getConnectors();
+
 	/**
 	 * @generated NOT
 	 */

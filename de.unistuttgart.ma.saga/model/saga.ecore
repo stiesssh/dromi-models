@@ -13,6 +13,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sloRules" upperBound="-1"
         eType="ecore:EClass ../../de.unistuttgart.gropius.slo/model/slo.ecore#//SloRule"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
+        eType="#//Connector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Saga" eSuperTypes="#//IdentifiableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="steps" ordered="false"
@@ -37,5 +39,10 @@
         <details key="documentation" value="Human readable name. "/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="componentinterface" lowerBound="1"
+        eType="ecore:EClass ../../de.unistuttgart.gropius/model/gropius.ecore#//ComponentInterface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="ecore:EClass ../../org.eclipse.bpmn2/model/BPMN20.ecore#//Task"/>
   </eClassifiers>
 </ecore:EPackage>

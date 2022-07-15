@@ -2,6 +2,7 @@
  */
 package de.unistuttgart.ma.saga.impl;
 
+import de.unistuttgart.ma.saga.Connector;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaFactory;
 import de.unistuttgart.ma.saga.SagaPackage;
@@ -62,6 +63,7 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 			case SagaPackage.SYSTEM: return createSystem();
 			case SagaPackage.SAGA: return createSaga();
 			case SagaPackage.SAGA_STEP: return createSagaStep();
+			case SagaPackage.CONNECTOR: return createConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -95,6 +97,16 @@ public class SagaFactoryImpl extends EFactoryImpl implements SagaFactory {
 	public SagaStep createSagaStep() {
 		SagaStepImpl sagaStep = new SagaStepImpl();
 		return sagaStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Connector createConnector() {
+		ConnectorImpl connector = new ConnectorImpl();
+		return connector;
 	}
 
 	/**

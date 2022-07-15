@@ -6,6 +6,7 @@ import de.unistuttgart.gropius.GropiusPackage;
 
 import de.unistuttgart.gropius.slo.SloPackage;
 
+import de.unistuttgart.ma.saga.Connector;
 import de.unistuttgart.ma.saga.IdentifiableElement;
 import de.unistuttgart.ma.saga.Saga;
 import de.unistuttgart.ma.saga.SagaFactory;
@@ -60,6 +61,13 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * @generated
 	 */
 	private EClass identifiableElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectorEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -180,6 +188,15 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSystem_Connectors() {
+		return (EReference)systemEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSaga() {
 		return sagaEClass;
 	}
@@ -261,6 +278,33 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConnector() {
+		return connectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnector_Componentinterface() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConnector_Task() {
+		return (EReference)connectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SagaFactory getSagaFactory() {
 		return (SagaFactory)getEFactoryInstance();
 	}
@@ -289,6 +333,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		createEReference(systemEClass, SYSTEM__PROCESSES);
 		createEReference(systemEClass, SYSTEM__ARCHITECTURE);
 		createEReference(systemEClass, SYSTEM__SLO_RULES);
+		createEReference(systemEClass, SYSTEM__CONNECTORS);
 
 		sagaEClass = createEClass(SAGA);
 		createEReference(sagaEClass, SAGA__STEPS);
@@ -301,6 +346,10 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		identifiableElementEClass = createEClass(IDENTIFIABLE_ELEMENT);
 		createEAttribute(identifiableElementEClass, IDENTIFIABLE_ELEMENT__ID);
 		createEAttribute(identifiableElementEClass, IDENTIFIABLE_ELEMENT__NAME);
+
+		connectorEClass = createEClass(CONNECTOR);
+		createEReference(connectorEClass, CONNECTOR__COMPONENTINTERFACE);
+		createEReference(connectorEClass, CONNECTOR__TASK);
 	}
 
 	/**
@@ -346,6 +395,7 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		initEReference(getSystem_Processes(), theBpmn2Package.getProcess(), null, "processes", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSystem_Architecture(), theGropiusPackage.getProject(), null, "architecture", null, 1, 1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_SloRules(), theSloPackage.getSloRule(), null, "sloRules", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSystem_Connectors(), this.getConnector(), null, "connectors", null, 0, -1, de.unistuttgart.ma.saga.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sagaEClass, Saga.class, "Saga", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSaga_Steps(), this.getSagaStep(), null, "steps", null, 0, -1, Saga.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -358,6 +408,10 @@ public class SagaPackageImpl extends EPackageImpl implements SagaPackage {
 		initEClass(identifiableElementEClass, IdentifiableElement.class, "IdentifiableElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdentifiableElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, IdentifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIdentifiableElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, IdentifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConnector_Componentinterface(), theGropiusPackage.getComponentInterface(), null, "componentinterface", null, 1, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Task(), theBpmn2Package.getTask(), null, "task", null, 1, 1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

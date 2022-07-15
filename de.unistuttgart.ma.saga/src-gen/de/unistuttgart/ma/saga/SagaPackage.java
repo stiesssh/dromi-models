@@ -167,13 +167,22 @@ public interface SagaPackage extends EPackage {
 	int SYSTEM__SLO_RULES = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Connectors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__CONNECTORS = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 4;
+	int SYSTEM_FEATURE_COUNT = IDENTIFIABLE_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>System</em>' class.
@@ -314,6 +323,53 @@ public interface SagaPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.unistuttgart.ma.saga.impl.ConnectorImpl <em>Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.unistuttgart.ma.saga.impl.ConnectorImpl
+	 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getConnector()
+	 * @generated
+	 */
+	int CONNECTOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Componentinterface</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__COMPONENTINTERFACE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__TASK = 1;
+
+	/**
+	 * The number of structural features of the '<em>Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.System <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +422,17 @@ public interface SagaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSystem_SloRules();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.unistuttgart.ma.saga.System#getConnectors <em>Connectors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Connectors</em>'.
+	 * @see de.unistuttgart.ma.saga.System#getConnectors()
+	 * @see #getSystem()
+	 * @generated
+	 */
+	EReference getSystem_Connectors();
 
 	/**
 	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Saga <em>Saga</em>}'.
@@ -464,6 +531,38 @@ public interface SagaPackage extends EPackage {
 	EAttribute getIdentifiableElement_Name();
 
 	/**
+	 * Returns the meta object for class '{@link de.unistuttgart.ma.saga.Connector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Connector</em>'.
+	 * @see de.unistuttgart.ma.saga.Connector
+	 * @generated
+	 */
+	EClass getConnector();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.Connector#getComponentinterface <em>Componentinterface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Componentinterface</em>'.
+	 * @see de.unistuttgart.ma.saga.Connector#getComponentinterface()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Componentinterface();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.unistuttgart.ma.saga.Connector#getTask <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Task</em>'.
+	 * @see de.unistuttgart.ma.saga.Connector#getTask()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Task();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -527,6 +626,14 @@ public interface SagaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYSTEM__SLO_RULES = eINSTANCE.getSystem_SloRules();
+
+		/**
+		 * The meta object literal for the '<em><b>Connectors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYSTEM__CONNECTORS = eINSTANCE.getSystem_Connectors();
 
 		/**
 		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.SagaImpl <em>Saga</em>}' class.
@@ -605,6 +712,32 @@ public interface SagaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IDENTIFIABLE_ELEMENT__NAME = eINSTANCE.getIdentifiableElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link de.unistuttgart.ma.saga.impl.ConnectorImpl <em>Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.unistuttgart.ma.saga.impl.ConnectorImpl
+		 * @see de.unistuttgart.ma.saga.impl.SagaPackageImpl#getConnector()
+		 * @generated
+		 */
+		EClass CONNECTOR = eINSTANCE.getConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Componentinterface</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__COMPONENTINTERFACE = eINSTANCE.getConnector_Componentinterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Task</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__TASK = eINSTANCE.getConnector_Task();
 
 	}
 

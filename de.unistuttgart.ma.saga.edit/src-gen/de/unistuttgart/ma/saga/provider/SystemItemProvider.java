@@ -71,6 +71,7 @@ public class SystemItemProvider extends IdentifiableElementItemProvider {
 			childrenFeatures.add(SagaPackage.Literals.SYSTEM__PROCESSES);
 			childrenFeatures.add(SagaPackage.Literals.SYSTEM__ARCHITECTURE);
 			childrenFeatures.add(SagaPackage.Literals.SYSTEM__SLO_RULES);
+			childrenFeatures.add(SagaPackage.Literals.SYSTEM__CONNECTORS);
 		}
 		return childrenFeatures;
 	}
@@ -130,6 +131,7 @@ public class SystemItemProvider extends IdentifiableElementItemProvider {
 			case SagaPackage.SYSTEM__PROCESSES:
 			case SagaPackage.SYSTEM__ARCHITECTURE:
 			case SagaPackage.SYSTEM__SLO_RULES:
+			case SagaPackage.SYSTEM__CONNECTORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,6 +168,11 @@ public class SystemItemProvider extends IdentifiableElementItemProvider {
 			(createChildParameter
 				(SagaPackage.Literals.SYSTEM__SLO_RULES,
 				 SloFactory.eINSTANCE.createSloRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SagaPackage.Literals.SYSTEM__CONNECTORS,
+				 SagaFactory.eINSTANCE.createConnector()));
 	}
 
 }

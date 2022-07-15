@@ -141,6 +141,29 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.unistuttgart.ma.saga.Connector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConnectorItemProvider connectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.unistuttgart.ma.saga.Connector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConnectorAdapter() {
+		if (connectorItemProvider == null) {
+			connectorItemProvider = new ConnectorItemProvider(this);
+		}
+
+		return connectorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class SagaItemProviderAdapterFactory extends SagaAdapterFactory implement
 		if (systemItemProvider != null) systemItemProvider.dispose();
 		if (sagaItemProvider != null) sagaItemProvider.dispose();
 		if (sagaStepItemProvider != null) sagaStepItemProvider.dispose();
+		if (connectorItemProvider != null) connectorItemProvider.dispose();
 	}
 
 }
