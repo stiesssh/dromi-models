@@ -132,4 +132,31 @@
             label="saga.slo.single">
       </image>
    </extension>
+   <extension
+         id="saga.compensationtask"
+         name="compensationtask"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/compensation_task_800_250.svg"
+            label="saga.compensationtask">
+      </image>
+   </extension>
+   <extension
+         id="saga.process.transaction"
+         name="transaction"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/transaction.svg"
+            label="saga.process.transaction">
+      </image>
+   </extension>
+   <extension
+         id="saga.process.transaction2"
+         name="transaction2"
+         point="org.eclipse.sirius.diagram.customBundledImageShape">
+      <image
+            imagePath="/saga.design/images/transaction2.svg"
+            label="saga.process.transaction2">
+      </image>
+   </extension>
 </plugin>
