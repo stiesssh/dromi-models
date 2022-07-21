@@ -142,14 +142,6 @@
         </toolSections>
       </defaultLayer>
       <additionalLayers name="saga_layer" label="Saga Layer" activeByDefault="true">
-        <edgeMappings name="inverse saga edge" targetFinderExpression="aql:self.eContainer()" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_steps']">
-          <style>
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <centerLabelStyleDescription labelSize="12">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </centerLabelStyleDescription>
-          </style>
-        </edgeMappings>
         <edgeMappings name="edge_saga_interface" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='saga_layer']/@containerMappings[name='saga_container']/@subNodeMappings[name='saga_step_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']" targetFinderExpression="feature:componentInterface" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_interface']">
           <style lineStyle="dash_dot" targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -395,7 +387,7 @@
         </edgeMappings>
       </additionalLayers>
       <additionalLayers name="direct_con_layer" label="Direct Connection Layer">
-        <edgeMappings name="edge_interface_task" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subContainerMappings[name='transaction_node']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.component.eContainer().eContainer().connectors->select(p | p.componentinterface.id == self.id).task" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
+        <edgeMappings name="edge_interface_task" sourceMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='arch_layer']/@nodeMappings[name='interface_node']" targetMapping="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subContainerMappings[name='transaction_node']/@subNodeMappings[name='task_node'] //@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@additionalLayers[name='process_layer']/@containerMappings[name='lane_container']/@subNodeMappings[name='task_node']" targetFinderExpression="aql:self.component.eContainer().eContainer().connectors->select(p | p.componentinterface.id == self.id).task" reconnections="//@ownedViewpoints[name='totalView']/@ownedRepresentations[name='system_view']/@defaultLayer/@toolSections.0/@ownedTools[name='reconnect_edge_saga_task']">
           <style lineStyle="dash_dot" targetArrow="NoDecoration" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
