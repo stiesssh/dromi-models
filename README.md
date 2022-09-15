@@ -1,6 +1,6 @@
-# Master thesis Models and Editor
+# Dromi Models and Editor
 
-This repository contains the ecore models for the master thesis "Tracing the Impact of SLO Violations on Business Processes across a Microservice Architecture with Saga Pattern" by Sarah Sophie Stieß (that's me).
+This repository contains the ecore models for the Dromi Tool, as implemented for a thesis.
 
 As for this repositories structure, these folder contain the models : 
 
